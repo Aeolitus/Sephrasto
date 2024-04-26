@@ -121,13 +121,7 @@ class Char():
         self.aussehen = [""]*6
         self.hintergrund = [""]*9
         self.bild = None
-
         self._heimat = ""
-        heimaten = sorted(Wolke.DB.einstellungen["Heimaten"].wert)
-        if "Mittelreich" in heimaten:
-            self.heimat = "Mittelreich"
-        else:
-            self.heimat = heimaten[0] if len(heimaten) > 0 else ""
 
         #Script API
         #Bei Änderungen nicht vergessen die script docs in ScriptAPI.md anzupassen
@@ -170,13 +164,15 @@ class Char():
             
             #Talente
             'hasTalent' : lambda name: name in self.talente,
-            'addTalent' : self.API_addTalent, 
+            'addTalent' : self.API_addTalent,
+            "removeTalent" : lambda talent: self.removeTalent(talent),
             'modifyTalentProbenwert' : self.API_modifyTalentProbenwert, 
             'addTalentInfo' : self.API_addTalentInfo, 
 
             #Vorteile
             'hasVorteil' : lambda name: name in self.vorteile,
             'addVorteil' : self.API_addVorteil,
+            'removeVorteil' : lambda vorteil: self.removeVorteil(vorteil),
 
             #Kampfstile
             'getKampfstilAT' : lambda kampfstil: self.kampfstilMods[kampfstil].at if kampfstil in self.kampfstilMods else 0, 
@@ -286,6 +282,13 @@ class Char():
                 assert False, "Duplicate entry"
             self.waffenScriptAPI[k] = v
 
+        #Init values that require script API
+        heimaten = sorted(Wolke.DB.einstellungen["Heimaten"].wert)
+        if "Mittelreich" in heimaten:
+            self.heimat = "Mittelreich"
+        else:
+            self.heimat = heimaten[0] if len(heimaten) > 0 else ""
+
         EventBus.doAction("charakter_instanziiert", { "charakter" : self })
 
     def __deepcopy__(self, memo=""):
@@ -319,16 +322,13 @@ class Char():
         if heimat == self._heimat:
             return
 
-        scriptAPI = Hilfsmethoden.createScriptAPI()
-        scriptAPI.update({
-            "heimatAlt" : self._heimat,
-            "heimatNeu" : heimat,
-            "addTalent" : lambda talent: self.addTalent(talent),
-            "removeTalent" : lambda talent: self.removeTalent(talent)
-        })
-
+        self.charakterScriptAPI["heimatAlt"] = self._heimat
+        self.charakterScriptAPI["heimatNeu"] = heimat
         script = Wolke.DB.einstellungen["Heimaten: Heimat geändert Script"].wert
-        exec(script, scriptAPI)
+        exec(script, self.charakterScriptAPI)
+        del self.charakterScriptAPI["heimatAlt"]
+        del self.charakterScriptAPI["heimatNeu"]
+
         self._heimat = heimat
 
     def API_getWaffeValue(self, index, attrib):

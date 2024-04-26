@@ -1546,7 +1546,7 @@
 <tr>
 <th>Name</th>
 <th>Typ</th>
-<th>Parameter</th>
+<th>Filter // Parameter</th>
 <th>Zweck</th>
 </tr>
 </thead>
@@ -1557,6 +1557,30 @@
 <td>{ "plugins" : [str] }</td>
 <td>Nach dieser Action sind alle Plugins initialisiert. Kann verwendet werden um mit anderen Plugins über eigene Actions und Filter zu kommunizieren. Der Parameter enthält eine Liste mit den Namen aller aktivierten Plugins.</td>
 </tr>
+<tr>
+<td>scripts_numbergetter</td>
+<td>Filter</td>
+<td>dict\&lt;name:str,script:Script&gt;</td>
+<td>Im Scripteditor die verfügbaren Getter-Scripts für zahlen anpassen.</td>
+</tr>
+<tr>
+<td>scripts_stringgetter</td>
+<td>Filter</td>
+<td>dict\&lt;name:str,script:Script&gt;</td>
+<td>Im Scripteditor die verfügbaren Getter-Scripts für strings anpassen.</td>
+</tr>
+<tr>
+<td>scripts_boolgetter</td>
+<td>Filter</td>
+<td>dict\&lt;name:str,script:Script&gt;</td>
+<td>Im Scripteditor die verfügbaren Getter-Scripts für boolsche Werte anpassen.</td>
+</tr>
+<tr>
+<td>scripts_setter</td>
+<td>Filter</td>
+<td>dict\&lt;name:str,script:Script&gt;</td>
+<td>Im Scripteditor die verfügbaren Setter-Scripts anpassen.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="von-sephrasto-abonnierte-actions">Von Sephrasto abonnierte Actions</h3>
@@ -1566,7 +1590,7 @@
 <tr>
 <th>Name</th>
 <th>Typ</th>
-<th>Parameter</th>
+<th>Filter // Parameter</th>
 <th>Zweck</th>
 </tr>
 </thead>

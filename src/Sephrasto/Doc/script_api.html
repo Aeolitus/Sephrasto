@@ -302,9 +302,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#beschreibung" class="md-nav__link">
+  <a href="#arithmetik" class="md-nav__link">
     <span class="md-ellipsis">
-      Beschreibung
+      Arithmetik
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#charakterbeschreibung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Charakterbeschreibung
     </span>
   </a>
   
@@ -338,9 +347,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fertigkeiten-und-talente" class="md-nav__link">
+  <a href="#fertigkeiten" class="md-nav__link">
     <span class="md-ellipsis">
-      Fertigkeiten und Talente
+      Fertigkeiten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#talente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Talente
     </span>
   </a>
   
@@ -356,6 +374,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#kampfstile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kampfstile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ausrustung" class="md-nav__link">
     <span class="md-ellipsis">
       Ausrüstung
@@ -365,9 +392,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sonstiges" class="md-nav__link">
+  <a href="#regeln" class="md-nav__link">
     <span class="md-ellipsis">
-      Sonstiges
+      Regeln
     </span>
   </a>
   
@@ -387,15 +414,6 @@
   
     <nav class="md-nav" aria-label="Besonderheiten">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#abgeleitete-werte_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Abgeleitete Werte
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#waffeneigenschaften-we" class="md-nav__link">
@@ -616,9 +634,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#beschreibung" class="md-nav__link">
+  <a href="#arithmetik" class="md-nav__link">
     <span class="md-ellipsis">
-      Beschreibung
+      Arithmetik
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#charakterbeschreibung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Charakterbeschreibung
     </span>
   </a>
   
@@ -652,9 +679,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fertigkeiten-und-talente" class="md-nav__link">
+  <a href="#fertigkeiten" class="md-nav__link">
     <span class="md-ellipsis">
-      Fertigkeiten und Talente
+      Fertigkeiten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#talente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Talente
     </span>
   </a>
   
@@ -670,6 +706,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#kampfstile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kampfstile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ausrustung" class="md-nav__link">
     <span class="md-ellipsis">
       Ausrüstung
@@ -679,9 +724,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sonstiges" class="md-nav__link">
+  <a href="#regeln" class="md-nav__link">
     <span class="md-ellipsis">
-      Sonstiges
+      Regeln
     </span>
   </a>
   
@@ -701,15 +746,6 @@
   
     <nav class="md-nav" aria-label="Besonderheiten">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#abgeleitete-werte_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Abgeleitete Werte
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#waffeneigenschaften-we" class="md-nav__link">
@@ -803,90 +839,901 @@
 <h1 id="skripte-fur-abgeleitete-werte-vorteile-und-waffeneigenschaften">Skripte für Abgeleitete Werte, Vorteile und Waffeneigenschaften</h1>
 <p>Abgeleitete Werte, Vorteile und Waffeneigenschaften haben im Regelbasis-Editor ein Feld für benutzerdefinierte Skripte. Diese werden verwendet, um Auswirkungen auf die Charakterwerte umzusetzen. Skripte werden in Python geschrieben.</p>
 <h2 id="api">API</h2>
-<p>Sephrasto bietet eine Reihe von Funktionen an, anhand derer die meisten Skripte mit ein paar wenigen Zeichen umzusetzen sind. Die 'get' Funktionen liefern den entsprechenden Wert zurück, die 'set' Funktionen setzen den Wert auf den übergebenen Ganzzahl-Parameter und die 'modify' Funktionen verändern den gewünschten Wert um den übergebenen Ganzzahl-Parameter. Ausnahmen sind in spitzen Klammern aufgeführt.</p>
-<p>Die folgenden Funktionen stehen neben Python-Builtins wie <code>min</code> und <code>max</code> zur Verfügung:</p>
-<h3 id="beschreibung">Beschreibung</h3>
-<ul>
-<li>Hintergrund: <code>getName, getSpezies, getStatus, getKurzbeschreibung, getHeimat, getFinanzen</code></li>
-<li>Eigenheiten: <code>getEigenheit &lt;Parameter: Eigenheitsnummer. Return: string&gt;</code></li>
-<li>EP: <code>getEPGesamt, getEPAusgegeben</code></li>
-</ul>
+<p>Sephrasto bietet eine Reihe von Funktionen an, anhand derer die meisten Skripte mit ein paar wenigen Zeichen umzusetzen sind. Prinzipiell können in Scripten lokale Variablen, mathematische Operatoren wie <code>+-/*</code>, <code>while</code>- und <code>for</code>-Loop, <code>if</code>-Statements, <code>list</code> bzw. <code>[]</code> und <code>dict</code> bzw. <code>{}</code> verwendet werden.</p>
+<h3 id="arithmetik">Arithmetik</h3>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th style="text-align: center;">Rückgabetyp</th>
+<th style="text-align: center;">Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>roundDown</td>
+<td style="text-align: center;">float</td>
+<td style="text-align: center;">wert : float</td>
+<td>Den Parameter "wert" abrunden. Rundet auf die nächste ganze Zahl in Richtung 0 ab.</td>
+</tr>
+<tr>
+<td>roundUp</td>
+<td style="text-align: center;">float</td>
+<td style="text-align: center;">wert : float</td>
+<td>Den Parameter "wert" aufrunden. Rundet auf die nächst-größere (positive Zahlen)/-kleinere (negative Zahlen) ganze Zahl auf.</td>
+</tr>
+<tr>
+<td>round</td>
+<td style="text-align: center;">float</td>
+<td style="text-align: center;">wert : float</td>
+<td>Den Parameter "wert" runden. Rundet kaufmännisch zur nächsten ganzen Zahl (ab .5 auf, darunter ab).</td>
+</tr>
+<tr>
+<td>max</td>
+<td style="text-align: center;">float</td>
+<td style="text-align: center;">wert : float, minimum : float</td>
+<td>Den Parameter "wert" auf "minimum" beschränken. Wenn der Wert niedriger als "minimum" ist, wird "minimum" zurückgegeben.</td>
+</tr>
+<tr>
+<td>min</td>
+<td style="text-align: center;">float</td>
+<td style="text-align: center;">wert : float, maximum : float</td>
+<td>Den Parameter "wert" auf "maximum" beschränken. Wenn der Wert größer als "maximum" ist, wird "maximum" zurückgegeben.</td>
+</tr>
+<tr>
+<td>clamp</td>
+<td style="text-align: center;">float</td>
+<td style="text-align: center;">wert : float, minimum : float, maximum : float</td>
+<td>Den Parameter "wert" auf "minimum" und "maximum" beschränken. Wenn der Wert niedriger als "minimum" ist, wird "minimum" zurückgegeben, wenn er größer als "maximum" ist, "maximum".</td>
+</tr>
+<tr>
+<td>sum</td>
+<td style="text-align: center;">int oder float</td>
+<td style="text-align: center;">zahlen : float[] oder int[]</td>
+<td>Summiert die Liste "zahlen" zu einem Wert.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="charakterbeschreibung">Charakterbeschreibung</h3>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th style="text-align: center;">Rückgabetyp</th>
+<th style="text-align: center;">Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getName</td>
+<td style="text-align: center;">str</td>
+<td style="text-align: center;">-</td>
+<td>Name erhalten</td>
+</tr>
+<tr>
+<td>getSpezies</td>
+<td style="text-align: center;">str</td>
+<td style="text-align: center;">-</td>
+<td>Spezies erhalten</td>
+</tr>
+<tr>
+<td>getStatus</td>
+<td style="text-align: center;">str</td>
+<td style="text-align: center;">-</td>
+<td>Status erhalten</td>
+</tr>
+<tr>
+<td>getStatusIndex</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>Status-Index der Statusse-Einstellung erhalten</td>
+</tr>
+<tr>
+<td>getKurzbeschreibung</td>
+<td style="text-align: center;">str</td>
+<td style="text-align: center;">-</td>
+<td>Kurzbeschreibung erhalten</td>
+</tr>
+<tr>
+<td>getHeimat</td>
+<td style="text-align: center;">str</td>
+<td style="text-align: center;">-</td>
+<td>Heimat erhalten</td>
+</tr>
+<tr>
+<td>getFinanzen</td>
+<td style="text-align: center;">str</td>
+<td style="text-align: center;">-</td>
+<td>Finanzen erhalten</td>
+</tr>
+<tr>
+<td>getFinanzenIndex</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>Finanzen-Index der Finanzen-Einstellung erhalten</td>
+</tr>
+<tr>
+<td>getEigenheit</td>
+<td style="text-align: center;">str</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>Eigenheit an Stelle "index" erhalten</td>
+</tr>
+<tr>
+<td>getEPGesamt</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>Name</td>
+</tr>
+<tr>
+<td>getEPAusgegeben</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>Name</td>
+</tr>
+</tbody>
+</table>
 <h3 id="attribute">Attribute</h3>
-<ul>
-<li><code>getGE, getKK, getKO, getFF, getMU, getIN, getKL, getCH</code></li>
-<li><code>getAttribut &lt;Parameter: Attribut-Name&gt;</code></li>
-</ul>
-<p><strong>Hinweis:</strong> Sephrasto stellt die API für alle Attribute nach obigem Muster automatisch bereit, also auch für in den Hausregeln neu hinzugefügte Attribute.</p>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th style="text-align: center;">Rückgabetyp</th>
+<th style="text-align: center;">Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getAttribut</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">name : str</td>
+<td>Wert des Attributs "name" erhalten</td>
+</tr>
+<tr>
+<td>getAttributProbenwert</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">name : str</td>
+<td>Probenwert des Attributs "name" erhalten</td>
+</tr>
+<tr>
+<td>getGE</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>GE-Wert erhalten</td>
+</tr>
+<tr>
+<td>getGEProbenwert</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>GE-Probenwert erhalten</td>
+</tr>
+<tr>
+<td>getKO</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>KO-Wert erhalten</td>
+</tr>
+<tr>
+<td>...</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hinweis:</strong> Sephrasto stellt die API für alle Attribute nach obigem Muster automatisch bereit, also auch für in den Hausregeln neu hinzugefügte Attribute. In der Standarddatenbank sind dies GE, KO, KK, FF, MU, IN, KL und CH.</p>
 <h3 id="energien">Energien</h3>
-<ul>
-<li>AsP: <code>getAsPBasis, setAsPBasis, modifyAsPBasis, getAsPMod, setAsPMod, modifyAsPMod</code></li>
-<li>KaP: <code>getKaPBasis, setKaPBasis, modifyKaPBasis, getKaPMod, setKaPMod, modifyKaPMod</code></li>
-<li>GuP: <code>getGuPBasis, setGuPBasis, modifyGuPBasis, getGuPMod, setGuPMod, modifyGuPMod</code></li>
-</ul>
-<p><strong>Hinweis:</strong> Sephrasto stellt die API für alle Energien nach obigem Muster automatisch bereit, also auch für in den Hausregeln neu hinzugefügte Energien.</p>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th style="text-align: center;">Rückgabetyp</th>
+<th style="text-align: center;">Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getAsPBasis</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>AsP-Basiswert erhalten. Wird in der Regel von Vorteilen verwendet, welche den Grundvorrat der Energie bereitstellen. Der Wert kann je nach Scriptpriorität vom endgültigen Wert abweichen.</td>
+</tr>
+<tr>
+<td>setAsPBasis</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">wert : int</td>
+<td>AsP-Basiswert auf "wert" setzen. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert.</td>
+</tr>
+<tr>
+<td>modifyAsPBasis</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">mod : int</td>
+<td>AsP-Basiswert um "mod" modifizieren.</td>
+</tr>
+<tr>
+<td>getAsPMod</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>AsP-Modifikator erhalten. Wird in der Regel von Vorteilen verwendet, welche die Energie zusätzlich zum Grundvorrat erhöhen. Der Wert kann je nach Scriptpriorität vom endgültigen Wert abweichen.</td>
+</tr>
+<tr>
+<td>setAsPMod</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">wert : int</td>
+<td>AsP-Modifikator auf "wert" setzen. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert.</td>
+</tr>
+<tr>
+<td>modifyAsP</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">mod : int</td>
+<td>AsP-Modifikator um "mod" modifizieren.</td>
+</tr>
+<tr>
+<td>getAsP</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>Den reinen reinen AsP-Steigerungswert erhalten.</td>
+</tr>
+<tr>
+<td>getAsPFinal</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>Den AsP-Gesamtwert erhalten (Basis + Mod. + Steigerung). Der Wert kann je nach Scriptpriorität vom endgültigen Wert abweichen.</td>
+</tr>
+<tr>
+<td>getKaPBasis</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>KaP-Basiswert erhalten. Wird in der Regel von Vorteilen verwendet, welche den Grundvorrat der Energie bereitstellen. Der Wert kann je nach Scriptpriorität vom endgültigen Wert abweichen.</td>
+</tr>
+<tr>
+<td>...</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hinweis:</strong> Sephrasto stellt die API für alle Energien nach obigem Muster automatisch bereit, also auch für in den Hausregeln neu hinzugefügte Energien. In der Standarddatenbank sind dies AsP, KaP und GuP.</p>
 <h3 id="abgeleitete-werte">Abgeleitete Werte</h3>
-<ul>
-<li>SchiP: <code>getSchiPBasis, getSchiP, setSchiP, modifySchiP</code></li>
-<li>WS: <code>getWSBasis, getWS (ohne RS!), setWS, modifyWS</code></li>
-<li>MR: <code>getMRBasis, getMR, setMR, modifyMR</code></li>
-<li>GS: <code>getGSBasis, getGS (ohne BE!), setGS, modifyGS</code></li>
-<li>DH: <code>getDHBasis, getDH (ohne BE!), setDH, modifyDH</code></li>
-<li>SB: <code>getSBBasis, getSB, setSB, modifySB</code></li>
-<li>INI: <code>getINIBasis, getINI, setINI, modifyINI</code></li>
-<li>RS: <code>getRSBasis, getRS, setRS, modifyRS</code></li>
-<li>BE: <code>getBEBasis, getBE, setBE, modifyBE</code></li>
-</ul>
-<p><strong>Hinweis:</strong> Sephrasto stellt die API für alle Abgeleiteten Werte nach obigem Muster automatisch bereit, also auch für in den Hausregeln neu hinzugefügte Abgeleitete Werte.</p>
-<h3 id="fertigkeiten-und-talente">Fertigkeiten und Talente</h3>
-<ul>
-<li>Freie Fertigkeiten: <code>getFreieFertigkeiten &lt;Return: { definition { name, kategorie, voraussetzungen[] }, wert }&gt;</code></li>
-<li>Fertigkeiten: <code>getFertigkeit/getÜbernatürlicheFertigkeit &lt;Parameter: Fertigkeits-Name. Return: { definition { name, steigerungsfaktor, text, attribute [], kampffertigkeit, voraussetzungen [], kategorie, talenteGruppieren }, wert, gekaufteTalente[], talentMods {}, attributswerte, basiswert, basiswertMod, probenwert, probenwertTalent, maxWert, addToPdf  }&gt;</code></li>
-<li>Fertigkeiten Basis: <code>modifyFertigkeitBasiswert : &lt;Parameter: Fertigkeits-Name, Modifikator&gt;</code><br>
-Hinweis: Dies ist nützlich, um sich permanente Erleichterungen auf eine Fertigkeit nicht merken zu müssen. Diese Modifikation wird bei Voraussetzungen der Typen "Fertigkeit" und "Talent" nicht eingerechnet!</li>
-<li>Übernatürliche Fertigkeiten Basis: <code>modifyÜbernatürlicheFertigkeitBasiswert : &lt;Parameter: Fertigkeits-Name, Modifikator&gt;</code></li>
-<li>Talente Probenwert: <code>modifyTalentProbenwert : &lt;Parameter: Talent-Name, Modifikator&gt;</code><br>
-Beispiel: modifyTalentProbenwert('Überreden', 2)<br>
-Hinweis: Dies ist nützlich, um permanente Erleichterungen auf ein Talent direkt in der Talentliste aufzuführen. Ist das Talent noch nicht erworben, wird das ganze Talent mit der Modifizierung in Klammern gesetzt. Die Modifizierung wird ausschließlich im Charakterbogen eingerechnet!</li>
-<li>Talente zusätzliche Informationen: <code>talentAddInfo : &lt;Parameter: Talent-Name, Infotext&gt;</code><br>
-Beispiel: addTalentInfo('Überreden', "Rededuell +2")<br>
-Hinweis: Dies ist nützlich, um besondere Effekte wie beispielsweise von manchen Vorteilen direkt bei den Talenten im Charakterbogen aufzuführen.</li>
-<li>Talente hinzufügen: <code>addTalent : &lt;Parameter: Talent-Name, Kosten (optional), Benötigte übernatürliche Fertigkeit (optional)&gt;</code><br>
-Hinweis: Das Script fügt dem Talent den Vorteil zu dem es gehört als Voraussetzung hinzu. Sobald der Vorteil also abgewählt wird, verliert der Charakter auch das Talent. Mit dem Kosten-Parameter können die Standard-Talentkosten geändert werden (bei -1 werden sie nicht verändert). Optional kann außerdem eine übernatürliche Fertigkeit mit angegeben werden, die benötigt wird - falls der Charakter sie nicht besitzt, macht das Script nichts; diese wird dannauch als Voraussetzung hinzugefügt.<br>
-Beispiel ohne Bedingung und Kostenveränderung: addTalent("Spurlos Trittlos")<br>
-Beispiel mit Kosten auf 0 EP gesetzt und "Gaben des Butgeists" als Bedingung: addTalent("Spurlos Trittlos", 0, "Gaben des Blutgeists")</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th style="text-align: center;">Rückgabetyp</th>
+<th style="text-align: center;">Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getWSBasis</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>WS-Basiswert erhalten. Wird durch das Script von WS berechnet.</td>
+</tr>
+<tr>
+<td>getWSMod</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>WS-Modifikator erhalten. Der Wert kann je nach Scriptpriorität vom endgültigen Wert abweichen.</td>
+</tr>
+<tr>
+<td>setWSMod</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">wert : int</td>
+<td>WS-Modifikator auf "wert" setzen. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert.</td>
+</tr>
+<tr>
+<td>modifyWS</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">mod : int</td>
+<td>WS-Modifikator um "mod" modifizieren.</td>
+</tr>
+<tr>
+<td>getWS</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>Den WS-Gesamtwert erhalten (Basis + Mod.). Der Wert kann je nach Scriptpriorität vom endgültigen Wert abweichen.</td>
+</tr>
+<tr>
+<td>getMRBasis</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>MR-Basiswert erhalten. Wird durch das Script von MR berechnet.</td>
+</tr>
+<tr>
+<td>...</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hinweis:</strong> Sephrasto stellt die API für alle Abgeleiteten Werte nach obigem Muster automatisch bereit, also auch für in den Hausregeln neu hinzugefügte Abgeleitete Werte. In der Standarddatenbank sind dies WS, MR, GS, DH, SB, INI, RS, BE und SchiP. Der finale Wert (zum Beispiel mit der BE abgezogen) kann nicht abgefragt werden, seine Berechnung findet erst nach allen Scripts statt. </p>
+<h3 id="fertigkeiten">Fertigkeiten</h3>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th style="text-align: center;">Rückgabetyp</th>
+<th style="text-align: center;">Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Freie Fertigkeiten</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>freieFertigkeitenCount</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>Anzahl freier Fertigkeiten erhalten.</td>
+</tr>
+<tr>
+<td>getFreieFertigkeit</td>
+<td style="text-align: center;">str</td>
+<td style="text-align: center;">index : int {0 - 27}</td>
+<td>Freie Fertigkeit an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>getFreieFertigkeitWert</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0 - 27}</td>
+<td>Wert von freier Fertigkeit an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td><strong>Profane Fertigkeiten</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>hasFertigkeit</td>
+<td style="text-align: center;">bool</td>
+<td style="text-align: center;">name : str</td>
+<td>Abfragen, ob Charakter Fertigkeit "name" besitzt.</td>
+</tr>
+<tr>
+<td>getFertigkeitBasiswert</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">name : str</td>
+<td>Basiswert der profanen Fertigkeit "name" erhalten.</td>
+</tr>
+<tr>
+<td>getFertigkeitProbenwert</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">name : str</td>
+<td>Probenwert der profanen Fertigkeit "name" erhalten.</td>
+</tr>
+<tr>
+<td>getFertigkeitProbenwertTalent</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">name : str</td>
+<td>Probenwert(Talent) der profanen Fertigkeit "name" erhalten.</td>
+</tr>
+<tr>
+<td>modifyFertigkeitBasiswert</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">name : str, mod : int</td>
+<td>Basiswert der profanen Fertigkeit "name" um "mod" modifizieren. Dies ist nützlich, um sich permanente Erleichterungen auf eine Fertigkeit nicht merken zu müssen. Diese Modifikation wird nur im Charakterbogen eingerechnet!</td>
+</tr>
+<tr>
+<td><strong>Übernatürliche Fertigkeiten</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>hasÜbernatürlicheFertigkeit</td>
+<td style="text-align: center;">bool</td>
+<td style="text-align: center;">name : str</td>
+<td>Abfragen, ob Charakter übernatürliche Fertigkeit "name" besitzt.</td>
+</tr>
+<tr>
+<td>getÜbernatürlicheFertigkeitBasiswert</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">name : str</td>
+<td>Basiswert der übernatürlichen Fertigkeit "name" erhalten.</td>
+</tr>
+<tr>
+<td>getÜbernatürlicheFertigkeitProbenwert</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">name : str</td>
+<td>Probenwert der übernatürlichen Fertigkeit "name" erhalten. Dieser Wert wird bei übernatürlichen Fertigkeiten in der Regel nicht verwendet.</td>
+</tr>
+<tr>
+<td>getÜbernatürlicheFertigkeitProbenwertTalent</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">name : str</td>
+<td>Probenwert(Talent) der übernatürlichen Fertigkeit "name" erhalten.</td>
+</tr>
+<tr>
+<td>modifyÜbernatürlicheFertigkeitBasiswert</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">name : str, mod : int</td>
+<td>Basiswert der übernatürlichen Fertigkeit "name" um "mod" modifizieren. Dies ist nützlich, um sich permanente Erleichterungen auf eine Fertigkeit nicht merken zu müssen. Diese Modifikation wird nur im Charakterbogen eingerechnet!</td>
+</tr>
+</tbody>
+</table>
+<h3 id="talente">Talente</h3>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th style="text-align: center;">Rückgabetyp</th>
+<th style="text-align: center;">Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hasTalent</td>
+<td style="text-align: center;">bool</td>
+<td style="text-align: center;">name : str</td>
+<td>Abfragen, ob Charakter Talent "name" besitzt.</td>
+</tr>
+<tr>
+<td>modifyTalentProbenwert</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">name : str, mod : int</td>
+<td>Probenwert des Talents "name" um "mod" modifizieren. Dies ist nützlich, um permanente Erleichterungen auf ein Talent direkt in der Talentliste aufzuführen. Ist das Talent noch nicht erworben, wird das ganze Talent mit der Modifizierung in Klammern gesetzt. Die Modifizierung wird ausschließlich im Charakterbogen eingerechnet!</td>
+</tr>
+<tr>
+<td>talentAddInfo</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">name : str, info : str</td>
+<td>Fügt dem Talent "name" im Charakterbogen den Informationstext "info" hinzu. Dies ist nützlich, um besondere Effekte wie beispielsweise von manchen Vorteilen direkt bei den Talenten im Charakterbogen aufzuführen.</td>
+</tr>
+<tr>
+<td>addTalent</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">name : str, kosten : int, vorausgesetzteÜbernatürlicheFertigkeit : str, kommentar : str</td>
+<td>Fügt dem Charakter das Talent "name" zu regulären Kosten hinzu. Wenn das Script in einem Vorteil verwendet wird, wird der Vorteil dem neuen Talent, als Voraussetzung hinzugefügt. Sobald der Vorteil also abgewählt wird, verliert der Charakter auch das Talent. Wenn der Charakter das Talent bereits besitzt, werden Kosten, Voraussetzungen und Kommentar angepasst, falls gesetzt. Mit dem "kosten"-Parameter können die EP-Kosten geändert werden (optional); bei -1 werden sie nicht verändert. Optional kann außerdem "vorausgesetzteÜbernatürlicheFertigkeit" mit angegeben werden; diese wird dann auch als Voraussetzung hinzugefügt; falls der Charakter sie nicht besitzt, macht das Script nichts. Mit dem "kommentar"-Parameter kann ein Kommentar hinzugefügt werden, falls das Talent dies unterstützt (optional).</td>
+</tr>
+<tr>
+<td>removeTalent</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">name : str</td>
+<td>Entfernt das Talent "name", falls der Charakter es besitzt.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="vorteile">Vorteile</h3>
-<ul>
-<li>Vorteile allgemein: <code>getVorteil &lt;Parameter: Vorteils-Name. Return: { definition { name, text, info, bedingungen, kosten, variableKosten, kommentarErlauben, kategorie, voraussetzungen [], nachkauf,  cheatsheetAuflisten, cheatsheetBeschreibung, linkKategorie, linkElement, script, scriptPrio, querverweise [], querverweiseResolved {}, anzeigenameExt }[]&gt;</code></li>
-<li>Kampfstile: <code>getKampfstilAT &lt;Parameter: Kampfstil-Name. Return: int&gt;, getKampfstilVT &lt;Parameter: Kampfstil-Name. Return: int&gt;, getKampfstilPlus &lt;Parameter: Kampfstil-Name. Return: int&gt;, getKampfstilRW &lt;Parameter: Kampfstil-Name. Return: int&gt;, getKampfstilBE &lt;Parameter: Kampfstil-Name. Return: int&gt;, getKampfstil &lt;Parameter: Kampfstil-Name. Return: { at, vt, plus, rw, be }&gt;, setKampfstil/modifyKampfstil &lt;Parameter: Kampfstil-Name, at, vt, plus, rw, be&gt;</code><br>
-Hinweis: Statt eines Kampfstil-Namens kann auch "Nahkampf" oder "Fernkampf" angegeben werden, um globale Modifikationen für alle Nah-/Fernkampfwaffen anzugeben. Diese werden dann zum tatsächlichen Kampfstil einer Waffe addiert.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th style="text-align: center;">Rückgabetyp</th>
+<th style="text-align: center;">Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hasVorteil</td>
+<td style="text-align: center;">bool</td>
+<td style="text-align: center;">name : str</td>
+<td>Abfragen, ob Charakter Vorteil "name" besitzt.</td>
+</tr>
+<tr>
+<td>addVorteil</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">name : str, kosten : int, kommentar : str</td>
+<td>Fügt dem Charakter den Vorteil "name" zu regulären Kosten hinzu. Wenn das Script in einem Vorteil verwendet wird, wird der Vorteil dem neuen Vorteil als Voraussetzung hinzugefügt. Sobald der Vorteil (der den neuen Vorteil verleiht) also abgewählt wird, verliert der Charakter auch den neuen Vorteil. Wenn der Charakter den Vorteil bereits besitzt, werden Kosten und Kommentar angepasst, falls gesetzt. Mit dem "kosten"-Parameter können die EP-Kosten geändert werden; bei -1 werden sie nicht verändert. Mit dem "kommentar"-Parameter kann ein Kommentar hinzugefügt werden, falls der Vorteil dies unterstützt.</td>
+</tr>
+<tr>
+<td>removeVorteil</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">name : str</td>
+<td>Entfernt den angegebenen Vorteil, falls der Charakter ihn besitzt.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kampfstile">Kampfstile</h3>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th style="text-align: center;">Rückgabetyp</th>
+<th style="text-align: center;">Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getKampfstilAT</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">name : str</td>
+<td>AT-Modifikator des Kampfstils "name" erhalten.</td>
+</tr>
+<tr>
+<td>getKampfstilVT</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">name : str</td>
+<td>VT-Modifikator des Kampfstils "name" erhalten.</td>
+</tr>
+<tr>
+<td>getKampfstilTPPlus</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">name : str</td>
+<td>Schadensbonus-Modifikator des Kampfstils "name" erhalten.</td>
+</tr>
+<tr>
+<td>getKampfstilRW</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">name : str</td>
+<td>RW-Modifikator des Kampfstils "name" erhalten.</td>
+</tr>
+<tr>
+<td>getKampfstilBE</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">name : str</td>
+<td>BE-Modifikator des Kampfstils "name" erhalten.</td>
+</tr>
+<tr>
+<td>setKampfstil</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">name : str, at : int, vt : int, plus : int, rw : int, be : int</td>
+<td>Modifikatoren des Kampfstils "name" auf "at", "vt", "plus", "rw" und "be" setzen.</td>
+</tr>
+<tr>
+<td>modifyKampfstil</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">name : str, at : int, vt : int, plus : int, rw : int, be : int</td>
+<td>Modifikatoren des Kampfstils "name" um "at", "vt", "plus", "rw" und "be" modifizieren.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="ausrustung">Ausrüstung</h3>
-<ul>
-<li>Inventar: <code>getInventar &lt;Parameter: Inventarnummer. Return: string&gt;</code></li>
-<li>Rüstung: <code>getRüstung &lt;Return: { name, text, kategorie, system, rs[6], be }[]&gt;</code></li>
-<li>Waffen: <code>getWaffen &lt;Return: { name, würfel, würfelSeiten, plus, eigenschaften[], härte, fertigkeit, talent, beSlot, kampfstile[], kampfstil, rw, wm, lz, fernkampf, nahkampf, anzeigename}[]&gt;</code></li>
-</ul>
-<h3 id="sonstiges">Sonstiges</h3>
-<ul>
-<li><code>addWaffeneigenschaft &lt;Parameter: WaffenName, Eigenschaft&gt;</code><br>
-Beispiel: addWaffeneigenschaft('Hand', 'Kopflastig')</li>
-<li><code>removeWaffeneigenschaft &lt;Parameter: WaffenName, Eigenschaft&gt;</code><br>
-Beispiel: removeWaffeneigenschaft('Hand', 'Zerbrechlich')</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th style="text-align: center;">Rückgabetyp</th>
+<th style="text-align: center;">Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Inventar</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>inventarCount</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>Anzahl an Inventargegenständen erhalten.</td>
+</tr>
+<tr>
+<td>getInventar</td>
+<td style="text-align: center;">str</td>
+<td style="text-align: center;">index : int {0-19}</td>
+<td>Inventar an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td><strong>Rüstungen</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>rüstungenCount</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>Anzahl an Rüstungen erhalten.</td>
+</tr>
+<tr>
+<td>getRüstung</td>
+<td style="text-align: center;">str</td>
+<td style="text-align: center;">index : int {0-2}</td>
+<td>Name der Rüstung an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>getRüstungRS</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-2}</td>
+<td>RS der Rüstung an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>getRüstungBE</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-2}</td>
+<td>BE der Rüstung an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td><strong>Waffen</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>waffenCount</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>Anzahl an Waffen erhalten.</td>
+</tr>
+<tr>
+<td>getWaffe</td>
+<td style="text-align: center;">str</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>Name der Waffe an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>getWaffeATMod</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>AT-Modifikator der Waffe an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>setWaffeAT</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">index : int {0-7}, wert : int</td>
+<td>AT der Waffe an Stelle "index" auf "wert" setzen. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert.</td>
+</tr>
+<tr>
+<td>modifyWaffeAT</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">index : int {0-7}, mod : int</td>
+<td>AT der Waffe an Stelle "index" um "mod" modifizieren.</td>
+</tr>
+<tr>
+<td>getWaffeVTMod</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>VT-Modifikator der Waffe an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>setWaffeVT</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">index : int {0-7}, wert : int</td>
+<td>VT der Waffe an Stelle "index" auf "wert" setzen. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert.</td>
+</tr>
+<tr>
+<td>modifyWaffeVT</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">index : int {0-7}, mod : int</td>
+<td>VT der Waffe an Stelle "index" um "mod" modifizieren.</td>
+</tr>
+<tr>
+<td>getWaffeRW</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>RW der Waffe an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>getWaffeRWMod</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>RW-Modifikator der Waffe an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>setWaffeRW</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">index : int {0-7}, wert : int</td>
+<td>RW der Waffe an Stelle "index" auf "wert" setzen. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert.</td>
+</tr>
+<tr>
+<td>modifyWaffeRW</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">index : int {0-7}, mod : int</td>
+<td>RW der Waffe an Stelle "index" um "mod" modifizieren.</td>
+</tr>
+<tr>
+<td>getWaffeWM</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>WM der Waffe an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>getWaffeLZ</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>LZ der Waffe an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>getWaffeLZMod</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>LZ-Modifikator der Waffe an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>setWaffeLZ</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">index : int {0-7}, wert : int</td>
+<td>LZ der Waffe an Stelle "index" auf "wert" setzen. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert.</td>
+</tr>
+<tr>
+<td>modifyWaffeLZ</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">index : int {0-7}, mod : int</td>
+<td>LZ der Waffe an Stelle "index" um "mod" modifizieren.</td>
+</tr>
+<tr>
+<td>getWaffeTPWürfel</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>Die Anzahl Schadenswürfel der Waffe an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>setWaffeTPWürfel</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">index : int {0-7}, wert : int</td>
+<td>Anzahl Schadenswürfel der Waffe an Stelle "index" auf "wert" setzen. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert.</td>
+</tr>
+<tr>
+<td>modifyWaffeTPWürfel</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">index : int {0-7}, mod : int</td>
+<td>Anzahl Schadenswürfel der Waffe an Stelle "index" um "mod" modifizieren.</td>
+</tr>
+<tr>
+<td>getWaffeTPWürfelMod</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>Schadenswürfelanzahl-Modifikator der Waffe an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>getWaffeTPWürfelSeiten</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>Die Seitenzahl der Schadenswürfel der Waffe an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>getWaffeTPPlus</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>Schadensbonus der Waffe an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>getWaffeTPPlusMod</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>Schadensbonus-Modifikator der Waffe an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>setWaffeTPPlus</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">index : int {0-7}, wert : int</td>
+<td>Schadensbonus der Waffe an Stelle "index" auf "wert" setzen. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert.</td>
+</tr>
+<tr>
+<td>modifyWaffeTPPlus</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">index : int {0-7}, mod : int</td>
+<td>Schadensbonus der Waffe an Stelle "index" um "mod" modifizieren.</td>
+</tr>
+<tr>
+<td>getWaffeHärte</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>Härte der Waffe an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>getWaffeHärteMod</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>Härte-Modifikator der Waffe an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>setWaffeHärte</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">index : int {0-7}, wert : int</td>
+<td>Härte der Waffe an Stelle "index" auf "wert" setzen. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert.</td>
+</tr>
+<tr>
+<td>modifyWaffeHärte</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">index : int {0-7}, mod : int</td>
+<td>Härte der Waffe an Stelle "index" um "mod" modifizieren.</td>
+</tr>
+<tr>
+<td>getWaffeEigenschaften</td>
+<td style="text-align: center;">str[]</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>Liste der Eigenschaften der Waffe an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>getWaffeFertigkeit</td>
+<td style="text-align: center;">str</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>Fertigkeit der Waffe an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>getWaffeTalent</td>
+<td style="text-align: center;">str</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>Talent der Waffe an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>getWaffeKampfstil</td>
+<td style="text-align: center;">str</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>Kampfstil der Waffe an Stelle "index" erhalten. Wenn keiner gesetzt ist, wird "Kein Kampfstil" zurückgegeben.</td>
+</tr>
+<tr>
+<td>isWaffeNahkampf</td>
+<td style="text-align: center;">bool</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>Abfragen, ob Waffe an Stelle "index" eine Nahkampfwaffe ist.</td>
+</tr>
+<tr>
+<td>isWaffeFernkampf</td>
+<td style="text-align: center;">bool</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>Abfragen, ob Waffe an Stelle "index" eine Fernkampfwaffe ist.</td>
+</tr>
+<tr>
+<td>addWaffeneigenschaft</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">name : str, eigenschaft : str</td>
+<td>Allen Waffen mit der Basiswaffe "name" die Eigenschaft "eigenschaft" hinzufügen.</td>
+</tr>
+<tr>
+<td>removeWaffeneigenschaft</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">name : str, eigenschaft : str</td>
+<td>Bei allen Waffen mit der Basiswaffe "name" die Eigenschaft "eigenschaft" entfernen.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="regeln">Regeln</h3>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th style="text-align: center;">Rückgabetyp</th>
+<th style="text-align: center;">Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addRegelInfo</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">name : str, info : str</td>
+<td>Fügt der Regel "name" im Charakterbogen den Informationstext "info" hinzu. Dies ist nützlich, um besondere Effekte wie beispielsweise von manchen Vorteilen direkt bei den Regeln im Regelanhang des Charakterbogens aufzuführen.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="besonderheiten">Besonderheiten</h2>
-<h3 id="abgeleitete-werte_1">Abgeleitete Werte</h3>
-<p>Das "Finalwert Script" von Abgeleiteten Werten hat vollen Zugriff auf die API. Das "Script" hat jedoch nur Zugriff auf die folgenden Funktionen: <code>getAttribut, getRüstung</code>.</p>
 <h3 id="waffeneigenschaften-we">Waffeneigenschaften (WE)</h3>
-<p>Waffeneigenschaft-Scripts haben keinen Zugriff auf: <code>setSB, modifySB, setBE, modifyBE, setRS, modifyRS, modifyFertigkeitBasiswert, setKampfstil, modifyKampfstil, addWaffeneigenschaft, removeWaffeneigenschaft</code>.</p>
-<p>Die folgenden zusätzlichen Funktionen stehen ausschließlich innerhalb von Waffeneigenschaft-Scripts zur Verfügung:</p>
-<ul>
-<li>Parameter dieser WE als string erhalten: <code>getEigenschaftParam &lt;Parameter: Parameternummer&gt;</code>
-Parameter müssen mit Semikolon getrennt werden.  </li>
-<li>Waffen mit dieser WE modifizieren: <code>modifyWaffeAT, modifyWaffeVT, modifyWaffeTPWürfel, modifyWaffeTPPlus, modifyWaffeHäerte, modifyWaffeRW, setWaffeAT, setWaffeVT, setWaffeTPWürfel, setWaffeTPPlus, setWaffeHärte, setWaffeRW</code></li>
-<li>Aktuelle Waffe erhalten: <code>getWaffe &lt;Return: { name, würfel, würfelSeiten, plus, eigenschaften[], härte, fertigkeit, talent, beSlot, kampfstile[], kampfstil, rw, wm, lz, fernkampf, nahkampf, anzeigename }&gt;</code></li>
-<li>Aktuelle Werte der Waffe erhalten: <code>getWaffeAT, getWaffeVT, getWaffeTPWürfel, getWaffeTPPlus, getWaffeHäerte, getWaffeRW, getWaffeKampfstil</code></li>
-</ul>
+<p>Bei Waffeneigenschaften gilt Vorsicht bei der Nutzung der folgenden Scripts, da sie Berechnungen durcheinander bringen können: <code>setSB, modifySB, setBE, modifyBE, setRS, modifyRS, modifyFertigkeitBasiswert, setKampfstil, modifyKampfstil, addWaffeneigenschaft, removeWaffeneigenschaft</code>.</p>
+<p>Waffeneigenschaft-Scripts haben außerdem Zugriff auf zusätzliche Scripts:</p>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th style="text-align: center;">Rückgabetyp</th>
+<th style="text-align: center;">Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getEigenschaftParam</td>
+<td style="text-align: center;">str</td>
+<td style="text-align: center;">index: int</td>
+<td>Den Parameter einer Waffeneigenschaft an Stelle "index" erhalten. Dieser wird immer als string zurückgegeben, sollte im Falle einer Zahl also gecastet werden, siehe Beispiele.</td>
+</tr>
+<tr>
+<td>getWaffeIndex</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">-</td>
+<td>Den index der Waffe erhalten, welche die Waffeneigenschaft mit diesem Script enthält. Essenziell für viele Eigenschaften, siehe Beispiele.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="beispiele">Beispiele</h2>
 <h3 id="vorteil-waffenloser-kampf">Vorteil Waffenloser Kampf</h3>
 <p><div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">for</span> <span class="n">waffe</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Hand&#39;</span><span class="p">,</span> <span class="s1">&#39;Fuß&#39;</span><span class="p">]:</span>
@@ -895,7 +1742,7 @@ Parameter müssen mit Semikolon getrennt werden.  </li>
 </span></code></pre></div>
 Fügt den Waffen Hand und Fuß die Eigenschaften Kopflastig und Wendig hinzu.</p>
 <h3 id="vorteil-gefa-der-sterne">Vorteil Gefäß der Sterne</h3>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">modifyAsPMod</span><span class="p">(</span><span class="n">getCH</span><span class="p">()</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">modifyAsP</span><span class="p">(</span><span class="n">getCH</span><span class="p">()</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>
 </span></code></pre></div>
 Erhöht die AsP um den Charismawert + 4.</p>
 <h3 id="vorteil-reiterkampf-ii">Vorteil Reiterkampf II</h3>
@@ -903,11 +1750,11 @@ Erhöht die AsP um den Charismawert + 4.</p>
 </span></code></pre></div>
 Erhöht für den Kampfstil Reiterkampf die Werte für AT, VT und TP um +1 und senkt die BE um -1.</p>
 <h3 id="waffeneigenschaft-kopflastig">Waffeneigenschaft Kopflastig</h3>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">modifyWaffeTPPlus</span><span class="p">(</span><span class="n">getSB</span><span class="p">())</span>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">modifyWaffeTPPlus</span><span class="p">(</span><span class="n">getWaffeIndex</span><span class="p">(),</span> <span class="n">getSB</span><span class="p">())</span>
 </span></code></pre></div>
 Erhöht die TP aller Waffen mit dieser Eigenschaft um den Schadensbonus.</p>
 <h3 id="waffeneigenschaft-schwer">Waffeneigenschaft Schwer</h3>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">if</span> <span class="n">getKK</span><span class="p">()</span> <span class="o">&lt;</span> <span class="nb">int</span><span class="p">(</span><span class="n">getEigenschaftParam</span><span class="p">(</span><span class="mi">1</span><span class="p">)):</span>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">if</span> <span class="n">getKK</span><span class="p">()</span> <span class="o">&lt;</span> <span class="nb">int</span><span class="p">(</span><span class="n">getEigenschaftParam</span><span class="p">(</span><span class="mi">0</span><span class="p">)):</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">modifyWaffeAT</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">modifyWaffeVT</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 </span></code></pre></div>

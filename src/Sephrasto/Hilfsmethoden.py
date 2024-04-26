@@ -295,8 +295,6 @@ ol {{ padding: 0; margin: 0; -qt-list-indent: 0; margin-left: {Hilfsmethoden.emT
     @staticmethod
     def createScriptAPI():
         def writeGuard(obj):
-            if obj.__class__.__name__ in ["AbgeleiteterWert", "Attribut", "Energie", "Fertigkeit", "FreieFertigkeit", "Ruestung", "Talent", "Vorteil", "Waffe"]:
-                return obj
             if isinstance(obj, dict):
                 return obj
             if isinstance(obj, list):

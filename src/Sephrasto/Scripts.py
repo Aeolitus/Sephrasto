@@ -406,6 +406,11 @@ class Scripts:
         script.parameter.append(ScriptParameter("Kommentar setzen (optional)", str, ""))
         addScript(script)
 
+        script = Script("Talent entfernen", "removeTalent", "Talent")
+        script.beschreibung = "Entfernt das angegebene Talent, falls der Charakter es besitzt."
+        script.parameter.append(ScriptParameter("Talent", str, completionTable = datenbank.talente))
+        addScript(script)
+
         # Fertigkeiten
         script = Script("Fertigkeit Basiswert modifizieren", "modifyFertigkeitBasiswert", "Fertigkeiten")
         script.beschreibung = "Dieses Script ist nützlich, um sich permanente Erleichterungen auf eine Fertigkeit nicht merken zu müssen. "\
@@ -430,6 +435,11 @@ class Scripts:
         script.parameter.append(ScriptParameter("Vorteil", str, completionTable = datenbank.vorteile))
         script.parameter.append(ScriptParameter("EP-Kosten anpassen (optional)", int, -1))
         script.parameter.append(ScriptParameter("Kommentar setzen (optional)", str, ""))
+        addScript(script)
+
+        script = Script("Vorteil entfernen", "removeVorteil", "Vorteile")
+        script.beschreibung = "Entfernt den angegebenen Vorteil, falls der Charakter ihn besitzt."
+        script.parameter.append(ScriptParameter("Vorteil", str, completionTable = datenbank.vorteile))
         addScript(script)
 
         # Kampfstile
