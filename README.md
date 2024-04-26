@@ -81,15 +81,17 @@ Gestartet wird Sephrasto dann folgendermaßen:
 ## Für Entwickler
 
 ### Erstellen von Windows builds
-Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktuell nutzen wir außerdem Python 3.9.7 und cx_Freeze 6.15.16 zum Erstellen von Windows builds. Nun solltest du build.bat im Sephrasto root ausführen können.
+Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktuell nutzen wir außerdem Python 3.9.7 und cx_Freeze 7.0.0 zum Erstellen von Windows builds. Nun solltest du build.bat im Sephrasto root ausführen können.
 
 ### Einrichtung von Visual Studio als IDE
-* Installiere VS 2019 Community Edition mit dem Python Workload (kann auch nachträglich über den Installer installiert werden)
+* Installiere VS Community Edition mit dem Python Workload (kann auch nachträglich über den Installer installiert werden)
 * Setze den Pfad der Python-Umgebung in der Umgebungsvariable PATH (in der Regel C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64)
+* Erstelle ein virtual environment
+    * Navigiere auf der Kommandozeile in den Sephrasto repository root
+    * venv erstellen: ```python -m venv venv```
+	* pip upgraden: ```python -m pip install --upgrade pip```
+	* Von Sephrasto benötigte Pakete installieren: ```pip install -r requirements.txt```
 * Öffne Sephrasto/src/Sephrasto.sln
-* Installiere die dependencies: Solution Explorer -> Python Environments -> Rechtsclick auf Python 3.x -> Install Python Package.
-* Stelle zuerst sicher, dass deine pip Version aktuell ist, aktualisiere diese gegebenenfalls und starte Visual Studio neu
-* Installiere nun die oben genannten Pakete im gleichen Menu.
 * Erstelle die IntelliSense Datenbank: Solution Explorer -> Rechtsclick auf Python Environments -> View all Python environments -> IntelliSense im Dropdown auswahlen und aktivieren/refreshen
 * Stelle das Tab-Verhalten auf "Insert Spaces": Tools -> Options -> Text Editor -> Python -> Tabs
 * Öffne das Exception Settings Fenster (Debug -> Windows -> Exception Settings) und selektiere alle Python Exceptions, dann deaktiviere <All Python Exceptions not in this list>, BaseException und Exception - damit breaken die custom exceptions nicht, die Sephrasto intern nutzt.
