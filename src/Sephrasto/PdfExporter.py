@@ -283,9 +283,9 @@ class PdfExporter(object):
         self.Energie = ""
         for en in Wolke.Char.energien.values():
             fields[en.name + 'Basis'] = en.basiswert
-            fields[en.name] = en.wertGesamt
+            fields[en.name] = en.wertFinal
             fields['Mod' + en.name] = en.wert
-            self.Energie += str(en.wertGesamt) + " / "
+            self.Energie += str(en.wertFinal) + " / "
 
         if self.Energie:
             self.Energie = self.Energie[:-3]
