@@ -171,42 +171,43 @@ class DatenbankEditor(object):
         self.shortcutClearSearch.triggered.connect(lambda: self.ui.nameFilterEdit.setText("") if self.ui.nameFilterEdit.hasFocus() else None)
         self.ui.nameFilterEdit.addAction(self.shortcutClearSearch)
 
-        self.ui.buttonStatusFilter = RichTextToolButton(None, 2*"&nbsp;" + "<span style='" + Wolke.FontAwesomeCSS + f"'>\uf0b0</span>&nbsp;&nbsp;Status-Filter" + 4*"&nbsp;")
+        self.buttonStatusFilterText = 2*"&nbsp;" + "<span style='" + Wolke.FontAwesomeCSS + f"'>\uf0b0</span>&nbsp;&nbsp;Status-Filter"
+        self.ui.buttonStatusFilter = RichTextToolButton(None, self.buttonStatusFilterText + 4*"&nbsp;")
         self.ui.buttonStatusFilter.setPopupMode(QtWidgets.QToolButton.InstantPopup)
         self.ui.horizontalLayout_3.addWidget(self.ui.buttonStatusFilter)
         self.statusFilterMenu = QtWidgets.QMenu()
 
+        action = self.statusFilterMenu.addAction("Filter zurücksetzen")
+        #action.setData("\uf068")
+        action.setShortcut("Ctrl+R")
+        action.setVisible(False)
+        action.triggered.connect(self.resetFilter)
+
         action = self.statusFilterMenu.addAction("Hinzugefügt")
+        action.setData("+")
         action.setCheckable(True)
-        action.setChecked(True)
         action.setShortcut("Ctrl+H")
         action.triggered.connect(self.updateFilter)
 
         action = self.statusFilterMenu.addAction("Verändert")
+        action.setData("\uf044")
         action.setCheckable(True)
-        action.setChecked(True)
         action.setShortcut("Ctrl+V")
         action.triggered.connect(self.updateFilter)
 
         action = self.statusFilterMenu.addAction("Unverändert")
+        action.setData("\uf02d")
         action.setCheckable(True)
-        action.setChecked(True)
         action.setShortcut("Ctrl+U")
         action.triggered.connect(self.updateFilter)
 
         action = self.statusFilterMenu.addAction("Gelöscht")
+        action.setData("\uf068")
         action.setCheckable(True)
-        action.setChecked(True)
         action.setShortcut("Ctrl+G")
         action.triggered.connect(self.updateFilter)
 
         self.ui.buttonStatusFilter.setMenu(self.statusFilterMenu)
-
-        self.ui.buttonResetFilter = RichTextToolButton(None, "<span style='" + Wolke.FontAwesomeCSS + f"'>\ue17b</span>")
-        self.ui.buttonResetFilter.setToolTip("Filter zurücksetzen (Strg+R)")
-        self.ui.buttonResetFilter.setShortcut("Ctrl+R")
-        self.ui.buttonResetFilter.clicked.connect(self.resetFilter)
-        self.ui.horizontalLayout_3.addWidget(self.ui.buttonResetFilter)
 
         # Menu actions
         self.ui.actionOeffnen.triggered.connect(lambda: self.loadDatenbank())
@@ -394,9 +395,9 @@ class DatenbankEditor(object):
             self.updateGUI()
 
     def resetFilter(self):
-        for action in self.statusFilterMenu.actions():
+        for action in self.statusFilterMenu.actions()[1:]:
             action.blockSignals(True)
-            action.setChecked(True)
+            action.setChecked(False)
             action.blockSignals(False)
         self.updateFilter()
 
@@ -502,19 +503,21 @@ class DatenbankEditor(object):
         self.ui.actionSchliessen.setEnabled(self.savepath != "" or self.changed)
 
     def updateFilter(self):
-        statusses = []
-        if self.statusFilterMenu.actions()[0].isChecked():
-            statusses.append("+")
-        if self.statusFilterMenu.actions()[1].isChecked():
-            statusses.append("\uf044")
-        if self.statusFilterMenu.actions()[2].isChecked():
-            statusses.append("\uf02d")
-        if self.statusFilterMenu.actions()[3].isChecked():
-            statusses.append("\uf068")
-    
+        statusses = [a.data() for a in self.statusFilterMenu.actions()[1:] if a.isChecked()]
+        if len(statusses) > 0:
+            self.ui.buttonStatusFilter.setText(f"{self.buttonStatusFilterText} <span style='color: green;'>({len(statusses)})</span>" + 4 * "&nbsp;")
+            self.statusFilterMenu.actions()[0].setVisible(True)
+        else:
+            statusses = [a.data() for a in self.statusFilterMenu.actions()[1:]]
+            self.ui.buttonStatusFilter.setText(self.buttonStatusFilterText + 4 * "&nbsp;")
+            self.statusFilterMenu.actions()[0].setVisible(False)
+
         filter = self.filters[self.ui.tabWidget.currentIndex()]
         filter.setFilters(self.ui.nameFilterEdit.text(), statusses, fullText=self.ui.checkFullText.isChecked())
-        self.ui.labelNumResults.setText(f"{filter.rowCount()} Ergebnisse")
+        self.updateResultsLabel(filter)
+
+    def updateResultsLabel(self, filter):
+        self.ui.labelNumResults.setText(f"{filter.rowCount()}/{filter.sourceModel().rowCount()} Ergebnisse")
 
     def updateGUI(self):
         dbType = self.databaseTypesByIndex[self.ui.tabWidget.currentIndex()]
@@ -605,7 +608,7 @@ class DatenbankEditor(object):
 
         tableView.selectionModel().blockSignals(False)
         self.listSelectionChanged()
-        self.ui.labelNumResults.setText(f"{filter.rowCount()} Ergebnisse")
+        self.updateResultsLabel(filter)
                
     def wiederherstellen(self):
         model = self.models[self.ui.tabWidget.currentIndex()]

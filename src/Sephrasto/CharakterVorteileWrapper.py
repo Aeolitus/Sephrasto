@@ -83,10 +83,16 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.shortcutClearSearch.triggered.connect(lambda: self.ui.nameFilterEdit.setText("") if self.ui.nameFilterEdit.hasFocus() else None)
         self.ui.nameFilterEdit.addAction(self.shortcutClearSearch)
 
-        self.ui.buttonFilter = RichTextToolButton(None, 2*"&nbsp;" + "<span style='" + Wolke.FontAwesomeCSS + f"'>\uf0b0</span>&nbsp;&nbsp;Filter" + 4*"&nbsp;")
+        self.buttonFilterText = 2*"&nbsp;" + "<span style='" + Wolke.FontAwesomeCSS + f"'>\uf0b0</span>&nbsp;&nbsp;Filter"
+        self.ui.buttonFilter = RichTextToolButton(None, self.buttonFilterText + 4*"&nbsp;")
         self.ui.buttonFilter.setPopupMode(QtWidgets.QToolButton.InstantPopup)
         self.ui.horizontalLayout.addWidget(self.ui.buttonFilter)
         self.filterMenu = QtWidgets.QMenu()
+        action = self.filterMenu.addAction("Filter zurücksetzen")
+        action.setVisible(False)
+        action.setShortcut("Ctrl+R")
+        action.triggered.connect(self.resetFilter)
+
         action = self.filterMenu.addAction("Gekauft")
         action.setCheckable(True)
         action.setChecked(True)
@@ -106,19 +112,12 @@ class CharakterVorteileWrapper(QtCore.QObject):
         action.triggered.connect(self.load)
         self.ui.buttonFilter.setMenu(self.filterMenu)
 
-        self.ui.buttonResetFilter = RichTextToolButton(None, "<span style='" + Wolke.FontAwesomeCSS + f"'>\ue17b</span>")
-        self.ui.buttonResetFilter.setToolTip("Filter zurücksetzen (Strg+R)")
-        self.ui.buttonResetFilter.setShortcut("Ctrl+R")
-        self.ui.buttonResetFilter.clicked.connect(self.resetFilter)
-        self.ui.horizontalLayout.addWidget(self.ui.buttonResetFilter)
-
-
     def resetFilter(self):
         for action in self.filterMenu.actions():
             action.blockSignals(True)
 
-        self.filterMenu.actions()[0].setChecked(True)
         self.filterMenu.actions()[1].setChecked(True)
+        self.filterMenu.actions()[2].setChecked(True)
         self.filterMenu.actions()[3].setChecked(False)
 
         for action in self.filterMenu.actions():
@@ -209,9 +208,19 @@ class CharakterVorteileWrapper(QtCore.QObject):
             button.setToolTip("Klicke, damit der Vorteil als Favorit markiert wird.\nFavoriten werden unabhängig von den Filter-Einstellungen angezeigt.")
         
     def load(self):
-        showPurchased = self.filterMenu.actions()[0].isChecked()
-        showUnpurchased = self.filterMenu.actions()[1].isChecked()
-        showUnvailable = self.filterMenu.actions()[2].isChecked()
+        numFilters = sum([1 for a in self.filterMenu.actions()[1:] if a.isChecked()])
+
+        if numFilters == 0:
+            showPurchased = True
+            showUnpurchased = True
+            showUnvailable = True
+            self.ui.buttonFilter.setText(f"{self.buttonFilterText}" + 4 * "&nbsp;")
+        else:
+            showPurchased = self.filterMenu.actions()[1].isChecked()
+            showUnpurchased = self.filterMenu.actions()[2].isChecked()
+            showUnvailable = self.filterMenu.actions()[3].isChecked()
+            self.ui.buttonFilter.setText(f"{self.buttonFilterText} <span style='color: green;'>({numFilters})</span>" + 4 * "&nbsp;")
+        self.filterMenu.actions()[0].setVisible(not(showPurchased and showUnpurchased and not showUnvailable))
 
         self.ui.treeWidget.blockSignals(True)
 
