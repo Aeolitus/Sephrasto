@@ -1301,14 +1301,20 @@
 <tr>
 <td>addTalent</td>
 <td style="text-align: center;">-</td>
-<td style="text-align: center;">name : str, kosten : int, vorausgesetzteÜbernatürlicheFertigkeit : str, kommentar : str</td>
-<td>Fügt dem Charakter das Talent "name" zu regulären Kosten hinzu. Wenn das Script in einem Vorteil verwendet wird, wird der Vorteil dem neuen Talent, als Voraussetzung hinzugefügt. Sobald der Vorteil also abgewählt wird, verliert der Charakter auch das Talent. Wenn der Charakter das Talent bereits besitzt, werden Kosten, Voraussetzungen und Kommentar angepasst, falls gesetzt. Mit dem "kosten"-Parameter können die EP-Kosten geändert werden (optional); bei -1 werden sie nicht verändert. Optional kann außerdem "vorausgesetzteÜbernatürlicheFertigkeit" mit angegeben werden; diese wird dann auch als Voraussetzung hinzugefügt; falls der Charakter sie nicht besitzt, macht das Script nichts. Mit dem "kommentar"-Parameter kann ein Kommentar hinzugefügt werden, falls das Talent dies unterstützt (optional).</td>
+<td style="text-align: center;">name : str, kosten : int, kommentar : str</td>
+<td>Fügt dem Charakter das Talent "name" zu regulären Kosten hinzu. Wenn das Script in einem Vorteil verwendet wird, wird der Vorteil dem neuen Talent, als Voraussetzung hinzugefügt. Sobald der Vorteil also abgewählt wird, verliert der Charakter auch das Talent. Wenn der Charakter das Talent bereits besitzt, werden Kosten und Kommentar angepasst, falls gesetzt. Mit dem "kosten"-Parameter können die EP-Kosten geändert werden (optional); bei -1 werden sie nicht verändert. Mit dem "kommentar"-Parameter kann ein Kommentar hinzugefügt werden, falls das Talent dies unterstützt (optional).</td>
 </tr>
 <tr>
 <td>removeTalent</td>
 <td style="text-align: center;">-</td>
 <td style="text-align: center;">name : str</td>
 <td>Entfernt das Talent "name", falls der Charakter es besitzt.</td>
+</tr>
+<tr>
+<td>addTalentVoraussetzung</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">name : str, voraussetzung : str</td>
+<td>Fügt dem Talent "name" die Voraussetzung "voraussetzung" hinzu (siehe <a href="datenbankeditor.html">Datenbankeditor-Dokumentation</a>).</td>
 </tr>
 </tbody>
 </table>
@@ -1340,6 +1346,12 @@
 <td style="text-align: center;">-</td>
 <td style="text-align: center;">name : str</td>
 <td>Entfernt den angegebenen Vorteil, falls der Charakter ihn besitzt.</td>
+</tr>
+<tr>
+<td>addVorteilVoraussetzung</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">name : str, voraussetzung : str</td>
+<td>Fügt dem Vorteil "name" die Voraussetzung "voraussetzung" hinzu (siehe <a href="datenbankeditor.html">Datenbankeditor-Dokumentation</a>).</td>
 </tr>
 </tbody>
 </table>

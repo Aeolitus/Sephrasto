@@ -167,12 +167,14 @@ class Char():
             'addTalent' : self.API_addTalent,
             "removeTalent" : lambda talent: self.removeTalent(talent),
             'modifyTalentProbenwert' : self.API_modifyTalentProbenwert, 
-            'addTalentInfo' : self.API_addTalentInfo, 
+            'addTalentInfo' : self.API_addTalentInfo,
+            'addTalentVoraussetzung' : self.API_addTalentVoraussetzung,
 
             #Vorteile
             'hasVorteil' : lambda name: name in self.vorteile,
             'addVorteil' : self.API_addVorteil,
             'removeVorteil' : lambda vorteil: self.removeVorteil(vorteil),
+            'addVorteilVoraussetzung' : self.API_addVorteilVoraussetzung,
 
             #Kampfstile
             'getKampfstilAT' : lambda kampfstil: self.kampfstilMods[kampfstil].at if kampfstil in self.kampfstilMods else 0, 
@@ -364,23 +366,21 @@ class Char():
             self.talentInfos[talent] = []
         self.talentInfos[talent].append(info)
 
-    def API_addTalent(self, talent, kosten = -1, requiredÜberFert = None, kommentar=""):
-        fertVoraussetzungen = ""
-        if requiredÜberFert:
-            if requiredÜberFert in self.übernatürlicheFertigkeiten:
-                fertVoraussetzungen = "Übernatürliche-Fertigkeit '" + requiredÜberFert + "'"
-            else:
-                return
+    def API_addTalent(self, talent, kosten = -1, kommentar=""):
         talent = self.addTalent(talent)
         if self.currentVorteil:
             talent.voraussetzungen = talent.voraussetzungen.add("Vorteil " + self.currentVorteil, Wolke.DB)
-        if fertVoraussetzungen:
-            talent.voraussetzungen = talent.voraussetzungen.add(fertVoraussetzungen, Wolke.DB)
-
         if kosten != -1:
             talent.kosten = kosten
         if talent.kommentarErlauben and kommentar:
             talent.kommentar = kommentar
+            
+    def API_addTalentVoraussetzung(self, talent, voraussetzung):
+        if talent not in self.talente:
+            return
+
+        talent = self.talente[talent]
+        talent.voraussetzungen = talent.voraussetzungen.add(voraussetzung, Wolke.DB)
 
     def API_addVorteil(self, vorteil, kosten = -1, kommentar=""):
         vorteil = self.addVorteil(vorteil)
@@ -390,6 +390,13 @@ class Char():
             vorteil.kosten = kosten
         if vorteil.kommentarErlauben and kommentar:
             vorteil.kommentar = kommentar
+
+    def API_addVorteilVoraussetzung(self, vorteil, voraussetzung):
+        if vorteil not in self.vorteile:
+            return
+
+        vorteil = self.vorteile[vorteil]
+        vorteil.voraussetzungen = vorteil.voraussetzungen.add(voraussetzung, Wolke.DB)
 
     def API_setKampfstil(self, kampfstil, at, vt, plus, rw, be = 0):
         k = self.kampfstilMods[kampfstil]

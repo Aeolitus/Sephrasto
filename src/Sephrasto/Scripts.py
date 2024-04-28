@@ -400,19 +400,23 @@ class Scripts:
 
         script = Script("Talent kaufen", "addTalent", "Talente")
         script.beschreibung = "Fügt dem Charakter das angegebene Talent zu regulären Kosten hinzu. Wenn das Script in einem Vorteil verwendet wird, wird der Vorteil dem neuen Talent, als Voraussetzung hinzugefügt. "
-        "Sobald der Vorteil also abgewählt wird, verliert der Charakter auch das neue Talent. Wenn der Charakter das Talent bereits besitzt, werden Kosten, Voraussetzungen und Kommentar angepasst, falls gesetzt.\n"\
+        "Sobald der Vorteil also abgewählt wird, verliert der Charakter auch das neue Talent. Wenn der Charakter das Talent bereits besitzt, werden Kosten und Kommentar angepasst, falls gesetzt.\n"\
         "<ul><li>Mit dem EP Kosten-Parameter können die Standard-Talentkosten geändert werden. Bei -1 werden sie nicht verändert.</li>"\
-        "<li>Es kann eine übernatürliche Fertigkeit mit angegeben werden, die benötigt wird - falls der Charakter sie nicht besitzt, macht das Script nichts; diese wird dannauch als Voraussetzung hinzugefügt.</li>"\
         "<li>Mit dem Kommentar-Parameter kann ein Kommentar hinzugefügt werden, falls das Talent dies unterstützt (optional).</li></ul>"
         script.parameter.append(ScriptParameter("Talent", str, completionTable = datenbank.talente))
         script.parameter.append(ScriptParameter("EP Kosten anpassen (optional)", int, -1))
-        script.parameter.append(ScriptParameter("Übern. Fertigkeit voraussetzen (optional)", str, completionTable = datenbank.übernatürlicheFertigkeiten))
         script.parameter.append(ScriptParameter("Kommentar setzen (optional)", str, ""))
         addScript(script)
 
         script = Script("Talent entfernen", "removeTalent", "Talente")
         script.beschreibung = "Entfernt das angegebene Talent, falls der Charakter es besitzt."
         script.parameter.append(ScriptParameter("Talent", str, completionTable = datenbank.talente))
+        addScript(script)
+
+        script = Script("Talent Voraussetzung hinzufügen", "addTalentVoraussetzung", "Talente")
+        script.beschreibung = "Fügt dem angegebenen Talent die angegebene Voraussetzung hinzu (siehe Datenbankeditor-Dokumentation)."
+        script.parameter.append(ScriptParameter("Talent", str, completionTable = datenbank.talente))
+        script.parameter.append(ScriptParameter("Voraussetzung", str))
         addScript(script)
 
         # Fertigkeiten
@@ -444,6 +448,12 @@ class Scripts:
         script = Script("Vorteil entfernen", "removeVorteil", "Vorteile")
         script.beschreibung = "Entfernt den angegebenen Vorteil, falls der Charakter ihn besitzt."
         script.parameter.append(ScriptParameter("Vorteil", str, completionTable = datenbank.vorteile))
+        addScript(script)
+
+        script = Script("Vorteil Voraussetzung hinzufügen", "addTalentVoraussetzung", "Vorteile")
+        script.beschreibung = "Fügt dem angegebenen Vorteil die angegebene Voraussetzung hinzu (siehe Datenbankeditor-Dokumentation)."
+        script.parameter.append(ScriptParameter("Vorteil", str, completionTable = datenbank.vorteile))
+        script.parameter.append(ScriptParameter("Voraussetzung", str))
         addScript(script)
 
         # Kampfstile
