@@ -212,10 +212,7 @@ Die folgenden Filter haben alle eine Gemeinsamkeit:  Der Filterwert ist eine Wra
 | Name | Typ | Filter // Parameter | Zweck |
 |---|---|---|---|
 |plugins_geladen|Action|{ "plugins" : [str] }|Nach dieser Action sind alle Plugins initialisiert. Kann verwendet werden um mit anderen Plugins über eigene Actions und Filter zu kommunizieren. Der Parameter enthält eine Liste mit den Namen aller aktivierten Plugins.|
-|scripts_numbergetter|Filter|dict\<name:str,script:Script\>|Im Scripteditor die verfügbaren Getter-Scripts für zahlen anpassen.|
-|scripts_stringgetter|Filter|dict\<name:str,script:Script\>|Im Scripteditor die verfügbaren Getter-Scripts für strings anpassen.|
-|scripts_boolgetter|Filter|dict\<name:str,script:Script\>|Im Scripteditor die verfügbaren Getter-Scripts für boolsche Werte anpassen.|
-|scripts_setter|Filter|dict\<name:str,script:Script\>|Im Scripteditor die verfügbaren Setter-Scripts anpassen.|
+|scripts_available|Filter|scripts : Scripts|Die verfügbaren Getter- oder Setter-Scripts im Scripteditor anpassen.|
 
 ### Von Sephrasto abonnierte Actions
 Diese Actions können von Plugins abgesendet werden, um Sephrasto anweisungen zu geben.

@@ -49,6 +49,7 @@ class Scripts:
         self.numberGetter = numberGetter
         self.boolGetter = boolGetter
 
+    def finalize(self):
         kategorien = set()
         for script in self.numberGetter.values():
             kategorien.add(script.kategorie)
@@ -93,14 +94,8 @@ class Scripts:
 
     @staticmethod
     def create(datenbank, context):
-        filter = []
-        if context == ScriptContext.Charakter:
-            filter = ['getEigenschaftParam', 'getWaffeIndex']
-
         scripts = {}
         def addScript(script):
-            if script.identifier in filter:
-                return
             scripts[script.name] = script
 
         # ======================
@@ -229,13 +224,14 @@ class Scripts:
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffeneigenschaft Parameter (Zahl)", f"getEigenschaftParam", "Waffeneigenschaften", castType = int)
-        script.parameter.append(ScriptParameter("Index", int))
-        addScript(script)
+        if context == ScriptContext.Waffeneigenschaften:
+            script = Script(f"Waffeneigenschaft Parameter (Zahl)", f"getEigenschaftParam", "Waffeneigenschaften", castType = int)
+            script.parameter.append(ScriptParameter("Index", int))
+            addScript(script)
 
-        addScript(Script("Index der Waffe mit der Eigenschaft", f"getWaffeIndex", "Waffeneigenschaften"))
+            addScript(Script("Index der Waffe mit der Eigenschaft", f"getWaffeIndex", "Waffeneigenschaften"))
 
-        numberGetter = EventBus.applyFilter("scripts_numbergetter", scripts) 
+        numberGetter = scripts
 
         # ======================
         # String getters (parameters afters the first only support default values)
@@ -277,11 +273,12 @@ class Scripts:
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffeneigenschaft Parameter (Text)", f"getEigenschaftParam", "Waffeneigenschaften")
-        script.parameter.append(ScriptParameter("Index", int))
-        addScript(script)
+        if context == ScriptContext.Waffeneigenschaften:
+            script = Script(f"Waffeneigenschaft Parameter (Text)", f"getEigenschaftParam", "Waffeneigenschaften")
+            script.parameter.append(ScriptParameter("Index", int))
+            addScript(script)
         
-        stringGetter = EventBus.applyFilter("scripts_stringgetter", scripts) 
+        stringGetter = scripts
 
         # ======================
         # Bool getters (parameters afters the first only support default values)
@@ -312,7 +309,7 @@ class Scripts:
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        boolGetter = EventBus.applyFilter("scripts_boolgetter", scripts) 
+        boolGetter = scripts
 
         # ======================
         # Setters
@@ -583,6 +580,8 @@ class Scripts:
         script.parameter.append(ScriptParameter("Info", str))
         addScript(script)
 
-        setters = EventBus.applyFilter("scripts_setter", scripts) 
-
-        return Scripts(setters, stringGetter, numberGetter, boolGetter)
+        setters = scripts
+        
+        scripts = EventBus.applyFilter("scripts_available", Scripts(setters, stringGetter, numberGetter, boolGetter), { "context" : context }) 
+        scripts.finalize()
+        return scripts
