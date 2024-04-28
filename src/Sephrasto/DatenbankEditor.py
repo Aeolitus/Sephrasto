@@ -467,13 +467,11 @@ class DatenbankEditor(object):
             messagebox.setWindowTitle(action)
             messagebox.setText("Sollen die ausstehenden Änderungen gespeichert werden?")
             messagebox.setIcon(QtWidgets.QMessageBox.Question)
-            messagebox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
-            messagebox.addButton("Nein", QtWidgets.QMessageBox.NoRole)
-            messagebox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
+            messagebox.setStandardButtons(QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No | QtWidgets.QMessageBox.Cancel)
             result = messagebox.exec()
-            if result == 0:
+            if result == QtWidgets.QMessageBox.Yes:
                 self.quicksaveDatenbank()
-            elif result == 2:
+            elif result == QtWidgets.QMessageBox.Cancel:
                 return True
         return False
 
@@ -624,10 +622,9 @@ class DatenbankEditor(object):
                 messageBox = QtWidgets.QMessageBox()
                 messageBox.setIcon(QtWidgets.QMessageBox.Question)
                 messageBox.setWindowTitle("Geändertes Element zurücksetzen?")
-                messageBox.setText(f"Bist du sicher, dass du die Original-Daten von {element.name} wiederherstellen möchtest? Damit gehen alle von dir gemachten Anderungen verloren.")            
-                messageBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
-                messageBox.addButton("Nein", QtWidgets.QMessageBox.RejectRole)
-                if messageBox.exec() == 1:
+                messageBox.setText(f"Bist du sicher, dass du die Original-Daten von {element.name} wiederherstellen möchtest? Damit gehen alle von dir gemachten Anderungen verloren.")   
+                messageBox.setStandardButtons(QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
+                if messageBox.exec() == QtWidgets.QMessageBox.No:
                     continue
             elif not self.datenbank.isRemoved(element):
                 continue
@@ -738,9 +735,8 @@ class DatenbankEditor(object):
                     messageBox.setIcon(QtWidgets.QMessageBox.Question)
                     messageBox.setWindowTitle("Original-Daten wiederherstellen?")
                     messageBox.setText(f"Möchtest du die Original-Daten von {element.name} nach dem Löschen deiner Änderungen wiederherstellen?")            
-                    messageBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
-                    messageBox.addButton("Nein", QtWidgets.QMessageBox.RejectRole)
-                    autorestore = messageBox.exec() == 0
+                    messageBox.setStandardButtons(QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
+                    autorestore = messageBox.exec() == QtWidgets.QMessageBox.Yes
                 if autorestore:
                     restoredElement = self.datenbank.referenceDB[element.__class__][element.name]
                     restoredElement.finalize(self.datenbank) #might not have been called if it was overriden
@@ -809,10 +805,9 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.setIcon(QtWidgets.QMessageBox.Question)
             infoBox.setText("Sollen die neuen Hausregeln in den Einstellungen aktiv gesetzt werden?")
             infoBox.setWindowTitle("Hausregeln aktiv setzen")
-            infoBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
-            infoBox.addButton("Nein", QtWidgets.QMessageBox.NoRole)
+            infoBox.setStandardButtons(QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
             result = infoBox.exec()
-            if result == 0:
+            if result == QtWidgets.QMessageBox.Yes:
                 Wolke.Settings['Datenbank'] = os.path.basename(spath)
                 EinstellungenWrapper.save()
         

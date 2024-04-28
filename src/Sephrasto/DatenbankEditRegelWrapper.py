@@ -60,11 +60,10 @@ class DatenbankEditRegelWrapper(DatenbankElementEditorBase):
             messageBox.setWindowTitle("Formatierung der Beschreibung anpassen?")
             example = "\"" + match.group(0)[:-1] + "\", normalerweise kursiv"
             messageBox.setText("Die Beschreibung enthält Schlüsselwörter (z. B. " + example + "), die nicht wie üblich formatiert sind. Soll Sephrasto den Text automatisch anpassen?")
-            messageBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
-            messageBox.addButton("Nein", QtWidgets.QMessageBox.RejectRole)
+            messageBox.setStandardButtons(QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
             messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             result = messageBox.exec()
-            if result == 0:
+            if result == QtWidgets.QMessageBox.Yes:
                 text = italicPattern.sub(lambda m: "<i>" + m.group(0) + "</i>", text)
                 self.ui.teBeschreibung.setPlainText(text)
                 return

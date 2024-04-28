@@ -78,7 +78,7 @@ class Editor(object):
                 messagebox.setText(f"Der Charakter wurde mit den Hausregeln {storedHausregeln} erstellt. Die Datei konnte nicht gefunden werden.\n\n"\
                     "Bitte wähle aus, mit welchen Hausregeln der Charakter stattdessen geladen werden soll.")
                 messagebox.setIcon(QtWidgets.QMessageBox.Critical )
-                messagebox.addButton("OK", QtWidgets.QMessageBox.YesRole)
+                messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
                 messagebox.setWindowFlags(QtCore.Qt.CustomizeWindowHint | QtCore.Qt.WindowTitleHint)
                 combo = QtWidgets.QComboBox()
                 combo.addItems(availableHausregeln)
@@ -334,13 +334,11 @@ class Editor(object):
             messagebox.setWindowTitle(action)
             messagebox.setText("Sollen die ausstehenden Änderungen gespeichert werden?")
             messagebox.setIcon(QtWidgets.QMessageBox.Question)
-            messagebox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
-            messagebox.addButton("Nein", QtWidgets.QMessageBox.NoRole)
-            messagebox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
+            messagebox.setStandardButtons(QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No | QtWidgets.QMessageBox.Cancel)
             result = messagebox.exec()
-            if result == 0:
+            if result == QtWidgets.QMessageBox.Yes:
                 self.quicksaveButton()
-            elif result == 2:
+            elif result == QtWidgets.QMessageBox.Cancel:
                 return True
         return False
 

@@ -287,10 +287,9 @@ class AttrWrapper(QtCore.QObject):
             messageBox.setText("Wenn du " + attribut + " auf " + str(wert) + " senkst, verlierst du die folgenden Vorteile:")
             remove.append("\nBist du sicher?")
             messageBox.setInformativeText("\n".join(remove))
-            messageBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
-            messageBox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
+            messageBox.setStandardButtons(QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.Cancel)
             result = messageBox.exec()
-            return result == 0
+            return result == QtWidgets.QMessageBox.Yes
         return True
 
     def updateAttribut(self, attribut):

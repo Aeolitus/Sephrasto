@@ -394,10 +394,9 @@ class EinstellungenWrapper():
             messageBox.setIcon(QtWidgets.QMessageBox.Warning)
             messageBox.setWindowTitle(pdui.pd.anzeigename + " löschen")
             messageBox.setText(f"{pdui.pd.anzeigename} ist in keinem Repository auffindbar, sodass du es nach dem Löschen nicht mehr wiederherstellen kannst.\n\nMit dem Löschen fortfahren?")
-            messageBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
-            messageBox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
+            messageBox.setStandardButtons(QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.Cancel)
             result = messageBox.exec()
-            if result == 1:
+            if result == QtWidgets.QMessageBox.Cancel:
                 return
 
         dependants = []
@@ -413,10 +412,9 @@ class EinstellungenWrapper():
             messageBox.setIcon(QtWidgets.QMessageBox.Warning)
             messageBox.setWindowTitle(pdui.pd.anzeigename + " löschen")
             messageBox.setText(f"Die folgenden Plugins benötigen {pdui.pd.anzeigename} für eine fehlerfreie Funktion: {', '.join(dependants)}.\n\nMit dem Löschen fortfahren?")
-            messageBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
-            messageBox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
+            messageBox.setStandardButtons(QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.Cancel)
             result = messageBox.exec()
-            if result == 1:
+            if result == QtWidgets.QMessageBox.Cancel:
                 return
 
         srcPath = os.path.join(pdui.pd.path, pdui.pd.name)
