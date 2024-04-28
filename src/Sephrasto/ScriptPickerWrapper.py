@@ -143,6 +143,7 @@ class ScriptPickerWrapper(object):
         super().__init__()
         self.datenbank = datenbank
         self.current = ""
+        self.scriptLoaded = script
         self.mode = mode
 
         logging.debug("Initializing ScriptPicker...")
@@ -207,6 +208,7 @@ class ScriptPickerWrapper(object):
         self.updateInfo()
         self.ui.nameFilterEdit.textChanged.connect(self.populateTree)
 
+        self.form.reject = self.closeEvent
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.show()
         self.ret = self.form.exec()
@@ -221,6 +223,20 @@ class ScriptPickerWrapper(object):
             self.script = self.editor.toPlainText()
         else:
             self.script = None
+
+    def closeEvent(self):
+        if self.scriptLoaded == self.editor.toPlainText():
+            self.form.done(QtWidgets.QDialog.Rejected)
+            return
+        self.form.show()
+        messageBox = QtWidgets.QMessageBox()
+        messageBox.setIcon(QtWidgets.QMessageBox.Question)
+        messageBox.setWindowTitle("Scripteditor schließen")
+        messageBox.setText("Bist du sicher, dass du das Fenster schließen willst? Deine Script-Änderungen gehen dabei verloren.")
+        messageBox.setStandardButtons(QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.Cancel)
+        result = messageBox.exec()
+        if result == QtWidgets.QMessageBox.Yes:
+            self.form.done(QtWidgets.QDialog.Rejected)
 
     def populateTree(self):
         currSet = self.current != ""
