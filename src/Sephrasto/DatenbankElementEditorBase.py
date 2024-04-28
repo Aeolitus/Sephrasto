@@ -26,6 +26,8 @@ class DatenbankElementEditorBase():
             self.ui.warning.setText("Gelöschte und überschriebene Elemente können nicht verändert werden.")
             self.ui.warning.setVisible(True)
             self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(False)
+        else:
+            self.ui.warning.setVisible(False)
 
         self.dialog.setWindowFlags(
                 QtCore.Qt.Window |
