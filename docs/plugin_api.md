@@ -212,7 +212,7 @@ Die folgenden Filter haben alle eine Gemeinsamkeit:  Der Filterwert ist eine Wra
 | Name | Typ | Filter // Parameter | Zweck |
 |---|---|---|---|
 |plugins_geladen|Action|{ "plugins" : [str] }|Nach dieser Action sind alle Plugins initialisiert. Kann verwendet werden um mit anderen Plugins über eigene Actions und Filter zu kommunizieren. Der Parameter enthält eine Liste mit den Namen aller aktivierten Plugins.|
-|scripts_available|Filter|scripts : Scripts|Die verfügbaren Getter- oder Setter-Scripts im Scripteditor anpassen.|
+|scripts_available|Filter|scripts : Scripts // { "context" : int }|Die verfügbaren Getter- oder Setter-Scripts im Scripteditor anpassen.|
 
 ### Von Sephrasto abonnierte Actions
 Diese Actions können von Plugins abgesendet werden, um Sephrasto anweisungen zu geben.
