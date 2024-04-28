@@ -32,6 +32,8 @@ class PdfExporter(object):
     def __init__(self):
         self.CharakterBogen = None
         self.Energie = ""
+        self.EnergieGebunden = ""
+        self.EnergieAktuell = ""
         self.CheatsheetGenerator = CheatsheetGenerator()
 
     def setCharakterbogen(self, charakterbogen):
@@ -280,26 +282,32 @@ class PdfExporter(object):
             field = "Vorteil" + vort.replace(" ", "").replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss")
             fields[field] = checked
 
+        for en in Wolke.DB.energien.values():
+            fields[en.name + 'Basis'] = "-"
+            fields[en.name] = "-"
+            fields['Mod' + en.name] = "-"
+            fields[en.name + 'Gebunden'] = "-"
+            fields[en.name + 'Aktuell'] = "-"
+
         self.Energie = ""
+        self.EnergieGebunden = ""
+        self.EnergieAktuell = ""
         for en in Wolke.Char.energien.values():
             fields[en.name + 'Basis'] = en.basiswert
             fields[en.name] = en.wertFinal
             fields['Mod' + en.name] = en.wert
+            fields[en.name + 'Gebunden'] = en.gebunden
+            fields[en.name + 'Aktuell'] = en.wertAktuell
             self.Energie += str(en.wertFinal) + " / "
+            self.EnergieGebunden += str(en.gebunden) + " / "
+            self.EnergieAktuell += str(en.wertAktuell) + " / "
 
-        if self.Energie:
-            self.Energie = self.Energie[:-3]
-        else:
-            self.Energie = "-"
-
-        for en in Wolke.DB.energien.values():
-            if en.name in Wolke.Char.energien:
-                continue
-            fields[en.name + 'Basis'] = "-"
-            fields[en.name] = "-"
-            fields['Mod' + en.name] = "-"
-
+        self.Energie = self.Energie[:-3] if self.Energie else "-"
         fields['EN'] = self.Energie
+        self.EnergieGebunden = self.EnergieGebunden[:-3] if self.EnergieGebunden else "-"
+        fields['gEN'] = self.EnergieGebunden
+        self.EnergieAktuell = self.EnergieAktuell[:-3] if self.EnergieAktuell else "-"
+        fields['aktEN'] = self.EnergieAktuell
 
     @staticmethod
     def getCellIndex(numElements, maxCells):

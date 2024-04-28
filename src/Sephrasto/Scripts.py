@@ -117,6 +117,7 @@ class Scripts:
             addScript(Script(f"{en} (Basiswert)", f"get{en}Basis", "Energien"))
             addScript(Script(f"{en} (Modifikator)", f"get{en}Mod", "Energien"))
             addScript(Script(f"{en} (Steigerungswert)", f"get{en}", "Energien"))
+            addScript(Script(f"{en} (Gebunden)", f"get{en}Gebunden", "Energien"))
             addScript(Script(f"{en} (Basis + Mod. + Steigerung)", f"get{en}Final", "Energien"))
 
         addScript(Script("Status (Index)", "getStatusIndex", "Hintergrund"))

@@ -270,6 +270,7 @@ class Char():
             self.charakterScriptAPI['set' + en + 'Mod'] = lambda mod, en=en: setattr(self.energien[en], "mod", mod) if en in self.energien else None
             self.charakterScriptAPI['modify' + en] = lambda mod, en=en: setattr(self.energien[en], "mod", self.energien[en].mod + mod) if en in self.energien else None
             self.charakterScriptAPI['get' + en] = lambda en=en: self.energien[en].wert if en in self.energien else 0
+            self.charakterScriptAPI['get' + en + 'Gebunden'] = lambda en=en: self.energien[en].gebunden if en in self.energien else 0
             self.charakterScriptAPI['get' + en + 'Final'] = lambda en=en: self.energien[en].wertFinal if en in self.energien else 0
 
         self.waffenScriptAPI = {

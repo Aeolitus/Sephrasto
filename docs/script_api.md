@@ -54,6 +54,7 @@ Sephrasto bietet eine Reihe von Funktionen an, anhand derer die meisten Skripte 
 |setAsPMod|-|wert : int|AsP-Modifikator auf "wert" setzen. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert.|
 |modifyAsP|-|mod : int|AsP-Modifikator um "mod" modifizieren.|
 |getAsP|int|-|Den reinen reinen AsP-Steigerungswert erhalten.|
+|getAsPGebunden|int|-|Die Menge an gAsP erhalten.|
 |getAsPFinal|int|-|Den AsP-Gesamtwert erhalten (Basis + Mod. + Steigerung). Der Wert kann je nach Scriptpriorität vom endgültigen Wert abweichen.|
 |getKaPBasis|int|-|KaP-Basiswert erhalten. Wird in der Regel von Vorteilen verwendet, welche den Grundvorrat der Energie bereitstellen. Der Wert kann je nach Scriptpriorität vom endgültigen Wert abweichen.|
 |...||||

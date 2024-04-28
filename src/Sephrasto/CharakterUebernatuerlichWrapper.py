@@ -196,9 +196,9 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
         header.setSectionResizeMode(4, QHeaderView.Fixed)
         header.setSectionResizeMode(5, QHeaderView.Fixed)
         self.ui.tableWidget.setColumnWidth(0, Hilfsmethoden.emToPixels(5))
-        self.ui.tableWidget.setColumnWidth(2, Hilfsmethoden.emToPixels(6.7))
+        self.ui.tableWidget.setColumnWidth(2, Hilfsmethoden.emToPixels(6))
         self.ui.tableWidget.setColumnWidth(3, Hilfsmethoden.emToPixels(8.9))
-        self.ui.tableWidget.setColumnWidth(4, Hilfsmethoden.emToPixels(7.3))
+        self.ui.tableWidget.setColumnWidth(4, Hilfsmethoden.emToPixels(6))
         self.ui.tableWidget.setColumnWidth(5, Hilfsmethoden.emToPixels(10))
 
         vheader = self.ui.tableWidget.verticalHeader()

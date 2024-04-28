@@ -53,6 +53,7 @@ class Energie:
         self.basiswert = 0 # Zauberer/Geweiht/Paktierer
         self.wert = 0 # Steigerung
         self.mod = 0 # Gefäß der Sterne
+        self.gebunden = 0
 
     def __deepcopy__(self, memo=""):
         # create new object
@@ -94,6 +95,10 @@ class Energie:
     def wertFinal(self):
         return self.basiswert + self.wert + self.mod
 
+    @property
+    def wertAktuell(self):
+        return self.wertFinal - self.gebunden
+
     def steigerungskosten(self, numSteigerungen = 1):
         if numSteigerungen == 0:
            return 0
@@ -123,6 +128,7 @@ class Energie:
     def serialize(self, ser):
         ser.set("name", self.name)
         ser.set("wert", self.wert)
+        ser.set("gebunden", self.gebunden)
         EventBus.doAction("energie_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser, db, char):
@@ -133,6 +139,7 @@ class Energie:
             return False
         self.__init__(db[name], char)
         self.wert = ser.getInt("wert", self.wert)
+        self.gebunden = ser.getInt("gebunden", self.gebunden)
         self.aktualisieren()
         EventBus.doAction("energie_deserialisiert", { "object" : self, "deserializer" : ser})
         return True

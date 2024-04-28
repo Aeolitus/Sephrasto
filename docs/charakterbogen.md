@@ -162,8 +162,12 @@ Sephrasto befüllt die folgenden Formularfelder. In Eckigen Klammern befindet si
 - [Abgeleiteter Wert-Name]m (final modifizierter Abgeleiteter Wert, z. B. GSm)
 - [Energie-Name]Basis (Basiswert der Energie - üblicherweise durch Vorteile wie Zauberer, z. B. AsPBasis)
 - [Energie-Name] (Gesamtwert der Energie, z. B. AsP)
+- [Energie-Name]Gebunden (gebundene Energie, z. N. gAsP)
+- [Energie-Name]Aktuell (aktuelle Energie-Punkte, hier wird [Gesamtwert - gebundene Energie] eingetragen.)
 - Mod[Energie-Name] (zugekaufte Energie-Punkte, z. B. modAsP)
 - EN (alle Energie-Gesamtwerte zusammengefasst)
+- gEN (alle gebundenen Energie-Punkte zusammengefasst)
+- aktEN (alle aktuellen Energie-Punkte zusammengefasst)
 - Vorteil[Vorteil-Name] (checkbox; Name enthält keine Leerzeichen und Sonderzeichen (ä, ö, ü, ß) werden ersetzt (ae, ou, ue, ss); z. B. VorteilGefaessderSterne)
 - Vorteil[1-x]
 - Kampfvorteil[1-x]

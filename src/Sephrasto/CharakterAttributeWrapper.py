@@ -52,7 +52,7 @@ class AttrWrapper(QtCore.QObject):
             font.setBold(True)
             labelVollerName.setFont(font)
             labelVollerName.setToolTip(f"<html><head/><body><p>{Wolke.Char.attribute[attribut].text}</p></body></html>")
-            self.ui.gridLayout.addWidget(labelVollerName, rowIndex, 0)
+            self.ui.gbAttribute.layout().addWidget(labelVollerName, rowIndex, 0)
             self.widgetAttributVollerName[attribut] = labelVollerName
 
             labelName = QtWidgets.QLabel(attribut)
@@ -60,15 +60,15 @@ class AttrWrapper(QtCore.QObject):
             font.setItalic(True)
             labelName.setFont(font)
             labelName.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
-            self.ui.gridLayout.addWidget(labelName, rowIndex, 1)
+            self.ui.gbAttribute.layout().addWidget(labelName, rowIndex, 1)
             self.widgetAttributName[attribut] = labelName
             
             spinWert = QtWidgets.QSpinBox()
             spinWert.setButtonSymbols(QtWidgets.QAbstractSpinBox.PlusMinus)
             spinWert.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
-            spinWert.setKeyboardTracking(False)
             spinWert.valueChanged.connect(self.update)
-            self.ui.gridLayout.addWidget(spinWert, rowIndex, 2)
+            spinWert.setFixedWidth(Hilfsmethoden.emToPixels(6))
+            self.ui.gbAttribute.layout().addWidget(spinWert, rowIndex, 2)
             self.widgetAttributWert[attribut] = spinWert
             
             spinPW = QtWidgets.QSpinBox() 
@@ -76,11 +76,13 @@ class AttrWrapper(QtCore.QObject):
             spinPW.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
             spinPW.setReadOnly(True)
             spinPW.setFocusPolicy(QtCore.Qt.NoFocus)
-            self.ui.gridLayout.addWidget(spinPW, rowIndex, 3)
+            spinPW.setMaximum(999)
+            spinPW.setFixedWidth(Hilfsmethoden.emToPixels(6))
+            self.ui.gbAttribute.layout().addWidget(spinPW, rowIndex, 3)
             self.widgetAttributPW[attribut] = spinPW
 
             labelKosten = QtWidgets.QLabel()
-            self.ui.gridLayout.addWidget(labelKosten, rowIndex, 4)
+            self.ui.gbAttribute.layout().addWidget(labelKosten, rowIndex, 4)
             self.widgetAttributKosten[attribut] = labelKosten
 
             rowIndex += 1
@@ -99,7 +101,7 @@ class AttrWrapper(QtCore.QObject):
             font.setBold(True)
             labelVollerName.setFont(font)
             labelVollerName.setToolTip(f"<html><head/><body><p>{Wolke.DB.abgeleiteteWerte[ab].text}</p></body></html>")
-            self.ui.gridLayout.addWidget(labelVollerName, rowIndex, 6)
+            self.ui.gbAbgeleiteteWerte.layout().addWidget(labelVollerName, rowIndex, 0)
             self.widgetAbgeleitetVollerName[ab] = labelVollerName
 
             labelName = QtWidgets.QLabel(ab)
@@ -107,7 +109,7 @@ class AttrWrapper(QtCore.QObject):
             font.setItalic(True)
             labelName.setFont(font)
             labelName.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
-            self.ui.gridLayout.addWidget(labelName, rowIndex, 7)
+            self.ui.gbAbgeleiteteWerte.layout().addWidget(labelName, rowIndex, 1)
             self.widgetAbgeleitetName[ab] = labelName
             
             spinWert = QtWidgets.QSpinBox()
@@ -115,26 +117,104 @@ class AttrWrapper(QtCore.QObject):
             spinWert.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
             spinWert.setReadOnly(True)
             spinWert.setFocusPolicy(QtCore.Qt.NoFocus)
-            self.ui.gridLayout.addWidget(spinWert, rowIndex, 8)
+            spinWert.setMinimum(-999)
+            spinWert.setMaximum(999)
+            spinWert.setFixedWidth(Hilfsmethoden.emToPixels(6))
+            self.ui.gbAbgeleiteteWerte.layout().addWidget(spinWert, rowIndex, 2)
             self.widgetAbgeleitetWert[ab] = spinWert
 
             labelFormel = QtWidgets.QLabel(Wolke.Char.abgeleiteteWerte[ab].formel)
-            self.ui.gridLayout.addWidget(labelFormel, rowIndex, 10)
+            self.ui.gbAbgeleiteteWerte.layout().addWidget(labelFormel, rowIndex, 3)
             self.widgetAbgeleitetKosten[ab] = labelFormel
 
             rowIndex += 1
 
-        # Init Energien (UI is generated in Load because energien have voraussetzungen that might change)
-        self.energienStartIndex = rowIndex
+        # Init Energien (generate for all from db and toggle visibility because energien have voraussetzungen that might change)        
         self.widgetEnergieVollerName = {}
         self.widgetEnergieName = {}
         self.widgetEnergieWert = {}
-        self.widgetEnergiePlus = {}
-        self.layoutEnergieZugekauft = {}
         self.widgetEnergieSpinZugekauft = {}
-        self.widgetEnergieLabelZugekauft = {}
         self.widgetEnergieKosten = {}
-        self.availableEnergien = []
+        self.widgetEnergieSpinGebunden = {}
+        self.widgetEnergieSpinGesamt = {}
+        
+        rowIndex = 1
+        energien = [e.name for e in sorted(Wolke.DB.energien.values(), key=lambda value: value.sortorder)]
+        for energie in energien:
+            labelVollerName = QtWidgets.QLabel(Wolke.DB.energien[energie].anzeigename)
+            labelVollerName.setVisible(False)
+            font=QtGui.QFont()
+            font.setBold(True)
+            labelVollerName.setFont(font)
+            labelVollerName.setToolTip(f"<html><head/><body><p>{Wolke.DB.energien[energie].text}</p></body></html>")
+            self.ui.gbEnergien.layout().addWidget(labelVollerName, rowIndex, 0)
+            self.widgetEnergieVollerName[energie] = labelVollerName
+
+            labelName = QtWidgets.QLabel(energie)
+            labelName.setVisible(False)
+            font=QtGui.QFont()
+            font.setItalic(True)
+            labelName.setFont(font)
+            labelName.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+            self.ui.gbEnergien.layout().addWidget(labelName, rowIndex, 1)
+            self.widgetEnergieName[energie] = labelName
+
+            spinWert = QtWidgets.QSpinBox()
+            spinWert.setVisible(False)
+            spinWert.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+            spinWert.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+            spinWert.setReadOnly(True)
+            spinWert.setFocusPolicy(QtCore.Qt.NoFocus)
+            spinWert.setMaximum(999)
+            spinWert.setFixedWidth(Hilfsmethoden.emToPixels(6))
+            spinWert.valueChanged.connect(self.update)
+            self.ui.gbEnergien.layout().addWidget(spinWert, rowIndex, 2)
+            self.widgetEnergieWert[energie] = spinWert
+
+
+            spin = QtWidgets.QSpinBox()
+            spin.setVisible(False)
+            spin.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+            spin.setButtonSymbols(QtWidgets.QAbstractSpinBox.PlusMinus)
+            spin.setMaximum(999)
+            spin.setFixedWidth(Hilfsmethoden.emToPixels(6))
+            spin.valueChanged.connect(self.update)
+            self.ui.gbEnergien.layout().addWidget(spin, rowIndex, 3)
+            self.widgetEnergieSpinZugekauft[energie] = spin
+
+            labelKosten = QtWidgets.QLabel()
+            labelKosten.setVisible(False)
+            self.ui.gbEnergien.layout().addWidget(labelKosten, rowIndex, 4)
+            self.widgetEnergieKosten[energie] = labelKosten
+
+            spin = QtWidgets.QSpinBox()
+            spin.setVisible(False)
+            spin.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+            spin.setButtonSymbols(QtWidgets.QAbstractSpinBox.PlusMinus)
+            spin.setMaximum(999)
+            spin.setFixedWidth(Hilfsmethoden.emToPixels(6))
+            spin.valueChanged.connect(self.update)
+            spin.setSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+            spin.setToolTip(f"Talente, die g{energie} erfordern, geben diese nach Beenden der Bindung wieder frei.\n"\
+                f"Bei vielen dieser Talente lohnt es sich aber, die Bindung langfristig aufrecht zu erhalten. Diese g{energie} kannst du hier eintragen.")
+            self.ui.gbEnergien.layout().addWidget(spin, rowIndex, 5, QtCore.Qt.AlignHCenter)
+            self.widgetEnergieSpinGebunden[energie] = spin
+
+            spin = QtWidgets.QSpinBox() 
+            spin.setVisible(False)
+            spin.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+            spin.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+            spin.setReadOnly(True)
+            spin.setFocusPolicy(QtCore.Qt.NoFocus)
+            spin.setMaximum(999)
+            spin.setFixedWidth(Hilfsmethoden.emToPixels(6))
+            self.ui.gbEnergien.layout().addWidget(spin, rowIndex, 6)
+            self.widgetEnergieSpinGesamt[energie] = spin
+
+            rowIndex += 1
+
+        self.ui.labelEnergien.setVisible(False)
+        self.ui.gbEnergien.setVisible(False)
 
         self.currentlyLoading = False
      
@@ -242,21 +322,26 @@ class AttrWrapper(QtCore.QObject):
                 Wolke.Char.energien[energie].wert = self.widgetEnergieSpinZugekauft[energie].value()
                 changed = True
 
+            if Wolke.Char.energien[energie].gebunden != self.widgetEnergieSpinGebunden[energie].value():
+                Wolke.Char.energien[energie].gebunden = self.widgetEnergieSpinGebunden[energie].value()
+                changed = True
+
         if changed:
             self.modified.emit()
             for attribut in Wolke.Char.attribute:
                 self.updateTooltip(attribut)
-            self.updateDerivedValues()
+            self.updateAbgeleiteteWerte()
+            self.updateEnergien()
         
     def getEnergieSteigerungskosten(self, energie):
         en = Wolke.Char.energien[energie]
-        return "(<span style='" + Wolke.FontAwesomeCSS + "'>\uf176</span>&nbsp;&nbsp;" + str(en.steigerungskosten()) + " EP)"
+        return "<span style='" + Wolke.FontAwesomeCSS + "'>\uf176</span>&nbsp;&nbsp;" + str(en.steigerungskosten()) + " EP"
 
     def getAttributSteigerungskosten(self, attr):
         attribut = Wolke.Char.attribute[attr]
         return "<span style='" + Wolke.FontAwesomeCSS + "'>\uf176</span>&nbsp;&nbsp;" + str(attribut.steigerungskosten()) + " EP"
 
-    def updateDerivedValues(self):
+    def updateAbgeleiteteWerte(self):
         for attribut in Wolke.Char.attribute:
             self.widgetAttributPW[attribut].setValue(Wolke.Char.attribute[attribut].probenwert)
             self.widgetAttributKosten[attribut].setText(self.getAttributSteigerungskosten(attribut))
@@ -269,6 +354,14 @@ class AttrWrapper(QtCore.QObject):
         for en in Wolke.Char.energien:
             self.widgetEnergieKosten[en].setText(self.getEnergieSteigerungskosten(en))
 
+    def updateEnergien(self):
+        for en in Wolke.DB.energien:
+            if en not in Wolke.Char.energien:
+                continue
+            energie = Wolke.Char.energien[en]
+            self.widgetEnergieSpinGebunden[en].setMaximum(energie.wertFinal)
+            self.widgetEnergieSpinGesamt[en].setValue(energie.wertAktuell)
+
     def load(self):
         self.currentlyLoading = True
 
@@ -277,91 +370,33 @@ class AttrWrapper(QtCore.QObject):
             self.widgetAttributWert[attribut].setValue(Wolke.Char.attribute[attribut].wert)
             self.updateTooltip(attribut)
 
-        # Energien (generate UI)
-        energien = [e.name for e in sorted(Wolke.Char.energien.values(), key=lambda value: value.sortorder)]
-        if not Hilfsmethoden.ArrayEqual(self.availableEnergien, energien):
-            self.availableEnergien = energien
+        #Abgeleitete Werte
+        self.updateAbgeleiteteWerte()
 
-            # Delete old UI widgets
-            refs = [self.widgetEnergieVollerName,
-                    self.widgetEnergieName,
-                    self.widgetEnergieWert,
-                    self.widgetEnergiePlus,
-                    self.widgetEnergieSpinZugekauft,
-                    self.widgetEnergieLabelZugekauft,
-                    self.widgetEnergieKosten]
-            for widgets in refs:
-                for widget in widgets.values():
-                    self.ui.gridLayout.removeWidget(widget)
-                    widget.deleteLater()
-                widgets.clear()
+        # Energien
+        self.ui.labelEnergien.setVisible(len(Wolke.Char.energien) > 0)
+        self.ui.gbEnergien.setVisible(len(Wolke.Char.energien) > 0)
 
-            for layout in self.layoutEnergieZugekauft.values():
-                layout.deleteLater()
-            self.layoutEnergieZugekauft.clear()
+        for col in range(self.ui.gbAttribute.layout().columnCount()):
+            width = max(self.ui.gbAttribute.layout().cellRect(0, col).width(),
+                        self.ui.gbEnergien.layout().cellRect(0, col).width())
+            self.ui.gbAttribute.layout().setColumnMinimumWidth(col, width)
+            self.ui.gbEnergien.layout().setColumnMinimumWidth(col, width)
 
-            # Generate new UI widgets            
-            rowIndex = self.energienStartIndex
-            for energie in energien:
-                labelVollerName = QtWidgets.QLabel(Wolke.Char.energien[energie].anzeigename)
-                font=QtGui.QFont()
-                font.setBold(True)
-                labelVollerName.setFont(font)
-                labelVollerName.setToolTip(f"<html><head/><body><p>{Wolke.Char.energien[energie].text}</p></body></html>")
-                self.ui.gridLayout.addWidget(labelVollerName, rowIndex, 6)
-                self.widgetEnergieVollerName[energie] = labelVollerName
+        for en in Wolke.DB.energien:
+            owned = en in Wolke.Char.energien
+            self.widgetEnergieVollerName[en].setVisible(owned)
+            self.widgetEnergieName[en].setVisible(owned)
+            self.widgetEnergieWert[en].setVisible(owned)
+            self.widgetEnergieSpinZugekauft[en].setVisible(owned)
+            self.widgetEnergieKosten[en].setVisible(owned)
+            self.widgetEnergieSpinGebunden[en].setVisible(owned)
+            self.widgetEnergieSpinGesamt[en].setVisible(owned)
 
-                labelName = QtWidgets.QLabel(energie)
-                font=QtGui.QFont()
-                font.setItalic(True)
-                labelName.setFont(font)
-                labelName.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
-                self.ui.gridLayout.addWidget(labelName, rowIndex, 7)
-                self.widgetEnergieName[energie] = labelName
-
-                spinWert = QtWidgets.QSpinBox()
-                spinWert.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
-                spinWert.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
-                spinWert.setReadOnly(True)
-                spinWert.setFocusPolicy(QtCore.Qt.NoFocus)
-                spinWert.setMaximum(9999)
-                spinWert.valueChanged.connect(self.update)
-                self.ui.gridLayout.addWidget(spinWert, rowIndex, 8)
-                self.widgetEnergieWert[energie] = spinWert
-
-                labelPlus = QtWidgets.QLabel("+") #minmax 20, hcenter
-                self.ui.gridLayout.addWidget(labelPlus, rowIndex, 9)
-                self.widgetEnergiePlus[energie] = labelPlus
-
-                layout = QtWidgets.QHBoxLayout()
-                self.ui.gridLayout.addLayout(layout, rowIndex, 10)
-                self.layoutEnergieZugekauft[energie] = layout
-
-                spin = QtWidgets.QSpinBox()
-                spin.setMinimumWidth(60)
-                spin.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
-                spin.setButtonSymbols(QtWidgets.QAbstractSpinBox.PlusMinus)
-                spin.setMaximum(999)
-                spin.valueChanged.connect(self.update)
-                layout.addWidget(spin)
-                self.widgetEnergieSpinZugekauft[energie] = spin
-
-                labelZugekauft = QtWidgets.QLabel("zugekauft")
-                layout.addWidget(labelZugekauft)
-                self.widgetEnergieLabelZugekauft[energie] = labelZugekauft
-
-                labelKosten = QtWidgets.QLabel()
-                labelKosten.setMinimumWidth(80)
-                layout.addWidget(labelKosten)
-                self.widgetEnergieKosten[energie] = labelKosten
-
-                rowIndex += 1
-
-        # Energien (Update)
-        for en in Wolke.Char.energien:
-            self.widgetEnergieWert[en].setValue(Wolke.Char.energien[en].basiswert + Wolke.Char.energien[en].mod)
-            self.widgetEnergieSpinZugekauft[en].setValue(Wolke.Char.energien[en].wert)
-
-        self.updateDerivedValues()
+            if owned:
+                self.widgetEnergieWert[en].setValue(Wolke.Char.energien[en].basiswert + Wolke.Char.energien[en].mod)
+                self.widgetEnergieSpinZugekauft[en].setValue(Wolke.Char.energien[en].wert)
+                self.widgetEnergieSpinGebunden[en].setValue(Wolke.Char.energien[en].gebunden)
+        self.updateEnergien()
 
         self.currentlyLoading = False

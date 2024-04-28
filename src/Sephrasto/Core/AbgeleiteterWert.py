@@ -116,7 +116,7 @@ class AbgeleiteterWert:
 
     @property
     def wert(self):
-        return max(self.basiswert + self.mod, 0)
+        return self.basiswert + self.mod
 
     @property
     def sortorder(self):
