@@ -85,7 +85,7 @@ class Attribut:
 
     def aktualisieren(self):
         scriptAPI = Hilfsmethoden.createScriptAPI()
-        scriptAPI.update({ 'getWert' : lambda: self.wert })
+        scriptAPI['getWert'] = lambda: self.wert
         self.probenwert = eval(Wolke.DB.einstellungen["Attribute: PW Script"].wert, scriptAPI)
 
     def steigerungskosten(self, numSteigerungen = 1):

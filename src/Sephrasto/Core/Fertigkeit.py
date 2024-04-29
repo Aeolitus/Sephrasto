@@ -160,7 +160,7 @@ class Fertigkeit:
         for attribut in self.attribute:
             attributswerte.append(attribute[attribut].wert)
         scriptAPI = Hilfsmethoden.createScriptAPI()
-        scriptAPI.update({ 'getAttribute' : lambda: attributswerte })
+        scriptAPI['getAttribute'] = lambda: attributswerte
         basiswert = eval(Wolke.DB.einstellungen["Fertigkeiten: BW Script"].wert, scriptAPI)
         return basiswert - self.basiswert
 
@@ -170,10 +170,7 @@ class Fertigkeit:
             self.attributswerte.append(self.charakter.attribute[attribut].wert)
  
         scriptAPI = Hilfsmethoden.createScriptAPI()
-        scriptAPI.update(
-        {
-            'getAttribute' : lambda: self.attributswerte
-        })
+        scriptAPI['getAttribute'] = lambda: self.attributswerte
 
         self.maxWert = eval(Wolke.DB.einstellungen["Fertigkeiten: Maximalwert Script"].wert, scriptAPI)
         self.basiswert = eval(Wolke.DB.einstellungen["Fertigkeiten: BW Script"].wert, scriptAPI)

@@ -23,15 +23,15 @@ class CharakterPrintUtility:
         vorteileKampf = []
         vorteileUeber = []
 
-        vorteileMergeScript = Wolke.DB.einstellungen["Charsheet: Vorteile Mergescript"].wert
+        scriptAPI = Hilfsmethoden.createScriptAPI()
         for vorteil in vorteile:
             if link:
                 name = CharakterPrintUtility.getLinkedName(char, vorteil)
             else:
                 name = vorteil.anzeigenameExt
-            scriptAPI = Hilfsmethoden.createScriptAPI()
-            scriptAPI.update({ "char" : char, "name" : vorteil.name, "kategorie" : vorteil.kategorie, "mergeTo" : 0 })
-            exec(vorteileMergeScript, scriptAPI)
+            
+            scriptAPI.update({ "name" : vorteil.name, "kategorie" : vorteil.kategorie, "mergeTo" : 0 })
+            exec(Wolke.DB.einstellungen["Charsheet: Vorteile Mergescript"].wert, scriptAPI)
             if scriptAPI["mergeTo"] == 0:
                 vorteileAllgemein.append(name)
             elif scriptAPI["mergeTo"] == 1:
