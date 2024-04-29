@@ -168,6 +168,10 @@ class MainWindowWrapper(object):
             logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
 
         os.environ["QT_ENABLE_HIGHDPI_SCALING"] = "1" if Wolke.Settings['DPI-Skalierung'] else "0"
+        if Wolke.Settings['DPI-Skalierung']:
+            os.environ.pop("QT_FONT_DPI", None)
+        else:
+            os.environ["QT_FONT_DPI"] = "96"
 
         self.app = QtCore.QCoreApplication.instance()
         if self.app is None:
