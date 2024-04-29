@@ -102,17 +102,17 @@ class Scripts:
         # Number getters (parameters afters the first only support default values)
         # ======================
         for attribut in datenbank.attribute:
-            addScript(Script(f"{attribut} (Wert)", f"get{attribut}", "Attribute"))
-            addScript(Script(f"{attribut} (Probenwert)", f"get{attribut}Probenwert", "Attribute"))
+            addScript(Script(f"{attribut} Wert", f"get{attribut}", "Attribute"))
+            addScript(Script(f"{attribut} Probenwert", f"get{attribut}Probenwert", "Attribute"))
         for ab in datenbank.abgeleiteteWerte:
-            addScript(Script(f"{ab} (Basiswert)", f"get{ab}Basis", "Abgeleitete Werte"))
-            addScript(Script(f"{ab} (Modifikator)", f"get{ab}Mod", "Abgeleitete Werte"))
+            addScript(Script(f"{ab} Basiswert", f"get{ab}Basis", "Abgeleitete Werte"))
+            addScript(Script(f"{ab} Modifikator", f"get{ab}Mod", "Abgeleitete Werte"))
             addScript(Script(f"{ab} (Basis + Mod.)", f"get{ab}", "Abgeleitete Werte"))
         for en in datenbank.energien:
-            addScript(Script(f"{en} (Basiswert)", f"get{en}Basis", "Energien"))
-            addScript(Script(f"{en} (Modifikator)", f"get{en}Mod", "Energien"))
-            addScript(Script(f"{en} (Steigerungswert)", f"get{en}", "Energien"))
-            addScript(Script(f"{en} (Gebunden)", f"get{en}Gebunden", "Energien"))
+            addScript(Script(f"{en} Basiswert", f"get{en}Basis", "Energien"))
+            addScript(Script(f"{en} Modifikator", f"get{en}Mod", "Energien"))
+            addScript(Script(f"{en} Steigerungswert", f"get{en}", "Energien"))
+            addScript(Script(f"{en} Gebunden", f"get{en}Gebunden", "Energien"))
             addScript(Script(f"{en} (Basis + Mod. + Steigerung)", f"get{en}Final", "Energien"))
 
         addScript(Script("Status (Index)", "getStatusIndex", "Hintergrund"))
@@ -145,82 +145,82 @@ class Scripts:
         addScript(script)
 
         kampfstile = datenbank.findKampfstile()
-        script = Script(f"Kampfstil AT-Mod.", f"getKampfstilAT", "Kampfstile")
+        script = Script(f"Kampfstil AT Modifikator", f"getKampfstilAT", "Kampfstile")
         script.parameter.append(ScriptParameter("Kampfstil", str, completionTable = kampfstile))
         addScript(script)
-        script = Script(f"Kampfstil VT-Mod.", f"getKampfstilVT", "Kampfstile")
+        script = Script(f"Kampfstil VT Modifikator", f"getKampfstilVT", "Kampfstile")
         script.parameter.append(ScriptParameter("Kampfstil", str, completionTable = kampfstile))
         addScript(script)
-        script = Script(f"Kampfstil Bonusschaden-Mod.", f"getKampfstilTPPlus", "Kampfstile")
+        script = Script(f"Kampfstil Bonusschaden Modifikator", f"getKampfstilTPPlus", "Kampfstile")
         script.parameter.append(ScriptParameter("Kampfstil", str, completionTable = kampfstile))
         addScript(script)
-        script = Script(f"Kampfstil Reichweite-Mod.", f"getKampfstilRW", "Kampfstile")
+        script = Script(f"Kampfstil Reichweite Modifikator", f"getKampfstilRW", "Kampfstile")
         script.parameter.append(ScriptParameter("Kampfstil", str, completionTable = kampfstile))
         addScript(script)
-        script = Script(f"Kampfstil BE-Mod.", f"getKampfstilBE", "Kampfstile")
+        script = Script(f"Kampfstil BE Modifikator", f"getKampfstilBE", "Kampfstile")
         script.parameter.append(ScriptParameter("Kampfstil", str, completionTable = kampfstile))
         addScript(script)
 
-        script = Script(f"Rüstung (RS)", f"getRüstungRS", "Ausrüstung")
+        script = Script(f"Rüstung RS", f"getRüstungRS", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
-        script = Script(f"Rüstung (BE)", f"getRüstungBE", "Ausrüstung")
-        script.parameter.append(ScriptParameter("Index", int))
-        addScript(script)
-
-        script = Script(f"Waffe (WM)", f"getWaffeWM", "Ausrüstung")
+        script = Script(f"Rüstung BE", f"getRüstungBE", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffe (WürfelSeiten)", f"getWaffeTPWürfelSeiten", "Ausrüstung")
+        script = Script(f"Waffe WM", f"getWaffeWM", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffe (AT Modifikator)", f"getWaffeATMod", "Ausrüstung")
+        script = Script(f"Waffe Würfelseiten", f"getWaffeTPWürfelSeiten", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffe (VT Modifikator)", f"getWaffeVTMod", "Ausrüstung")
+        script = Script(f"Waffe AT Modifikator", f"getWaffeATMod", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffe (LZ)", f"getWaffeLZ", "Ausrüstung")
+        script = Script(f"Waffe VT Modifikator", f"getWaffeVTMod", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffe (LZ Modifikator)", f"getWaffeLZMod", "Ausrüstung")
+        script = Script(f"Waffe LZ", f"getWaffeLZ", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffe (Würfel)", f"getWaffeTPWürfel", "Ausrüstung")
+        script = Script(f"Waffe LZ Modifikator", f"getWaffeLZMod", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffe (Würfel Modifikator)", f"getWaffeTPWürfelMod", "Ausrüstung")
+        script = Script(f"Waffe Würfel", f"getWaffeTPWürfel", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffe (Bonusschaden)", f"getWaffeTPPlus", "Ausrüstung")
+        script = Script(f"Waffe Würfel Modifikator", f"getWaffeTPWürfelMod", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffe (Bonusschaden Modifikator)", f"getWaffeTPPlusMod", "Ausrüstung")
+        script = Script(f"Waffe Bonusschaden", f"getWaffeTPPlus", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffe (Härte)", f"getWaffeHärte", "Ausrüstung")
+        script = Script(f"Waffe Bonusschaden Modifikator", f"getWaffeTPPlusMod", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffe (Härte Modifikator)", f"getWaffeHärteMod", "Ausrüstung")
+        script = Script(f"Waffe Härte", f"getWaffeHärte", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffe (RW)", f"getWaffeRW", "Ausrüstung")
+        script = Script(f"Waffe Härte Modifikator", f"getWaffeHärteMod", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffe (RW Modifikator)", f"getWaffeRWMod", "Ausrüstung")
+        script = Script(f"Waffe RW", f"getWaffeRW", "Ausrüstung")
+        script.parameter.append(ScriptParameter("Index", int))
+        addScript(script)
+
+        script = Script(f"Waffe RW Modifikator", f"getWaffeRWMod", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
@@ -253,23 +253,23 @@ class Scripts:
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Rüstung (Name)", f"getRüstung", "Ausrüstung")
+        script = Script(f"Rüstung Name", f"getRüstung", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffe (Basiswaffen-Name)", f"getWaffe", "Ausrüstung")
+        script = Script(f"Waffe Basiswaffen-Name", f"getWaffe", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffe (Kampfstil)", f"getWaffeKampfstil", "Ausrüstung")
+        script = Script(f"Waffe Kampfstil", f"getWaffeKampfstil", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffe (Fertigkeit)", f"getWaffeFertigkeit", "Ausrüstung")
+        script = Script(f"Waffe Fertigkeit", f"getWaffeFertigkeit", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        script = Script(f"Waffe (Talent)", f"getWaffeTalent", "Ausrüstung")
+        script = Script(f"Waffe Talent", f"getWaffeTalent", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
@@ -349,7 +349,7 @@ class Scripts:
 
         # Abgeleitete Werte
         for ab in datenbank.abgeleiteteWerte:
-            script = Script(f"{ab} Modifikator auf neuen Wert setzen", f"set{ab}Mod", "Abgeleitete Werte")
+            script = Script(f"{ab} Modifikator setzen", f"set{ab}Mod", "Abgeleitete Werte")
             script.beschreibung = "Der Modifikator des abgeleiteten Werts wird auf den neuen Wert gesetzt. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert."
             script.parameter.append(ScriptParameter("Neuer Wert", int))
             addScript(script)
@@ -361,7 +361,7 @@ class Scripts:
 
         # Energien
         for en in datenbank.energien:
-            script = Script(f"{en} Basiswert auf neuen Wert setzen", f"set{en}Basis", "Energien")
+            script = Script(f"{en} Basiswert setzen", f"set{en}Basis", "Energien")
             script.beschreibung = "Der Basiswert der Energie wird auf den neuen Wert gesetzt. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert."
             script.parameter.append(ScriptParameter("Neuer Wert", int))
             addScript(script)
@@ -371,7 +371,7 @@ class Scripts:
             script.parameter.append(ScriptParameter("Modifikator", int))
             addScript(script)
 
-            script = Script(f"{en} Modifikator auf neuen Wert setzen", f"set{en}Mod", "Energien")
+            script = Script(f"{en} Modifikator setzen", f"set{en}Mod", "Energien")
             script.beschreibung = "Der Modifikator der Energie wird auf den neuen Wert gesetzt. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert."
             script.parameter.append(ScriptParameter("Neuer Wert", int))
             addScript(script)
@@ -454,7 +454,7 @@ class Scripts:
         addScript(script)
 
         # Kampfstile
-        script = Script("Kampfstil auf neue Werte setzen", "setKampfstil", "Kampfstile")
+        script = Script("Kampfstil Werte setzen", "setKampfstil", "Kampfstile")
         script.beschreibung = "Mit diesem Script kannst du Werteveränderungen durch einen bestimmten Kampfstil auf einen festen Wert setzen. "\
             "Diese wirken nur für Waffen, die diesen Kampfstil aktiv gesetzt haben. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert."
         script.parameter.append(ScriptParameter("Kampfstil", str, completionTable = kampfstile))
@@ -489,7 +489,7 @@ class Scripts:
         script.parameter.append(ScriptParameter("Eigenschaft", str, completionTable = datenbank.waffeneigenschaften))
         addScript(script)
 
-        script = Script("Waffe AT auf neuen Wert setzen", "setWaffeAT", "Ausrüstung")
+        script = Script("Waffe AT Wert setzen", "setWaffeAT", "Ausrüstung")
         script.beschreibung = "Die AT der Waffe wird auf einen neuen Wert gesetzt. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert."
         script.parameter.append(ScriptParameter("Index", int))
         script.parameter.append(ScriptParameter("Neuer Wert", int))
@@ -501,7 +501,7 @@ class Scripts:
         script.parameter.append(ScriptParameter("Modifikator", int))
         addScript(script)
 
-        script = Script("Waffe VT auf neuen Wert setzen", "setWaffeVT", "Ausrüstung")
+        script = Script("Waffe VT Wert setzen", "setWaffeVT", "Ausrüstung")
         script.beschreibung = "Die VT der Waffe wird auf einen neuen Wert gesetzt. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert."
         script.parameter.append(ScriptParameter("Index", int))
         script.parameter.append(ScriptParameter("Neuer Wert", int))
@@ -513,7 +513,7 @@ class Scripts:
         script.parameter.append(ScriptParameter("Modifikator", int))
         addScript(script)
 
-        script = Script("Waffe LZ auf neuen Wert setzen", "setWaffeLZ", "Ausrüstung")
+        script = Script("Waffe LZ Wert setzen", "setWaffeLZ", "Ausrüstung")
         script.beschreibung = "Die LZ der Waffe wird auf einen neuen Wert gesetzt. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert."
         script.parameter.append(ScriptParameter("Index", int))
         script.parameter.append(ScriptParameter("Neuer Wert", int))
@@ -525,7 +525,7 @@ class Scripts:
         script.parameter.append(ScriptParameter("Modifikator", int))
         addScript(script)
 
-        script = Script("Waffe Schadenswürfel auf neuen Wert setzen", "setWaffeTPWürfel", "Ausrüstung")
+        script = Script("Waffe Schadenswürfel Wert setzen", "setWaffeTPWürfel", "Ausrüstung")
         script.beschreibung = "Die Schadenswürfel der Waffe werden auf einen neuen Wert gesetzt. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert."
         script.parameter.append(ScriptParameter("Index", int))
         script.parameter.append(ScriptParameter("Neuer Wert", int))
@@ -537,7 +537,7 @@ class Scripts:
         script.parameter.append(ScriptParameter("Modifikator", int))
         addScript(script)
 
-        script = Script("Waffe Bonusschaden auf neuen Wert setzen", "setWaffeTPPlus", "Ausrüstung")
+        script = Script("Waffe Bonusschaden Wert setzen", "setWaffeTPPlus", "Ausrüstung")
         script.beschreibung = "Der Bonusschaden der Waffe wird auf einen neuen Wert gesetzt. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert."
         script.parameter.append(ScriptParameter("Index", int))
         script.parameter.append(ScriptParameter("Neuer Wert", int))
@@ -549,7 +549,7 @@ class Scripts:
         script.parameter.append(ScriptParameter("Modifikator", int))
         addScript(script)
 
-        script = Script("Waffe Härte auf neuen Wert setzen", "setWaffeHärte", "Ausrüstung")
+        script = Script("Waffe Härte Wert setzen", "setWaffeHärte", "Ausrüstung")
         script.beschreibung = "Die Härte der Waffe wird auf einen neuen Wert gesetzt. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert."
         script.parameter.append(ScriptParameter("Index", int))
         script.parameter.append(ScriptParameter("Neuer Wert", int))
@@ -561,7 +561,7 @@ class Scripts:
         script.parameter.append(ScriptParameter("Modifikator", int))
         addScript(script)
 
-        script = Script("Waffe Reichweite auf neuen Wert setzen", "setWaffeRW", "Ausrüstung")
+        script = Script("Waffe Reichweite Wert setzen", "setWaffeRW", "Ausrüstung")
         script.beschreibung = "Die Reichweite der Waffe wird auf einen neuen Wert gesetzt. Achtung: Modifikatoren werden damit je nach Scriptpriorität ignoriert."
         script.parameter.append(ScriptParameter("Index", int))
         script.parameter.append(ScriptParameter("Neuer Wert", int))
