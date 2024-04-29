@@ -331,13 +331,9 @@ class Char():
             return
 
         self.charakterScriptAPI["heimatAlt"] = self._heimat
-        self.charakterScriptAPI["heimatNeu"] = heimat
-        script = Wolke.DB.einstellungen["Heimaten: Heimat geändert Script"].wert
-        exec(script, self.charakterScriptAPI)
-        del self.charakterScriptAPI["heimatAlt"]
-        del self.charakterScriptAPI["heimatNeu"]
-
         self._heimat = heimat
+        exec( Wolke.DB.einstellungen["Heimaten: Heimat geändert Script"].wert, self.charakterScriptAPI)
+        del self.charakterScriptAPI["heimatAlt"]        
 
     def API_getWaffeValue(self, index, attrib):
         if index < 0 or index >= len(self.waffen):
