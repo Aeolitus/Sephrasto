@@ -192,7 +192,11 @@ class Char():
             'rüstungenCount' : lambda: len(self.rüstung),
             'getRüstung' : lambda index: self.rüstung[index].name if index >= 0 and index < len(self.rüstung) else None, 
             'getRüstungRS' : lambda index: self.rüstung[index].getRSGesamtInt() if index >= 0 and index < len(self.rüstung) else None, 
+            'getRüstungRSZone' : lambda index, zone: self.rüstung[index].rs[zone] if index >= 0 and index < len(self.rüstung) else None, 
+            'getRüstungRSFinal' : lambda index, zone=-1: self.rüstung[index].getRSFinal(self.abgeleiteteWerte, zone) if index >= 0 and index < len(self.rüstung) else None, 
             'getRüstungBE' : lambda index: self.rüstung[index].be if index >= 0 and index < len(self.rüstung) else None, 
+            'getRüstungBEFinal' : lambda index: self.rüstung[index].getBEFinal(self.abgeleiteteWerte) if index >= 0 and index < len(self.rüstung) else None, 
+            'getRüstungWSFinal' : lambda index: self.rüstung[index].getWSFinal(self.abgeleiteteWerte) if index >= 0 and index < len(self.rüstung) else None, 
 
             'waffenCount' : lambda:len(self.waffen),
             'getWaffe' : lambda index: self.API_getWaffeValue(index, "name"), 
@@ -203,7 +207,8 @@ class Char():
             'getWaffeFertigkeit' : lambda index: self.API_getWaffeValue(index, "fertigkeit"), 
             'getWaffeTalent' : lambda index: self.API_getWaffeValue(index, "talent"), 
             'getWaffeWM' : lambda index: self.API_getWaffeValue(index, "wm"), 
-            'getWaffeTPWürfelSeiten' : lambda index: self.API_getWaffeValue(index, "würfelSeiten"), 
+            'getWaffeTPWürfelSeiten' : lambda index: self.API_getWaffeValue(index, "würfelSeiten"),
+            'getWaffeBESlot' : lambda index: self.API_getWaffeValue(index, "beSlot"), 
 
             'getWaffeATMod' : lambda index: self.API_getWaffeValue(index, "at"), 
             'setWaffeAT' : lambda index, at: self.API_setWaffeValue(index, "at", at),
@@ -549,7 +554,7 @@ class Char():
         # Requirements check - add automatically unlocked stuff and remove stuff not available anymore
         self.checkVoraussetzungen()
 
-        # Execute Vorteil scripts to modify character stats
+        # Execute Vorteil scripts
         EventBus.doAction("charakter_aktualisieren_vorteilscripts", { "charakter" : self })
         vorteileByPrio = collections.defaultdict(list)
         for vorteil in self.vorteile.values():
@@ -568,59 +573,15 @@ class Char():
                     vort.executeEditorScript()
         self.currentVorteil = None
 
-        # Update talente - this only updates values relevant for display purposes (cached probenwert, hauptfertigkeit),
-        # so its safe to do this late and allows for modifications via vorteil scripts
-        for tal in self.talente.values():
-            tal.aktualisieren()
-
-        # Update abgeleitete werte "*" values - they might have been modified by Vorteil scripts
-        for ab in self.abgeleiteteWerte.values():
-            ab.aktualisierenFinal() #WS*, GS*, DH*, SchiP*
-
-        # Update weapon stats last because they might depend on everything else but do not change other things
-        EventBus.doAction("charakter_aktualisieren_waffenwerte", { "charakter" : self })
-        self.updateWaffenwerte()
-
-        EventBus.doAction("post_charakter_aktualisieren", { "charakter" : self })
-        self.epZaehlen()
-
-
-    def updateWaffenwerte(self):
+        # Execute Waffeneigenschaft scripts
+        EventBus.doAction("charakter_aktualisieren_waffeneigenschaftscripts", { "charakter" : self })
         for i in range(len(self.waffen)):
             waffe = self.waffen[i]
             if "WS" in self.abgeleiteteWerte and waffe.name in Wolke.DB.einstellungen["Waffen: Härte WSStern"].wert:
                 waffe.härte = self.abgeleiteteWerte["WS"].finalwert
-
             if not waffe.fertigkeit in self.fertigkeiten:
                 continue
 
-            if waffe.talent in self.fertigkeiten[waffe.fertigkeit].gekaufteTalente:
-                pw = self.fertigkeiten[waffe.fertigkeit].probenwertTalent
-            else:
-                pw = self.fertigkeiten[waffe.fertigkeit].probenwert
-                
-            kampfstilMods = self.kampfstilMods.get(waffe.kampfstil, KampfstilMod())
-
-            # Execute script to calculate weapon stats
-            scriptAPI = Hilfsmethoden.createScriptAPI()
-            scriptAPI.update({
-                'getAttribut' : lambda attribut: self.attribute[attribut].wert,
-                'getWaffe' : lambda: copy.deepcopy(waffe),
-                'getPW' : lambda: pw,
-                'getKampfstil' : lambda: copy.copy(kampfstilMods),
-                'getRüstungBE' : lambda: 0 if waffe.beSlot < 1 or len(self.rüstung) < waffe.beSlot else self.rüstung[waffe.beSlot-1].getBEFinal(self.abgeleiteteWerte),
-                'modifyWaffenwerte' : lambda at, vt, plus, rw: setattr(waffe, 'at', waffe.at + at) or setattr(waffe, 'vt', waffe.vt + vt) or setattr(waffe, 'plusMod', waffe.plusMod + plus) or setattr(waffe, 'rwMod', waffe.rwMod + rw)
-            })
-            for ab in self.abgeleiteteWerte:
-                scriptAPI['get' + ab + 'Basis'] = lambda ab=ab: self.abgeleiteteWerte[ab].basiswert
-                scriptAPI['get' + ab] = lambda ab=ab: self.abgeleiteteWerte[ab].wert
-                scriptAPI['get' + ab + 'Mod'] = lambda ab=ab: self.abgeleiteteWerte[ab].mod
-
-            # Execute global script
-            logging.info("Character: executing Waffenwerte script for " + waffe.anzeigename)
-            exec(Wolke.DB.einstellungen["Waffen: Waffenwerte Script"].wert, scriptAPI)
-
-            #Execute Waffeneigenschaft scripts
             self.currentWaffeIndex = i
             eigenschaftenByPrio = collections.defaultdict(list)
             for weName in waffe.eigenschaften:
@@ -641,6 +602,21 @@ class Char():
 
             self.currentWaffeIndex = None
             self.currentEigenschaft = None
+
+        # Update talente - this only updates values relevant for display purposes (cached probenwert, hauptfertigkeit),
+        # so its safe to do this late and allows for modifications via vorteil scripts
+        for tal in self.talente.values():
+            tal.aktualisieren()
+
+        # Update abgeleitete werte "*" values - they might have been modified by Vorteil scripts
+        for ab in self.abgeleiteteWerte.values():
+            ab.aktualisierenFinal() #WS*, GS*, DH*, SchiP*
+
+        # Execute global script. It is responsible for calculating the final weapon stats.
+        exec(Wolke.DB.einstellungen["Charakter aktualisieren Script"].wert, self.charakterScriptAPI)
+
+        EventBus.doAction("post_charakter_aktualisieren", { "charakter" : self })
+        self.epZaehlen()
 
     def epZaehlen(self):
         '''Berechnet die bisher ausgegebenen EP'''

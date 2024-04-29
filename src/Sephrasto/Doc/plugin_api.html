@@ -815,22 +815,22 @@
 <td>Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner Form modifiziert wurden, aber bevor die Veränderungen berechnet werden.</td>
 </tr>
 <tr>
-<td>charakter_aktualisieren_vorteilscripts</td>
-<td>Action</td>
-<td>{ "charakter" : Char }</td>
-<td>Wird während der Charakteraktualisierung nach der Berechnung des Basiswerte und vor der Ausführung der Vorteilskripte aufgerufen.</td>
-</tr>
-<tr>
 <td>charakter_aktualisieren_fertigkeiten</td>
 <td>Action</td>
 <td>{ "charakter" : Char }</td>
-<td>Wird während der Charakteraktualisierung nach der Ausführung der Vorteilskripte und vor der Aktualisierung der Fertigkeiten aufgerufen.</td>
+<td>Wird während der Charakteraktualisierung nach der Berechnung der Attribute/abgeleiteten Werte/Energien und vor der Berechnung der Fertigkeiten aufgerufen.</td>
 </tr>
 <tr>
-<td>charakter_aktualisieren_waffenwerte</td>
+<td>charakter_aktualisieren_vorteilscripts</td>
 <td>Action</td>
 <td>{ "charakter" : Char }</td>
-<td>Wird während der Charakteraktualisierung nach allen Berechnungen außer den Waffenwerten aufgerufen.</td>
+<td>Wird während der Charakteraktualisierung nach der Berechnung der Fertigkeiten und vor der Ausführung der Vorteilsscripts aufgerufen.</td>
+</tr>
+<tr>
+<td>charakter_aktualisieren_waffeneigenschaftscripts</td>
+<td>Action</td>
+<td>{ "charakter" : Char }</td>
+<td>Wird während der Charakteraktualisierung nach der Ausführung der Vorteilscripts und vor der Ausfürung der Waffeneigenschaftscripts aufgerufen.</td>
 </tr>
 <tr>
 <td>post_charakter_aktualisieren</td>

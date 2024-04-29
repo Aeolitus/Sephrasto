@@ -133,7 +133,11 @@ Sephrasto bietet eine Reihe von Funktionen an, anhand derer die meisten Skripte 
 |rüstungenCount|int|-|Anzahl an Rüstungen erhalten.|
 |getRüstung|str|index : int {0-2}|Name der Rüstung an Stelle "index" erhalten.|
 |getRüstungRS|int|index : int {0-2}|RS der Rüstung an Stelle "index" erhalten.|
+|getRüstungRSZone|int|index : int {0-2}, zone {0-5}|ZRS der Rüstung an Stelle "index" erhalten. 0=Beine, 1=Arm links, 2=Arm rechts, 3=Bauch, 4=Brust, 5=Kopf|
+|getRüstungRSFinal|int|index : int {0-2}, zone {(-1)-5}|RS + RS-Modifikator der Rüstung an Stelle "index" erhalten. Dies ist der Gesamt-RS Falls für "zone" -1 angegeben wird, ansonsten: 0=Beine, 1=Arm links, 2=Arm rechts, 3=Bauch, 4=Brust, 5=Kopf. Der Wert kann je nach Scriptpriorität vom endgültigen Wert abweichen.|
 |getRüstungBE|int|index : int {0-2}|BE der Rüstung an Stelle "index" erhalten.|
+|getRüstungBEFinal|int|index : int {0-2}|BE + BE-Modifikator der Rüstung an Stelle "index" erhalten. Der Wert kann je nach Scriptpriorität vom endgültigen Wert abweichen.|
+|getRüstungWSFinal|int|index : int {0-2}|WS + Gesamt-RS + RS-Modifikator der Rüstung an Stelle "index" erhalten. Der Wert kann je nach Scriptpriorität vom endgültigen Wert abweichen.|
 |**Waffen**|
 |waffenCount|int|-|Anzahl an Waffen erhalten.|
 |getWaffe|str|index : int {0-7}|Name der Waffe an Stelle "index" erhalten.|
@@ -169,6 +173,7 @@ Sephrasto bietet eine Reihe von Funktionen an, anhand derer die meisten Skripte 
 |getWaffeFertigkeit|str|index : int {0-7}|Fertigkeit der Waffe an Stelle "index" erhalten.|
 |getWaffeTalent|str|index : int {0-7}|Talent der Waffe an Stelle "index" erhalten.|
 |getWaffeKampfstil|str|index : int {0-7}|Kampfstil der Waffe an Stelle "index" erhalten. Wenn keiner gesetzt ist, wird "Kein Kampfstil" zurückgegeben.|
+|getWaffeBESlot|int|index : int {0-7}|BE Slot der Waffe an Stelle "index" erhalten. Dies ist die Rüstungsnummer (1-3), deren BE für die Berechnung der Waffenwerte verwendet werden soll. 0 bedeutet keine Rüstung.|
 |isWaffeNahkampf|bool|index : int {0-7}|Abfragen, ob Waffe an Stelle "index" eine Nahkampfwaffe ist.|
 |isWaffeFernkampf|bool|index : int {0-7}|Abfragen, ob Waffe an Stelle "index" eine Fernkampfwaffe ist.|
 |addWaffeneigenschaft|-|name : str, eigenschaft : str|Allen Waffen mit der Basiswaffe "name" die Eigenschaft "eigenschaft" hinzufügen.|

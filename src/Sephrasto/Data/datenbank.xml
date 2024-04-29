@@ -9911,22 +9911,32 @@ Schultern=100</Einstellung>
         mergeTo = 10</Einstellung>
   <Einstellung name="Charsheet: Verknüpfungs-Abkürzungen" typ="TextDict" separator="&#10;" strip="0" beschreibung="Die Namen verknüpfter Vorteile etc. können eventuell zu lang für den Charakterbogen werden. Hier kann pro Zeile nach folgendem Format (ohne Anführungszeichen) eine Abkürzung definiert werden: 'Name=Abkürzung'. Name kann auch nur ein Teil des Namens sein. Wird auch im Regelanhang angewandt.">astrale Regeneration=a. R.
 Rüstungsgewöhnung=Rgw.</Einstellung>
-  <Einstellung name="Waffen: Waffenwerte Script" typ="Exec" beschreibung="Das Pythonscript berechnet AT*, VT*, TP* und RW* für jede Waffe. Es stehen hierfür die folgenden Funktionen zur Verfügung:&#10;
-getAttribut('KK') - gibt den Wert des angegeben Attributs zurück&#10;
-getWaffe() - gibt das Waffenobjekt mit folgenden Attributen zurück: name, text, würfel, würfelSeiten, plus, eigenschaften[], härte, fertigkeit, talent, kampfstile[], kampfstil, rw, wm, lz&#10;
-getPW() - gibt den PW des Talents der Waffe zurück&#10;
-getKampfstil() - gibt die Modifikatoren des aktiven Kampfstils  mit folgenden Attributen zurück: at, vt, plus, rw, be&#10;
-get&lt;Abgeleiteter Wert&gt;() - gibt den angegebenen Wert zurück, z. B. 'getSB()' für den Schadensbonus&#10;
-getRüstungBE - gibt die finale Behinderung der bei der Waffe ausgewählten Rüstung zurück&#10;
-modifyWaffenwerte(at, vt, plus, rw) - diese Funktion muss aufgerufen werden, sie modifiziert die Waffenwerte">waffe = getWaffe()
-kampfstil = getKampfstil()
-be = max(getRüstungBE() + kampfstil.be, 0)
-at = getPW() + kampfstil.at + waffe.wm - be
-vt = getPW() + kampfstil.vt + waffe.wm - be
-sb = getSB() if waffe.fertigkeit not in ["Schusswaffen"] else 0
-plus = kampfstil.plus + sb
-rw = getKampfstil().rw
-modifyWaffenwerte(at, vt, plus, rw)</Einstellung>
+  <Einstellung name="Charakter aktualisieren Script" typ="Exec" beschreibung="Das Pythonscript wird immer ausgeführt, wenn der Charakter aktualisiert wurde. Es ist insbesondere dafür zuständig, die finalen Waffenwerte zu berechnen. Hierfür steht die gewöhnliche Script API zur Verfügung.">addTalent("Gebräuche: " + getHeimat(), 0)
+
+for idx in range(waffenCount()):
+    if not getWaffe(idx):
+        continue
+    if hasTalent(getWaffeTalent(idx)):
+        pw = getFertigkeitProbenwertTalent(getWaffeFertigkeit(idx))
+    else:
+        pw = getFertigkeitProbenwert(getWaffeFertigkeit(idx))
+    kampfstil = getWaffeKampfstil(idx)
+    
+    rüstungBE = getRüstungBEFinal(getWaffeBESlot(idx)-1) or 0
+    be = max(rüstungBE + getKampfstilBE(kampfstil), 0)
+
+    at = pw + getKampfstilAT(kampfstil) + getWaffeWM(idx) - be
+    modifyWaffeAT(idx, at)
+
+    vt = pw + getKampfstilVT(kampfstil) + getWaffeWM(idx) - be
+    modifyWaffeVT(idx, vt)
+
+    sb = getSB() if getWaffeFertigkeit(idx) not in ["Schusswaffen"] else 0
+    plus = getKampfstilTPPlus(kampfstil) + sb
+    modifyWaffeTPPlus(idx, plus)
+
+    rw = getKampfstilRW(kampfstil)
+    modifyWaffeRW(idx, rw)</Einstellung>
   <Einstellung name="Waffen: Standardwaffen" typ="TextList" separator="," strip="1" beschreibung="Legt alle Waffen fest, die ein neuer Charakter automatisch erhalten soll. Die Angabe erfolgt als kommaseparierte Liste.">Hand</Einstellung>
   <Einstellung name="Waffen: Härte WSStern" typ="TextList" separator="," strip="1" beschreibung="Bei den hier aufgeführten Waffen wird die Härte auf die WS* des Charakters gesetzt. Die Angabe erfolgt als kommaseparierte Liste.">Hand, Fuß</Einstellung>
   <Einstellung name="Waffen: Talente AT verboten" typ="TextList" separator="," strip="1" beschreibung="Bei Waffen der hier aufgeführten Talente wird bei der AT ein '-' eingetragen. Es können statt dem Talent auch die Namen einzelner Waffen angegeben werden. Die Angabe erfolgt als kommaseparierte Liste."></Einstellung>
@@ -9994,7 +10004,7 @@ Beispiele: Sklavinnen, arme Leibeigene, Vagabundinnen, Wanderarbeiter</Einstellu
   <Einstellung name="Heimaten: Beschreibung" typ="Text" beschreibung="Definiert den Tooltip für die Heimat-Auswahl.">Jeder Charakter beherrscht seine Muttersprache und die Gebräuche seiner Heimat.
 Du erhältst gratis die Freie Fertigkeit zu deiner Muttersprache auf Stufe III und das passende Gebräuche-Talent.</Einstellung>
   <Einstellung name="Heimaten: Heimat geändert Script" typ="Exec" beschreibung="Das Pythonscript wird aufgerufen, wenn die Heimat geändert wird. Es stehen die String-Variablen 'heimatAlt' und 'heimatNeu' sowie die gewöhnliche Script API zur Verfügung.">removeTalent("Gebräuche: " + heimatAlt)
-talent = addTalent("Gebräuche: " + heimatNeu, 0)</Einstellung>
+addTalent("Gebräuche: " + heimatNeu, 0)</Einstellung>
   <Einstellung name="Talente: FW Warnung" typ="Int" beschreibung="Definiert den Fertigkeitswert, ab welchem im Talentauswahlfenster keine Warnung mehr erscheint.">4</Einstellung>
   <Einstellung name="Voraussetzungen: Anzeigetext ersetzen" typ="TextDict" separator="&#10;" strip="0" beschreibung="Hier kann pro Zeile nach folgendem Format (ohne Anführungszeichen) eine Ersetzung von Voraussetzungen für Anzeigezwecke (beispielsweise im Charaktereditor bei den Vorteilen) definiert werden: 'Text=neuer Text'. Text kann dabei auch nur ein Teil der Voraussetzungen sein. Dabei ist die Reihenfolge zu beachten - sobald z. B. 'Talent' durch leeren Text ersetzt wird, kommt das Wort bei folgenden Ersetzungen nicht mehr vor.">Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)=kein anderer Tiergeist (außer Schamanen)
 Kein Vorteil Tiergeist (*)=kein anderer Tiergeist

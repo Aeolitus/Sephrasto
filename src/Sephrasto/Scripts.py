@@ -161,13 +161,42 @@ class Scripts:
         script.parameter.append(ScriptParameter("Kampfstil", str, completionTable = kampfstile))
         addScript(script)
 
+        zonen = ["Beine", "Arm links", "Arm rechts", "Bauch", "Brust", "Kopf"]
+
         script = Script(f"Rüstung RS", f"getRüstungRS", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
+        for i in range(len(zonen)):
+            zone = zonen[i]
+            script = Script(f"Rüstung RS {zone}", f"getRüstungRSZone", "Ausrüstung")
+            script.parameter.append(ScriptParameter("Index", int))
+            script.parameter.append(ScriptParameter("Zone", int, defaultValue=i))
+            addScript(script)
+
+        script = Script(f"Rüstung RS Final Gesamt (RS + Mod.)", f"getRüstungRSFinal", "Ausrüstung")
+        script.parameter.append(ScriptParameter("Index", int))
+        addScript(script)
+        for i in range(len(zonen)):
+            zone = zonen[i]
+            script = Script(f"Rüstung RS Final {zone} (RS + Mod.)", f"getRüstungRSFinal", "Ausrüstung")
+            script.parameter.append(ScriptParameter("Index", int))
+            script.parameter.append(ScriptParameter("Zone", int, defaultValue=i))
+            addScript(script)
+
         script = Script(f"Rüstung BE", f"getRüstungBE", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
+        script = Script(f"Rüstung BE Final (BE + Mod.)", f"getRüstungBEFinal", "Ausrüstung")
+        script.parameter.append(ScriptParameter("Index", int))
+        addScript(script)
+        script = Script(f"Rüstung WS Final (WS + Gesamt-RS + Mod.)", f"getRüstungWSFinal", "Ausrüstung")
+        script.parameter.append(ScriptParameter("Index", int))
+        addScript(script)
 
+        script = Script(f"Waffe BE Slot", f"getWaffeBESlot", "Ausrüstung")
+        script.parameter.append(ScriptParameter("Index", int))
+        addScript(script)
+        
         script = Script(f"Waffe WM", f"getWaffeWM", "Ausrüstung")
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)

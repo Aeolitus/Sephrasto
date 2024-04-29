@@ -1464,10 +1464,34 @@
 <td>RS der Rüstung an Stelle "index" erhalten.</td>
 </tr>
 <tr>
+<td>getRüstungRSZone</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-2}, zone {0-5}</td>
+<td>ZRS der Rüstung an Stelle "index" erhalten. 0=Beine, 1=Arm links, 2=Arm rechts, 3=Bauch, 4=Brust, 5=Kopf</td>
+</tr>
+<tr>
+<td>getRüstungRSFinal</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-2}, zone {(-1)-5}</td>
+<td>RS + RS-Modifikator der Rüstung an Stelle "index" erhalten. Dies ist der Gesamt-RS Falls für "zone" -1 angegeben wird, ansonsten: 0=Beine, 1=Arm links, 2=Arm rechts, 3=Bauch, 4=Brust, 5=Kopf. Der Wert kann je nach Scriptpriorität vom endgültigen Wert abweichen.</td>
+</tr>
+<tr>
 <td>getRüstungBE</td>
 <td style="text-align: center;">int</td>
 <td style="text-align: center;">index : int {0-2}</td>
 <td>BE der Rüstung an Stelle "index" erhalten.</td>
+</tr>
+<tr>
+<td>getRüstungBEFinal</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-2}</td>
+<td>BE + BE-Modifikator der Rüstung an Stelle "index" erhalten. Der Wert kann je nach Scriptpriorität vom endgültigen Wert abweichen.</td>
+</tr>
+<tr>
+<td>getRüstungWSFinal</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-2}</td>
+<td>WS + Gesamt-RS + RS-Modifikator der Rüstung an Stelle "index" erhalten. Der Wert kann je nach Scriptpriorität vom endgültigen Wert abweichen.</td>
 </tr>
 <tr>
 <td><strong>Waffen</strong></td>
@@ -1678,6 +1702,12 @@
 <td style="text-align: center;">str</td>
 <td style="text-align: center;">index : int {0-7}</td>
 <td>Kampfstil der Waffe an Stelle "index" erhalten. Wenn keiner gesetzt ist, wird "Kein Kampfstil" zurückgegeben.</td>
+</tr>
+<tr>
+<td>getWaffeBESlot</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">index : int {0-7}</td>
+<td>BE Slot der Waffe an Stelle "index" erhalten. Dies ist die Rüstungsnummer (1-3), deren BE für die Berechnung der Waffenwerte verwendet werden soll. 0 bedeutet keine Rüstung.</td>
 </tr>
 <tr>
 <td>isWaffeNahkampf</td>

@@ -53,9 +53,9 @@ Wichtig: Alle Actions/Filter, die den Charakter betreffen, übergeben den Charak
 |charakter_geschrieben|Action|{ "charakter" : Char, "serializer" : ?Serializer, "filepath" : str }|Die Charakterdatei modifizieren oder weitere Dateien erstellen|
 |**Update**|
 |pre_charakter_aktualisieren|Action|{ "charakter" : Char }|Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner Form modifiziert wurden, aber bevor die Veränderungen berechnet werden.|
-|charakter_aktualisieren_vorteilscripts|Action|{ "charakter" : Char }|Wird während der Charakteraktualisierung nach der Berechnung des Basiswerte und vor der Ausführung der Vorteilskripte aufgerufen.|
-|charakter_aktualisieren_fertigkeiten|Action|{ "charakter" : Char }|Wird während der Charakteraktualisierung nach der Ausführung der Vorteilskripte und vor der Aktualisierung der Fertigkeiten aufgerufen.|
-|charakter_aktualisieren_waffenwerte|Action|{ "charakter" : Char }|Wird während der Charakteraktualisierung nach allen Berechnungen außer den Waffenwerten aufgerufen.|
+|charakter_aktualisieren_fertigkeiten|Action|{ "charakter" : Char }|Wird während der Charakteraktualisierung nach der Berechnung der Attribute/abgeleiteten Werte/Energien und vor der Berechnung der Fertigkeiten aufgerufen.|
+|charakter_aktualisieren_vorteilscripts|Action|{ "charakter" : Char }|Wird während der Charakteraktualisierung nach der Berechnung der Fertigkeiten und vor der Ausführung der Vorteilsscripts aufgerufen.|
+|charakter_aktualisieren_waffeneigenschaftscripts|Action|{ "charakter" : Char }|Wird während der Charakteraktualisierung nach der Ausführung der Vorteilscripts und vor der Ausfürung der Waffeneigenschaftscripts aufgerufen.|
 |post_charakter_aktualisieren|Action|{ "charakter" : Char }|Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner Form modifiziert und berechnet wurden.|
 |vorteil_entfernt|Action|{ "charakter" : Char, "name" : str }|Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind. Der "name" Parameter enthält den Namen des Vorteils.|
 |vorteil_gekauft|Action|{ "charakter" : Char, "name" : str }|Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind. Der "name" Parameter enthält den Namen des Vorteils.|
