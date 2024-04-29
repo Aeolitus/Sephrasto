@@ -24,7 +24,7 @@ class Ui_formMain(object):
         if not formMain.objectName():
             formMain.setObjectName(u"formMain")
         formMain.setWindowModality(Qt.ApplicationModal)
-        formMain.resize(636, 473)
+        formMain.resize(611, 376)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -35,7 +35,7 @@ class Ui_formMain(object):
         self.gridLayout.setHorizontalSpacing(20)
         self.gridLayout.setVerticalSpacing(7)
         self.gridLayout.setContentsMargins(20, 20, 20, 20)
-        self.verticalSpacer_2 = QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_2 = QSpacerItem(20, 13, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.gridLayout.addItem(self.verticalSpacer_2, 2, 0, 1, 1)
 
@@ -238,7 +238,7 @@ class Ui_formMain(object):
         self.btnAccept.setText(QCoreApplication.translate("formMain", u"\u00dcbernehmen", None))
         self.lblRegeln.setText(QCoreApplication.translate("formMain", u"Baukasten", None))
         self.lblRegeln.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
-        self.label.setText(QCoreApplication.translate("formMain", u"<html><head/><body><p>Der Charakterassistent lebt von Communitybeitr\u00e4gen. Eigene Spezies/Kulturen/Professionen/Archetypen lassen sich spielend leicht erstellen. Finde hier heraus wie und teile deine Kreationen: <a href=\"https://dsaforum.de/viewtopic.php?f=180&amp;t=56703\"><span style=\" text-decoration: underline;\">Charakterassistent auf dsaforum.de</span></a></p></body></html>", None))
+        self.label.setText(QCoreApplication.translate("formMain", u"<html><head/><body><p>Der Charakterassistent lebt von Communitybeitr\u00e4gen. Wie du eigene Spezies/Kulturen/Professionen/Archetypen erstellen kannst, erf\u00e4hrst du in der Sephrasto-Hilfe.</p></body></html>", None))
         self.label.setProperty("class", QCoreApplication.translate("formMain", u"smallText", None))
         self.lblGeschlecht.setText(QCoreApplication.translate("formMain", u"Geschlecht", None))
         self.lblGeschlecht.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))

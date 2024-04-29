@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>636</width>
-    <height>473</height>
+    <width>611</width>
+    <height>376</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -52,7 +52,7 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>20</height>
+       <height>13</height>
       </size>
      </property>
     </spacer>
@@ -258,7 +258,7 @@
       <set>Qt::ImhNone</set>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Der Charakterassistent lebt von Communitybeiträgen. Eigene Spezies/Kulturen/Professionen/Archetypen lassen sich spielend leicht erstellen. Finde hier heraus wie und teile deine Kreationen: &lt;a href=&quot;https://dsaforum.de/viewtopic.php?f=180&amp;amp;t=56703&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;Charakterassistent auf dsaforum.de&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Der Charakterassistent lebt von Communitybeiträgen. Wie du eigene Spezies/Kulturen/Professionen/Archetypen erstellen kannst, erfährst du in der Sephrasto-Hilfe.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="textFormat">
       <enum>Qt::RichText</enum>
