@@ -229,7 +229,7 @@ class Char():
             'modifyWaffeTPPlus' : lambda index, plusMod: self.API_modifyWaffeValue(index, "plusMod", plusMod), 
 
             'getWaffeHärte' : lambda index: self.API_getWaffeValue(index, "härte"), 
-            'getWaffeHärteMod' : lambda index: sself.API_getWaffeValue(index, "härteMod"), 
+            'getWaffeHärteMod' : lambda index: self.API_getWaffeValue(index, "härteMod"), 
             'setWaffeHärte' : lambda index, härte: self.API_setWaffeValue(index, "härteMod", härte),
             'modifyWaffeHärte' : lambda index, härteMod: self.API_modifyWaffeValue(index, "härteMod", härteMod), 
 
