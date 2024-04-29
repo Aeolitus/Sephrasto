@@ -9,7 +9,7 @@ Ein Charaktergenerator für das DSA-Hausregelsystem Ilaris, erstellt von Aeolitu
 Bei Fragen / Änderungswünschen / Feedback einfach Bescheid sagen - im dsaforum oder hier!
 
 ## Verwendete Pakete und Programme
-* Um Sephrasto mit Python zu verwenden, wird mindestens Version 3.8 benötigt, Version 3.9+ wird aber empfohlen. 
+* Um Sephrasto mit Python zu verwenden, wird Version 3.9 empfohlen. Höhere Versionen sollten auch gehen, niedrigere werden nicht unterstützt.
 * PySide6 (https://www.qt.io/qt-for-python) für die Grafische Oberfläche
 * lxml (http://lxml.de/) als xml-parser (unter Linux: `libxml2-dev` und `libxmlsec1-dev` global installieren, wenn lxml via pip installiert werden soll)
 * PyYAML (https://pyyaml.org/) als yaml-parser
