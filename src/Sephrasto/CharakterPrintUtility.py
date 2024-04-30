@@ -31,7 +31,7 @@ class CharakterPrintUtility:
                 name = vorteil.anzeigenameExt
             
             scriptAPI.update({ "name" : vorteil.name, "kategorie" : vorteil.kategorie, "mergeTo" : 0 })
-            exec(Wolke.DB.einstellungen["Charsheet: Vorteile Mergescript"].wert, scriptAPI)
+            Wolke.DB.einstellungen["Charsheet: Vorteile Mergescript"].executeScript(scriptAPI)
             if scriptAPI["mergeTo"] == 0:
                 vorteileAllgemein.append(name)
             elif scriptAPI["mergeTo"] == 1:

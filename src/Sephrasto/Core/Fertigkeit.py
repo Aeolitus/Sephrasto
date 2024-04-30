@@ -161,7 +161,7 @@ class Fertigkeit:
             attributswerte.append(attribute[attribut].wert)
         scriptAPI = Hilfsmethoden.createScriptAPI()
         scriptAPI['getAttribute'] = lambda: attributswerte
-        basiswert = eval(Wolke.DB.einstellungen["Fertigkeiten: BW Script"].wert, scriptAPI)
+        basiswert = Wolke.DB.einstellungen["Fertigkeiten: BW Script"].evaluateScript(scriptAPI)
         return basiswert - self.basiswert
 
     def aktualisieren(self):
@@ -172,13 +172,13 @@ class Fertigkeit:
         scriptAPI = Hilfsmethoden.createScriptAPI()
         scriptAPI['getAttribute'] = lambda: self.attributswerte
 
-        self.maxWert = eval(Wolke.DB.einstellungen["Fertigkeiten: Maximalwert Script"].wert, scriptAPI)
-        self.basiswert = eval(Wolke.DB.einstellungen["Fertigkeiten: BW Script"].wert, scriptAPI)
+        self.maxWert = Wolke.DB.einstellungen["Fertigkeiten: Maximalwert Script"].evaluateScript(scriptAPI)
+        self.basiswert = Wolke.DB.einstellungen["Fertigkeiten: BW Script"].evaluateScript(scriptAPI)
         self.wert = min(self.wert, self.maxWert)
         scriptAPI['getWert'] = lambda: self.wert
         scriptAPI['getBasiswert'] = lambda: self.basiswert
-        self.probenwert = eval(Wolke.DB.einstellungen["Fertigkeiten: PW Script"].wert, scriptAPI)
-        self.probenwertTalent = eval(Wolke.DB.einstellungen["Fertigkeiten: PWT Script"].wert, scriptAPI)
+        self.probenwert = Wolke.DB.einstellungen["Fertigkeiten: PW Script"].evaluateScript(scriptAPI)
+        self.probenwertTalent = Wolke.DB.einstellungen["Fertigkeiten: PWT Script"].evaluateScript(scriptAPI)
 
     @staticmethod
     def getHöchsteKampffertigkeit(fertigkeiten):

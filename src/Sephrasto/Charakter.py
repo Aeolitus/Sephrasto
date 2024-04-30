@@ -332,7 +332,7 @@ class Char():
 
         self.charakterScriptAPI["heimatAlt"] = self._heimat
         self._heimat = heimat
-        exec( Wolke.DB.einstellungen["Heimaten: Heimat geändert Script"].wert, self.charakterScriptAPI)
+        Wolke.DB.einstellungen["Heimaten: Heimat geändert Script"].executeScript(self.charakterScriptAPI)
         del self.charakterScriptAPI["heimatAlt"]        
 
     def API_getWaffeValue(self, index, attrib):
@@ -615,7 +615,7 @@ class Char():
             ab.aktualisierenFinal() #WS*, GS*, DH*, SchiP*
 
         # Execute global script. It is responsible for calculating the final weapon stats.
-        exec(Wolke.DB.einstellungen["Charakter aktualisieren Script"].wert, self.charakterScriptAPI)
+        Wolke.DB.einstellungen["Charakter aktualisieren Script"].executeScript(self.charakterScriptAPI)
 
         EventBus.doAction("post_charakter_aktualisieren", { "charakter" : self })
         self.epZaehlen()

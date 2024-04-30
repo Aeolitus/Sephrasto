@@ -61,7 +61,7 @@ def sephrasto_excepthook(exc_type, exc_value, tb):
     logging.critical(exception + "\n".join(traceback))
 
     #Try to show message box, hopefully its not a crash in Qt
-    text = exception + "\nBei Fragen zum diesem Fehler bitte sephrasto.log aus dem Installationsordner mitsenden."
+    text = exception + "\n\nBei Fragen zum diesem Fehler bitte sephrasto.log aus dem Installationsordner mitsenden."
     if Wolke.Settings['Pfad-Plugins'] in filename:
         splitPath = os.path.split(os.path.relpath(filename, Wolke.Settings['Pfad-Plugins']))
         if len(splitPath) > 0:

@@ -164,13 +164,13 @@ class Ruestung:
         return scriptAPI
 
     def getRSFinal(self, abgeleiteteWerte, zone = -1):
-        return eval(Wolke.DB.einstellungen["Rüstungen: RS Script"].wert, self.__getScriptAPI(abgeleiteteWerte, zone))
+        return Wolke.DB.einstellungen["Rüstungen: RS Script"].evaluateScript(self.__getScriptAPI(abgeleiteteWerte, zone))
 
     def getBEFinal(self, abgeleiteteWerte):
-        return eval(Wolke.DB.einstellungen["Rüstungen: BE Script"].wert, self.__getScriptAPI(abgeleiteteWerte))
+        return Wolke.DB.einstellungen["Rüstungen: BE Script"].evaluateScript(self.__getScriptAPI(abgeleiteteWerte))
 
     def getWSFinal(self, abgeleiteteWerte):
-        return eval(Wolke.DB.einstellungen["Rüstungen: WSStern Script"].wert, self.__getScriptAPI(abgeleiteteWerte))
+        return Wolke.DB.einstellungen["Rüstungen: WSStern Script"].evaluateScript(self.__getScriptAPI(abgeleiteteWerte))
 
     def serialize(self, ser):
         ser.set('name', self.name)

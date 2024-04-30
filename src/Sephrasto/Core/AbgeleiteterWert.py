@@ -125,13 +125,22 @@ class AbgeleiteterWert:
     def aktualisieren(self):
         self.mod = 0
         self.finalwert = 0
-        self.basiswert = eval(self.definition.scriptCompiled, self.charakter.charakterScriptAPI)
+        try:
+            self.basiswert = eval(self.definition.scriptCompiled, self.charakter.charakterScriptAPI)
+        except Exception as e:
+            raise type(e)(f"\nScriptfehler in Abgeleiteter Wert \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
 
-    def diffBasiswert(self, attribute):
-        return eval(self.definition.scriptCompiled, self.charakter.charakterScriptAPI) - self.basiswert
+    def diffBasiswert(self, attribute):      
+        try:
+            return eval(self.definition.scriptCompiled, self.charakter.charakterScriptAPI) - self.basiswert
+        except Exception as e:
+            raise type(e)(f"\nScriptfehler in Abgeleiteter Wert \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
 
     def aktualisierenFinal(self):
         if not self.finalscript:
             self.finalwert = self.wert
-            return
-        self.finalwert = eval(self.definition.finalscriptCompiled, self.charakter.charakterScriptAPI)
+            return       
+        try:
+            self.finalwert = eval(self.definition.finalscriptCompiled, self.charakter.charakterScriptAPI)
+        except Exception as e:
+            raise type(e)(f"\nScriptfehler in Abgeleiteter Wert \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")

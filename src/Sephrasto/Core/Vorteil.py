@@ -92,7 +92,10 @@ class VorteilDefinition():
                 self.querverweiseResolved["Statusse"] = db.einstellungen["Statusse: Beschreibung"].wert
 
     def executeScript(self, api):
-        exec(self.scriptCompiled, api)
+        try:
+            exec(self.scriptCompiled, api)
+        except Exception as e:
+            raise type(e)(f"\nScriptfehler in Vorteil \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
 
     def kategorieName(self, db):
         kategorie = min(self.kategorie, len(db.einstellungen['Vorteile: Kategorien'].wert) - 1)

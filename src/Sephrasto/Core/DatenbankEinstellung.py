@@ -74,6 +74,18 @@ class DatenbankEinstellung:
     def details(self, db):
         return f"{self.text}\n{self.beschreibung}"
 
+    def executeScript(self, api):
+        try:
+            exec(self.wert, api)
+        except Exception as e:
+            raise type(e)(f"\nScriptfehler in Einstellung \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
+
+    def evaluateScript(self, api):
+        try:
+            return eval(self.wert, api)
+        except Exception as e:
+            raise type(e)(f"\nScriptfehler in Einstellung \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
+
     def serialize(self, ser):
         ser.set('name', self.name)
         ser.set('text', self.text)

@@ -23,7 +23,10 @@ class Waffeneigenschaft():
         self.scriptCompiled = compile_restricted(self.script or "", self.name + " Script", "exec")
 
     def executeScript(self, api):
-        exec(self.scriptCompiled, api)
+        try:
+            exec(self.scriptCompiled, api)
+        except Exception as e:
+            raise type(e)(f"\nScriptfehler in Waffeneigenschaft \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
 
     def details(self, db):
         if self.script:

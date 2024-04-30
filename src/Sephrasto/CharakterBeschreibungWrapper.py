@@ -86,8 +86,8 @@ class BeschrWrapper(QtCore.QObject):
 
         eigenheitenNeu = []
         for i in range(8):
-            text = eval("self.ui.editEig" + str(i+1) + ".text()")
-            eigenheitenNeu.append(text)
+            lineEdit = getattr(self.ui, "editEig" + str(i+1))
+            eigenheitenNeu.append(lineEdit.text())
 
         #Preserve the position of actual elements but remove any trailing empty elements
         #This is needed for ArrayEqual later to work as intended
