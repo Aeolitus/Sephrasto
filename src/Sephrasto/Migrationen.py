@@ -27,7 +27,7 @@ class Migrationen():
     def __init__(self):
         pass
 
-    datenbankCodeVersion = 9
+    datenbankCodeVersion = 10
     charakterCodeVersion = 8
 
     hausregelUpdates = []
@@ -55,6 +55,7 @@ class Migrationen():
             Migrationen.hausregeln6zu7,
             Migrationen.hausregeln7zu8,
             Migrationen.hausregeln8zu9,
+            Migrationen.hausregeln9zu10,
         ]
 
         if not migrationen[Migrationen.datenbankCodeVersion]:
@@ -333,7 +334,7 @@ class Migrationen():
             "Schneller Kampf III" : "Regel:Unterlaufen", "Parierwaffenkampf II" : "Regel:Nahkampfmodifikatoren",
             "Parierwaffenkampf III" : "Regel:Riposte", "Reiterkampf I" : "Regel:Sturmangriff|Waffeneigenschaft:Reittier", "Reiterkampf II" : "Regel:Nahkampfmodifikatoren|Waffeneigenschaft:Reittier|Regel:Fernkampfmodifikatoren",
             "Reiterkampf III" : "Regel:Überrennen|Waffeneigenschaft:Reittier", "Bändiger der Elemente" : "Regel:Beschwörungen",
-            "Meister der Wünsche" : "Regel:Beschwörungen||Regel:Beschwörungen - Bindung",
+            "Meister der Wünsche" : "Regel:Beschwörungen|Regel:Beschwörungen - Bindung",
             "Gebieter der Urgewalten" : "Regel:Beschwörungen|Regel:Beschwörungen - Bindung",
             "Reaktivierung" : "Regel:Artefaktherstellung", "Matrixverständnis" : "Regel:Artefaktherstellung",
             "Semipermanenz" : "Regel:Artefaktherstellung", "Thaumaturg" : "Regel:Artefaktherstellung|Vorteil:Meister der Wünsche|Vorteil:Meister der Seelenlosen",
@@ -646,6 +647,79 @@ class Migrationen():
                 node.attrib['kategorie'] = "0"
 
         return []
+
+    def hausregeln9zu10(root):
+        changes = {
+            "getRüstung()[0].getRSGesamtInt()" : "getRüstungRS(0)",
+            "getRüstung()[1].getRSGesamtInt()" : "getRüstungRS(1)",
+            "getRüstung()[2].getRSGesamtInt()" : "getRüstungRS(2)",
+            "getRüstung()[0].be" : "getRüstungBE(0)",
+            "getRüstung()[1].be" : "getRüstungBE(1)",
+            "getRüstung()[2].be" : "getRüstungBE(2)",
+            "len(getRüstung())" : "rüstungenCount()",
+            "len(getWaffen())" : "waffenCount()",
+            "getFinanzen()" : "getFinanzenIndex()",
+            "getStatus()" : "getStatusIndex()",
+            "modifyAsPMod(" : "modifyAsP(",
+            "modifyKaPMod(" : "modifyKaP(",
+            "modifyGuPMod(" : "modifyGuP(",
+            "getWaffeKampfstil()" : "getWaffeKampfstil(getWaffeIndex())",
+            "getWaffeTPPlus()" : "getWaffeTPPlus(getWaffeIndex())",
+            "getWaffeTPWürfel()" : "getWaffeTPWürfel(getWaffeIndex())",
+            "getWaffeAT()" : "getWaffeAT(getWaffeIndex())",
+            "getWaffeVT()" : "getWaffeVT(getWaffeIndex())",
+            "getWaffeHärte()" : "getWaffeHärte(getWaffeIndex())",
+            "getWaffeRW()" : "getWaffeRW(getWaffeIndex())",
+            "modifyWaffeTPPlus(" : "modifyWaffeTPPlus(getWaffeIndex(), ",
+            "modifyWaffeTPWürfel(" : "modifyWaffeTPWürfel(getWaffeIndex(), ",
+            "modifyWaffeAT(" : "modifyWaffeAT(getWaffeIndex(), ",
+            "modifyWaffeVT(" : "modifyWaffeVT(getWaffeIndex(), ",
+            "modifyWaffeHärte(" : "modifyWaffeHärte(getWaffeIndex(), ",
+            "modifyWaffeRW(" : "modifyWaffeRW(getWaffeIndex(), ",
+            "setWaffeTPPlus(" : "setWaffeTPPlus(getWaffeIndex(), ",
+            "setWaffeTPWürfel(" : "setWaffeTPWürfel(getWaffeIndex(), ",
+            "setWaffeAT(" : "setWaffeAT(getWaffeIndex(), ",
+            "setWaffeVT(" : "setWaffeVT(getWaffeIndex(), ",
+            "setWaffeHärte(" : "setWaffeHärte(getWaffeIndex(), ",
+            "setWaffeRW(" : "setWaffeRW(getWaffeIndex(), ",
+            "getEigenschaftParam(1)" : "getEigenschaftParam(0)",
+            "getEigenschaftParam(2)" : "getEigenschaftParam(1)",
+            "getEigenschaftParam(3)" : "getEigenschaftParam(2)",
+            "getKampfstilPlus(" : "getKampfstilTPPlus(",
+        }
+
+        for node in root.findall('AbgeleiteterWert'):
+            if "script" in node.attrib:
+                for k,v in changes.items():
+                    node.attrib["script"] = node.attrib["script"].replace(k, v)
+
+            if "finalscript" in node.attrib:
+                for k,v in changes.items():
+                    node.attrib["finalscript"] = node.attrib["finalscript"].replace(k, v)
+
+        tiergeistChanged = False
+        for node in root.findall('Vorteil'):
+            if node.attrib["name"].startswith("Tiergeist"):
+                tiergeistChanged = True
+
+            if "script" in node.attrib:
+                for k,v in changes.items():
+                    node.attrib["script"] = node.attrib["script"].replace(k, v)
+
+        for node in root.findall('Waffeneigenschaft'):
+            if "script" in node.attrib:
+                for k,v in changes.items():
+                    node.attrib["script"] = node.attrib["script"].replace(k, v)
+
+        for node in root.findall('Einstellung'):
+            if node.attrib["name"] == "Heimaten: Heimat geändert Script" and node.text:
+                node.text = node.text.replace("addTalent(\"Gebräuche: \" + heimatNeu)", "addTalent(\"Gebräuche: \" + getHeimat(), 0)").replace("heimatNeu", "getHeimat()")
+
+        res = ["Scripts von abgeleiteten Werten, Vorteilen, Waffeneigenschaften und Einstellungen wurden an die überarbeitete Script API angepasst. "\
+            "Zu 95% sind keine weiteren Anpassungen von dir nötig, aber komplexere Scripts können leider nicht immer automatisch aktualisiert werden. Überprüfe am besten alle von dir geänderten/hinzugefügten abgeleiteten Werte, Vorteile und Waffeneigenschaften."]
+        if tiergeistChanged:
+            res.append("Achtung: Du hast Tiergeist-Vorteile geändert oder hinzugefügt, deren Script musst du wegen der überarbeiteten Script API in jedem Fall manuell anpassen (siehe neue Scripts der Original-Vorteile).")
+        return res
 
     #--------------------------------
     # Charakter Migrationsfunktionen
