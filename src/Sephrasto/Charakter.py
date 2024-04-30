@@ -368,6 +368,9 @@ class Char():
         self.talentInfos[talent].append(info)
 
     def API_addTalent(self, talent, kosten = -1, kommentar=""):
+        if not talent in Wolke.DB.talente:
+            return
+
         talent = self.addTalent(talent)
         if self.currentVorteil:
             talent.voraussetzungen = talent.voraussetzungen.add("Vorteil " + self.currentVorteil, Wolke.DB)
@@ -384,6 +387,9 @@ class Char():
         talent.voraussetzungen = talent.voraussetzungen.add(voraussetzung, Wolke.DB)
 
     def API_addVorteil(self, vorteil, kosten = -1, kommentar=""):
+        if not vorteil in Wolke.DB.vorteile:
+            return
+
         vorteil = self.addVorteil(vorteil)
         if self.currentVorteil:
             vorteil.voraussetzungen = vorteil.voraussetzungen.add("Vorteil " + self.currentVorteil, Wolke.DB)
