@@ -47,6 +47,7 @@ build_exe_options = {
     "zip_include_packages" : "*",
     "zip_exclude_packages" : [],
     "include_msvcr" : True,
+    "silent" : True,
     "include_files" : ["Data", "Doc", "icon_large.png", "icon_multi.ico", ["Bin/" + system, "Bin/" + system],
                        [os.path.join(env_translations_path, "qtbase_de.qm"), os.path.join("lib/Pyside6/translations", "qtbase_de.qm")]]
 }
@@ -56,7 +57,7 @@ if system == "Windows":
     base = "Win32GUI"
 
 setup(  name = 'Sephrasto',
-        description = 'Charakter-Generierungstool für Ilaris',
+        description = 'Sephrasto',
         version = str(Version._sephrasto_version_major) + "." + str(Version._sephrasto_version_minor) + "." + str(Version._sephrasto_version_build),
         options = {"build_exe" : build_exe_options },
         py_modules = [],
