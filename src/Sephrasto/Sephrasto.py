@@ -39,9 +39,6 @@ import locale
 locale.setlocale(locale.LC_ALL, "") # set the current locale from the OS
 
 loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
-logging.basicConfig(filename="sephrasto.log", \
-    level=loglevels[Wolke.Settings['Logging']], \
-    format="%(asctime)s | %(levelname)s | %(filename)s::%(funcName)s(%(lineno)d) | %(message)s")
 
 def sephrasto_excepthook(exc_type, exc_value, tb):
     traceback = [' Traceback (most recent call last):']
@@ -91,6 +88,10 @@ def qt_message_handler(mode, context, message):
             # we can ignore this warning, apparently it is thrown for no good reason when there is no internet connection
             return
 
+        if "Path override failed for key base::DIR_APP_DICTIONARIES" in message:
+            # linux apparently doesnt like that we delete some chromium resource files that we dont actually need
+            return
+
         logging.warning(message)
         breakIfDebuggerAttached()
     elif mode == QtCore.QtMsgType.QtCriticalMsg:
@@ -112,6 +113,22 @@ class MainWindowWrapper(object):
     '''
 
     def __init__(self):
+        # Set current directory so we can use relative paths
+        # There are many test cases, i.e. starting from VS, from a different folder, with python, directly Sephrasto.py via shebang, built exe etc. and much can go wrong
+        # We need to remember the old current dir for restarting purposes via settings  - again things can go wrong otherwise
+        # Also on windows there is a weird issue when starting Sephrasto.exe from a different folder, so we use sys.argv[0] as a fallback (which doesnt work in other cases -.-)
+        EinstellungenWrapper.oldWorkingDir = os.getcwd() 
+        if os.path.isfile(os.path.abspath(__file__)):
+            os.chdir(os.path.dirname(os.path.abspath(__file__)))
+        else:
+            os.chdir(os.path.dirname(sys.argv[0]) or ".")
+
+        # Setup logger (after chdir so file is created in the correct location)
+        logging.basicConfig(filename="sephrasto.log", \
+            level=loglevels[Wolke.Settings['Logging']], \
+            format="%(asctime)s | %(levelname)s | %(filename)s::%(funcName)s(%(lineno)d) | %(message)s")
+
+        # Parse commandline arguments
         # on a built windows exe stdout is not available, we need to redirect the output
         # to a dummy stream so it doesnt crash when something like argparse tries to use it
         if not hasattr(sys.stdout, "write"):
@@ -139,26 +156,20 @@ class MainWindowWrapper(object):
 
         if Wolke.CmdArgs.debug:
             logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
+
+        # Setup crash and error handler
         sys.excepthook = sephrasto_excepthook
         QtCore.qInstallMessageHandler(qt_message_handler)
+
+        logging.critical("Starte Sephrasto " + Version.clientToString()) #critical so it's always printed, independent of the debug level setting
+        logging.critical(f"Python {platform.python_version()}, Qt {QtCore.qVersion()}, PySide {PySide6.__version__} (compiled with Qt {QtCore.__version__})") #for people that start from source
 
         '''
         Initializes the GUI and connects the buttons.
         '''
-        logging.critical("Starte Sephrasto " + Version.clientToString()) #critical so it's always printed, independent of the debug level setting
-        logging.critical(f"Qt {QtCore.qVersion()} PySide {PySide6.__version__} (compiled with Qt {QtCore.__version__})") #for people that start from source
+
 
         super().__init__()
-
-        # Set current directory so we can use relative paths
-        # There are many test cases, i.e. starting from VS, from a different folder, with python, directly Sephrasto.py via shebang, built exe etc. and much can go wrong
-        # We need to remember the old current dir for restarting purposes via settings  - again things can go wrong otherwise
-        # Also on windows there is a weird issue when starting Sephrasto.exe from a different folder, so we use sys.argv[0] as a fallback (which doesnt work in other cases -.-)
-        EinstellungenWrapper.oldWorkingDir = os.getcwd() 
-        if os.path.isfile(os.path.abspath(__file__)):
-            os.chdir(os.path.dirname(os.path.abspath(__file__)))
-        else:
-            os.chdir(os.path.dirname(sys.argv[0]) or ".")
 
         # Get the Settings loaded
         EinstellungenWrapper.loadPreQt()
