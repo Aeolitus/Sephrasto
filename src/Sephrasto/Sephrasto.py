@@ -134,12 +134,14 @@ class MainWindowWrapper(object):
 
         pythonMinVersion = "3.9.0"
         if Version.isLower(Version.fromString(pythonMinVersion), Version.fromString(platform.python_version())):
+            print("Fehler: Sephrasto benötigt mindestens Python " + pythonMinVersion)
             logging.critical("Sephrasto benötigt mindestens Python " + pythonMinVersion)
             sys.exit(1)
             return
 
         pysideMinVersion = "6.7.0"
         if Version.isLower(Version.fromString(pysideMinVersion), Version.fromString(PySide6.__version__)):
+            print("Fehler: Sephrasto benötigt mindestens PySide " + pysideMinVersion)
             logging.critical("Sephrasto benötigt mindestens PySide " + pysideMinVersion)
             sys.exit(1)
             return
