@@ -128,6 +128,22 @@ class MainWindowWrapper(object):
             level=loglevels[Wolke.Settings['Logging']], \
             format="%(asctime)s | %(levelname)s | %(filename)s::%(funcName)s(%(lineno)d) | %(message)s")
 
+        # Log and check version
+        logging.critical("Starte Sephrasto " + Version.clientToString()) #critical so it's always printed, independent of the debug level setting
+        logging.critical(f"Python {platform.python_version()}, Qt {QtCore.qVersion()}, PySide {PySide6.__version__} (compiled with Qt {QtCore.__version__})") #for people that start from source
+
+        pythonMinVersion = "3.9.0"
+        if Version.isLower(Version.fromString(pythonMinVersion), Version.fromString(platform.python_version())):
+            logging.critical("Sephrasto benötigt mindestens Python " + pythonMinVersion)
+            sys.exit(1)
+            return
+
+        pysideMinVersion = "6.7.0"
+        if Version.isLower(Version.fromString(pysideMinVersion), Version.fromString(PySide6.__version__)):
+            logging.critical("Sephrasto benötigt mindestens PySide " + pysideMinVersion)
+            sys.exit(1)
+            return
+
         # Parse commandline arguments
         # on a built windows exe stdout is not available, we need to redirect the output
         # to a dummy stream so it doesnt crash when something like argparse tries to use it
@@ -160,9 +176,6 @@ class MainWindowWrapper(object):
         # Setup crash and error handler
         sys.excepthook = sephrasto_excepthook
         QtCore.qInstallMessageHandler(qt_message_handler)
-
-        logging.critical("Starte Sephrasto " + Version.clientToString()) #critical so it's always printed, independent of the debug level setting
-        logging.critical(f"Python {platform.python_version()}, Qt {QtCore.qVersion()}, PySide {PySide6.__version__} (compiled with Qt {QtCore.__version__})") #for people that start from source
 
         '''
         Initializes the GUI and connects the buttons.
