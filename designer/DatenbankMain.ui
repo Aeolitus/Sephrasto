@@ -234,7 +234,7 @@
      <x>0</x>
      <y>0</y>
      <width>853</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuDatei">
@@ -246,6 +246,7 @@
     <addaction name="actionSpeichern"/>
     <addaction name="actionSpeichern_unter"/>
     <addaction name="actionSchliessen"/>
+    <addaction name="actionReload"/>
     <addaction name="separator"/>
     <addaction name="actionBeenden"/>
    </widget>
@@ -315,7 +316,7 @@
   </action>
   <action name="actionSchliessen">
    <property name="text">
-    <string>Datei schließen und RAW laden</string>
+    <string>Datei schließen und Originaldaten laden</string>
    </property>
   </action>
   <action name="actionZusaetzlichOeffnen">
@@ -331,6 +332,11 @@
   <action name="actionDBMergen">
    <property name="text">
     <string>Datenbank mergen und exportieren</string>
+   </property>
+  </action>
+  <action name="actionReload">
+   <property name="text">
+    <string>Datei neu laden</string>
    </property>
   </action>
  </widget>

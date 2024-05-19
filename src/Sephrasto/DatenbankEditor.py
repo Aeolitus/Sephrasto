@@ -217,6 +217,7 @@ class DatenbankEditor(object):
         self.ui.actionSpeichern_unter.triggered.connect(self.saveDatenbank)
         self.ui.actionDBMergen.triggered.connect(lambda: self.saveDatenbank(True))
         self.ui.actionSchliessen.triggered.connect(self.closeDatenbank)
+        self.ui.actionReload.triggered.connect(self.reloadDatenbank)
         self.ui.actionBeenden.triggered.connect(lambda: self.form.close())
 
         self.ui.actionFehlerliste.triggered.connect(self.showErrorLog)
@@ -852,6 +853,18 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         self.updateWindowTitleAndCloseButton()
         self.changed = False
         self.ui.actionZusaetzlichOeffnen.setEnabled(False)
+
+        if hasattr(self, "errorLogWindow"):
+            self.errorLogWindow.refresh()
+
+    def reloadDatenbank(self):
+        if self.cancelDueToPendingChanges("Datenbank schließen"):
+            return
+        self.savepath = None
+        self.datenbank.loadFile(hausregeln = self.datenbank.hausregelDatei)
+        self.updateGUI()
+        self.updateWindowTitleAndCloseButton()
+        self.changed = False
 
         if hasattr(self, "errorLogWindow"):
             self.errorLogWindow.refresh()
