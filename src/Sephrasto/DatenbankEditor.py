@@ -234,42 +234,40 @@ class DatenbankEditor(object):
         self.ui.actionScript_API.triggered.connect(self.showScriptHelp)
 
         # Edit buttons
-        self.shortcuts = []
-
         self.ui.buttonOpen.clicked.connect(self.loadDatenbank)
         self.ui.buttonOpen.setText("\uf07c")
-        self.shortcuts.append(self.createButtonShortcut(self.ui.buttonOpen, "Ctrl+O", "Strg+O"))
+        self.setButtonShortcut(self.ui.buttonOpen, "Ctrl+O")
 
         self.ui.buttonQuicksave.clicked.connect(self.quicksaveDatenbank)
         self.ui.buttonQuicksave.setText("\uf0c7")
-        self.shortcuts.append(self.createButtonShortcut(self.ui.buttonQuicksave, "Ctrl+S", "Strg+S"))
+        self.setButtonShortcut(self.ui.buttonQuicksave, "Ctrl+S")
 
         self.ui.buttonEditieren.clicked.connect(self.editSelected)
         self.ui.buttonEditieren.setEnabled(False)
         self.ui.buttonEditieren.setText("\uf044")
-        self.shortcuts.append(self.createButtonShortcut(self.ui.buttonEditieren, "Return", "Enter"))
+        self.setButtonShortcut(self.ui.buttonEditieren, "Return")
 
         self.ui.buttonDuplizieren.clicked.connect(self.duplicateSelected)
         self.ui.buttonDuplizieren.setEnabled(False)
         self.ui.buttonDuplizieren.setText("\uf24d")
-        self.shortcuts.append(self.createButtonShortcut(self.ui.buttonDuplizieren, "Ctrl+D", "Strg+D"))
+        self.setButtonShortcut(self.ui.buttonDuplizieren, "Ctrl+D")
 
         self.ui.buttonLoeschen.clicked.connect(self.deleteSelected)
         self.ui.buttonLoeschen.setEnabled(False)
         self.ui.buttonLoeschen.setText("\uf2ed")
-        self.shortcuts.append(self.createButtonShortcut(self.ui.buttonLoeschen, "Del", "Entf"))
+        self.setButtonShortcut(self.ui.buttonLoeschen, "Del")
 
         self.ui.buttonNeu.clicked.connect(self.hinzufuegen)
         self.ui.buttonNeu.setText("\u002b")
-        self.shortcuts.append(self.createButtonShortcut(self.ui.buttonNeu, "Ctrl+N", "Strg+N"))
+        self.setButtonShortcut(self.ui.buttonNeu, "Ctrl+N")
 
         self.ui.buttonWiederherstellen.clicked.connect(self.wiederherstellen)
         self.ui.buttonWiederherstellen.setText("\uf829")
-        self.shortcuts.append(self.createButtonShortcut(self.ui.buttonWiederherstellen, "Ctrl+W", "Strg+W"))
+        self.setButtonShortcut(self.ui.buttonWiederherstellen, "Ctrl+W")
 
         self.ui.buttonRAW.clicked.connect(self.vanillaAnsehen)
         self.ui.buttonRAW.setText("\uf02d")
-        self.shortcuts.append(self.createButtonShortcut(self.ui.buttonRAW, "Ctrl+R", "Strg+R"))
+        self.setButtonShortcut(self.ui.buttonRAW, "Ctrl+R")
 
         self.ui.checkDetails.stateChanged.connect(self.onDetailsClicked)
 
@@ -358,14 +356,9 @@ class DatenbankEditor(object):
         if len(self.datenbank.loadingErrors) > 0:
             QtCore.QTimer.singleShot(0, self.showErrorLog)
 
-    def createButtonShortcut(self, button, shortcutStr, translation):
-        # Using the buttons setShortcut in qt creator doesnt work, maybe the menu bar kills it...
-        shortcut = QtGui.QAction()
-        shortcut.setShortcut(shortcutStr)
-        shortcut.triggered.connect(button.click)
-        button.addAction(shortcut)
-        button.setToolTip(f"{button.toolTip()} ({translation})")
-        return shortcut
+    def setButtonShortcut(self, button, shortcutStr):
+        button.setShortcut(shortcutStr)
+        button.setToolTip(button.toolTip() + " (" + button.shortcut().toString(QtGui.QKeySequence.NativeText) + ")")
 
     def nextTab(self):
         index = self.ui.tabWidget.currentIndex() + 1
@@ -814,12 +807,14 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         
     def quicksaveDatenbank(self, merge = False):
         prevText = self.ui.buttonQuicksave.text()
+        prevShortcut = self.ui.buttonQuicksave.shortcut()
         self.ui.buttonQuicksave.setText("\uf254")
         QtWidgets.QApplication.processEvents()
 
         if not self.savepath:
             self.saveDatenbank(merge)
             self.ui.buttonQuicksave.setText(prevText)
+            self.ui.buttonQuicksave.setShortcut(prevShortcut)
             return
 
         refDatabaseFile = os.getcwd() + os.path.normpath("/Data/datenbank.xml")
@@ -843,6 +838,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             self.changed = False
 
         self.ui.buttonQuicksave.setText(prevText)
+        self.ui.buttonQuicksave.setShortcut(prevShortcut)
     
     def closeDatenbank(self):
         if self.cancelDueToPendingChanges("Datenbank schließen"):
