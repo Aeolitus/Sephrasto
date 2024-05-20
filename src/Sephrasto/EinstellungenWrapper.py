@@ -520,7 +520,7 @@ class EinstellungenWrapper():
                 label.setToolTip("Das Plugin wurde für eine neuere Sephrasto-Version entwickelt.\n"\
                     "Vielleicht macht das nichts, aber es kann auch sein, dass es nicht richtig funktionieren wird.\n"\
                     f"Es steht eine ältere Version für Sephrasto {sephrastoVersion} zur Verfügung, ein Downgrade wird empfohlen.")
-            elif Version.isClientHigher(pdui.sephrastoVersion):
+            elif Version.isClientHigher([pdui.sephrastoVersion[0], pdui.sephrastoVersion[1], Version._sephrasto_version_build, 0]): # ignore build version
                 warnIcon = "&nbsp;&nbsp;<span style='" + Wolke.FontAwesomeCSS + "'>\uf071</span>"
                 anzeigeversion += warnIcon
                 sephrastoVersion = ".".join([str(v) for v in pdui.sephrastoVersion[:3]])
