@@ -856,7 +856,6 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
     def reloadDatenbank(self):
         if self.cancelDueToPendingChanges("Datenbank schließen"):
             return
-        self.savepath = None
         self.datenbank.loadFile(hausregeln = self.datenbank.hausregelDatei)
         self.updateGUI()
         self.updateWindowTitleAndCloseButton()
