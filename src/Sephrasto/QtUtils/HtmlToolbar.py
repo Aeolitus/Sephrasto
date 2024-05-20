@@ -11,22 +11,28 @@ class HtmlToolbar(QtWidgets.QWidget):
         margin = Hilfsmethoden.emToPixels(0.5)
         layout.setContentsMargins(margin, margin, margin, margin)
 
+        self.paragraphButton = QtWidgets.QPushButton(self)
+        self.paragraphButton.setText("\u0050")
+        self.paragraphButton.setShortcut("Ctrl+P")
+        self.paragraphButton.setToolTip("Paragraph (" + self.paragraphButton.shortcut().toString(QtGui.QKeySequence.NativeText) + ")")
+        self.paragraphButton.clicked.connect(lambda: self.insertTag("<p>", "</p>"))
+
         self.boldButton = QtWidgets.QPushButton(self)
         self.boldButton.setText("\uf032")
-        self.boldButton.setToolTip("Fett (Strg+B)")
         self.boldButton.setShortcut(QtGui.QKeySequence.Bold)
+        self.boldButton.setToolTip("Fett (" + self.boldButton.shortcut().toString(QtGui.QKeySequence.NativeText) + ")")
         self.boldButton.clicked.connect(lambda: self.insertTag("<b>", "</b>"))
 
         self.italicButton = QtWidgets.QPushButton(self)
         self.italicButton.setText("\uf033")
-        self.italicButton.setToolTip("Kursiv (Strg+I)")
         self.italicButton.setShortcut(QtGui.QKeySequence.Italic)
+        self.italicButton.setToolTip("Kursiv (" + self.italicButton.shortcut().toString(QtGui.QKeySequence.NativeText) + ")")
         self.italicButton.clicked.connect(lambda: self.insertTag("<i>", "</i>"))
 
         self.underlineButton = QtWidgets.QPushButton(self)
         self.underlineButton.setText("\uf0cd")
-        self.underlineButton.setToolTip("Unterstrichen (Strg+U)")
         self.underlineButton.setShortcut(QtGui.QKeySequence.Underline)
+        self.underlineButton.setToolTip("Unterstrichen (" + self.underlineButton.shortcut().toString(QtGui.QKeySequence.NativeText) + ")")
         self.underlineButton.clicked.connect(lambda: self.insertTag("<u>", "</u>"))
 
         self.line1 = QtWidgets.QFrame()
@@ -35,20 +41,20 @@ class HtmlToolbar(QtWidgets.QWidget):
 
         self.ulButton = QtWidgets.QPushButton(self)
         self.ulButton.setText("\uf0ca")
-        self.ulButton.setToolTip("Liste (Strg+L)")
         self.ulButton.setShortcut(QtGui.QKeySequence("Ctrl+L"))
+        self.ulButton.setToolTip("Liste (" + self.ulButton.shortcut().toString(QtGui.QKeySequence.NativeText) + ")")
         self.ulButton.clicked.connect(lambda: self.insertTag("<ul>", "</ul>"))
         
         self.olButton = QtWidgets.QPushButton(self)
         self.olButton.setText("\uf0cb")
-        self.olButton.setToolTip("Geordnete Liste (Strg+O)")
         self.olButton.setShortcut(QtGui.QKeySequence("Ctrl+O"))
+        self.olButton.setToolTip("Geordnete Liste (" + self.olButton.shortcut().toString(QtGui.QKeySequence.NativeText) + ")")
         self.olButton.clicked.connect(lambda: self.insertTag("<ol>", "</ol>"))
 
         self.liButton = QtWidgets.QPushButton(self)
         self.liButton.setText("\uf621")
-        self.liButton.setToolTip("Listeneintrag (Strg+E)")
         self.liButton.setShortcut(QtGui.QKeySequence("Ctrl+E"))
+        self.liButton.setToolTip("Listeneintrag (" + self.liButton.shortcut().toString(QtGui.QKeySequence.NativeText) + ")")
         self.liButton.clicked.connect(lambda: self.insertTag("<li>", "</li>"))
 
         self.line2 = QtWidgets.QFrame()
@@ -57,8 +63,8 @@ class HtmlToolbar(QtWidgets.QWidget):
 
         self.tableButton = QtWidgets.QPushButton(self)
         self.tableButton.setText("\uf00a")
-        self.tableButton.setToolTip("Tabelle (Ctrl+T)")
         self.tableButton.setShortcut(QtGui.QKeySequence("Ctrl+T"))
+        self.tableButton.setToolTip("Tabelle (" + self.tableButton.shortcut().toString(QtGui.QKeySequence.NativeText) + ")")
         self.tableButton.clicked.connect(self.tablePopup)
 
         self.line3 = QtWidgets.QFrame()
@@ -79,6 +85,7 @@ class HtmlToolbar(QtWidgets.QWidget):
         self.imageEmbedButton.clicked.connect(self.imageEmbedPopup)
 
         self._widgets = [
+            self.paragraphButton,
             self.boldButton,
             self.italicButton,
             self.underlineButton,
