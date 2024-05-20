@@ -283,20 +283,9 @@ class Editor(object):
         self.shortcutPrevTab.triggered.connect(self.previousTab)
         self.ui.tabs.addAction(self.shortcutPrevTab)
 
-        self.shortcutSave = QtGui.QAction() 
-        self.shortcutSave.setShortcut("Ctrl+S")
-        self.shortcutSave.triggered.connect(self.quicksaveButton)
-        self.ui.buttonQuicksave.addAction(self.shortcutSave)
-
-        self.shortcutSaveAs = QtGui.QAction() 
-        self.shortcutSaveAs.setShortcut("Ctrl+Shift+S")
-        self.shortcutSaveAs.triggered.connect(self.saveButton)
-        self.ui.buttonSave.addAction(self.shortcutSaveAs)
-
-        self.shortcutExport = QtGui.QAction() 
-        self.shortcutExport.setShortcut("Ctrl+E")
-        self.shortcutExport.triggered.connect(self.pdfButton)
-        self.ui.buttonSavePDF.addAction(self.shortcutExport)
+        self.ui.buttonQuicksave.setShortcut("Ctrl+S")
+        self.ui.buttonSave.setShortcut("Ctrl+Shift+S")
+        self.ui.buttonSavePDF.setShortcut("Ctrl+E")
 
         self.form.closeEvent = self.closeEvent
         self.form.show()
