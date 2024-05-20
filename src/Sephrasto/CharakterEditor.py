@@ -33,6 +33,7 @@ from CharakterAssistent.CharakterMerger import CharakterMerger
 import base64
 from QtUtils.ProgressDialogExt import ProgressDialogExt
 from QtUtils.RichTextButton import RichTextPushButton, RichTextToolButton
+from functools import partial
 
 class Tab():
     def __init__(self, order, wrapper, form, name):
@@ -259,6 +260,12 @@ class Editor(object):
         self.ui.buttonSavePDF.setToolTip("Charakter mit dem gewählten Charakterbogen als PDF exportieren (" + self.ui.buttonSavePDF.shortcut().toString(QtGui.QKeySequence.NativeText) + ")")
         self.ui.buttonSavePDF.clicked.connect(self.pdfButton)
         self.ui.layoutBottomBar.addWidget(self.ui.buttonSavePDF)
+        self.ui.buttonSavePDF.setPopupMode(QtWidgets.QToolButton.MenuButtonPopup)
+        self.exportMenu = QtWidgets.QMenu()
+        for bogen in Wolke.Charakterbögen:
+            action = self.exportMenu.addAction(bogen)
+            action.triggered.connect(partial(self.pdfButton, bogen=bogen))
+        self.ui.buttonSavePDF.setMenu(self.exportMenu)
 
         for pd in self.plugins:
             if pd.plugin is None:
@@ -466,7 +473,7 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
 
         self.changed = False
 
-    def pdfButton(self):
+    def pdfButton(self, bogen = None):
         if which("pdftk") is None:
             messagebox = QtWidgets.QMessageBox()
             messagebox.setWindowTitle("PDFtk ist nicht installiert!")
@@ -484,10 +491,13 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
         
         result = -1
 
-        for bogen in Wolke.Charakterbögen:
-            if Wolke.Char.charakterbogen == os.path.basename(os.path.splitext(bogen)[0]):
-                self.pdfExporter.setCharakterbogen(EventBus.applyFilter("set_charakterbogen", Wolke.Charakterbögen[bogen]))
-                break
+        if bogen is None:
+            for bogen in Wolke.Charakterbögen:
+                if Wolke.Char.charakterbogen == os.path.basename(os.path.splitext(bogen)[0]):
+                    self.pdfExporter.setCharakterbogen(EventBus.applyFilter("set_charakterbogen", Wolke.Charakterbögen[bogen]))
+                    break
+        else:
+            self.pdfExporter.setCharakterbogen(EventBus.applyFilter("set_charakterbogen", Wolke.Charakterbögen[bogen]))
 
         # Check if there is a base Charakterbogen.pdf:
         if not os.path.isfile(self.pdfExporter.CharakterBogen.filePath):
