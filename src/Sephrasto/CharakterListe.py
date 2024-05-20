@@ -2,7 +2,6 @@ from PySide6 import QtWidgets, QtCore, QtGui
 import os
 import Charakter
 from functools import partial
-from QtUtils.RichTextButton import RichTextPushButton
 from Hilfsmethoden import Hilfsmethoden
 from Wolke import Wolke
 import math

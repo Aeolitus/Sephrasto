@@ -33,7 +33,7 @@ class Section(wd.QWidget):
         self.toggleButton.setStyleSheet("QToolButton {border: none;}")
         self.toggleButton.setToolButtonStyle(cr.Qt.ToolButtonTextBesideIcon)
         self.toggleButton.setArrowType(cr.Qt.RightArrow)
-        self.toggleButton.setText(8*"&nbsp;" + title)
+        self.toggleButton.setText(6*"&nbsp;" + title)
         self.toggleButton.setCheckable(True)
         self.toggleButton.setChecked(False)
 

@@ -1,4 +1,4 @@
-from PySide6 import QtCore, QtWidgets
+from PySide6 import QtCore, QtWidgets, QtGui
 
 # Based on https://stackoverflow.com/questions/2990060/qt-qpushbutton-text-formatting
 class RichTextPushButton(QtWidgets.QPushButton):
@@ -13,14 +13,17 @@ class RichTextPushButton(QtWidgets.QPushButton):
         self.setLayout(self.__rtLayout)
         self.__rtLabel.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.__rtLabel.setAttribute(QtCore.Qt.WA_TransparentForMouseEvents)
-        self.__rtLabel.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        self.__rtLabel.setSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         self.__rtLabel.setAlignment(QtCore.Qt.AlignCenter | QtCore.Qt.AlignVCenter)
         self.__rtLabel.setTextFormat(QtCore.Qt.RichText)
         self.__rtLayout.addWidget(self.__rtLabel)
 
     def setText(self, text):
-        self.__rtLabel.setText(text)
+        self.__rtLabel.setText("&nbsp;&nbsp;" + text + "&nbsp;&nbsp;") # quickndirty
         self.updateGeometry()
+
+    def text(self):
+        return self.__rtLabel.text()[12:-12] if self.__rtLabel.text() else ""
 
     def sizeHint(self):
         s = super().sizeHint()
@@ -41,14 +44,17 @@ class RichTextToolButton(QtWidgets.QToolButton):
         self.setLayout(self.__rtLayout)
         self.__rtLabel.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.__rtLabel.setAttribute(QtCore.Qt.WA_TransparentForMouseEvents)
-        self.__rtLabel.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        self.__rtLabel.setSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         self.__rtLabel.setAlignment(QtCore.Qt.AlignCenter | QtCore.Qt.AlignVCenter)
         self.__rtLabel.setTextFormat(QtCore.Qt.RichText)
         self.__rtLayout.addWidget(self.__rtLabel)
 
     def setText(self, text):
-        self.__rtLabel.setText(text)
+        self.__rtLabel.setText("&nbsp;&nbsp;" + text + "&nbsp;&nbsp;&nbsp;&nbsp;") # quickndirty, add more at the end for arrow button margin
         self.updateGeometry()
+
+    def text(self):
+        return self.__rtLabel.text()[12:-24] if self.__rtLabel.text() else ""
 
     def sizeHint(self):
         s = super().sizeHint()

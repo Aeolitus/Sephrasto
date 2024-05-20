@@ -171,8 +171,8 @@ class DatenbankEditor(object):
         self.shortcutClearSearch.triggered.connect(lambda: self.ui.nameFilterEdit.setText("") if self.ui.nameFilterEdit.hasFocus() else None)
         self.ui.nameFilterEdit.addAction(self.shortcutClearSearch)
 
-        self.buttonStatusFilterText = 2*"&nbsp;" + "<span style='" + Wolke.FontAwesomeCSS + f"'>\uf0b0</span>&nbsp;&nbsp;Status-Filter"
-        self.ui.buttonStatusFilter = RichTextToolButton(None, self.buttonStatusFilterText + 4*"&nbsp;")
+        self.buttonStatusFilterText = "<span style='" + Wolke.FontAwesomeCSS + f"'>\uf0b0</span>&nbsp;&nbsp;Status-Filter"
+        self.ui.buttonStatusFilter = RichTextToolButton(None, self.buttonStatusFilterText)
         self.ui.buttonStatusFilter.setPopupMode(QtWidgets.QToolButton.InstantPopup)
         self.ui.horizontalLayout_3.addWidget(self.ui.buttonStatusFilter)
         self.statusFilterMenu = QtWidgets.QMenu()
@@ -497,11 +497,11 @@ class DatenbankEditor(object):
     def updateFilter(self):
         statusses = [a.data() for a in self.statusFilterMenu.actions()[1:] if a.isChecked()]
         if len(statusses) > 0:
-            self.ui.buttonStatusFilter.setText(f"{self.buttonStatusFilterText} <span style='color: green;'>({len(statusses)})</span>" + 4 * "&nbsp;")
+            self.ui.buttonStatusFilter.setText(f"{self.buttonStatusFilterText} <span style='color: green;'>({len(statusses)})</span>")
             self.statusFilterMenu.actions()[0].setVisible(True)
         else:
             statusses = [a.data() for a in self.statusFilterMenu.actions()[1:]]
-            self.ui.buttonStatusFilter.setText(self.buttonStatusFilterText + 4 * "&nbsp;")
+            self.ui.buttonStatusFilter.setText(self.buttonStatusFilterText)
             self.statusFilterMenu.actions()[0].setVisible(False)
 
         filter = self.filters[self.ui.tabWidget.currentIndex()]

@@ -83,8 +83,8 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.shortcutClearSearch.triggered.connect(lambda: self.ui.nameFilterEdit.setText("") if self.ui.nameFilterEdit.hasFocus() else None)
         self.ui.nameFilterEdit.addAction(self.shortcutClearSearch)
 
-        self.buttonFilterText = 2*"&nbsp;" + "<span style='" + Wolke.FontAwesomeCSS + f"'>\uf0b0</span>&nbsp;&nbsp;Filter"
-        self.ui.buttonFilter = RichTextToolButton(None, self.buttonFilterText + 4*"&nbsp;")
+        self.buttonFilterText = "<span style='" + Wolke.FontAwesomeCSS + f"'>\uf0b0</span>&nbsp;&nbsp;Filter"
+        self.ui.buttonFilter = RichTextToolButton(None, self.buttonFilterText)
         self.ui.buttonFilter.setPopupMode(QtWidgets.QToolButton.InstantPopup)
         self.ui.horizontalLayout.addWidget(self.ui.buttonFilter)
         self.filterMenu = QtWidgets.QMenu()
@@ -214,12 +214,12 @@ class CharakterVorteileWrapper(QtCore.QObject):
             showPurchased = True
             showUnpurchased = True
             showUnvailable = True
-            self.ui.buttonFilter.setText(f"{self.buttonFilterText}" + 4 * "&nbsp;")
+            self.ui.buttonFilter.setText(self.buttonFilterText)
         else:
             showPurchased = self.filterMenu.actions()[1].isChecked()
             showUnpurchased = self.filterMenu.actions()[2].isChecked()
             showUnvailable = self.filterMenu.actions()[3].isChecked()
-            self.ui.buttonFilter.setText(f"{self.buttonFilterText} <span style='color: green;'>({numFilters})</span>" + 4 * "&nbsp;")
+            self.ui.buttonFilter.setText(f"{self.buttonFilterText} <span style='color: green;'>({numFilters})</span>")
         self.filterMenu.actions()[0].setVisible(not(showPurchased and showUnpurchased and not showUnvailable))
 
         self.ui.treeWidget.blockSignals(True)
