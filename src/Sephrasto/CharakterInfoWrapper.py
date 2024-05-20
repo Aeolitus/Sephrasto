@@ -132,7 +132,7 @@ class InfoWrapper(QtCore.QObject):
         self.ui.checkDetails.setChecked(Wolke.Char.detailsAnzeigen)
         self.ui.spinRegelnGroesse.setValue(Wolke.Char.regelnGroesse)
         self.ui.comboHausregeln.setCurrentText(Wolke.DB.hausregelnAnzeigeName)
-        self.ui.comboCharsheet.setCurrentText(Wolke.Char.charakterbogen)
+        self.ui.comboCharsheet.setCurrentText(Wolke.Char.charakterbogen.replace(" Charakterbogen ", "").replace(" Charakterbogen", ""))
         cbi = InfoWrapper.getCharakterbogen(Wolke.Char.charakterbogen)
         if cbi:
             self.ui.comboCharsheet.setToolTip(cbi.info)
