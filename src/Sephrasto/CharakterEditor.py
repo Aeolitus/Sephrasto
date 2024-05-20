@@ -258,7 +258,7 @@ class Editor(object):
         self.ui.buttonSavePDF.setText("<span style='" + Wolke.FontAwesomeCSS + f"'>\uf1c1</span>&nbsp;&nbsp;Export")
         self.ui.buttonSavePDF.setShortcut("Ctrl+E")
         self.ui.buttonSavePDF.setToolTip("Charakter mit dem gewählten Charakterbogen als PDF exportieren (" + self.ui.buttonSavePDF.shortcut().toString(QtGui.QKeySequence.NativeText) + ")")
-        self.ui.buttonSavePDF.clicked.connect(self.pdfButton)
+        self.ui.buttonSavePDF.clicked.connect(partial(self.pdfButton, bogen=None))
         self.ui.layoutBottomBar.addWidget(self.ui.buttonSavePDF)
         self.ui.buttonSavePDF.setPopupMode(QtWidgets.QToolButton.MenuButtonPopup)
         self.exportMenu = QtWidgets.QMenu()
