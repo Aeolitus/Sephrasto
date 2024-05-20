@@ -32,6 +32,7 @@ import platform
 from CharakterAssistent.CharakterMerger import CharakterMerger
 import base64
 from QtUtils.ProgressDialogExt import ProgressDialogExt
+from QtUtils.RichTextButton import RichTextPushButton, RichTextToolButton
 
 class Tab():
     def __init__(self, order, wrapper, form, name):
@@ -239,6 +240,26 @@ class Editor(object):
             self.infoWrapper = infoWrapper()
             tabs.append(Tab(70, self.infoWrapper, self.infoWrapper.form, "Info"))
 
+        self.ui.buttonQuicksave = RichTextToolButton()
+        self.ui.buttonQuicksave.setText("&nbsp;<span style='" + Wolke.FontAwesomeCSS + f"'>\uf0c7</span>&nbsp;&nbsp;Speichern")
+        self.ui.buttonQuicksave.setShortcut("Ctrl+S")
+        self.ui.buttonQuicksave.setToolTip("Charakterdatei speichern (" + self.ui.buttonQuicksave.shortcut().toString(QtGui.QKeySequence.NativeText) + ")")
+        self.ui.buttonQuicksave.clicked.connect(self.quicksaveButton)
+        self.ui.layoutBottomBar.addWidget(self.ui.buttonQuicksave)
+        self.ui.buttonQuicksave.setPopupMode(QtWidgets.QToolButton.MenuButtonPopup)
+        self.saveMenu = QtWidgets.QMenu()
+        action = self.saveMenu.addAction("Speichern unter...")
+        action.setShortcut("Ctrl+Shift+S")
+        action.triggered.connect(self.saveButton)
+        self.ui.buttonQuicksave.setMenu(self.saveMenu)
+
+        self.ui.buttonSavePDF = RichTextToolButton()
+        self.ui.buttonSavePDF.setText("<span style='" + Wolke.FontAwesomeCSS + f"'>\uf1c1</span>&nbsp;&nbsp;Export")
+        self.ui.buttonSavePDF.setShortcut("Ctrl+E")
+        self.ui.buttonSavePDF.setToolTip("Charakter mit dem gewählten Charakterbogen als PDF exportieren (" + self.ui.buttonSavePDF.shortcut().toString(QtGui.QKeySequence.NativeText) + ")")
+        self.ui.buttonSavePDF.clicked.connect(self.pdfButton)
+        self.ui.layoutBottomBar.addWidget(self.ui.buttonSavePDF)
+
         for pd in self.plugins:
             if pd.plugin is None:
                 continue
@@ -249,7 +270,7 @@ class Editor(object):
 
             if hasattr(pd.plugin, "createCharakterButtons"):
                 for button in pd.plugin.createCharakterButtons():
-                    self.ui.horizontalLayout_2.addWidget(button)
+                    self.ui.layoutBottomBar.addWidget(button)
 
         self.tabs = sorted(tabs, key=lambda tab: tab.order)
         for tab in self.tabs:
@@ -264,9 +285,6 @@ class Editor(object):
         self.ui.tabs.currentChanged.connect(lambda idx : self.reload(idx))
         self.updateDetailsVisibility()
 
-        self.ui.buttonSave.clicked.connect(self.saveButton)
-        self.ui.buttonQuicksave.clicked.connect(self.quicksaveButton)
-        self.ui.buttonSavePDF.clicked.connect(self.pdfButton)
         self.ui.spinEP.valueChanged.connect(self.epChanged)
 
         self.reload(self.ui.tabs.currentIndex())
@@ -282,10 +300,6 @@ class Editor(object):
         self.shortcutPrevTab.setShortcut("Ctrl+Shift+Tab")
         self.shortcutPrevTab.triggered.connect(self.previousTab)
         self.ui.tabs.addAction(self.shortcutPrevTab)
-
-        self.ui.buttonQuicksave.setShortcut("Ctrl+S")
-        self.ui.buttonSave.setShortcut("Ctrl+Shift+S")
-        self.ui.buttonSavePDF.setShortcut("Ctrl+E")
 
         self.form.closeEvent = self.closeEvent
         self.form.show()

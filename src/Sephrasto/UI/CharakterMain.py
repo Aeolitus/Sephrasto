@@ -16,9 +16,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QFrame, QGridLayout,
-    QHBoxLayout, QLabel, QPushButton, QScrollArea,
-    QSizePolicy, QSpacerItem, QSpinBox, QTabWidget,
-    QVBoxLayout, QWidget)
+    QHBoxLayout, QLabel, QScrollArea, QSizePolicy,
+    QSpacerItem, QSpinBox, QTabWidget, QVBoxLayout,
+    QWidget)
 
 class Ui_formMain(object):
     def setupUi(self, formMain):
@@ -34,7 +34,7 @@ class Ui_formMain(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 1111, 854))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 1107, 852))
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -66,15 +66,15 @@ class Ui_formMain(object):
 
         self.gridLayout.addWidget(self.scrollArea, 0, 0, 1, 1)
 
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.layoutBottomBar = QHBoxLayout()
+        self.layoutBottomBar.setObjectName(u"layoutBottomBar")
         self.label = QLabel(formMain)
         self.label.setObjectName(u"label")
         font = QFont()
         font.setBold(True)
         self.label.setFont(font)
 
-        self.horizontalLayout_2.addWidget(self.label)
+        self.layoutBottomBar.addWidget(self.label)
 
         self.spinEP = QSpinBox(formMain)
         self.spinEP.setObjectName(u"spinEP")
@@ -82,13 +82,13 @@ class Ui_formMain(object):
         self.spinEP.setButtonSymbols(QAbstractSpinBox.PlusMinus)
         self.spinEP.setMaximum(100000)
 
-        self.horizontalLayout_2.addWidget(self.spinEP)
+        self.layoutBottomBar.addWidget(self.spinEP)
 
         self.label_3 = QLabel(formMain)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setFont(font)
 
-        self.horizontalLayout_2.addWidget(self.label_3)
+        self.layoutBottomBar.addWidget(self.label_3)
 
         self.spinSpent = QSpinBox(formMain)
         self.spinSpent.setObjectName(u"spinSpent")
@@ -99,13 +99,13 @@ class Ui_formMain(object):
         self.spinSpent.setMinimum(-100000)
         self.spinSpent.setMaximum(100000)
 
-        self.horizontalLayout_2.addWidget(self.spinSpent)
+        self.layoutBottomBar.addWidget(self.spinSpent)
 
         self.label_2 = QLabel(formMain)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setFont(font)
 
-        self.horizontalLayout_2.addWidget(self.label_2)
+        self.layoutBottomBar.addWidget(self.label_2)
 
         self.spinRemaining = QSpinBox(formMain)
         self.spinRemaining.setObjectName(u"spinRemaining")
@@ -117,33 +117,14 @@ class Ui_formMain(object):
         self.spinRemaining.setMinimum(-100000)
         self.spinRemaining.setMaximum(100000)
 
-        self.horizontalLayout_2.addWidget(self.spinRemaining)
+        self.layoutBottomBar.addWidget(self.spinRemaining)
 
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.horizontalLayout_2.addItem(self.horizontalSpacer)
-
-        self.buttonQuicksave = QPushButton(formMain)
-        self.buttonQuicksave.setObjectName(u"buttonQuicksave")
-        self.buttonQuicksave.setMinimumSize(QSize(75, 0))
-
-        self.horizontalLayout_2.addWidget(self.buttonQuicksave)
-
-        self.buttonSave = QPushButton(formMain)
-        self.buttonSave.setObjectName(u"buttonSave")
-        self.buttonSave.setMinimumSize(QSize(75, 0))
-
-        self.horizontalLayout_2.addWidget(self.buttonSave)
-
-        self.buttonSavePDF = QPushButton(formMain)
-        self.buttonSavePDF.setObjectName(u"buttonSavePDF")
-        self.buttonSavePDF.setMinimumSize(QSize(100, 0))
-        self.buttonSavePDF.setMaximumSize(QSize(16777214, 16777215))
-
-        self.horizontalLayout_2.addWidget(self.buttonSavePDF)
+        self.layoutBottomBar.addItem(self.horizontalSpacer)
 
 
-        self.gridLayout.addLayout(self.horizontalLayout_2, 1, 0, 1, 1)
+        self.gridLayout.addLayout(self.layoutBottomBar, 1, 0, 1, 1)
 
         QWidget.setTabOrder(self.tabs, self.spinEP)
         QWidget.setTabOrder(self.spinEP, self.spinSpent)
@@ -171,8 +152,5 @@ class Ui_formMain(object):
         self.label_2.setText(QCoreApplication.translate("formMain", u"    Verbleibend:    ", None))
         self.label_2.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
         self.spinRemaining.setSuffix(QCoreApplication.translate("formMain", u" EP", None))
-        self.buttonQuicksave.setText(QCoreApplication.translate("formMain", u"&Speichern", None))
-        self.buttonSave.setText(QCoreApplication.translate("formMain", u"&Speichern unter...", None))
-        self.buttonSavePDF.setText(QCoreApplication.translate("formMain", u"PDF &erstellen", None))
     # retranslateUi
 
