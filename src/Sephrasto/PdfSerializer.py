@@ -435,6 +435,10 @@ def convertHtmlToPdf(html, htmlBaseUrl, pageLayout, pageloadDelayMs = 0, backgro
         with waitForSignal(timer.timeout):
             timer.start(pageloadDelayMs)
 
+    QtWidgets.QApplication.processEvents()
+    webEngineView.update()
+    QtWidgets.QApplication.processEvents()
+
     with waitForSignal(webEngineView.pdfPrintingFinished):
         webEngineView.printToPdf(out_file, pageLayout)
 

@@ -10,13 +10,17 @@
             layout = document.getElementById('layout');
             var hyphenateHTMLSync = createHyphenator(hyphenationPatternsDe1996, { html: true });
             layout.innerHTML = hyphenateHTMLSync(layout.innerHTML);
-            //Done, callback to Sephrasto
-            new QWebChannel(qt.webChannelTransport,
-                function (channel) {
-                    Bridge = channel.objects.Bridge;
-                    Bridge.htmlLoaded();
-                }
-            );
+            //Done, callback to Sephrasto (but wait a bit)
+            window.requestIdleCallback(function(){
+                setTimeout(function() {        
+                    new QWebChannel(qt.webChannelTransport,
+                        function(channel) {
+                            Bridge = channel.objects.Bridge;
+                            Bridge.htmlLoaded();
+                        }
+                    );
+                }, 0);
+            }); 
         }
         </script>
         <style>
