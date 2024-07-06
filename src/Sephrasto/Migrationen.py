@@ -607,8 +607,11 @@ class Migrationen():
         for node in root.findall('Einstellung'):
             if node.attrib['name'] in ["Vorteile: Typen", "FreieFertigkeiten: Typen", "Fertigkeiten: Typen profan", "Fertigkeiten: Typen übernatürlich", "Rüstungen: Typen", "Regeln: Typen", "Talente: Spezialtalent Typen"]:
                 if node.attrib['name'] == "Talente: Spezialtalent Typen":
-                    node.attrib['name']  = "Talente: Kategorien"
-                    node.text = "Profan," + node.text
+                    node.attrib['name'] = "Talente: Kategorien"
+                    newText = ["Profan"]
+                    for el in [t.strip() for t in node.text.split('\n')]:
+                        newText.append(el.split("=", 1)[1].strip())
+                    node.text = ",".join(newText)
                 
                 if node.text:
                     typen = list(map(str.strip, node.text.split(",")))
