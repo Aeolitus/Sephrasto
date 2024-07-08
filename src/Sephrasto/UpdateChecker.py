@@ -50,17 +50,17 @@ class UpdateChecker:
         messageBox.setIcon(QtWidgets.QMessageBox.Information)
         messageBox.setWindowTitle("Neue Sephrasto-Version")
         messageBox.setText(f"Eine neue Version von Sephrasto ist verfügbar! Clicke auf Download, um zur Sephrasto-Seite auf github.com zu gelangen.\n\nInstallierte Version: {Version.clientToString()}\nNeue Version: {version}")
-        messageBox.addButton("Download", QtWidgets.QMessageBox.AcceptRole)
-        messageBox.addButton("Später", QtWidgets.QMessageBox.AcceptRole)
+        downloadButton = messageBox.addButton("Download", QtWidgets.QMessageBox.AcceptRole)
+        laterButton = messageBox.addButton("Später", QtWidgets.QMessageBox.AcceptRole)
         messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
 
         check = QtWidgets.QCheckBox("Information für dieses Update nicht mehr anzeigen.")
         check.setCheckState(QtCore.Qt.Unchecked)
         messageBox.setCheckBox(check)
 
-        result = messageBox.exec()
+        messageBox.exec()
 
-        if result == 0:
+        if messageBox.clickedButton() == downloadButton:
             webbrowser.open(UpdateChecker._downloadLink)
 
         if check.isChecked():

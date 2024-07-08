@@ -288,11 +288,11 @@ class EinstellungenWrapper():
                 messageBox.setIcon(QtWidgets.QMessageBox.Information)
                 messageBox.setWindowTitle("Sephrasto neustarten?")
                 messageBox.setText("Sephrasto muss bei Änderungen an Plugin- oder Theme-Einstellungen neugestartet werden.")
-                messageBox.addButton("Neustarten", QtWidgets.QMessageBox.YesRole)
-                messageBox.addButton("Später", QtWidgets.QMessageBox.RejectRole)
+                restartButton = messageBox.addButton("Neustarten", QtWidgets.QMessageBox.YesRole)
+                laterButton = messageBox.addButton("Später", QtWidgets.QMessageBox.RejectRole)
                 messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-                result = messageBox.exec()
-                if result == 0:
+                messageBox.exec()
+                if messageBox.clickedButton() == restartButton:
                     EinstellungenWrapper.restartSephrasto()
    
     def getSelectedPlugin(self):
@@ -352,10 +352,10 @@ class EinstellungenWrapper():
         messageBox.setWindowTitle(pdui.pd.anzeigename + " Installation")
         messageBox.setText(pdui.pd.anzeigename + " benötigt weitere Plugins!")
         messageBox.setInformativeText("\n\n".join(text))
-        messageBox.addButton("Fortfahren", QtWidgets.QMessageBox.YesRole)
-        messageBox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
-        result = messageBox.exec()
-        if result == 1:
+        okButton = messageBox.addButton("Fortfahren", QtWidgets.QMessageBox.YesRole)
+        cancelButton = messageBox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
+        messageBox.exec()
+        if messageBox.clickedButton() == cancelButton:
             return False
         for el in toInstall:
             self.installPlugin(el)
@@ -647,9 +647,10 @@ class EinstellungenWrapper():
             messageBox.setText("Die folgenden Ordner existieren nicht mehr. Sollen sie auf den Standardpfad zurückgesetzt werden?")
             messageBox.setInformativeText(", ".join(missingFolders))
             messageBox.setIcon(QtWidgets.QMessageBox.Warning)
-            messageBox.addButton("Zurücksetzen", QtWidgets.QMessageBox.YesRole)
-            messageBox.addButton("Sephrasto beenden", QtWidgets.QMessageBox.RejectRole)
-            if messageBox.exec() == 1:
+            revertButton = messageBox.addButton("Zurücksetzen", QtWidgets.QMessageBox.YesRole)
+            quitButton = messageBox.addButton("Sephrasto beenden", QtWidgets.QMessageBox.RejectRole)
+            messageBox.exec()
+            if messageBox.clickedButton() == quitButton:
                 sys.exit()
 
         for configName, folderName in folders:

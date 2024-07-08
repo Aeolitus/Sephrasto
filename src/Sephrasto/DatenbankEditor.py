@@ -759,14 +759,14 @@ class DatenbankEditor(object):
             infoBox.setIcon(QtWidgets.QMessageBox.Question)
             infoBox.setText("Der Charakter-Editor kann nur Datenbanken aus dem in den Einstellungen gesetzten Pfad laden, sicher dass du die Datenbank hierhin speichern möchtest?")
             infoBox.setWindowTitle("Hausregeln speichern")
-            infoBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
-            infoBox.addButton("Anderer Pfad", QtWidgets.QMessageBox.NoRole)
-            infoBox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
-            result = infoBox.exec()
-            if result == 1:
+            yesButton = infoBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
+            otherButton = infoBox.addButton("Anderer Pfad", QtWidgets.QMessageBox.NoRole)
+            cancelButton = infoBox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
+            infoBox.exec()
+            if infoBox.clickedButton() == otherButton:
                 self.saveDatenbank(merge)
                 return
-            elif result == 2:
+            elif infoBox.clickedButton() == cancelButton:
                 return
 
         refDatabaseFile = os.getcwd() + os.path.normpath("/Data/datenbank.xml")
@@ -864,6 +864,12 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         if hasattr(self, "errorLogWindow"):
             self.errorLogWindow.refresh()
 
+    ConflictResultInvalid = -1
+    ConflictResultViewCurrent = 0
+    ConflictResultViewNew = 1
+    ConflictResultChooseCurrent = 2
+    ConflictResultChooseNew = 3
+
     RememberConflictResult = -1
 
     def loadDatenbank(self, additiv = False):
@@ -879,10 +885,10 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
                             "In jedem Fall solltest du hinterher aber überprüfen, ob alle geänderten Elemente noch intakt sind. " +
                             "Beispielsweise könnten die zusätzlichen Hausregeln einen Vorteil gelöscht haben, der in den aktuellen Hausregeln irgendwo als Voraussetzung gelistet ist.")
             infoBox.setWindowTitle("Mehrere Hausregeln laden")
-            infoBox.addButton("Abbrechen", QtWidgets.QMessageBox.NoRole)
-            infoBox.addButton("Verstanden!", QtWidgets.QMessageBox.YesRole)
-            result = infoBox.exec()
-            if result != 1:
+            cancelButton = infoBox.addButton("Abbrechen", QtWidgets.QMessageBox.NoRole)
+            okButton = infoBox.addButton("Verstanden!", QtWidgets.QMessageBox.YesRole)
+            infoBox.exec()
+            if infoBox.clickedButton() == cancelButton:
                 return
 
         if os.path.isdir(Wolke.Settings['Pfad-Regeln']):
@@ -916,40 +922,47 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             self.loadDatenbank(additiv)
             return
 
-        def showConflict(typ, old, new):
-            infoBox = QtWidgets.QMessageBox()
-            infoBox.setIcon(QtWidgets.QMessageBox.Question)
-            infoBox.setText(typ.displayName + " " + old.name + " wurde sowohl in den bestehenden, als auch in den neu geladenen Hausregeln geändert. Welche Version möchtest du beibehalten?")
-            infoBox.setWindowTitle("Zusätzliche Hausregeln laden: Konflikt")
-
-            infoBox.addButton("Aktuell ansehen", QtWidgets.QMessageBox.YesRole)
-            infoBox.addButton("Neu ansehen", QtWidgets.QMessageBox.YesRole)
-            infoBox.addButton("Aktuell auswählen", QtWidgets.QMessageBox.YesRole)
-            infoBox.addButton("Neu auswählen", QtWidgets.QMessageBox.YesRole)
-            check = QtWidgets.QCheckBox("Alle weiteren Konflikte gleich behandeln.")
-            infoBox.setCheckBox(check)
-            return (infoBox.exec(), infoBox.checkBox().isChecked())
-
         def conflictCB(typ, old, new):
-            result = -1
-            if DatenbankEditor.RememberConflictResult != -1:
-                result = DatenbankEditor.RememberConflictResult
+            result = DatenbankEditor.RememberConflictResult
 
-            while result < 2: 
-                result, checked = showConflict(typ, old, new)
-                if result < 2 and typ in self.databaseTypes:
+            while result != DatenbankEditor.ConflictResultChooseCurrent and result != DatenbankEditor.ConflictResultChooseNew: 
+                infoBox = QtWidgets.QMessageBox()
+                infoBox.setIcon(QtWidgets.QMessageBox.Question)
+                infoBox.setText(typ.displayName + " " + old.name + " wurde sowohl in den bestehenden, als auch in den neu geladenen Hausregeln geändert. Welche Version möchtest du beibehalten?")
+                infoBox.setWindowTitle("Zusätzliche Hausregeln laden: Konflikt")
+
+                viewCurrentButton = infoBox.addButton("Aktuell ansehen", QtWidgets.QMessageBox.YesRole)
+                viewNewButton = infoBox.addButton("Neu ansehen", QtWidgets.QMessageBox.YesRole)
+                chooseCurrentButton = infoBox.addButton("Aktuell auswählen", QtWidgets.QMessageBox.YesRole)
+                chooseNewButton = infoBox.addButton("Neu auswählen", QtWidgets.QMessageBox.YesRole)
+                check = QtWidgets.QCheckBox("Alle weiteren Konflikte gleich behandeln.")
+                infoBox.setCheckBox(check)
+                infoBox.exec()
+                if infoBox.clickedButton() == viewCurrentButton:
+                    result = DatenbankEditor.ConflictResultViewCurrent
+                elif infoBox.clickedButton() == viewNewButton:
+                    result = DatenbankEditor.ConflictResultViewNew
+                elif infoBox.clickedButton() == chooseCurrentButton:
+                    result = DatenbankEditor.ConflictResultChooseCurrent
+                elif infoBox.clickedButton() == chooseNewButton:
+                    result = DatenbankEditor.ConflictResultChooseNew
+
+                if result == DatenbankEditor.ConflictResultViewCurrent and typ in self.databaseTypes:
                     databaseType = self.databaseTypes[typ]
-                    databaseType.edit(self.datenbank, old if result == 0 else new, True)
-                elif result >= 2 and checked:
+                    databaseType.edit(self.datenbank, old, True)
+                elif result == DatenbankEditor.ConflictResultViewNew and typ in self.databaseTypes:
+                    databaseType = self.databaseTypes[typ]
+                    databaseType.edit(self.datenbank, new, True)
+                elif (result == DatenbankEditor.ConflictResultChooseCurrent or result == DatenbankEditor.ConflictResultChooseNew) and infoBox.checkBox().isChecked():
                     DatenbankEditor.RememberConflictResult = result
 
-            return old if result == 2 else new
+            return old if result == DatenbankEditor.ConflictResultChooseCurrent else new
 
         if additiv:
-            DatenbankEditor.RememberConflictResult = -1
+            DatenbankEditor.RememberConflictResult = DatenbankEditor.ConflictResultInvalid
             if not self.datenbank.loadFileAdditional(spath, conflictCB):
                 self.showInvalidDatabasePopup(spath)
-            DatenbankEditor.RememberConflictResult = -1
+            DatenbankEditor.RememberConflictResult = DatenbankEditor.ConflictResultInvalid
         else:
             if self.datenbank.loadFile(hausregeln=spath):
                 self.savepath = spath
