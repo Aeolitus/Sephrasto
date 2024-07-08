@@ -129,7 +129,7 @@ class MainWindowWrapper(object):
             format="%(asctime)s | %(levelname)s | %(filename)s::%(funcName)s(%(lineno)d) | %(message)s")
 
         # Log and check version
-        logging.critical("Starte Sephrasto " + Version.clientToString()) #critical so it's always printed, independent of the debug level setting
+        logging.critical("Starte Sephrasto " + Version.clientToString() + " auf " + platform.system()) #critical so it's always printed, independent of the debug level setting
         logging.critical(f"Python {platform.python_version()}, Qt {QtCore.qVersion()}, PySide {PySide6.__version__} (compiled with Qt {QtCore.__version__})") #for people that start from source
 
         pythonMinVersion = "3.9.0"
