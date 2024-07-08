@@ -145,6 +145,10 @@ class PdfExporter(object):
                     bookmarks.pop()
                     i -= 1
 
+            if printRules and not os.path.isfile(self.CharakterBogen.regelanhangPfad):
+                printRules = False
+                logging.warn("Der gewählte Charakterbogen hat keinen korrekten Regelanhang-Pfad, die Regeln werden nicht ausgegeben.")
+
             if printRules:
                 if dlg.shouldCancel():
                     for page in allPages: os.remove(page)
