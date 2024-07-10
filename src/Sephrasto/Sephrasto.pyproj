@@ -178,10 +178,6 @@
     <Folder Include="QtUtils\" />
   </ItemGroup>
   <ItemGroup>
-    <InterpreterReference Include="Global|PythonCore|3.7" />
-    <InterpreterReference Include="Global|PythonCore|3.9" />
-  </ItemGroup>
-  <ItemGroup>
     <Interpreter Include="..\..\venv\">
       <Id>venv</Id>
       <Version>3.9</Version>
