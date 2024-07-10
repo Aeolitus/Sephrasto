@@ -17,12 +17,11 @@ from QtUtils.HtmlToolbar import HtmlToolbar
 
 class DatenbankEditTalentWrapper(DatenbankElementEditorBase):
     def __init__(self, datenbank, talent=None, readonly=False):
-        super().__init__()
+        super().__init__(datenbank, UI.DatenbankEditTalent.Ui_dialog(), TalentDefinition, talent, readonly)
         self.beschreibungEditor = BeschreibungEditor(self, "textSerialized")
         self.beschreibungInfoEditor = BeschreibungEditor(self, "info", "teInfo", "tbInfo")
         self.voraussetzungenEditor = VoraussetzungenEditor(self)
         self.validator["Fertigkeiten"] = True
-        self.setupAndShow(datenbank, UI.DatenbankEditTalent.Ui_dialog(), TalentDefinition, talent, readonly)
 
     def load(self, talent):
         super().load(talent)

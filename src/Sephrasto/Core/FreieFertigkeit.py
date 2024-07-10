@@ -22,7 +22,9 @@ class FreieFertigkeitDefinition:
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
-        return self.__dict__ == other.__dict__
+        return self.name == other.name and \
+            self.kategorie == other.kategorie and \
+            self.voraussetzungen == other.voraussetzungen
 
     def finalize(self, db):
         if FreieFertigkeitDefinition.steigerungskosten is None:
@@ -50,7 +52,7 @@ class FreieFertigkeitDefinition:
         ser.set('voraussetzungen', self.voraussetzungen.text)
         EventBus.doAction("freiefertigkeitdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
-    def deserialize(self, ser):
+    def deserialize(self, ser, referenceDB = None):
         self.name = ser.get('name')
         self.kategorie = ser.getInt('kategorie')
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))

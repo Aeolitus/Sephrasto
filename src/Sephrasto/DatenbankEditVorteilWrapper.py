@@ -17,7 +17,7 @@ from EventBus import EventBus
 
 class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
     def __init__(self, datenbank, vorteil=None, readonly=False):
-        super().__init__()
+        super().__init__(datenbank, UI.DatenbankEditVorteil.Ui_dialog(), VorteilDefinition, vorteil, readonly)
         self.validator["Querverweise"] = True
         self.beschreibungEditor = BeschreibungEditor(self)
         self.beschreibungRegelanhangEditor = BeschreibungEditor(self, "cheatsheetBeschreibung", "teCheatsheet", "tbCheatsheet", True)
@@ -25,7 +25,6 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
         self.beschreibungInfoEditor = BeschreibungEditor(self, "info", "teInfo", "tbInfo")
         self.voraussetzungenEditor = VoraussetzungenEditor(self)
         self.scriptEditor = ScriptEditor(self, lineLimit=2)
-        self.setupAndShow(datenbank, UI.DatenbankEditVorteil.Ui_dialog(), VorteilDefinition, vorteil, readonly)
 
     def onSetupUi(self):
         super().onSetupUi()

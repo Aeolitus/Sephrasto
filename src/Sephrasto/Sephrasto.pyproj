@@ -62,6 +62,7 @@
     <Compile Include="Core\Waffeneigenschaft.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DatenbankMergeDialogWrapper.py" />
     <Compile Include="DatenbankEditAbgeleiteterWertWrapper.py" />
     <Compile Include="DatenbankEditAttributWrapper.py" />
     <Compile Include="DatenbankElementEditorBase.py" />

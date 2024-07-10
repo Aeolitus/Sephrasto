@@ -28,7 +28,14 @@ class AbgeleiteterWertDefinition:
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
-        return self.__dict__ == other.__dict__
+        return self.name == other.name and \
+            self.anzeigename == other.anzeigename and \
+            self.anzeigen == other.anzeigen and \
+            self.text == other.text and \
+            self.formel == other.formel and \
+            self.script == other.script and \
+            self.finalscript == other.finalscript and \
+            self.sortorder == other.sortorder
 
     def finalize(self, db):
         self.scriptCompiled = compile_restricted(self.script or "0", self.name + " Script", "eval")
@@ -55,7 +62,7 @@ class AbgeleiteterWertDefinition:
         ser.set('sortorder', self.sortorder)
         EventBus.doAction("abgeleiteterwertdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
-    def deserialize(self, ser):
+    def deserialize(self, ser, referenceDB = None):
         self.name = ser.get('name')
         self.text = ser.get('text')
         self.anzeigename = ser.get('anzeigename')

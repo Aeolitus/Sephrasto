@@ -14,9 +14,8 @@ from Datenbank import Datenbank
 
 class DatenbankEditFreieFertigkeitWrapper(DatenbankElementEditorBase):
     def __init__(self, datenbank, element = None, readonly = False):
-        super().__init__()
+        super().__init__(datenbank, UI.DatenbankEditFreieFertigkeit.Ui_dialog(), FreieFertigkeitDefinition, element, readonly)
         self.voraussetzungenEditor = VoraussetzungenEditor(self)
-        self.setupAndShow(datenbank, UI.DatenbankEditFreieFertigkeit.Ui_dialog(), FreieFertigkeitDefinition, element, readonly)
 
     def load(self, fertigkeit):
         super().load(fertigkeit)

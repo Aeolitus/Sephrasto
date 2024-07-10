@@ -29,7 +29,12 @@ class DatenbankEinstellung:
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
-        return self.__dict__ == other.__dict__
+        return self.name == other.name and \
+            self.beschreibung == other.beschreibung and \
+            self.text == other.text and \
+            self.typ == other.typ and \
+            self.separator == other.separator and \
+            self.strip == other.strip
 
     def __toList(self):
         val = []
@@ -96,11 +101,19 @@ class DatenbankEinstellung:
             ser.set('strip', self.strip)
         EventBus.doAction("datenbankeinstellung_serialisiert", { "object" : self, "serializer" : ser})
 
-    def deserialize(self, ser):
+    def deserialize(self, ser, referenceDB = None):
         self.name = ser.get('name')
         self.text = ser.get('text')
         self.typ = ser.get('typ', self.typ)
         self.beschreibung = ser.get('beschreibung', self.beschreibung)
         self.separator = ser.get('separator', self.separator)
         self.strip = ser.getBool('strip', self.strip)
+        
+        if referenceDB is not None and self.name in referenceDB[DatenbankEinstellung]:
+            reference = referenceDB[DatenbankEinstellung][self.name]
+            self.typ = reference.typ
+            self.beschreibung = reference.beschreibung
+            self.strip = reference.strip
+            self.separator = reference.separator
+
         EventBus.doAction("datenbankeinstellung_deserialisiert", { "object" : self, "deserializer" : ser})

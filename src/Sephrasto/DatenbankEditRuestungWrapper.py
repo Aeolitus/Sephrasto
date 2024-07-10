@@ -15,9 +15,8 @@ from QtUtils.HtmlToolbar import HtmlToolbar
 
 class DatenbankEditRuestungWrapper(DatenbankElementEditorBase):
     def __init__(self, datenbank, rüstung=None, readonly=False):
-        super().__init__()
+        super().__init__(datenbank, UI.DatenbankEditRuestung.Ui_dialog(), RuestungDefinition, rüstung, readonly)
         self.beschreibungEditor = BeschreibungEditor(self)
-        self.setupAndShow(datenbank, UI.DatenbankEditRuestung.Ui_dialog(), RuestungDefinition, rüstung, readonly)
 
     def load(self, rüstung):
         super().load(rüstung)

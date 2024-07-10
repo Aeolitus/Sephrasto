@@ -8,10 +8,15 @@ from QtUtils.PyEdit2 import TextEdit, NumberBar
 
 class DatenbankEditEinstellungWrapper(DatenbankElementEditorBase):
     def __init__(self, datenbank, element, readonly=False):
-        super().__init__()
+        super().__init__(datenbank, UI.DatenbankEditEinstellung.Ui_dialog(), DatenbankEinstellung, element, readonly)
         if element.typ == "TextDict":
             self.validator["Text"] = True
-        self.setupAndShow(datenbank, UI.DatenbankEditEinstellung.Ui_dialog(), DatenbankEinstellung, element, readonly)
+
+    def onSetupUi(self):
+        super().onSetupUi()
+        if self.elementPicked.typ in ['Int', 'Float', 'Bool']:
+            self.ui.verticalSpacer = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+            self.ui.gridLayout.addItem(self.ui.verticalSpacer, 5, 1, 1, 1)
 
     def load(self, einstellung):
         self.ui.labelName.setText(einstellung.name)
@@ -35,14 +40,11 @@ class DatenbankEditEinstellungWrapper(DatenbankElementEditorBase):
             self.ui.verticalLayout.addLayout(layout)
             self.scriptEditor = ScriptEditor(self, "text", "teScript", mode=einstellung.typ.lower())
             self.scriptEditor.load(einstellung)
-            self.dialog.layout().removeItem(self.ui.verticalSpacer)
         elif einstellung.typ == "TextDict":
             self.ui.teText.textChanged.connect(self.dictChanged)
-            self.ui.teText.setPlainText(einstellung.text)
-            self.dialog.layout().removeItem(self.ui.verticalSpacer)         
+            self.ui.teText.setPlainText(einstellung.text)  
         else:
             self.ui.teText.setPlainText(einstellung.text)
-            self.dialog.layout().removeItem(self.ui.verticalSpacer)
 
     def update(self, einstellung):
         einstellung.name = self.ui.labelName.text()

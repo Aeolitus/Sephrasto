@@ -22,7 +22,11 @@ class RuestungDefinition:
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
-        return self.__dict__ == other.__dict__
+        return self.name == other.name and \
+            self.text == other.text and \
+            self.kategorie == other.kategorie and \
+            self.system == other.system and \
+            self.rs == other.rs
 
     def finalize(self, db):
         pass
@@ -58,7 +62,7 @@ class RuestungDefinition:
         ser.set('rsKopf', self.rs[5])
         EventBus.doAction("ruestungdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
-    def deserialize(self, ser):
+    def deserialize(self, ser, referenceDB = None):
         self.name = ser.get('name')
         self.text = ser.get('text')
         self.kategorie = ser.getInt('kategorie')

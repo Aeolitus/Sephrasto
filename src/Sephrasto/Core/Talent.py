@@ -40,7 +40,24 @@ class TalentDefinition:
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
-        return self.__dict__ == other.__dict__
+        
+        kostenEquals = True
+        if self.spezialTalent:
+            kostenEquals == self.kosten == other.kosten
+
+        return self.name == other.name and \
+            self.textSerialized == other.textSerialized and \
+            self.info == other.info and \
+            self.kategorie == other.kategorie and \
+            kostenEquals and \
+            self.verbilligt == other.verbilligt and \
+            self.fertigkeiten == other.fertigkeiten and \
+            self.voraussetzungen == other.voraussetzungen and \
+            self.variableKosten == other.variableKosten and \
+            self.kommentarErlauben == other.kommentarErlauben and \
+            self.cheatsheetAuflisten == other.cheatsheetAuflisten and \
+            self.referenzBuch == other.referenzBuch and \
+            self.referenzSeite == other.referenzSeite
 
     def finalize(self, db):
         def replaceReference(match):
@@ -150,7 +167,7 @@ class TalentDefinition:
             ser.set('info', self.info)
         EventBus.doAction("talentdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
-    def deserialize(self, ser):
+    def deserialize(self, ser, referenceDB = None):
         self.name = ser.get('name')
         self.textSerialized = ser.get('text')
         self.text = self.textSerialized

@@ -13,6 +13,10 @@ class VoraussetzungenListe:
     def __init__(self):
         self.text = ""
         self.compiled = []
+        
+    def __eq__(self, other):
+        if self.__class__ != other.__class__: return False
+        return self.text == other.text
 
     def __iter__(self):
         for vor in self.compiled:

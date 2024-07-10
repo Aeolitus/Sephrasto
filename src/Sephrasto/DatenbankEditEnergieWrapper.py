@@ -9,10 +9,9 @@ from QtUtils.HtmlToolbar import HtmlToolbar
 
 class DatenbankEditEnergieWrapper(DatenbankElementEditorBase):
     def __init__(self, datenbank, energie = None, readonly = False):
-        super().__init__()
+        super().__init__(datenbank, UI.DatenbankEditEnergie.Ui_dialog(), EnergieDefinition, energie, readonly)
         self.beschreibungEditor = BeschreibungEditor(self)
         self.voraussetzungenEditor = VoraussetzungenEditor(self)
-        self.setupAndShow(datenbank, UI.DatenbankEditEnergie.Ui_dialog(), EnergieDefinition, energie, readonly)
 
     def load(self, energie):
         super().load(energie)

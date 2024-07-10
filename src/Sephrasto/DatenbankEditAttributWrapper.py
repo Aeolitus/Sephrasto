@@ -9,9 +9,8 @@ from QtUtils.HtmlToolbar import HtmlToolbar
 
 class DatenbankEditAttributWrapper(DatenbankElementEditorBase):
     def __init__(self, datenbank, element = None, readonly = False):
-        super().__init__()
+        super().__init__(datenbank, UI.DatenbankEditAttribut.Ui_dialog(), AttributDefinition, element, readonly)
         self.beschreibungEditor = BeschreibungEditor(self)
-        self.setupAndShow(datenbank, UI.DatenbankEditAttribut.Ui_dialog(), AttributDefinition, element, readonly)
 
     def load(self, attribut):
         super().load(attribut)

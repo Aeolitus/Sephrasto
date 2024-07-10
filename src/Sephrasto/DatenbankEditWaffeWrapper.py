@@ -17,9 +17,8 @@ from Datenbank import Datenbank
 
 class DatenbankEditWaffeWrapper(DatenbankElementEditorBase):
     def __init__(self, datenbank, waffe=None, readonly=False):
-        super().__init__()
+        super().__init__(datenbank, UI.DatenbankEditWaffe.Ui_dialog(), WaffeDefinition, waffe, readonly)
         self.validator["Waffeneigenschaften"] = True
-        self.setupAndShow(datenbank, UI.DatenbankEditWaffe.Ui_dialog(), WaffeDefinition, waffe, readonly)
 
     def load(self, waffe):
         super().load(waffe)

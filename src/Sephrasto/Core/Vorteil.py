@@ -46,7 +46,24 @@ class VorteilDefinition():
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
-        return self.__dict__ == other.__dict__
+        return self.name == other.name and \
+            self.text == other.text and \
+            self.info == other.info and \
+            self.bedingungen == other.bedingungen and \
+            self.kosten == other.kosten and \
+            self.variableKosten == other.variableKosten and \
+            self.kommentarErlauben == other.kommentarErlauben and \
+            self.editorScriptErlauben == other.editorScriptErlauben and \
+            self.kategorie == other.kategorie and \
+            self.voraussetzungen == other.voraussetzungen and \
+            self.nachkauf == other.nachkauf and \
+            self.cheatsheetAuflisten == other.cheatsheetAuflisten and \
+            self.cheatsheetBeschreibung == other.cheatsheetBeschreibung and \
+            self.linkKategorie == other.linkKategorie and \
+            self.linkElement == other.linkElement and \
+            self.script == other.script and \
+            self.scriptPrio == other.scriptPrio and \
+            self.querverweise == other.querverweise
 
     def finalize(self, db):
         self.scriptCompiled = compile_restricted(self.script or "", self.name + " Script", "exec")
@@ -138,7 +155,7 @@ class VorteilDefinition():
             ser.set('bedingungen', self.bedingungen)
         EventBus.doAction("vorteildefinition_serialisiert", { "object" : self, "serializer" : ser})
 
-    def deserialize(self, ser):
+    def deserialize(self, ser, referenceDB = None):
         self.name = ser.get('name')
         self.text = ser.get('text')
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))

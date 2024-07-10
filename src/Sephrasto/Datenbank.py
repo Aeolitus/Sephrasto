@@ -74,8 +74,25 @@ class Datenbank():
         dbKey = element.__class__
         if refDB:
             self.referenceDB[dbKey][element.name] = element
-        elif conflictCB and element.name in self.tablesByType[dbKey] and not element.deepequals(self.tablesByType[dbKey][element.name]):
-            element = conflictCB(dbKey, self.tablesByType[dbKey][element.name], element)
+        elif conflictCB:
+            isInRefDB = element.name in self.referenceDB[element.__class__]
+            isInDB = element.name in self.tablesByType[element.__class__]
+
+            resolvedElement = element
+            if not isInDB and isInRefDB:
+                resolvedElement = conflictCB(dbKey, None, element) # removed
+            elif isInDB:
+                existingElement = self.tablesByType[dbKey][element.name]
+                if self.isChangedOrNew(existingElement) and not element.deepequals(existingElement): 
+                    resolvedElement = conflictCB(dbKey, self.tablesByType[dbKey][element.name], element) # new or changed
+                
+            if resolvedElement is None:
+                return
+
+            if isInDB and resolvedElement.name != element.name:
+                self.tablesByType[dbKey].pop(element.name)
+            element = resolvedElement
+
         self.tablesByType[dbKey][element.name] = element
 
     def isNew(self, element):
@@ -210,9 +227,10 @@ class Datenbank():
             t = serializationNameToType.get(serializationName)
             if t is not None:
                 dbElement = t()
-                dbElement.deserialize(deserializer)
+                dbElement.deserialize(deserializer, None if refDB else self.referenceDB)
                 self.loadElement(dbElement, refDB, conflictCB)
-            elif serializationName == "Remove":
+
+            elif serializationName == "Remove" and not refDB:
                 #Remove existing entries (should be used in hausregel db only)
                 #Also check if the entries exist at all (might have been removed/renamed due to a ref db update)
                 typ = deserializer.get("typ")
@@ -222,17 +240,16 @@ class Datenbank():
                 name = deserializer.get("name")
                 if not name in table:
                     continue
+                
+                if conflictCB:
+                    existingElement = table[name]
+                    if self.isChangedOrNew(existingElement): 
+                        resolvedElement = conflictCB(serializationNameToType[typ], existingElement, None)
+                        if resolvedElement is not None:
+                            self.loadElement(resolvedElement, False)
+                            continue
+
                 table.pop(name)
-           
-        # update DatenbankEinstellung fields from reference db (we are only saving the name and text fields here)
-        if not refDB:
-            for de in self.einstellungen.values():
-                if de.name in self.referenceDB[DatenbankEinstellung]:
-                    removed = self.referenceDB[DatenbankEinstellung][de.name]
-                    de.typ = removed.typ
-                    de.beschreibung = removed.beschreibung
-                    de.strip = removed.strip
-                    de.separator = removed.separator
 
         EventBus.doAction("datenbank_deserialisiert", { "datenbank" : self, "deserializer" : deserializer, "basisdatenbank" : refDB, "conflictCallback" : conflictCB })    
 

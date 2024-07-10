@@ -20,7 +20,11 @@ class AttributDefinition:
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
-        return self.__dict__ == other.__dict__
+        return self.name == other.name and \
+            self.anzeigename == other.anzeigename and \
+            self.text == other.text and \
+            self.steigerungsfaktor == other.steigerungsfaktor and \
+            self.sortorder == other.sortorder
 
     def finalize(self, db):
         pass
@@ -36,7 +40,7 @@ class AttributDefinition:
         ser.set('sortorder', self.sortorder)
         EventBus.doAction("attributdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
-    def deserialize(self, ser):
+    def deserialize(self, ser, referenceDB = None):
         self.name = ser.get('name')
         self.text = ser.get('text')
         self.anzeigename = ser.get('anzeigename')

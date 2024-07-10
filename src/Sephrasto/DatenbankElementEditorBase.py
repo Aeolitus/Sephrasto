@@ -6,30 +6,51 @@ from VoraussetzungenListe import VoraussetzungenListe, VoraussetzungException
 from RestrictedPython import compile_restricted
 
 class DatenbankElementEditorBase():
-    def __init__(self):
-        self.validator = { "Name" : True } #modules can add their own keys
-
-    def setupAndShow(self, datenbank, ui, elementType, element, readonly):
+    def __init__(self, datenbank, ui, elementType, element, readonly):
         self.datenbank = datenbank
         self.elementTable = datenbank.tablesByType[elementType]
+        self.elementType = elementType
         if element is None:
             element = elementType()
         self.elementPicked = element
         self.readonly = readonly
-        self.dialog = QtWidgets.QDialog()
-        self.dialog.accept = lambda: self.accept()
+        self.validator = { "Name" : True } #modules can add their own keys
         self.ui = ui
-        self.ui.setupUi(self.dialog)
+
+    def setupAsWidget(self):
+        self.form = QtWidgets.QWidget()     
+        self.ui.setupUi(self.form)
+        self.onSetupUi()               
+        self.load(self.elementPicked)
+
+    def setupAsDialogAndShow(self):
+        self.form = QtWidgets.QDialog()
+        self.form.accept = lambda: self.accept()
+        self.ui.setupUi(self.form)
+        
+        self.ui.warning = QtWidgets.QLabel()
+        self.ui.warning.setProperty("class", "warning")
+        
+        assert isinstance(self.form.layout(), QtWidgets.QBoxLayout), "database element editors must have a QBoxLayout"
+
+        self.form.layout().insertWidget(0, self.ui.warning)
+        
+        self.ui.buttonBox = QtWidgets.QDialogButtonBox(QtWidgets.QDialogButtonBox.Save | QtWidgets.QDialogButtonBox.Cancel)
+        self.ui.buttonBox.setCenterButtons(True)
+        self.ui.buttonBox.accepted.connect(self.form.accept)
+        self.ui.buttonBox.rejected.connect(self.form.reject)
+        self.form.layout().addWidget(self.ui.buttonBox)
+
         self.onSetupUi()
 
-        if readonly:
+        if self.readonly:
             self.ui.warning.setText("Gelöschte und überschriebene Elemente können nicht verändert werden.")
             self.ui.warning.setVisible(True)
             self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(False)
         else:
             self.ui.warning.setVisible(False)
 
-        self.dialog.setWindowFlags(
+        self.form.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
@@ -37,24 +58,24 @@ class DatenbankElementEditorBase():
                 QtCore.Qt.WindowMaximizeButtonHint |
                 QtCore.Qt.WindowMinimizeButtonHint)
         
-        settingName = "WindowSize-DB" + elementType.__name__
+        settingName = "WindowSize-DB" + self.elementType.__name__
         if not settingName in Wolke.Settings:
             Wolke.Settings[settingName] = [461, 522]
         windowSize = Wolke.Settings[settingName]
-        self.dialog.resize(windowSize[0], windowSize[1])
-
-        self.load(element)
-
-        self.dialog.show()
-        ret = self.dialog.exec()
-
-        Wolke.Settings[settingName] = [self.dialog.size().width(), self.dialog.size().height()]
-
+        self.form.resize(windowSize[0], windowSize[1])
+        
+        self.load(self.elementPicked)
+        
+        self.form.show()
+        ret = self.form.exec()
+        
+        Wolke.Settings[settingName] = [self.form.size().width(), self.form.size().height()]
+        
         if ret == QtWidgets.QDialog.Accepted:
-            self.element = elementType()
+            self.element = self.elementType()
             self.update(self.element)
             self.element.finalize(self.datenbank)
-            if self.element.deepequals(element):
+            if self.element.deepequals(self.elementPicked):
                 self.element = None
         else:
             self.element = None
@@ -72,7 +93,7 @@ class DatenbankElementEditorBase():
         element.name = self.ui.leName.text()
 
     def accept(self):
-        self.dialog.done(QtWidgets.QDialog.Accepted)
+        self.form.done(QtWidgets.QDialog.Accepted)
 
     # eventhandlers
     def nameChanged(self):
@@ -92,6 +113,9 @@ class DatenbankElementEditorBase():
         self.updateSaveButtonState()
     
     def updateSaveButtonState(self):
+        if not hasattr(self.ui, "buttonBox"):
+            return;
+
         if self.readonly:
             self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(False)
             return

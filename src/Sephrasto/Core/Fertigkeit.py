@@ -30,7 +30,14 @@ class FertigkeitDefinition:
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
-        return self.__dict__ == other.__dict__
+        return self.name == other.name and \
+            self.steigerungsfaktor == other.steigerungsfaktor and \
+            self.text == other.text and \
+            self.attribute == other.attribute and \
+            self.kampffertigkeit == other.kampffertigkeit and \
+            self.voraussetzungen == other.voraussetzungen and \
+            self.kategorie == other.kategorie and \
+            self.talenteGruppieren == other.talenteGruppieren
 
     def finalize(self, db):
         pass
@@ -52,7 +59,7 @@ class FertigkeitDefinition:
         ser.set('kategorie', self.kategorie)
         EventBus.doAction("fertigkeitdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
-    def deserialize(self, ser):
+    def deserialize(self, ser, referenceDB = None):
         self.name = ser.get('name')
         self.text = ser.get('text')
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))
@@ -83,7 +90,7 @@ class UeberFertigkeitDefinition(FertigkeitDefinition):
         ser.set('talentegruppieren', self.talenteGruppieren)
         EventBus.doAction("ueberfertigkeitdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
-    def deserialize(self, ser):
+    def deserialize(self, ser, referenceDB = None):
         self.name = ser.get('name')
         self.text = ser.get('text')
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))

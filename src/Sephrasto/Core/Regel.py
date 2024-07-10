@@ -18,7 +18,11 @@ class Regel():
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
-        return self.__dict__ == other.__dict__
+        return self.name == other.name and \
+            self.text == other.text and \
+            self.kategorie == other.kategorie and \
+            self.voraussetzungen == other.voraussetzungen and \
+            self.probe == other.probe
 
     def finalize(self, db):
         self.anzeigename = self.name
@@ -43,7 +47,7 @@ class Regel():
         ser.set('probe', self.probe)
         EventBus.doAction("regel_serialisiert", { "object" : self, "serializer" : ser})
 
-    def deserialize(self, ser):
+    def deserialize(self, ser, referenceDB = None):
         self.name = ser.get('name')
         self.text = ser.get('text')
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))      

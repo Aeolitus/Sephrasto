@@ -34,6 +34,7 @@ import DatenbankEditAttributWrapper
 import DatenbankEditAbgeleiteterWertWrapper
 import DatenbankEditEnergieWrapper
 import DatenbankErrorLogWrapper
+import DatenbankMergeDialogWrapper
 import os
 from EinstellungenWrapper import EinstellungenWrapper
 from Wolke import Wolke
@@ -64,7 +65,15 @@ class DatenbankTypWrapper:
         filterName = self.dataType.__name__.lower()
         editorType = EventBus.applyFilter("dbe_class_" + filterName + "_wrapper", self.editorType)
         editor = editorType(datenbank, inp, readonly)
+        editor.setupAsDialogAndShow()
         return editor.element
+    
+    def display(self, datenbank, inp, readonly = False):
+        filterName = self.dataType.__name__.lower()
+        editorType = EventBus.applyFilter("dbe_class_" + filterName + "_wrapper", self.editorType)
+        editor = editorType(datenbank, inp, readonly)
+        editor.setupAsWidget()
+        return editor      
 
 class DBESortFilterProxyModel(QtCore.QSortFilterProxyModel):
     def __init__(self, datenbank, parent=None):
@@ -864,14 +873,6 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         if hasattr(self, "errorLogWindow"):
             self.errorLogWindow.refresh()
 
-    ConflictResultInvalid = -1
-    ConflictResultViewCurrent = 0
-    ConflictResultViewNew = 1
-    ConflictResultChooseCurrent = 2
-    ConflictResultChooseNew = 3
-
-    RememberConflictResult = -1
-
     def loadDatenbank(self, additiv = False):
         if self.cancelDueToPendingChanges("Andere Datenbank laden"):
             return
@@ -923,46 +924,12 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             return
 
         def conflictCB(typ, old, new):
-            result = DatenbankEditor.RememberConflictResult
-
-            while result != DatenbankEditor.ConflictResultChooseCurrent and result != DatenbankEditor.ConflictResultChooseNew: 
-                infoBox = QtWidgets.QMessageBox()
-                infoBox.setIcon(QtWidgets.QMessageBox.Question)
-                infoBox.setText(typ.displayName + " " + old.name + " wurde sowohl in den bestehenden, als auch in den neu geladenen Hausregeln geändert. Welche Version möchtest du beibehalten?")
-                infoBox.setWindowTitle("Zusätzliche Hausregeln laden: Konflikt")
-
-                viewCurrentButton = infoBox.addButton("Aktuell ansehen", QtWidgets.QMessageBox.YesRole)
-                viewNewButton = infoBox.addButton("Neu ansehen", QtWidgets.QMessageBox.YesRole)
-                chooseCurrentButton = infoBox.addButton("Aktuell auswählen", QtWidgets.QMessageBox.YesRole)
-                chooseNewButton = infoBox.addButton("Neu auswählen", QtWidgets.QMessageBox.YesRole)
-                check = QtWidgets.QCheckBox("Alle weiteren Konflikte gleich behandeln.")
-                infoBox.setCheckBox(check)
-                infoBox.exec()
-                if infoBox.clickedButton() == viewCurrentButton:
-                    result = DatenbankEditor.ConflictResultViewCurrent
-                elif infoBox.clickedButton() == viewNewButton:
-                    result = DatenbankEditor.ConflictResultViewNew
-                elif infoBox.clickedButton() == chooseCurrentButton:
-                    result = DatenbankEditor.ConflictResultChooseCurrent
-                elif infoBox.clickedButton() == chooseNewButton:
-                    result = DatenbankEditor.ConflictResultChooseNew
-
-                if result == DatenbankEditor.ConflictResultViewCurrent and typ in self.databaseTypes:
-                    databaseType = self.databaseTypes[typ]
-                    databaseType.edit(self.datenbank, old, True)
-                elif result == DatenbankEditor.ConflictResultViewNew and typ in self.databaseTypes:
-                    databaseType = self.databaseTypes[typ]
-                    databaseType.edit(self.datenbank, new, True)
-                elif (result == DatenbankEditor.ConflictResultChooseCurrent or result == DatenbankEditor.ConflictResultChooseNew) and infoBox.checkBox().isChecked():
-                    DatenbankEditor.RememberConflictResult = result
-
-            return old if result == DatenbankEditor.ConflictResultChooseCurrent else new
+            dialog = DatenbankMergeDialogWrapper.DatenbankMergeDialogWrapper(self.databaseTypes[typ], self.datenbank, old, new)
+            return dialog.element
 
         if additiv:
-            DatenbankEditor.RememberConflictResult = DatenbankEditor.ConflictResultInvalid
             if not self.datenbank.loadFileAdditional(spath, conflictCB):
                 self.showInvalidDatabasePopup(spath)
-            DatenbankEditor.RememberConflictResult = DatenbankEditor.ConflictResultInvalid
         else:
             if self.datenbank.loadFile(hausregeln=spath):
                 self.savepath = spath

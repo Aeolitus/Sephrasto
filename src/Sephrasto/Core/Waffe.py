@@ -31,7 +31,19 @@ class WaffeDefinition:
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
-        return self.__dict__ == other.__dict__
+        return self.name == other.name and \
+            self.würfel == other.würfel and \
+            self.würfelSeiten == other.würfelSeiten and \
+            self.plus == other.plus and \
+            self.eigenschaften == other.eigenschaften and \
+            self.härte == other.härte and \
+            self.rw == other.rw and \
+            self.wm == other.wm and \
+            self.fertigkeit == other.fertigkeit and \
+            self.talent == other.talent and \
+            self.kampfstile == other.kampfstile and \
+            self.lz == other.lz and \
+            self.fernkampf == other.fernkampf
     
     def finalize(self, db):
         self.anzeigename = self.name
@@ -83,7 +95,7 @@ class WaffeDefinition:
             ser.set('fk', False)
         EventBus.doAction("waffedefinition_serialisiert", { "object" : self, "serializer" : ser})
 
-    def deserialize(self, ser):
+    def deserialize(self, ser, referenceDB = None):
         self.name = ser.get('name')
         eigenschaften = ser.get('text')
         if eigenschaften:

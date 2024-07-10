@@ -16,10 +16,9 @@ from EventBus import EventBus
 
 class DatenbankEditWaffeneigenschaftWrapper(DatenbankElementEditorBase):
     def __init__(self, datenbank, waffeneigenschaft=None, readonly = False):
-        super().__init__()
+        super().__init__(datenbank, UI.DatenbankEditWaffeneigenschaft.Ui_dialog(), Waffeneigenschaft, waffeneigenschaft, readonly)
         self.beschreibungEditor = BeschreibungEditor(self)
         self.scriptEditor = ScriptEditor(self, lineLimit=2)
-        self.setupAndShow(datenbank, UI.DatenbankEditWaffeneigenschaft.Ui_dialog(), Waffeneigenschaft, waffeneigenschaft, readonly)
 
     def onSetupUi(self):
         super().onSetupUi()

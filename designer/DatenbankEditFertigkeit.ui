@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>dialog</class>
- <widget class="QDialog" name="dialog">
-  <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
-  </property>
+ <widget class="QWidget" name="dialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -16,8 +13,8 @@
   <property name="windowTitle">
    <string>Sephrasto - Fertigkeit bearbeiten...</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
-   <item row="0" column="0">
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
     <widget class="QScrollArea" name="scrollArea">
      <property name="widgetResizable">
       <bool>true</bool>
@@ -27,93 +24,12 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>420</width>
-        <height>502</height>
+        <width>416</width>
+        <height>527</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="8" column="1">
-        <widget class="QLabel" name="labelVoraussetzungen">
-         <property name="text">
-          <string>Voraussetzungen</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="2">
-        <widget class="QComboBox" name="comboKampffertigkeit">
-         <property name="toolTip">
-          <string>Nahkampf- und Sonstige Kampffertigkeiten stehen bei Waffen zur Auswahl. Nahkampffertigkeiten werden gegebenenfalls nach einem abweichenden Steigerungsfaktor berechnet.</string>
-         </property>
-         <item>
-          <property name="text">
-           <string>Keine Kampffertigkeit</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nahkampffertigkeit</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Sonstige Kampffertigkeit</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item row="5" column="1">
-        <widget class="QLabel" name="label_12">
-         <property name="minimumSize">
-          <size>
-           <width>110</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Kategorie</string>
-         </property>
-        </widget>
-       </item>
        <item row="3" column="2">
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <spacer name="horizontalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QSpinBox" name="spinSF">
-           <property name="buttonSymbols">
-            <enum>QAbstractSpinBox::PlusMinus</enum>
-           </property>
-           <property name="suffix">
-            <string/>
-           </property>
-           <property name="minimum">
-            <number>1</number>
-           </property>
-           <property name="maximum">
-            <number>999</number>
-           </property>
-           <property name="singleStep">
-            <number>1</number>
-           </property>
-           <property name="value">
-            <number>2</number>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="4" column="2">
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
           <widget class="QComboBox" name="comboAttribut1">
@@ -180,44 +96,21 @@
          </item>
         </layout>
        </item>
-       <item row="5" column="2">
-        <widget class="QComboBox" name="comboTyp">
-         <property name="toolTip">
-          <string>Fertigkeiten werden nach diesem Typ gruppiert und dann alphabetisch sortiert.</string>
+       <item row="7" column="1">
+        <widget class="QLabel" name="labelVoraussetzungen">
+         <property name="text">
+          <string>Voraussetzungen</string>
          </property>
         </widget>
        </item>
-       <item row="9" column="1">
+       <item row="8" column="1">
         <widget class="QLabel" name="label_5">
          <property name="text">
           <string>Beschreibung</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="2">
-        <widget class="QLineEdit" name="leName"/>
-       </item>
-       <item row="3" column="1">
-        <widget class="QLabel" name="label_2">
-         <property name="minimumSize">
-          <size>
-           <width>110</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Steigerungsfaktor</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="1">
-        <widget class="QLabel" name="labelKampffertigkeit">
-         <property name="text">
-          <string>Kampffertigkeit</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="2">
+       <item row="8" column="2">
         <widget class="QTabWidget" name="tabWidget">
          <property name="currentIndex">
           <number>0</number>
@@ -278,7 +171,69 @@
          </widget>
         </widget>
        </item>
-       <item row="8" column="2">
+       <item row="1" column="1">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Name</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="spinSF">
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::PlusMinus</enum>
+           </property>
+           <property name="suffix">
+            <string/>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>999</number>
+           </property>
+           <property name="singleStep">
+            <number>1</number>
+           </property>
+           <property name="value">
+            <number>2</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLineEdit" name="leName"/>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="label_2">
+         <property name="minimumSize">
+          <size>
+           <width>110</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Steigerungsfaktor</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="2">
         <widget class="QPlainTextEdit" name="teVoraussetzungen">
          <property name="maximumSize">
           <size>
@@ -291,21 +246,28 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="1">
+       <item row="5" column="1">
+        <widget class="QLabel" name="labelKampffertigkeit">
+         <property name="text">
+          <string>Kampffertigkeit</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
         <widget class="QLabel" name="label_3">
          <property name="text">
           <string>Attribute</string>
          </property>
         </widget>
        </item>
-       <item row="7" column="1">
+       <item row="6" column="1">
         <widget class="QLabel" name="labelGruppieren">
          <property name="text">
           <string>Talente</string>
          </property>
         </widget>
        </item>
-       <item row="7" column="2">
+       <item row="6" column="2">
         <widget class="QCheckBox" name="checkGruppieren">
          <property name="toolTip">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Talente werden grundsätzlich nach Fertigkeitskategorie gruppiert. Mit dieser Option werden sie zusätzlich noch nach dem Namen der Fertigkeit gruppiert. Bei Talenten mit mehreren Fertigkeiten werden bei der Gruppierung außerdem Fertigkeiten mit dieser Option priorisiert.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -315,44 +277,50 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="1">
-        <widget class="QLabel" name="label">
+       <item row="5" column="2">
+        <widget class="QComboBox" name="comboKampffertigkeit">
+         <property name="toolTip">
+          <string>Nahkampf- und Sonstige Kampffertigkeiten stehen bei Waffen zur Auswahl. Nahkampffertigkeiten werden gegebenenfalls nach einem abweichenden Steigerungsfaktor berechnet.</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Keine Kampffertigkeit</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nahkampffertigkeit</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Sonstige Kampffertigkeit</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLabel" name="label_12">
+         <property name="minimumSize">
+          <size>
+           <width>110</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="text">
-          <string>Name</string>
+          <string>Kategorie</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="1" colspan="2">
-        <widget class="QLabel" name="warning">
-         <property name="visible">
-          <bool>true</bool>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
+       <item row="4" column="2">
+        <widget class="QComboBox" name="comboTyp">
+         <property name="toolTip">
+          <string>Fertigkeiten werden nach diesem Typ gruppiert und dann alphabetisch sortiert.</string>
          </property>
         </widget>
        </item>
       </layout>
      </widget>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
-     </property>
-     <property name="centerButtons">
-      <bool>true</bool>
-     </property>
     </widget>
    </item>
   </layout>
@@ -369,38 +337,5 @@
   <tabstop>teVoraussetzungen</tabstop>
  </tabstops>
  <resources/>
- <connections>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>accepted()</signal>
-   <receiver>dialog</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>228</x>
-     <y>285</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>157</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>dialog</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>296</x>
-     <y>291</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>286</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
