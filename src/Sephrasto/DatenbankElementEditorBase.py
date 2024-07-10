@@ -25,6 +25,7 @@ class DatenbankElementEditorBase():
 
     def setupAsDialogAndShow(self):
         self.form = QtWidgets.QDialog()
+        self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.accept = lambda: self.accept()
         self.ui.setupUi(self.form)
         
@@ -54,9 +55,7 @@ class DatenbankElementEditorBase():
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
-                QtCore.Qt.WindowCloseButtonHint |
-                QtCore.Qt.WindowMaximizeButtonHint |
-                QtCore.Qt.WindowMinimizeButtonHint)
+                QtCore.Qt.WindowCloseButtonHint)
         
         settingName = "WindowSize-DB" + self.elementType.__name__
         if not settingName in Wolke.Settings:
