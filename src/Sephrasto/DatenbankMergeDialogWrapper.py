@@ -3,11 +3,18 @@ from PySide6 import QtWidgets, QtCore, QtGui
 class DatenbankMergeDialogWrapper():
     def __init__(self, databaseType, database, old, new):
         compareDialog = QtWidgets.QDialog()
+        compareDialog.setWindowFlags(
+            QtCore.Qt.Window |
+            QtCore.Qt.CustomizeWindowHint |
+            QtCore.Qt.WindowTitleHint |
+            QtCore.Qt.WindowCloseButtonHint)
+
         compareDialog.setWindowTitle("Sephrasto - " + databaseType.dataType.displayName + " vergleichen")
         
         rootLayout = QtWidgets.QVBoxLayout()
+        rootLayout.setSpacing(10)
         compareDialog.setLayout(rootLayout)       
-        
+
         name = old.name if old is not None else new.name
         info = QtWidgets.QLabel(databaseType.dataType.displayName + " " + name + " wurde sowohl in den bestehenden, "\
             "als auch in den neu geladenen Hausregeln geändert. Welche Version möchtest du beibehalten?\n"\
@@ -52,9 +59,11 @@ class DatenbankMergeDialogWrapper():
         contentLayout.addLayout(layoutRight)
         
         # Buttons
+        self.chooseOld = False
         self.chooseNew = False
         buttonBox = QtWidgets.QDialogButtonBox()
         oldButton = buttonBox.addButton("Aktuell auswählen", QtWidgets.QDialogButtonBox.YesRole)
+        oldButton.clicked.connect(lambda: setattr(self, "chooseOld", True))
         newButton = buttonBox.addButton("Neu auswählen", QtWidgets.QDialogButtonBox.YesRole)
         newButton.clicked.connect(lambda: setattr(self, "chooseNew", True))
         
@@ -71,7 +80,7 @@ class DatenbankMergeDialogWrapper():
             self.element = databaseType.dataType()
             editorNew.update(self.element)
             self.element.finalize(database)
-        elif not self.chooseNew and editorOld is not None:
+        elif self.chooseOld and editorOld is not None:
             self.element = databaseType.dataType()
             editorOld.update(self.element)
             self.element.finalize(database)
