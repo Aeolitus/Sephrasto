@@ -353,7 +353,7 @@ class EinstellungenWrapper():
         messageBox.setText(pdui.pd.anzeigename + " benötigt weitere Plugins!")
         messageBox.setInformativeText("\n\n".join(text))
         okButton = messageBox.addButton("Fortfahren", QtWidgets.QMessageBox.YesRole)
-        cancelButton = messageBox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
+        cancelButton = messageBox.addButton(QtWidgets.QMessageBox.Cancel)
         messageBox.exec()
         if messageBox.clickedButton() == cancelButton:
             return False

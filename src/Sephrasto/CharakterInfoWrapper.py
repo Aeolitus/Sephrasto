@@ -276,9 +276,10 @@ class InfoWrapper(QtCore.QObject):
 
         expansionHelper = TreeExpansionHelper(tree, button)
 
-        buttonBox = QtWidgets.QDialogButtonBox()
-        buttonBox.addButton("OK", QtWidgets.QDialogButtonBox.YesRole).clicked.connect(lambda: dialog.accept())
-        buttonBox.addButton("Abbrechen", QtWidgets.QDialogButtonBox.RejectRole).clicked.connect(lambda: dialog.reject())
+        buttonBox = QtWidgets.QDialogButtonBox(QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Cancel)
+        buttonBox.accepted.connect(lambda: dialog.accept())
+        buttonBox.rejected.connect(lambda: dialog.reject())
+
         rootLayout.addWidget(buttonBox)
 
         dialog.setLayout(rootLayout)

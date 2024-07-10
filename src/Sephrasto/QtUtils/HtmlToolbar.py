@@ -141,8 +141,11 @@ class HtmlToolbar(QtWidgets.QWidget):
         layout2.addWidget(spinRow)
         layout.addLayout(layout2)
         buttonBox = QtWidgets.QDialogButtonBox()
-        buttonBox.addButton("Einfügen", QtWidgets.QDialogButtonBox.YesRole).clicked.connect(lambda: messageBox.accept())
-        buttonBox.addButton("Abbrechen", QtWidgets.QDialogButtonBox.RejectRole).clicked.connect(lambda: messageBox.reject())
+        buttonBox.addButton("Einfügen", QtWidgets.QDialogButtonBox.YesRole)
+        buttonBox.addButton(QtWidgets.QDialogButtonBox.Cancel)       
+        buttonBox.accepted.connect(lambda: messageBox.accept())
+        buttonBox.rejected.connect(lambda: messageBox.reject())
+
         layout.addWidget(buttonBox)
 
         messageBox.setLayout(layout)

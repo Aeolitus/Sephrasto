@@ -768,9 +768,9 @@ class DatenbankEditor(object):
             infoBox.setIcon(QtWidgets.QMessageBox.Question)
             infoBox.setText("Der Charakter-Editor kann nur Datenbanken aus dem in den Einstellungen gesetzten Pfad laden, sicher dass du die Datenbank hierhin speichern möchtest?")
             infoBox.setWindowTitle("Hausregeln speichern")
-            yesButton = infoBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
+            yesButton = infoBox.addButton(QtWidgets.QMessageBox.Yes)
             otherButton = infoBox.addButton("Anderer Pfad", QtWidgets.QMessageBox.NoRole)
-            cancelButton = infoBox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
+            cancelButton = infoBox.addButton(QtWidgets.QMessageBox.Cancel)
             infoBox.exec()
             if infoBox.clickedButton() == otherButton:
                 self.saveDatenbank(merge)
@@ -879,6 +879,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
 
         if additiv and self.datenbank.hausregelDatei is not None:
             infoBox = QtWidgets.QMessageBox()
+            infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
             infoBox.setIcon(QtWidgets.QMessageBox.Warning)
             infoBox.setText("Es sind bereits Hausregeln geladen. Wenn du zusätzlich noch andere Hausregeln lädst, werden beide zusammengefasst!\n" +
                             "Wenn in beiden Hausregeln die gleichen Datenbank-Elemente geändert wurden, wirst du dich zwischen einer Version entscheiden müssen - Sephrasto wird dir dabei helfen. " +
@@ -886,10 +887,8 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
                             "In jedem Fall solltest du hinterher aber überprüfen, ob alle geänderten Elemente noch intakt sind. " +
                             "Beispielsweise könnten die zusätzlichen Hausregeln einen Vorteil gelöscht haben, der in den aktuellen Hausregeln irgendwo als Voraussetzung gelistet ist.")
             infoBox.setWindowTitle("Mehrere Hausregeln laden")
-            cancelButton = infoBox.addButton("Abbrechen", QtWidgets.QMessageBox.NoRole)
-            okButton = infoBox.addButton("Verstanden!", QtWidgets.QMessageBox.YesRole)
-            infoBox.exec()
-            if infoBox.clickedButton() == cancelButton:
+            result = infoBox.exec()
+            if result == QtWidgets.QMessageBox.Cancel:
                 return
 
         if os.path.isdir(Wolke.Settings['Pfad-Regeln']):

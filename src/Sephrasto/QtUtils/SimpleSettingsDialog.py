@@ -12,9 +12,9 @@ class SimpleSettingsDialog(QtWidgets.QDialog):
         self.settingsLayout = QtWidgets.QFormLayout()
         rootLayout.addLayout(self.settingsLayout)
         
-        buttonBox = QtWidgets.QDialogButtonBox()
-        buttonBox.addButton("OK", QtWidgets.QDialogButtonBox.YesRole).clicked.connect(lambda: self.accept())
-        buttonBox.addButton("Abbrechen", QtWidgets.QDialogButtonBox.RejectRole).clicked.connect(lambda: self.reject())
+        buttonBox = QtWidgets.QDialogButtonBox(QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Cancel)
+        buttonBox.accepted.connect(lambda: self.accept())
+        buttonBox.rejected.connect(lambda: self.reject())
         rootLayout.addWidget(buttonBox)
 
         self.setLayout(rootLayout)
