@@ -1,4 +1,5 @@
 from PySide6 import QtWidgets, QtCore, QtGui
+from Wolke import Wolke
 
 class DatenbankMergeDialogWrapper():
     def __init__(self, databaseType, database, old, new):
@@ -72,15 +73,18 @@ class DatenbankMergeDialogWrapper():
         buttonBox.rejected.connect(compareDialog.accept)
         rootLayout.addWidget(buttonBox)
               
-        self.element = databaseType.dataType()
+        settingName = "WindowSize-DatenbankMergeDialog"
+        windowSize = Wolke.Settings[settingName]
+        compareDialog.resize(windowSize[0], windowSize[1])
+        
         compareDialog.exec()
+        
+        Wolke.Settings[settingName] = [compareDialog.size().width(), compareDialog.size().height()]
 
         self.element = None
         if self.chooseNew and editorNew is not None:
             self.element = databaseType.dataType()
             editorNew.update(self.element)
-            self.element.finalize(database)
         elif self.chooseOld and editorOld is not None:
             self.element = databaseType.dataType()
             editorOld.update(self.element)
-            self.element.finalize(database)

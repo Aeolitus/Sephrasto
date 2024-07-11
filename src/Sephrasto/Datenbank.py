@@ -146,7 +146,7 @@ class Datenbank():
         self.referenceDB = {}
 
         # the order in this table is also the order in which the elements get their finalize call
-        # this is important espacially for vorteile which require many other types to be finalized first
+        # this is important especially for vorteile which require many other types to be finalized first
         self.insertTable(DatenbankEinstellung, self.einstellungen) 
         self.insertTable(AttributDefinition, self.attribute) 
         self.insertTable(AbgeleiteterWertDefinition, self.abgeleiteteWerte) 
@@ -272,7 +272,6 @@ class Datenbank():
                     logging.warning(errorStr)
 
         #Vorteile
-        self.einstellungen['Vorteile: Kategorien'].finalize(self)
         for V in self.vorteile.values():
             errorStr = ""
 
@@ -329,7 +328,6 @@ class Datenbank():
                     logging.warning(errorStr)
             
         #Talente
-        self.einstellungen['Talente: Kategorien'].finalize(self)
         for T in self.talente.values():
             if T.kategorie >= len(self.einstellungen['Talente: Kategorien'].wert):
                 errorStr = f"Talent {fert.name} hat eine unbekannte Kategorie."
@@ -351,7 +349,6 @@ class Datenbank():
                 T.fertigkeiten.append(fert)
 
         #Freie Fertigkeiten
-        self.einstellungen['FreieFertigkeiten: Kategorien'].finalize(self)
         for fert in self.freieFertigkeiten.values():
             if fert.kategorie >= len(self.einstellungen['FreieFertigkeiten: Kategorien'].wert):
                 errorStr = f"Freie Fertigkeit {fert.name} hat eine unbekannte Kategorie."
@@ -359,7 +356,6 @@ class Datenbank():
                 logging.warning(errorStr)
 
         #Fertigkeiten     
-        self.einstellungen['Fertigkeiten: Kategorien profan'].finalize(self)
         for fert in self.fertigkeiten.values():
             if fert.kategorie >= len(self.einstellungen['Fertigkeiten: Kategorien profan'].wert):
                 errorStr = f"Fertigkeit {fert.name} hat eine unbekannte Kategorie."
@@ -372,7 +368,6 @@ class Datenbank():
                     self.loadingErrors.append([fert, errorStr])
                     logging.warning(errorStr)
 
-        self.einstellungen['Fertigkeiten: Kategorien übernatürlich'].finalize(self)
         for fert in self.übernatürlicheFertigkeiten.values():
             if fert.kategorie >= len(self.einstellungen['Fertigkeiten: Kategorien übernatürlich'].wert):
                 errorStr = f"Übernatürliche Fertigkeit {fert.name} hat eine unbekannte Kategorie."
@@ -386,7 +381,6 @@ class Datenbank():
                     logging.warning(errorStr)
 
         #Rüstungen:
-        self.einstellungen['Rüstungen: Kategorien'].finalize(self)
         for r in self.rüstungen.values():
             errorStr = ""
 
@@ -413,7 +407,6 @@ class Datenbank():
                     logging.warning(errorStr)
 
         #Regeln:
-        self.einstellungen['Regeln: Kategorien'].finalize(self)
         for r in self.regeln.values():
             errorStr = ""
 
@@ -425,8 +418,7 @@ class Datenbank():
         self.loadingErrors = EventBus.applyFilter("datenbank_verify", self.loadingErrors, { "datenbank" : self })   
     
     def findKampfstile(self):
-        # we are accessing einstellung.text instead of .wert because the function is called before finalize...
-        kampfstilVorteile = [vort for vort in self.vorteile.values() if str(vort.kategorie) == self.einstellungen["Vorteile: Kampfstil Kategorie"].text and vort.name.endswith(" I")]
+        kampfstilVorteile = [vort for vort in self.vorteile.values() if vort.kategorie == self.einstellungen["Vorteile: Kampfstil Kategorie"].wert and vort.name.endswith(" I")]
 
         kampfstile = []
         for vort in kampfstilVorteile:

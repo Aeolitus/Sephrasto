@@ -25,7 +25,7 @@ class DatenbankEinstellung:
         self.strip = True
 
         # Derived properties after deserialization
-        self.wert = ''
+        self.wert = None
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
@@ -46,6 +46,11 @@ class DatenbankEinstellung:
         return val
 
     def finalize(self, db):
+        self.__initWert()
+        
+    def __initWert(self):
+        if self.wert is not None:
+            return
         if self.typ == 'Float':
             self.wert = float(self.text or "0")
         elif self.typ == 'Int':
@@ -115,5 +120,7 @@ class DatenbankEinstellung:
             self.beschreibung = reference.beschreibung
             self.strip = reference.strip
             self.separator = reference.separator
+            
+        self.__initWert() # its crucial to have access to .wert early on, finalize is too late
 
         EventBus.doAction("datenbankeinstellung_deserialisiert", { "object" : self, "deserializer" : ser})

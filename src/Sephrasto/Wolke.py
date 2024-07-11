@@ -50,6 +50,7 @@ class Wolke:
         'WindowSize-Waffen' : _DefaultSettings.WindowSizeDefault2Col,
         'WindowSize-Ruestungen' : _DefaultSettings.WindowSizeDefault2Col,
         'WindowSize-Datenbank' : [1056, 738],
+        'WindowSize-DatenbankMergeDialog' : _DefaultSettings.WindowSizeDefault2Col,
         'WindowSize-Einstellungen' : [701, 640],
         'WindowSize-Regelanhang' : _DefaultSettings.WindowSizeDefault1Col,
         'WindowSize-ScriptPicker' : _DefaultSettings.WindowSizeDefault2Col,
