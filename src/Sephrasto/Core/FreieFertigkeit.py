@@ -27,17 +27,19 @@ class FreieFertigkeitDefinition:
             self.voraussetzungen == other.voraussetzungen
 
     def finalize(self, db):
-        if FreieFertigkeitDefinition.steigerungskosten is None:
-            FreieFertigkeitDefinition.steigerungskosten = [
-                0,
-                db.einstellungen["FreieFertigkeiten: Kosten Stufe1"].wert, 
-                db.einstellungen["FreieFertigkeiten: Kosten Stufe2"].wert, 
-                db.einstellungen["FreieFertigkeiten: Kosten Stufe3"].wert
-            ]
+        pass
+    
+    def finalizeStatic(db):
+        FreieFertigkeitDefinition.steigerungskosten = [
+            0,
+            db.einstellungen["FreieFertigkeiten: Kosten Stufe1"].wert, 
+            db.einstellungen["FreieFertigkeiten: Kosten Stufe2"].wert, 
+            db.einstellungen["FreieFertigkeiten: Kosten Stufe3"].wert
+        ]
 
-            FreieFertigkeitDefinition.gesamtkosten = FreieFertigkeitDefinition.steigerungskosten.copy()
-            FreieFertigkeitDefinition.gesamtkosten[2] += FreieFertigkeitDefinition.gesamtkosten[1]
-            FreieFertigkeitDefinition.gesamtkosten[3] += FreieFertigkeitDefinition.gesamtkosten[2]
+        FreieFertigkeitDefinition.gesamtkosten = FreieFertigkeitDefinition.steigerungskosten.copy()
+        FreieFertigkeitDefinition.gesamtkosten[2] += FreieFertigkeitDefinition.gesamtkosten[1]
+        FreieFertigkeitDefinition.gesamtkosten[3] += FreieFertigkeitDefinition.gesamtkosten[2]
 
     def kategorieName(self, db):
         kategorie = min(self.kategorie, len(db.einstellungen['FreieFertigkeiten: Kategorien'].wert) - 1)

@@ -179,7 +179,9 @@ class Datenbank():
         if not isCharakterEditor:
             self.verify()
 
-        for table in self.tablesByType.values():
+        for elementType, table in self.tablesByType.items():
+            if hasattr(elementType, "finalizeStatic"):
+                elementType.finalizeStatic(self)
             for element in table.values():
                 element.finalize(self)
 
@@ -189,7 +191,9 @@ class Datenbank():
     def loadFileAdditional(self, file, conflictCB):
         if not self.__loadFileInternal(file, refDB = False, isCharakterEditor = False, conflictCB = conflictCB):
             return False
-        for table in self.tablesByType.values():
+        for elementType, table in self.tablesByType.items():
+            if hasattr(elementType, "finalizeStatic"):
+                elementType.finalizeStatic(self)
             for element in table.values():
                 element.finalize(self)
         return True
