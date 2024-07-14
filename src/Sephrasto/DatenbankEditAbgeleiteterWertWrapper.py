@@ -10,8 +10,8 @@ from ScriptPickerWrapper import ScriptPickerWrapper
 from EventBus import EventBus
 
 class DatenbankEditAbgeleiteterWertWrapper(DatenbankElementEditorBase):
-    def __init__(self, datenbank, abgeleiteterWert = None, readonly = False):
-        super().__init__(datenbank, UI.DatenbankEditAbgeleiteterWert.Ui_dialog(), AbgeleiteterWertDefinition, abgeleiteterWert, readonly)
+    def __init__(self, datenbank, abgeleiteterWert = None):
+        super().__init__(datenbank, UI.DatenbankEditAbgeleiteterWert.Ui_dialog(), AbgeleiteterWertDefinition, abgeleiteterWert)
         self.beschreibungEditor = BeschreibungEditor(self)
         self.scriptEditor = ScriptEditor(self, mode="eval")
         self.finalscriptEditor = ScriptEditor(self, "finalscript", "teFinalscript", mode="eval")

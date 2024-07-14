@@ -225,7 +225,7 @@ class Ui_Form(object):
         self.buttonEditieren.setText(QCoreApplication.translate("Form", u"Editieren", None))
         self.buttonEditieren.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
 #if QT_CONFIG(tooltip)
-        self.buttonRAW.setToolTip(QCoreApplication.translate("Form", u"Original ansehen - Regeln wie sie im Buch stehen", None))
+        self.buttonRAW.setToolTip(QCoreApplication.translate("Form", u"\u00c4nderungen mit dem Original-Element vergleichen", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonRAW.setText(QCoreApplication.translate("Form", u"RAW ansehen", None))
         self.buttonRAW.setProperty("class", QCoreApplication.translate("Form", u"icon", None))

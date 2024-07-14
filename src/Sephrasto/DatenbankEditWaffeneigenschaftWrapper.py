@@ -15,8 +15,8 @@ from ScriptPickerWrapper import ScriptPickerWrapper, ScriptContext
 from EventBus import EventBus
 
 class DatenbankEditWaffeneigenschaftWrapper(DatenbankElementEditorBase):
-    def __init__(self, datenbank, waffeneigenschaft=None, readonly = False):
-        super().__init__(datenbank, UI.DatenbankEditWaffeneigenschaft.Ui_dialog(), Waffeneigenschaft, waffeneigenschaft, readonly)
+    def __init__(self, datenbank, waffeneigenschaft=None):
+        super().__init__(datenbank, UI.DatenbankEditWaffeneigenschaft.Ui_dialog(), Waffeneigenschaft, waffeneigenschaft)
         self.beschreibungEditor = BeschreibungEditor(self)
         self.scriptEditor = ScriptEditor(self, lineLimit=2)
 

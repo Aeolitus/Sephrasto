@@ -15,8 +15,8 @@ from Datenbank import Datenbank
 from QtUtils.HtmlToolbar import HtmlToolbar
 
 class DatenbankEditRegelWrapper(DatenbankElementEditorBase):
-    def __init__(self, datenbank, regel=None, readonly=False):
-        super().__init__(datenbank, UI.DatenbankEditRegel.Ui_dialog(), Regel, regel, readonly)
+    def __init__(self, datenbank, regel=None):
+        super().__init__(datenbank, UI.DatenbankEditRegel.Ui_dialog(), Regel, regel)
         self.beschreibungEditor = BeschreibungEditor(self)
         self.voraussetzungenEditor = VoraussetzungenEditor(self)
 

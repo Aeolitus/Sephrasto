@@ -76,7 +76,7 @@
       <item>
        <widget class="QPushButton" name="buttonRAW">
         <property name="toolTip">
-         <string>Original ansehen - Regeln wie sie im Buch stehen</string>
+         <string>Änderungen mit dem Original-Element vergleichen</string>
         </property>
         <property name="text">
          <string>RAW ansehen</string>

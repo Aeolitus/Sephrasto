@@ -7,8 +7,8 @@ from Datenbank import Datenbank
 from QtUtils.PyEdit2 import TextEdit, NumberBar
 
 class DatenbankEditEinstellungWrapper(DatenbankElementEditorBase):
-    def __init__(self, datenbank, element, readonly=False):
-        super().__init__(datenbank, UI.DatenbankEditEinstellung.Ui_dialog(), DatenbankEinstellung, element, readonly)
+    def __init__(self, datenbank, element):
+        super().__init__(datenbank, UI.DatenbankEditEinstellung.Ui_dialog(), DatenbankEinstellung, element)
         if element.typ == "TextDict":
             self.validator["Text"] = True
 

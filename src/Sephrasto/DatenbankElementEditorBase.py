@@ -5,22 +5,31 @@ from Hilfsmethoden import Hilfsmethoden
 from VoraussetzungenListe import VoraussetzungenListe, VoraussetzungException
 from RestrictedPython import compile_restricted
 
-class DatenbankElementEditorBase():
-    def __init__(self, datenbank, ui, elementType, element, readonly):
+class DatenbankElementEditorBase(QtCore.QObject):
+    validationChanged = QtCore.Signal(bool)
+    
+    def __init__(self, datenbank, ui, elementType, element):
+        super().__init__()
         self.datenbank = datenbank
         self.elementTable = datenbank.tablesByType[elementType]
         self.elementType = elementType
         if element is None:
             element = elementType()
         self.elementPicked = element
-        self.readonly = readonly
+        self.readOnly = False
         self.validator = { "Name" : True } #modules can add their own keys
         self.ui = ui
+        self.ui.warning = QtWidgets.QLabel()
+        self.ui.warning.setProperty("class", "warning")
+        self.ui.warning.setVisible(False)
 
     def setupAsWidget(self):
         self.form = QtWidgets.QWidget()     
         self.ui.setupUi(self.form)
-        self.onSetupUi()               
+        self.form.layout().insertWidget(0, self.ui.warning)
+        self.onSetupUi()
+        if self.readOnly:
+            self.setReadOnly()
         self.load(self.elementPicked)
 
     def setupAsDialogAndShow(self):
@@ -28,14 +37,10 @@ class DatenbankElementEditorBase():
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.accept = lambda: self.accept()
         self.ui.setupUi(self.form)
-        
-        self.ui.warning = QtWidgets.QLabel()
-        self.ui.warning.setProperty("class", "warning")
+        self.form.layout().insertWidget(0, self.ui.warning)
         
         assert isinstance(self.form.layout(), QtWidgets.QBoxLayout), "database element editors must have a QBoxLayout"
 
-        self.form.layout().insertWidget(0, self.ui.warning)
-        
         self.ui.buttonBox = QtWidgets.QDialogButtonBox(QtWidgets.QDialogButtonBox.Save | QtWidgets.QDialogButtonBox.Cancel)
         self.ui.buttonBox.setCenterButtons(True)
         self.ui.buttonBox.accepted.connect(self.form.accept)
@@ -43,19 +48,15 @@ class DatenbankElementEditorBase():
         self.form.layout().addWidget(self.ui.buttonBox)
 
         self.onSetupUi()
-
-        if self.readonly:
-            self.ui.warning.setText("Gelöschte und überschriebene Elemente können nicht verändert werden.")
-            self.ui.warning.setVisible(True)
-            self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(False)
-        else:
-            self.ui.warning.setVisible(False)
+        if self.readOnly:
+            self.setReadOnly()
 
         self.form.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
-                QtCore.Qt.WindowCloseButtonHint)
+                QtCore.Qt.WindowCloseButtonHint |
+                QtCore.Qt.WindowMaximizeButtonHint)
         
         settingName = "WindowSize-DB" + self.elementType.__name__
         if not settingName in Wolke.Settings:
@@ -82,6 +83,41 @@ class DatenbankElementEditorBase():
     # to be overridden by subclasses
     def onSetupUi(self):
         pass
+    
+    def setWarning(self, message):
+        if message is None:
+            self.ui.warning.setVisible(False)
+        else:
+            self.ui.warning.setText(message)
+            self.ui.warning.setVisible(True)
+
+    def setReadOnly(self):
+        self.readOnly = True
+        if not hasattr(self, "form"):
+            return
+
+        typeFilters = [
+            # Buttons
+            QtWidgets.QPushButton, QtWidgets.QToolButton, QtWidgets.QRadioButton, QtWidgets.QCheckBox, QtWidgets.QCommandLinkButton,
+            # Input widgets
+            QtWidgets.QComboBox, QtWidgets.QLineEdit, QtWidgets.QTextEdit, QtWidgets.QPlainTextEdit, QtWidgets.QSpinBox,
+            QtWidgets.QDoubleSpinBox, QtWidgets.QTimeEdit, QtWidgets.QDateEdit, QtWidgets.QDateTimeEdit, QtWidgets.QDial,
+            QtWidgets.QSlider, QtWidgets.QKeySequenceEdit
+        ]
+        
+        for child in self.form.findChildren(QtWidgets.QWidget):
+            if child == self.form:
+                continue
+            if child.__class__ not in typeFilters:
+                continue   
+            if child.parent().__class__ == QtWidgets.QDialogButtonBox:
+                # editors need to be able to control their dialog buttons i.e. for cancel
+                continue
+            if hasattr(child, "setReadOnly"):
+                # prefer to set readOnly so i. e. text content can still be selected and copied
+                child.setReadOnly(True)
+            else:
+                child.setEnabled(False)
 
     def load(self, element):
         self.ui.leName.setText(element.name)
@@ -112,19 +148,20 @@ class DatenbankElementEditorBase():
         self.updateSaveButtonState()
     
     def updateSaveButtonState(self):
+        isValid = True
+        if self.readOnly:
+            isValid = False
+        for valid in self.validator.values():
+            if not valid:
+                isValid = False
+                break
+
+        self.validationChanged.emit(isValid)
+        
         if not hasattr(self.ui, "buttonBox"):
             return;
 
-        if self.readonly:
-            self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(False)
-            return
-
-        for valid in self.validator.values():
-            if not valid:
-                self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(False)
-                return
-
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(True)
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(isValid)
 
 class BeschreibungEditor:
     def __init__(self, editor, propertyName = "text", textEditName = "teBeschreibung", previewName = "tbBeschreibung", listifyPreview = False):

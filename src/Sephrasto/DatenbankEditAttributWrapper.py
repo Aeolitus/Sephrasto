@@ -8,8 +8,8 @@ from Datenbank import Datenbank
 from QtUtils.HtmlToolbar import HtmlToolbar
 
 class DatenbankEditAttributWrapper(DatenbankElementEditorBase):
-    def __init__(self, datenbank, element = None, readonly = False):
-        super().__init__(datenbank, UI.DatenbankEditAttribut.Ui_dialog(), AttributDefinition, element, readonly)
+    def __init__(self, datenbank, element = None):
+        super().__init__(datenbank, UI.DatenbankEditAttribut.Ui_dialog(), AttributDefinition, element)
         self.beschreibungEditor = BeschreibungEditor(self)
 
     def load(self, attribut):

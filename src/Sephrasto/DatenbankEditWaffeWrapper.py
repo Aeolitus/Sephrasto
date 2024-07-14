@@ -16,8 +16,8 @@ from functools import partial
 from Datenbank import Datenbank
 
 class DatenbankEditWaffeWrapper(DatenbankElementEditorBase):
-    def __init__(self, datenbank, waffe=None, readonly=False):
-        super().__init__(datenbank, UI.DatenbankEditWaffe.Ui_dialog(), WaffeDefinition, waffe, readonly)
+    def __init__(self, datenbank, waffe=None):
+        super().__init__(datenbank, UI.DatenbankEditWaffe.Ui_dialog(), WaffeDefinition, waffe)
         self.validator["Waffeneigenschaften"] = True
 
     def load(self, waffe):

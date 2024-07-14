@@ -34,7 +34,7 @@ import DatenbankEditAttributWrapper
 import DatenbankEditAbgeleiteterWertWrapper
 import DatenbankEditEnergieWrapper
 import DatenbankErrorLogWrapper
-import DatenbankMergeDialogWrapper
+import DatenbankCompareDialogWrapper
 import os
 from EinstellungenWrapper import EinstellungenWrapper
 from Wolke import Wolke
@@ -61,17 +61,20 @@ class DatenbankTypWrapper:
     def add(self, datenbank):
         return self.edit(datenbank, self.dataType())
 
-    def edit(self, datenbank, inp, readonly = False):
+    def edit(self, datenbank, inp, isDeleted):
         filterName = self.dataType.__name__.lower()
         editorType = EventBus.applyFilter("dbe_class_" + filterName + "_wrapper", self.editorType)
-        editor = editorType(datenbank, inp, readonly)
+        editor = editorType(datenbank, inp)
+        if isDeleted:
+            editor.setReadOnly()
+            editor.setWarning("Gelöschte Elemente können nicht verändert werden.")
         editor.setupAsDialogAndShow()
         return editor.element
     
-    def display(self, datenbank, inp, readonly = False):
+    def display(self, datenbank, inp):
         filterName = self.dataType.__name__.lower()
         editorType = EventBus.applyFilter("dbe_class_" + filterName + "_wrapper", self.editorType)
-        editor = editorType(datenbank, inp, readonly)
+        editor = editorType(datenbank, inp)
         editor.setupAsWidget()
         return editor      
 
@@ -219,14 +222,14 @@ class DatenbankEditor(object):
         self.ui.buttonStatusFilter.setMenu(self.statusFilterMenu)
 
         # Menu actions
-        self.ui.actionOeffnen.triggered.connect(lambda: self.loadDatenbank())
-        self.ui.actionZusaetzlichOeffnen.triggered.connect(lambda: self.loadDatenbank(True))
+        self.ui.actionOeffnen.triggered.connect(lambda: self.loadDatabase())
+        self.ui.actionZusaetzlichOeffnen.triggered.connect(lambda: self.loadDatabase(True))
         self.ui.actionZusaetzlichOeffnen.setEnabled(self.datenbank.hausregelDatei is not None)
-        self.ui.actionSpeichern.triggered.connect(self.quicksaveDatenbank)
-        self.ui.actionSpeichern_unter.triggered.connect(self.saveDatenbank)
-        self.ui.actionDBMergen.triggered.connect(lambda: self.saveDatenbank(True))
-        self.ui.actionSchliessen.triggered.connect(self.closeDatenbank)
-        self.ui.actionReload.triggered.connect(self.reloadDatenbank)
+        self.ui.actionSpeichern.triggered.connect(self.quicksaveDatabase)
+        self.ui.actionSpeichern_unter.triggered.connect(self.saveDatabase)
+        self.ui.actionDBMergen.triggered.connect(lambda: self.saveDatabase(True))
+        self.ui.actionSchliessen.triggered.connect(self.closeDatabase)
+        self.ui.actionReload.triggered.connect(self.reloadDatabase)
         self.ui.actionBeenden.triggered.connect(lambda: self.form.close())
 
         self.ui.actionFehlerliste.triggered.connect(self.showErrorLog)
@@ -243,38 +246,38 @@ class DatenbankEditor(object):
         self.ui.actionScript_API.triggered.connect(self.showScriptHelp)
 
         # Edit buttons
-        self.ui.buttonOpen.clicked.connect(self.loadDatenbank)
+        self.ui.buttonOpen.clicked.connect(self.loadDatabase)
         self.ui.buttonOpen.setText("\uf07c")
         self.setButtonShortcut(self.ui.buttonOpen, "Ctrl+O")
 
-        self.ui.buttonQuicksave.clicked.connect(self.quicksaveDatenbank)
+        self.ui.buttonQuicksave.clicked.connect(self.quicksaveDatabase)
         self.ui.buttonQuicksave.setText("\uf0c7")
         self.setButtonShortcut(self.ui.buttonQuicksave, "Ctrl+S")
 
-        self.ui.buttonEditieren.clicked.connect(self.editSelected)
+        self.ui.buttonEditieren.clicked.connect(self.editSelectedElement)
         self.ui.buttonEditieren.setEnabled(False)
         self.ui.buttonEditieren.setText("\uf044")
         self.setButtonShortcut(self.ui.buttonEditieren, "Return")
 
-        self.ui.buttonDuplizieren.clicked.connect(self.duplicateSelected)
+        self.ui.buttonDuplizieren.clicked.connect(self.duplicateSelectedElement)
         self.ui.buttonDuplizieren.setEnabled(False)
         self.ui.buttonDuplizieren.setText("\uf24d")
         self.setButtonShortcut(self.ui.buttonDuplizieren, "Ctrl+D")
 
-        self.ui.buttonLoeschen.clicked.connect(self.deleteSelected)
+        self.ui.buttonLoeschen.clicked.connect(self.deleteSelectedElement)
         self.ui.buttonLoeschen.setEnabled(False)
         self.ui.buttonLoeschen.setText("\uf2ed")
         self.setButtonShortcut(self.ui.buttonLoeschen, "Del")
 
-        self.ui.buttonNeu.clicked.connect(self.hinzufuegen)
+        self.ui.buttonNeu.clicked.connect(self.addElement)
         self.ui.buttonNeu.setText("\u002b")
         self.setButtonShortcut(self.ui.buttonNeu, "Ctrl+N")
 
-        self.ui.buttonWiederherstellen.clicked.connect(self.wiederherstellen)
+        self.ui.buttonWiederherstellen.clicked.connect(self.restoreElement)
         self.ui.buttonWiederherstellen.setText("\uf829")
         self.setButtonShortcut(self.ui.buttonWiederherstellen, "Ctrl+W")
 
-        self.ui.buttonRAW.clicked.connect(self.vanillaAnsehen)
+        self.ui.buttonRAW.clicked.connect(self.compareElementWithRaw)
         self.ui.buttonRAW.setText("\uf02d")
         self.setButtonShortcut(self.ui.buttonRAW, "Ctrl+R")
 
@@ -328,7 +331,7 @@ class DatenbankEditor(object):
             filterProxy.setSourceModel(model)
 
             tableView.setModel(filterProxy)
-            tableView.doubleClicked["QModelIndex"].connect(self.editSelected)
+            tableView.doubleClicked["QModelIndex"].connect(self.editSelectedElement)
             tableView.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
             tableView.selectionModel().selectionChanged.connect(self.listSelectionChanged)         
             tableView.setAlternatingRowColors(True)
@@ -473,7 +476,7 @@ class DatenbankEditor(object):
             messagebox.setStandardButtons(QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No | QtWidgets.QMessageBox.Cancel)
             result = messagebox.exec()
             if result == QtWidgets.QMessageBox.Yes:
-                self.quicksaveDatenbank()
+                self.quicksaveDatabase()
             elif result == QtWidgets.QMessageBox.Cancel:
                 return True
         return False
@@ -575,7 +578,7 @@ class DatenbankEditor(object):
             elif self.datenbank.isChanged(element):
                 iconItem.setText('\uf044')
                 iconItem.setForeground(QtGui.QBrush(QtCore.Qt.blue))
-                iconItem.setToolTip("<b>Verändertes</b> Original-Element. Wenn du es löschst, erhältst du die Möglichkeit, die Original-Daten wiederherzustellen. Unten rechts hast du über den Original-Button die Möglichkeit diese anzusehen.")
+                iconItem.setToolTip("<b>Verändertes</b> Original-Element. Wenn du es löschst, erhältst du die Möglichkeit, die Original-Daten wiederherzustellen. Unten rechts kannst du über den Buch-Button deine Änderungen vergleichen.")
             elif not self.datenbank.isOverriddenByOther(element):
                 iconItem.setText("\uf02d")
                 iconItem.setToolTip("<b>Unverändertes</b> Original-Element. Regeln wie sie im Buch stehen.")
@@ -611,7 +614,7 @@ class DatenbankEditor(object):
         self.listSelectionChanged()
         self.updateResultsLabel(filter)
                
-    def wiederherstellen(self):
+    def restoreElement(self):
         model = self.models[self.ui.tabWidget.currentIndex()]
         filter = self.filters[self.ui.tabWidget.currentIndex()]
         tableView = self.lists[self.ui.tabWidget.currentIndex()]
@@ -635,21 +638,33 @@ class DatenbankEditor(object):
 
         self.onDatabaseChange();
 
-    def vanillaAnsehen(self):
+    def compareElementWithRaw(self):
         model = self.models[self.ui.tabWidget.currentIndex()]
         filter = self.filters[self.ui.tabWidget.currentIndex()]
         tableView = self.lists[self.ui.tabWidget.currentIndex()]
 
+        changed = False
         for itm in tableView.selectedIndexes():
             element = model.itemFromIndex(filter.mapToSource(itm)).data(QtCore.Qt.UserRole)
             if element is None:
                 continue
             if not self.datenbank.isChanged(element):
                 continue
-            table = self.datenbank.referenceDB[element.__class__]
-            self.edit(table[element.name], True)
+            old = self.datenbank.referenceDB[element.__class__][element.name]
+            table = self.datenbank.tablesByType[element.__class__]
+            new = table[element.name]
+            dialog = DatenbankCompareDialogWrapper.DatenbankCompareRawDialogWrapper(self.databaseTypes[element.__class__], self.datenbank, old, new)
+            if dialog.element is None:
+                continue
+            if dialog.element.name != element.name:
+                table.pop(element.name)
+            table[dialog.element.name] = dialog.element
+            changed = True
+            
+        if changed:
+            self.onDatabaseChange()
     
-    def hinzufuegen(self):
+    def addElement(self):
         '''
         Lässt den Nutzer einen neuen Eintrag in die Datenbank einfügen.
         Öffnet zunächst den DatenbankSelectType-Dialog, welcher den 
@@ -663,7 +678,7 @@ class DatenbankEditor(object):
             self.datenbank.tablesByType[dbType][val.name] = val
             self.onDatabaseChange()
 
-    def editSelected(self):
+    def editSelectedElement(self):
         tableView = self.lists[self.ui.tabWidget.currentIndex()]
         model = self.models[self.ui.tabWidget.currentIndex()]
         filter = self.filters[self.ui.tabWidget.currentIndex()]
@@ -702,7 +717,7 @@ class DatenbankEditor(object):
             clone.name = clone.name + " (Kopie)"
         table[clone.name] = clone
 
-    def duplicateSelected(self):
+    def duplicateSelectedElement(self):
         tableView = self.lists[self.ui.tabWidget.currentIndex()]
         model = self.models[self.ui.tabWidget.currentIndex()]
         filter = self.filters[self.ui.tabWidget.currentIndex()]
@@ -718,7 +733,7 @@ class DatenbankEditor(object):
         if databaseChanged:
             self.onDatabaseChange()
                                 
-    def deleteSelected(self):
+    def deleteSelectedElement(self):
         tableView = self.lists[self.ui.tabWidget.currentIndex()]
         model = self.models[self.ui.tabWidget.currentIndex()]
         filter = self.filters[self.ui.tabWidget.currentIndex()]
@@ -750,7 +765,7 @@ class DatenbankEditor(object):
         if databaseChanged:
             self.onDatabaseChange()
  
-    def saveDatenbank(self, merge = False):
+    def saveDatabase(self, merge = False):
         if os.path.isdir(Wolke.Settings['Pfad-Regeln']):
             startDir = Wolke.Settings['Pfad-Regeln']
         else:
@@ -773,7 +788,7 @@ class DatenbankEditor(object):
             cancelButton = infoBox.addButton(QtWidgets.QMessageBox.Cancel)
             infoBox.exec()
             if infoBox.clickedButton() == otherButton:
-                self.saveDatenbank(merge)
+                self.saveDatabase(merge)
                 return
             elif infoBox.clickedButton() == cancelButton:
                 return
@@ -792,12 +807,12 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             infoBox.exec()
-            self.saveDatenbank(merge)
+            self.saveDatabase(merge)
             return
 
         tmp = self.savepath
         self.savepath = spath
-        self.quicksaveDatenbank(merge)
+        self.quicksaveDatabase(merge)
         if merge:
             self.savepath = tmp
 
@@ -814,14 +829,14 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
                 Wolke.Settings['Datenbank'] = os.path.basename(spath)
                 EinstellungenWrapper.save()
         
-    def quicksaveDatenbank(self, merge = False):
+    def quicksaveDatabase(self, merge = False):
         prevText = self.ui.buttonQuicksave.text()
         prevShortcut = self.ui.buttonQuicksave.shortcut()
         self.ui.buttonQuicksave.setText("\uf254")
         QtWidgets.QApplication.processEvents()
 
         if not self.savepath:
-            self.saveDatenbank(merge)
+            self.saveDatabase(merge)
             self.ui.buttonQuicksave.setText(prevText)
             self.ui.buttonQuicksave.setShortcut(prevShortcut)
             return
@@ -849,7 +864,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         self.ui.buttonQuicksave.setText(prevText)
         self.ui.buttonQuicksave.setShortcut(prevShortcut)
     
-    def closeDatenbank(self):
+    def closeDatabase(self):
         if self.cancelDueToPendingChanges("Datenbank schließen"):
             return
         self.savepath = None
@@ -862,7 +877,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         if hasattr(self, "errorLogWindow"):
             self.errorLogWindow.refresh()
 
-    def reloadDatenbank(self):
+    def reloadDatabase(self):
         if self.cancelDueToPendingChanges("Datenbank schließen"):
             return
         self.datenbank.loadFile(hausregeln = self.datenbank.hausregelDatei)
@@ -873,7 +888,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         if hasattr(self, "errorLogWindow"):
             self.errorLogWindow.refresh()
 
-    def loadDatenbank(self, additiv = False):
+    def loadDatabase(self, additiv = False):
         if self.cancelDueToPendingChanges("Andere Datenbank laden"):
             return
 
@@ -908,7 +923,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             infoBox.exec()
-            self.loadDatenbank(additiv)
+            self.loadDatabase(additiv)
             return
 
         if spath == self.datenbank.hausregelDatei:
@@ -919,11 +934,11 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             infoBox.exec()
-            self.loadDatenbank(additiv)
+            self.loadDatabase(additiv)
             return
 
         def conflictCB(typ, old, new):
-            dialog = DatenbankMergeDialogWrapper.DatenbankMergeDialogWrapper(self.databaseTypes[typ], self.datenbank, old, new)
+            dialog = DatenbankCompareDialogWrapper.DatenbankMergeDialogWrapper(self.databaseTypes[typ], self.datenbank, old, new)
             return dialog.element
 
         if additiv:

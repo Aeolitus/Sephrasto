@@ -13,8 +13,8 @@ from Core.FreieFertigkeit import FreieFertigkeitDefinition
 from Datenbank import Datenbank
 
 class DatenbankEditFreieFertigkeitWrapper(DatenbankElementEditorBase):
-    def __init__(self, datenbank, element = None, readonly = False):
-        super().__init__(datenbank, UI.DatenbankEditFreieFertigkeit.Ui_dialog(), FreieFertigkeitDefinition, element, readonly)
+    def __init__(self, datenbank, element = None):
+        super().__init__(datenbank, UI.DatenbankEditFreieFertigkeit.Ui_dialog(), FreieFertigkeitDefinition, element)
         self.voraussetzungenEditor = VoraussetzungenEditor(self)
 
     def load(self, fertigkeit):

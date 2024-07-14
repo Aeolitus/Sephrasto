@@ -14,9 +14,9 @@ from Datenbank import Datenbank
 from QtUtils.HtmlToolbar import HtmlToolbar
 
 class DatenbankEditFertigkeitWrapper(DatenbankElementEditorBase):
-    def __init__(self, datenbank, ueber, fertigkeit=None, readonly=False):
+    def __init__(self, datenbank, ueber, fertigkeit=None):
         type = UeberFertigkeitDefinition if ueber else FertigkeitDefinition
-        super().__init__(datenbank, UI.DatenbankEditFertigkeit.Ui_dialog(), type, fertigkeit, readonly)
+        super().__init__(datenbank, UI.DatenbankEditFertigkeit.Ui_dialog(), type, fertigkeit)
         self.beschreibungEditor = BeschreibungEditor(self)
         self.voraussetzungenEditor = VoraussetzungenEditor(self)
         self.fertigkeitUeber = ueber      

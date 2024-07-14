@@ -16,8 +16,8 @@ from ScriptPickerWrapper import ScriptPickerWrapper
 from EventBus import EventBus
 
 class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
-    def __init__(self, datenbank, vorteil=None, readonly=False):
-        super().__init__(datenbank, UI.DatenbankEditVorteil.Ui_dialog(), VorteilDefinition, vorteil, readonly)
+    def __init__(self, datenbank, vorteil=None):
+        super().__init__(datenbank, UI.DatenbankEditVorteil.Ui_dialog(), VorteilDefinition, vorteil)
         self.validator["Querverweise"] = True
         self.beschreibungEditor = BeschreibungEditor(self)
         self.beschreibungRegelanhangEditor = BeschreibungEditor(self, "cheatsheetBeschreibung", "teCheatsheet", "tbCheatsheet", True)
