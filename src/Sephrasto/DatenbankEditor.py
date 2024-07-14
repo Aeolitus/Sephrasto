@@ -59,7 +59,7 @@ class DatenbankTypWrapper:
         self.showDetails = hasattr(dataType, "details")
 
     def add(self, datenbank):
-        return self.edit(datenbank, self.dataType())
+        return self.edit(datenbank, self.dataType(), False)
 
     def edit(self, datenbank, inp, isDeleted):
         filterName = self.dataType.__name__.lower()
