@@ -69,10 +69,10 @@ class DatenbankEditFertigkeitWrapper(DatenbankElementEditorBase):
             fertigkeit.kampffertigkeit = self.ui.comboKampffertigkeit.currentIndex()
 
 class DatenbankEditProfaneFertigkeitWrapper(DatenbankEditFertigkeitWrapper):
-    def __init__(self, datenbank, fertigkeit=None, readonly=False):
-        super().__init__(datenbank, False, fertigkeit, readonly)
+    def __init__(self, datenbank, fertigkeit=None):
+        super().__init__(datenbank, False, fertigkeit)
 
 class DatenbankEditUebernatürlicheFertigkeitWrapper(DatenbankEditFertigkeitWrapper):
-    def __init__(self, datenbank, fertigkeit=None, readonly=False):
-        super().__init__(datenbank, True, fertigkeit, readonly)
+    def __init__(self, datenbank, fertigkeit=None):
+        super().__init__(datenbank, True, fertigkeit)
 
