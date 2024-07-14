@@ -116,7 +116,7 @@ class DatenbankCompareRawDialogWrapper(DatenbankCompareDialogWrapper):
         buttonBox = QtWidgets.QDialogButtonBox(QtWidgets.QDialogButtonBox.Save | QtWidgets.QDialogButtonBox.Cancel)       
         buttonBox.setCenterButtons(True)
         buttonBox.accepted.connect(self.form.accept)
-        buttonBox.rejected.connect(self.form.accept)
+        buttonBox.rejected.connect(self.form.reject)
         self.form.layout().addWidget(buttonBox)
         
         self.editorOld.setReadOnly()
