@@ -22,6 +22,7 @@ class DatenbankElementEditorBase(QtCore.QObject):
         self.ui.warning = QtWidgets.QLabel()
         self.ui.warning.setProperty("class", "warning")
         self.ui.warning.setVisible(False)
+        self.labelsByWidgets = {}
 
     def setupAsWidget(self):
         self.form = QtWidgets.QWidget()     
@@ -83,6 +84,9 @@ class DatenbankElementEditorBase(QtCore.QObject):
     # to be overridden by subclasses
     def onSetupUi(self):
         pass
+
+    def registerInput(self, widget, label):
+        self.labelsByWidgets[widget] = label
     
     def setWarning(self, message):
         if message is None:
@@ -90,6 +94,66 @@ class DatenbankElementEditorBase(QtCore.QObject):
         else:
             self.ui.warning.setText(message)
             self.ui.warning.setVisible(True)
+            
+    def highlightChanges(self, otherEditor):  
+        for label in self.labelsByWidgets.values():
+            font = label.font()
+            font.setBold(False)
+            label.setFont(font)
+
+        for widget, label in self.labelsByWidgets.items():
+            other = None
+            for w in otherEditor.labelsByWidgets.keys():
+                if widget.objectName() != w.objectName():
+                    continue
+                other = w
+                break
+            if other is None:
+                continue
+            changed = False
+            if isinstance(widget, QtWidgets.QRadioButton):
+                changed = widget.isChecked() != other.isChecked()
+            elif isinstance(widget, QtWidgets.QCheckBox):
+                changed = widget.isChecked() != other.isChecked()
+            elif isinstance(widget, QtWidgets.QListWidget):
+                def getItems(list):
+                    items = []
+                    for index in range(list.count()):
+                        items.append(list.item(index).text())
+                    return items
+
+                changed = getItems(widget) != getItems(other)
+            elif isinstance(widget, QtWidgets.QComboBox):
+                changed = widget.currentIndex() != other.currentIndex()
+            elif isinstance(widget, QtWidgets.QLineEdit):
+                changed = widget.text() != other.text()
+            elif isinstance(widget, QtWidgets.QTextEdit):
+                changed = widget.toPlainText() != other.toPlainText()
+            elif isinstance(widget, QtWidgets.QPlainTextEdit):
+                changed = widget.toPlainText() != other.toPlainText()
+            elif isinstance(widget, QtWidgets.QSpinBox):
+                changed = widget.value() != other.value()
+            elif isinstance(widget, QtWidgets.QDoubleSpinBox):
+                changed = widget.value() != other.value()
+            elif isinstance(widget, QtWidgets.QTimeEdit):
+                changed = widget.time() != other.time()
+            elif isinstance(widget, QtWidgets.QDateEdit):
+                changed = widget.date() != other.date()
+            elif isinstance(widget, QtWidgets.QDateTimeEdit):
+                changed = widget.dateTime() != other.dateTime()
+            elif isinstance(widget, QtWidgets.QDial):
+                changed = widget.value() != other.value()
+            elif isinstance(widget, QtWidgets.QSlider):
+                changed = widget.value() != other.value()
+            elif isinstance(widget, QtWidgets.QKeySequenceEdit):
+                changed = widget.keySequence() != other.keySequence()
+            elif isinstance(widget, QtWidgets.QLabel):
+                changed = widget.text() != other.text()
+                
+            if changed:
+                font = label.font()
+                font.setBold(True)
+                label.setFont(font)
 
     def setReadOnly(self):
         self.readOnly = True
@@ -99,6 +163,7 @@ class DatenbankElementEditorBase(QtCore.QObject):
         typeFilters = [
             # Buttons
             QtWidgets.QPushButton, QtWidgets.QToolButton, QtWidgets.QRadioButton, QtWidgets.QCheckBox, QtWidgets.QCommandLinkButton,
+            
             # Input widgets
             QtWidgets.QComboBox, QtWidgets.QLineEdit, QtWidgets.QTextEdit, QtWidgets.QPlainTextEdit, QtWidgets.QSpinBox,
             QtWidgets.QDoubleSpinBox, QtWidgets.QTimeEdit, QtWidgets.QDateEdit, QtWidgets.QDateTimeEdit, QtWidgets.QDial,
@@ -106,8 +171,6 @@ class DatenbankElementEditorBase(QtCore.QObject):
         ]
         
         for child in self.form.findChildren(QtWidgets.QWidget):
-            if child == self.form:
-                continue
             if child.__class__ not in typeFilters:
                 continue   
             if child.parent().__class__ == QtWidgets.QDialogButtonBox:

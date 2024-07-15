@@ -54,7 +54,8 @@ class DatenbankCompareDialogWrapper():
             layoutRight.addWidget(self.editorNew.form)
         contentLayout.addLayout(layoutRight)
         
-        # Buttons
+        if self.editorOld is not None and self.editorNew is not None:
+            self.editorNew.highlightChanges(self.editorOld)
      
     def getLabelInfo(self):
         pass

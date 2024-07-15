@@ -31,24 +31,24 @@ class Ui_dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 548, 387))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 552, 391))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.label_2 = QLabel(self.scrollAreaWidgetContents)
-        self.label_2.setObjectName(u"label_2")
+        self.labelLabelBeschreibung = QLabel(self.scrollAreaWidgetContents)
+        self.labelLabelBeschreibung.setObjectName(u"labelLabelBeschreibung")
 
-        self.gridLayout.addWidget(self.label_2, 3, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelLabelBeschreibung, 3, 1, 1, 1)
 
-        self.label = QLabel(self.scrollAreaWidgetContents)
-        self.label.setObjectName(u"label")
+        self.labelName_2 = QLabel(self.scrollAreaWidgetContents)
+        self.labelName_2.setObjectName(u"labelName_2")
 
-        self.gridLayout.addWidget(self.label, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelName_2, 2, 1, 1, 1)
 
-        self.label_4 = QLabel(self.scrollAreaWidgetContents)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setMinimumSize(QSize(110, 0))
+        self.labelWert = QLabel(self.scrollAreaWidgetContents)
+        self.labelWert.setObjectName(u"labelWert")
+        self.labelWert.setMinimumSize(QSize(110, 0))
 
-        self.gridLayout.addWidget(self.label_4, 4, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelWert, 4, 1, 1, 1)
 
         self.labelBeschreibung = QLabel(self.scrollAreaWidgetContents)
         self.labelBeschreibung.setObjectName(u"labelBeschreibung")
@@ -106,9 +106,9 @@ class Ui_dialog(object):
 
     def retranslateUi(self, dialog):
         dialog.setWindowTitle(QCoreApplication.translate("dialog", u"Sephrasto - Einstellung bearbeiten...", None))
-        self.label_2.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
-        self.label.setText(QCoreApplication.translate("dialog", u"Name", None))
-        self.label_4.setText(QCoreApplication.translate("dialog", u"Wert", None))
+        self.labelLabelBeschreibung.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
+        self.labelName_2.setText(QCoreApplication.translate("dialog", u"Name", None))
+        self.labelWert.setText(QCoreApplication.translate("dialog", u"Wert", None))
         self.labelBeschreibung.setText("")
         self.labelName.setText("")
         self.checkText.setText("")

@@ -24,13 +24,13 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>418</width>
-        <height>563</height>
+        <width>422</width>
+        <height>567</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <item row="6" column="0">
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="labelVoraussetzungen">
          <property name="minimumSize">
           <size>
            <width>110</width>
@@ -169,7 +169,7 @@
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="label_9">
+        <widget class="QLabel" name="labelVariable">
          <property name="text">
           <string>Variable Kosten</string>
          </property>
@@ -183,7 +183,7 @@
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
-            <widget class="QComboBox" name="comboTyp">
+            <widget class="QComboBox" name="comboKategorie">
              <property name="toolTip">
               <string>Spezialtalente können nur übernatürlichen Fertigkeiten zugewiesen werden und sie haben frei wählbare Kosten.</string>
              </property>
@@ -284,21 +284,21 @@
         </layout>
        </item>
        <item row="4" column="0">
-        <widget class="QLabel" name="label_7">
+        <widget class="QLabel" name="labelCheatsheet">
          <property name="text">
           <string>Regelanhang</string>
          </property>
         </widget>
        </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="labelName">
          <property name="text">
           <string>Name</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="labelKategorie">
          <property name="text">
           <string>Kategorie und Kosten</string>
          </property>
@@ -312,14 +312,14 @@
         </widget>
        </item>
        <item row="5" column="0">
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="labelFertigkeiten">
          <property name="text">
           <string>Fertigkeiten</string>
          </property>
         </widget>
        </item>
        <item row="8" column="0">
-        <widget class="QLabel" name="label_8">
+        <widget class="QLabel" name="labelSeite">
          <property name="text">
           <string>Seitenreferenz</string>
          </property>
@@ -329,7 +329,7 @@
         <widget class="QLineEdit" name="leFertigkeiten"/>
        </item>
        <item row="7" column="0">
-        <widget class="QLabel" name="label_5">
+        <widget class="QLabel" name="labelBeschreibung">
          <property name="text">
           <string>Beschreibung</string>
          </property>
@@ -349,7 +349,7 @@
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QLabel" name="label_6">
+        <widget class="QLabel" name="labelKommentar">
          <property name="text">
           <string>Kommentar</string>
          </property>

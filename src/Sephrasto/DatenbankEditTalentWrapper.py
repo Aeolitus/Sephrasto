@@ -23,6 +23,24 @@ class DatenbankEditTalentWrapper(DatenbankElementEditorBase):
         self.voraussetzungenEditor = VoraussetzungenEditor(self)
         self.validator["Fertigkeiten"] = True
 
+    def onSetupUi(self):
+        super().onSetupUi()
+
+        ui = self.ui
+        self.registerInput(ui.leName, ui.labelName)
+        self.registerInput(ui.comboKategorie, ui.labelKategorie)
+        self.registerInput(ui.checkVerbilligt, ui.labelKategorie)
+        self.registerInput(ui.spinKosten, ui.labelKategorie)
+        self.registerInput(ui.checkVariable, ui.labelVariable)
+        self.registerInput(ui.checkKommentar, ui.labelKommentar)
+        self.registerInput(ui.checkCheatsheet, ui.labelCheatsheet)
+        self.registerInput(ui.leFertigkeiten, ui.labelFertigkeiten)
+        self.registerInput(ui.teVoraussetzungen, ui.labelVoraussetzungen)
+        self.registerInput(ui.teBeschreibung, ui.labelBeschreibung)
+        self.registerInput(ui.teInfo, ui.labelBeschreibung)
+        self.registerInput(ui.comboSeite, ui.labelSeite)
+        self.registerInput(ui.spinSeite, ui.labelSeite)
+
     def load(self, talent):
         super().load(talent)
         self.htmlToolbar1 = HtmlToolbar(self.ui.teBeschreibung)
@@ -33,9 +51,9 @@ class DatenbankEditTalentWrapper(DatenbankElementEditorBase):
         self.beschreibungEditor.load(talent)
         self.beschreibungInfoEditor.load(talent)
 
-        self.ui.comboTyp.addItems(self.datenbank.einstellungen["Talente: Kategorien"].wert.keyList)
-        self.ui.comboTyp.setCurrentIndex(talent.kategorie)
-        self.ui.comboTyp.currentIndexChanged.connect(self.kostenChanged)
+        self.ui.comboKategorie.addItems(self.datenbank.einstellungen["Talente: Kategorien"].wert.keyList)
+        self.ui.comboKategorie.setCurrentIndex(talent.kategorie)
+        self.ui.comboKategorie.currentIndexChanged.connect(self.kostenChanged)
         self.ui.spinKosten.setValue(talent.kosten)
         self.ui.checkCheatsheet.setChecked(talent.cheatsheetAuflisten)
         self.ui.checkVerbilligt.setChecked(talent.verbilligt)
@@ -80,7 +98,7 @@ class DatenbankEditTalentWrapper(DatenbankElementEditorBase):
         self.voraussetzungenEditor.update(talent)
         self.beschreibungEditor.update(talent)
         self.beschreibungInfoEditor.update(talent)
-        talent.kategorie = self.ui.comboTyp.currentIndex()
+        talent.kategorie = self.ui.comboKategorie.currentIndex()
         talent.kommentarErlauben = self.ui.checkKommentar.isChecked()
         talent.variableKosten = self.ui.checkVariable.isChecked()
         talent.kosten = self.ui.spinKosten.value()
@@ -91,7 +109,7 @@ class DatenbankEditTalentWrapper(DatenbankElementEditorBase):
         talent.referenzSeite = self.ui.spinSeite.value()
 
     def kostenChanged(self):
-        isSpezial = self.ui.comboTyp.currentIndex() > 0
+        isSpezial = self.ui.comboKategorie.currentIndex() > 0
         self.ui.spinKosten.setVisible(isSpezial)
         self.ui.checkVerbilligt.setVisible(not isSpezial)
         
@@ -129,7 +147,7 @@ class DatenbankEditTalentWrapper(DatenbankElementEditorBase):
         fertigkeiten = Hilfsmethoden.FertStr2Array(self.ui.leFertigkeiten.text(),None)
         self.validator["Fertigkeiten"] = True
         for fertigkeit in fertigkeiten:
-            isSpezial = self.ui.comboTyp.currentIndex() > 0
+            isSpezial = self.ui.comboKategorie.currentIndex() > 0
             if isSpezial:
                 if not fertigkeit in self.datenbank.übernatürlicheFertigkeiten:
                     self.ui.leFertigkeiten.setStyleSheet("border: 1px solid red;")

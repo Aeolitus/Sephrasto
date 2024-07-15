@@ -24,13 +24,13 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>416</width>
-        <height>214</height>
+        <width>420</width>
+        <height>218</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <item row="1" column="0">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="labelName">
          <property name="text">
           <string>Name</string>
          </property>
@@ -40,14 +40,14 @@
         <widget class="QLineEdit" name="leName"/>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="labelKategorie">
          <property name="text">
           <string>Kategorie</string>
          </property>
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QComboBox" name="comboTyp"/>
+        <widget class="QComboBox" name="comboKategorie"/>
        </item>
        <item row="3" column="1">
         <widget class="QPlainTextEdit" name="teVoraussetzungen">
@@ -57,7 +57,7 @@
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="labelVoraussetzungen">
          <property name="minimumSize">
           <size>
            <width>110</width>

@@ -24,8 +24,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>416</width>
-        <height>471</height>
+        <width>420</width>
+        <height>475</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
@@ -46,6 +46,12 @@
          </item>
          <item>
           <widget class="QSpinBox" name="spinSortOrder">
+           <property name="minimumSize">
+            <size>
+             <width>52</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="toolTip">
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Reihenfolge, in der der Wert im Charaktereditor aufgeführt werden soll.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
@@ -63,7 +69,7 @@
         </layout>
        </item>
        <item row="4" column="0">
-        <widget class="QLabel" name="label_6">
+        <widget class="QLabel" name="labelVoraussetzungen">
          <property name="text">
           <string>Voraussetzungen</string>
          </property>
@@ -73,14 +79,14 @@
         <widget class="QLineEdit" name="leName"/>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="labelSF">
          <property name="text">
           <string>Steigerungsfaktor</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="labelAnzeigeName">
          <property name="text">
           <string>Voller Name</string>
          </property>
@@ -90,7 +96,7 @@
         <widget class="QLineEdit" name="leAnzeigeName"/>
        </item>
        <item row="5" column="0">
-        <widget class="QLabel" name="label_5">
+        <widget class="QLabel" name="labelBeschreibung">
          <property name="text">
           <string>Beschreibung</string>
          </property>
@@ -146,14 +152,14 @@
         </layout>
        </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="labelName">
          <property name="text">
           <string>Name</string>
          </property>
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="labelSortOrder">
          <property name="text">
           <string>Sortierreihenfolge</string>
          </property>

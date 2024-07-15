@@ -24,13 +24,13 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>451</width>
-        <height>569</height>
+        <width>455</width>
+        <height>573</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <item row="4" column="1">
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="labelBeine">
          <property name="text">
           <string>Beine</string>
          </property>
@@ -44,7 +44,7 @@
         </widget>
        </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="labelName">
          <property name="minimumSize">
           <size>
            <width>110</width>
@@ -57,7 +57,7 @@
         </widget>
        </item>
        <item row="10" column="0">
-        <widget class="QLabel" name="label_10">
+        <widget class="QLabel" name="labelBeschreibung">
          <property name="text">
           <string>Beschreibung</string>
          </property>
@@ -81,7 +81,7 @@
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="label_9">
+        <widget class="QLabel" name="labelKategorie">
          <property name="text">
           <string>Kategorie</string>
          </property>
@@ -110,14 +110,14 @@
         </widget>
        </item>
        <item row="7" column="1">
-        <widget class="QLabel" name="label_5">
+        <widget class="QLabel" name="labelBauch">
          <property name="text">
           <string>Bauch</string>
          </property>
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="label_11">
+        <widget class="QLabel" name="labelSystem">
          <property name="text">
           <string>Verfügbarkeit</string>
          </property>
@@ -257,7 +257,7 @@
         </widget>
        </item>
        <item row="8" column="1">
-        <widget class="QLabel" name="label_6">
+        <widget class="QLabel" name="labelBrust">
          <property name="text">
           <string>Brust</string>
          </property>
@@ -286,17 +286,17 @@
         </widget>
        </item>
        <item row="5" column="1">
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="labelSchild">
          <property name="text">
           <string>Schildarm</string>
          </property>
         </widget>
        </item>
        <item row="1" column="1" colspan="2">
-        <widget class="QComboBox" name="comboTyp"/>
+        <widget class="QComboBox" name="comboKategorie"/>
        </item>
        <item row="6" column="1">
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="labelSchwert">
          <property name="text">
           <string>Schwertarm</string>
          </property>
@@ -325,7 +325,7 @@
         </widget>
        </item>
        <item row="9" column="1">
-        <widget class="QLabel" name="label_7">
+        <widget class="QLabel" name="labelKopf">
          <property name="text">
           <string>Kopf</string>
          </property>
@@ -358,7 +358,7 @@
  </widget>
  <tabstops>
   <tabstop>leName</tabstop>
-  <tabstop>comboTyp</tabstop>
+  <tabstop>comboKategorie</tabstop>
   <tabstop>comboSystem</tabstop>
   <tabstop>spinBeine</tabstop>
   <tabstop>spinSchild</tabstop>

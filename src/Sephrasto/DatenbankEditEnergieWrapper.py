@@ -13,6 +13,17 @@ class DatenbankEditEnergieWrapper(DatenbankElementEditorBase):
         self.beschreibungEditor = BeschreibungEditor(self)
         self.voraussetzungenEditor = VoraussetzungenEditor(self)
 
+    def onSetupUi(self):
+        super().onSetupUi()
+
+        ui = self.ui
+        self.registerInput(ui.leName, ui.labelName)
+        self.registerInput(ui.leAnzeigeName, ui.labelAnzeigeName)
+        self.registerInput(ui.spinSF, ui.labelSF)
+        self.registerInput(ui.spinSortOrder, ui.labelSortOrder)
+        self.registerInput(ui.teVoraussetzungen, ui.labelVoraussetzungen)       
+        self.registerInput(ui.teBeschreibung, ui.labelBeschreibung)
+
     def load(self, energie):
         super().load(energie)
         self.htmlToolbar = HtmlToolbar(self.ui.teBeschreibung)

@@ -32,7 +32,7 @@ class Ui_dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 416, 412))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 420, 416))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName(u"gridLayout")
         self.horizontalLayout = QHBoxLayout()
@@ -65,16 +65,16 @@ class Ui_dialog(object):
 
         self.gridLayout.addLayout(self.horizontalLayout, 3, 2, 1, 1)
 
-        self.label_3 = QLabel(self.scrollAreaWidgetContents)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setMinimumSize(QSize(110, 0))
+        self.labelScript = QLabel(self.scrollAreaWidgetContents)
+        self.labelScript.setObjectName(u"labelScript")
+        self.labelScript.setMinimumSize(QSize(110, 0))
 
-        self.gridLayout.addWidget(self.label_3, 3, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelScript, 3, 1, 1, 1)
 
-        self.label = QLabel(self.scrollAreaWidgetContents)
-        self.label.setObjectName(u"label")
+        self.labelName = QLabel(self.scrollAreaWidgetContents)
+        self.labelName.setObjectName(u"labelName")
 
-        self.gridLayout.addWidget(self.label, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelName, 1, 1, 1, 1)
 
         self.tabWidget = QTabWidget(self.scrollAreaWidgetContents)
         self.tabWidget.setObjectName(u"tabWidget")
@@ -109,10 +109,10 @@ class Ui_dialog(object):
 
         self.gridLayout.addWidget(self.tabWidget, 2, 2, 1, 1)
 
-        self.label_5 = QLabel(self.scrollAreaWidgetContents)
-        self.label_5.setObjectName(u"label_5")
+        self.labelBeschreibung = QLabel(self.scrollAreaWidgetContents)
+        self.labelBeschreibung.setObjectName(u"labelBeschreibung")
 
-        self.gridLayout.addWidget(self.label_5, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelBeschreibung, 2, 1, 1, 1)
 
         self.leName = QLineEdit(self.scrollAreaWidgetContents)
         self.leName.setObjectName(u"leName")
@@ -142,10 +142,10 @@ class Ui_dialog(object):
 #endif // QT_CONFIG(tooltip)
         self.buttonPickScript.setText(QCoreApplication.translate("dialog", u"+", None))
         self.buttonPickScript.setProperty("class", QCoreApplication.translate("dialog", u"iconSmall", None))
-        self.label_3.setText(QCoreApplication.translate("dialog", u"Script / Priorit\u00e4t", None))
-        self.label.setText(QCoreApplication.translate("dialog", u"Name", None))
+        self.labelScript.setText(QCoreApplication.translate("dialog", u"Script / Priorit\u00e4t", None))
+        self.labelName.setText(QCoreApplication.translate("dialog", u"Name", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("dialog", u"HTML", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("dialog", u"Vorschau", None))
-        self.label_5.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
+        self.labelBeschreibung.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
     # retranslateUi
 

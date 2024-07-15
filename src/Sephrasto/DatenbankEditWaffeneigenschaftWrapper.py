@@ -22,6 +22,13 @@ class DatenbankEditWaffeneigenschaftWrapper(DatenbankElementEditorBase):
 
     def onSetupUi(self):
         super().onSetupUi()
+        
+        ui = self.ui
+        self.registerInput(ui.leName, ui.labelName)
+        self.registerInput(ui.teBeschreibung, ui.labelBeschreibung)
+        self.registerInput(ui.teScript, ui.labelScript)
+        self.registerInput(ui.spinScriptPrio, ui.labelScript)
+
         self.ui.buttonPickScript.setText("\uf121")
         self.ui.buttonPickScript.clicked.connect(self.openScriptPicker)
 

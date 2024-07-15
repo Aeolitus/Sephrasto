@@ -33,14 +33,14 @@ class Ui_dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 418, 563))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 422, 567))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.label_4 = QLabel(self.scrollAreaWidgetContents)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setMinimumSize(QSize(110, 0))
+        self.labelVoraussetzungen = QLabel(self.scrollAreaWidgetContents)
+        self.labelVoraussetzungen.setObjectName(u"labelVoraussetzungen")
+        self.labelVoraussetzungen.setMinimumSize(QSize(110, 0))
 
-        self.gridLayout.addWidget(self.label_4, 6, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelVoraussetzungen, 6, 0, 1, 1)
 
         self.checkVariable = QCheckBox(self.scrollAreaWidgetContents)
         self.checkVariable.setObjectName(u"checkVariable")
@@ -110,10 +110,10 @@ class Ui_dialog(object):
 
         self.gridLayout.addWidget(self.tabWidget, 7, 1, 1, 1)
 
-        self.label_9 = QLabel(self.scrollAreaWidgetContents)
-        self.label_9.setObjectName(u"label_9")
+        self.labelVariable = QLabel(self.scrollAreaWidgetContents)
+        self.labelVariable.setObjectName(u"labelVariable")
 
-        self.gridLayout.addWidget(self.label_9, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelVariable, 2, 0, 1, 1)
 
         self.leName = QLineEdit(self.scrollAreaWidgetContents)
         self.leName.setObjectName(u"leName")
@@ -124,10 +124,10 @@ class Ui_dialog(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.comboTyp = QComboBox(self.scrollAreaWidgetContents)
-        self.comboTyp.setObjectName(u"comboTyp")
+        self.comboKategorie = QComboBox(self.scrollAreaWidgetContents)
+        self.comboKategorie.setObjectName(u"comboKategorie")
 
-        self.horizontalLayout.addWidget(self.comboTyp)
+        self.horizontalLayout.addWidget(self.comboKategorie)
 
         self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
@@ -182,45 +182,45 @@ class Ui_dialog(object):
 
         self.gridLayout.addLayout(self.horizontalLayout_3, 8, 1, 1, 1)
 
-        self.label_7 = QLabel(self.scrollAreaWidgetContents)
-        self.label_7.setObjectName(u"label_7")
+        self.labelCheatsheet = QLabel(self.scrollAreaWidgetContents)
+        self.labelCheatsheet.setObjectName(u"labelCheatsheet")
 
-        self.gridLayout.addWidget(self.label_7, 4, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelCheatsheet, 4, 0, 1, 1)
 
-        self.label = QLabel(self.scrollAreaWidgetContents)
-        self.label.setObjectName(u"label")
+        self.labelName = QLabel(self.scrollAreaWidgetContents)
+        self.labelName.setObjectName(u"labelName")
 
-        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelName, 0, 0, 1, 1)
 
-        self.label_2 = QLabel(self.scrollAreaWidgetContents)
-        self.label_2.setObjectName(u"label_2")
+        self.labelKategorie = QLabel(self.scrollAreaWidgetContents)
+        self.labelKategorie.setObjectName(u"labelKategorie")
 
-        self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelKategorie, 1, 0, 1, 1)
 
         self.checkKommentar = QCheckBox(self.scrollAreaWidgetContents)
         self.checkKommentar.setObjectName(u"checkKommentar")
 
         self.gridLayout.addWidget(self.checkKommentar, 3, 1, 1, 1)
 
-        self.label_3 = QLabel(self.scrollAreaWidgetContents)
-        self.label_3.setObjectName(u"label_3")
+        self.labelFertigkeiten = QLabel(self.scrollAreaWidgetContents)
+        self.labelFertigkeiten.setObjectName(u"labelFertigkeiten")
 
-        self.gridLayout.addWidget(self.label_3, 5, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelFertigkeiten, 5, 0, 1, 1)
 
-        self.label_8 = QLabel(self.scrollAreaWidgetContents)
-        self.label_8.setObjectName(u"label_8")
+        self.labelSeite = QLabel(self.scrollAreaWidgetContents)
+        self.labelSeite.setObjectName(u"labelSeite")
 
-        self.gridLayout.addWidget(self.label_8, 8, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelSeite, 8, 0, 1, 1)
 
         self.leFertigkeiten = QLineEdit(self.scrollAreaWidgetContents)
         self.leFertigkeiten.setObjectName(u"leFertigkeiten")
 
         self.gridLayout.addWidget(self.leFertigkeiten, 5, 1, 1, 1)
 
-        self.label_5 = QLabel(self.scrollAreaWidgetContents)
-        self.label_5.setObjectName(u"label_5")
+        self.labelBeschreibung = QLabel(self.scrollAreaWidgetContents)
+        self.labelBeschreibung.setObjectName(u"labelBeschreibung")
 
-        self.gridLayout.addWidget(self.label_5, 7, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelBeschreibung, 7, 0, 1, 1)
 
         self.checkCheatsheet = QCheckBox(self.scrollAreaWidgetContents)
         self.checkCheatsheet.setObjectName(u"checkCheatsheet")
@@ -229,10 +229,10 @@ class Ui_dialog(object):
 
         self.gridLayout.addWidget(self.checkCheatsheet, 4, 1, 1, 1)
 
-        self.label_6 = QLabel(self.scrollAreaWidgetContents)
-        self.label_6.setObjectName(u"label_6")
+        self.labelKommentar = QLabel(self.scrollAreaWidgetContents)
+        self.labelKommentar.setObjectName(u"labelKommentar")
 
-        self.gridLayout.addWidget(self.label_6, 3, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelKommentar, 3, 0, 1, 1)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
@@ -253,7 +253,7 @@ class Ui_dialog(object):
 
     def retranslateUi(self, dialog):
         dialog.setWindowTitle(QCoreApplication.translate("dialog", u"Sephrasto - Talent bearbeiten...", None))
-        self.label_4.setText(QCoreApplication.translate("dialog", u"Voraussetzungen", None))
+        self.labelVoraussetzungen.setText(QCoreApplication.translate("dialog", u"Voraussetzungen", None))
         self.checkVariable.setText(QCoreApplication.translate("dialog", u"Kosten sind durch Nutzer \u00e4nderbar", None))
 #if QT_CONFIG(tooltip)
         self.teVoraussetzungen.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Siehe \"Datenbank Editor -> Einstellungsm\u00f6glichkeiten -> Voraussetzungen\" in der Sephrasto-Hilfe f\u00fcr eine Anleitung.</p></body></html>", None))
@@ -267,23 +267,23 @@ class Ui_dialog(object):
         self.comboVorschau.setItemText(1, QCoreApplication.translate("dialog", u"Zusatzinfo", None))
 
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("dialog", u"Vorschau", None))
-        self.label_9.setText(QCoreApplication.translate("dialog", u"Variable Kosten", None))
+        self.labelVariable.setText(QCoreApplication.translate("dialog", u"Variable Kosten", None))
 #if QT_CONFIG(tooltip)
-        self.comboTyp.setToolTip(QCoreApplication.translate("dialog", u"Spezialtalente k\u00f6nnen nur \u00fcbernat\u00fcrlichen Fertigkeiten zugewiesen werden und sie haben frei w\u00e4hlbare Kosten.", None))
+        self.comboKategorie.setToolTip(QCoreApplication.translate("dialog", u"Spezialtalente k\u00f6nnen nur \u00fcbernat\u00fcrlichen Fertigkeiten zugewiesen werden und sie haben frei w\u00e4hlbare Kosten.", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
         self.checkVerbilligt.setToolTip(QCoreApplication.translate("dialog", u"Verbilligte Talente kosten nur die H\u00e4lfte", None))
 #endif // QT_CONFIG(tooltip)
         self.checkVerbilligt.setText(QCoreApplication.translate("dialog", u"verbilligt", None))
         self.spinKosten.setSuffix(QCoreApplication.translate("dialog", u" EP", None))
-        self.label_7.setText(QCoreApplication.translate("dialog", u"Regelanhang", None))
-        self.label.setText(QCoreApplication.translate("dialog", u"Name", None))
-        self.label_2.setText(QCoreApplication.translate("dialog", u"Kategorie und Kosten", None))
+        self.labelCheatsheet.setText(QCoreApplication.translate("dialog", u"Regelanhang", None))
+        self.labelName.setText(QCoreApplication.translate("dialog", u"Name", None))
+        self.labelKategorie.setText(QCoreApplication.translate("dialog", u"Kategorie und Kosten", None))
         self.checkKommentar.setText(QCoreApplication.translate("dialog", u"Feld f\u00fcr Nutzerkommentare hinzuf\u00fcgen", None))
-        self.label_3.setText(QCoreApplication.translate("dialog", u"Fertigkeiten", None))
-        self.label_8.setText(QCoreApplication.translate("dialog", u"Seitenreferenz", None))
-        self.label_5.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
+        self.labelFertigkeiten.setText(QCoreApplication.translate("dialog", u"Fertigkeiten", None))
+        self.labelSeite.setText(QCoreApplication.translate("dialog", u"Seitenreferenz", None))
+        self.labelBeschreibung.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
         self.checkCheatsheet.setText(QCoreApplication.translate("dialog", u"Auflisten", None))
-        self.label_6.setText(QCoreApplication.translate("dialog", u"Kommentar", None))
+        self.labelKommentar.setText(QCoreApplication.translate("dialog", u"Kommentar", None))
     # retranslateUi
 

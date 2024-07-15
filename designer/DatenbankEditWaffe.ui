@@ -24,20 +24,20 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>430</width>
-        <height>426</height>
+        <width>434</width>
+        <height>430</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <item row="2" column="0">
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="labelTP">
          <property name="text">
           <string>Trefferpunkte</string>
          </property>
         </widget>
        </item>
        <item row="7" column="1">
-        <widget class="QComboBox" name="comboFert"/>
+        <widget class="QComboBox" name="comboFertigkeit"/>
        </item>
        <item row="5" column="1">
         <layout class="QHBoxLayout" name="layoutLZ">
@@ -73,14 +73,14 @@
         </layout>
        </item>
        <item row="7" column="0">
-        <widget class="QLabel" name="label_6">
+        <widget class="QLabel" name="labelFertigkeit">
          <property name="text">
           <string>Fertigkeit</string>
          </property>
         </widget>
        </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="labelName">
          <property name="text">
           <string>Name</string>
          </property>
@@ -130,7 +130,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QSpinBox" name="spinRW1">
+          <widget class="QSpinBox" name="spinRW">
            <property name="minimumSize">
             <size>
              <width>50</width>
@@ -171,21 +171,21 @@
         <layout class="QGridLayout" name="layoutKampfstile"/>
        </item>
        <item row="10" column="0">
-        <widget class="QLabel" name="label_5">
+        <widget class="QLabel" name="labelEigenschaften">
          <property name="text">
           <string>Eigenschaften</string>
          </property>
         </widget>
        </item>
        <item row="9" column="0">
-        <widget class="QLabel" name="label_10">
+        <widget class="QLabel" name="labelKampfstil">
          <property name="text">
           <string>Kampfstil</string>
          </property>
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="labelRW">
          <property name="minimumSize">
           <size>
            <width>110</width>
@@ -198,14 +198,14 @@
         </widget>
        </item>
        <item row="8" column="0">
-        <widget class="QLabel" name="label_8">
+        <widget class="QLabel" name="labelTalent">
          <property name="text">
           <string>Talent</string>
          </property>
         </widget>
        </item>
        <item row="6" column="0">
-        <widget class="QLabel" name="label_9">
+        <widget class="QLabel" name="labelHaerte">
          <property name="text">
           <string>Härte</string>
          </property>
@@ -215,7 +215,7 @@
         <widget class="QLineEdit" name="leName"/>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="labelTyp">
          <property name="text">
           <string>Typ</string>
          </property>
@@ -405,11 +405,11 @@
   <tabstop>spinWuerfel</tabstop>
   <tabstop>comboWuerfelSeiten</tabstop>
   <tabstop>spinPlus</tabstop>
-  <tabstop>spinRW1</tabstop>
+  <tabstop>spinRW</tabstop>
   <tabstop>spinWM</tabstop>
   <tabstop>spinLZ</tabstop>
   <tabstop>spinHaerte</tabstop>
-  <tabstop>comboFert</tabstop>
+  <tabstop>comboFertigkeit</tabstop>
   <tabstop>comboTalent</tabstop>
   <tabstop>teEigenschaften</tabstop>
  </tabstops>

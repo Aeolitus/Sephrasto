@@ -19,7 +19,22 @@ class DatenbankEditFertigkeitWrapper(DatenbankElementEditorBase):
         super().__init__(datenbank, UI.DatenbankEditFertigkeit.Ui_dialog(), type, fertigkeit)
         self.beschreibungEditor = BeschreibungEditor(self)
         self.voraussetzungenEditor = VoraussetzungenEditor(self)
-        self.fertigkeitUeber = ueber      
+        self.fertigkeitUeber = ueber   
+        
+    def onSetupUi(self):
+        super().onSetupUi()
+
+        ui = self.ui
+        self.registerInput(ui.leName, ui.labelName)
+        self.registerInput(ui.spinSF, ui.labelSF)
+        self.registerInput(ui.comboAttribut1, ui.labelAttribute)
+        self.registerInput(ui.comboAttribut2, ui.labelAttribute)
+        self.registerInput(ui.comboAttribut3, ui.labelAttribute)
+        self.registerInput(ui.comboKategorie, ui.labelKategorie)
+        self.registerInput(ui.comboKampffertigkeit, ui.labelKampffertigkeit)
+        self.registerInput(ui.checkGruppieren, ui.labelGruppieren)
+        self.registerInput(ui.teVoraussetzungen, ui.labelVoraussetzungen)
+        self.registerInput(ui.teBeschreibung, ui.labelBeschreibung)
 
     def load(self, fertigkeit):
         super().load(fertigkeit)
@@ -49,9 +64,9 @@ class DatenbankEditFertigkeitWrapper(DatenbankElementEditorBase):
             self.ui.comboKampffertigkeit.setCurrentIndex(fertigkeit.kampffertigkeit)
             fertigkeitsKategorien = self.datenbank.einstellungen["Fertigkeiten: Kategorien profan"].wert.keyList
 
-        self.ui.comboTyp.addItems(fertigkeitsKategorien)
+        self.ui.comboKategorie.addItems(fertigkeitsKategorien)
         kategorie = max(fertigkeit.kategorie, 0)
-        self.ui.comboTyp.setCurrentIndex(kategorie)
+        self.ui.comboKategorie.setCurrentIndex(kategorie)
 
     def update(self, fertigkeit):
         super().update(fertigkeit)
@@ -61,7 +76,7 @@ class DatenbankEditFertigkeitWrapper(DatenbankElementEditorBase):
         fertigkeit.attribute = [self.ui.comboAttribut1.currentText(), 
                        self.ui.comboAttribut2.currentText(),
                        self.ui.comboAttribut3.currentText()]    
-        fertigkeit.kategorie = self.ui.comboTyp.currentIndex()
+        fertigkeit.kategorie = self.ui.comboKategorie.currentIndex()
 
         if self.fertigkeitUeber:
             fertigkeit.talenteGruppieren = self.ui.checkGruppieren.isChecked()

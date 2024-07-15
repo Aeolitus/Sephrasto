@@ -24,27 +24,27 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>548</width>
-        <height>387</height>
+        <width>552</width>
+        <height>391</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <item row="3" column="1">
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="labelLabelBeschreibung">
          <property name="text">
           <string>Beschreibung</string>
          </property>
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="labelName_2">
          <property name="text">
           <string>Name</string>
          </property>
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="labelWert">
          <property name="minimumSize">
           <size>
            <width>110</width>

@@ -24,8 +24,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>637</width>
-        <height>1176</height>
+        <width>641</width>
+        <height>1180</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
@@ -33,7 +33,7 @@
         <widget class="QLineEdit" name="leName"/>
        </item>
        <item row="9" column="1">
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="labelVoraussetzungen">
          <property name="minimumSize">
           <size>
            <width>110</width>
@@ -53,17 +53,17 @@
         </widget>
        </item>
        <item row="2" column="2">
-        <widget class="QComboBox" name="comboTyp"/>
+        <widget class="QComboBox" name="comboKategorie"/>
        </item>
        <item row="8" column="1">
-        <widget class="QLabel" name="label_10">
+        <widget class="QLabel" name="labelCheatsheet">
          <property name="text">
           <string>Regelanhang</string>
          </property>
         </widget>
        </item>
        <item row="6" column="1">
-        <widget class="QLabel" name="label_7">
+        <widget class="QLabel" name="labelKommentar">
          <property name="text">
           <string>Kommentarfeld</string>
          </property>
@@ -123,7 +123,7 @@
         </layout>
        </item>
        <item row="11" column="1">
-        <widget class="QLabel" name="label_41">
+        <widget class="QLabel" name="labelScript">
          <property name="minimumSize">
           <size>
            <width>110</width>
@@ -136,14 +136,14 @@
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="labelKosten">
          <property name="text">
           <string>Kosten</string>
          </property>
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="labelName">
          <property name="text">
           <string>Name</string>
          </property>
@@ -241,7 +241,7 @@
         </layout>
        </item>
        <item row="3" column="1">
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="labelNachkauf">
          <property name="text">
           <string>Nachkauf</string>
          </property>
@@ -440,7 +440,7 @@
         </widget>
        </item>
        <item row="12" column="1">
-        <widget class="QLabel" name="label_9">
+        <widget class="QLabel" name="labelLink">
          <property name="text">
           <string>Verknüpfung</string>
          </property>
@@ -450,7 +450,7 @@
         </widget>
        </item>
        <item row="10" column="1">
-        <widget class="QLabel" name="label_5">
+        <widget class="QLabel" name="labelBeschreibung">
          <property name="text">
           <string>Beschreibung</string>
          </property>
@@ -503,14 +503,14 @@
         </layout>
        </item>
        <item row="7" column="1">
-        <widget class="QLabel" name="label_8">
+        <widget class="QLabel" name="labelScriptfeld">
          <property name="text">
           <string>Scriptfeld</string>
          </property>
         </widget>
        </item>
        <item row="13" column="1">
-        <widget class="QLabel" name="label_11">
+        <widget class="QLabel" name="labelVerweise">
          <property name="text">
           <string>Querverweise</string>
          </property>
@@ -679,14 +679,14 @@
         </widget>
        </item>
        <item row="5" column="1">
-        <widget class="QLabel" name="label_12">
+        <widget class="QLabel" name="labelVariable">
          <property name="text">
           <string>Variable Kosten</string>
          </property>
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLabel" name="label_6">
+        <widget class="QLabel" name="labelKategorie">
          <property name="text">
           <string>Kategorie</string>
          </property>
@@ -700,7 +700,7 @@
  </widget>
  <tabstops>
   <tabstop>leName</tabstop>
-  <tabstop>comboTyp</tabstop>
+  <tabstop>comboKategorie</tabstop>
   <tabstop>comboNachkauf</tabstop>
   <tabstop>spinKosten</tabstop>
   <tabstop>checkVariable</tabstop>

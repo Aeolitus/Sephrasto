@@ -24,8 +24,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>502</width>
-        <height>593</height>
+        <width>506</width>
+        <height>597</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
@@ -85,7 +85,7 @@
         </layout>
        </item>
        <item row="5" column="1">
-        <widget class="QLabel" name="label_5">
+        <widget class="QLabel" name="labelBeschreibung">
          <property name="text">
           <string>Beschreibung</string>
          </property>
@@ -128,28 +128,28 @@
         <widget class="QLineEdit" name="leName"/>
        </item>
        <item row="3" column="1">
-        <widget class="QLabel" name="label_8">
+        <widget class="QLabel" name="labelShow">
          <property name="text">
           <string>Anzeigen</string>
          </property>
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="labelAnzeigeName">
          <property name="text">
           <string>Voller Name</string>
          </property>
         </widget>
        </item>
        <item row="8" column="1">
-        <widget class="QLabel" name="label_7">
+        <widget class="QLabel" name="labelFinalscript">
          <property name="text">
           <string>Finalwert Script</string>
          </property>
         </widget>
        </item>
        <item row="7" column="1">
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="labelScript">
          <property name="minimumSize">
           <size>
            <width>110</width>
@@ -233,21 +233,21 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="labelName">
          <property name="text">
           <string>Name</string>
          </property>
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QLabel" name="label_6">
+        <widget class="QLabel" name="labelSortOrder">
          <property name="text">
           <string>Sortierreihenfolge</string>
          </property>
         </widget>
        </item>
        <item row="6" column="1">
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="labelFormel">
          <property name="text">
           <string>Formel</string>
          </property>

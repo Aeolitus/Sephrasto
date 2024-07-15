@@ -18,6 +18,16 @@ class DatenbankEditAbgeleiteterWertWrapper(DatenbankElementEditorBase):
             
     def onSetupUi(self):
         super().onSetupUi()
+        ui = self.ui
+        self.registerInput(ui.leName, ui.labelName)
+        self.registerInput(ui.leAnzeigeName, ui.labelAnzeigeName)
+        self.registerInput(ui.checkShow, ui.labelShow)
+        self.registerInput(ui.spinSortOrder, ui.labelSortOrder)
+        self.registerInput(ui.teBeschreibung, ui.labelBeschreibung)
+        self.registerInput(ui.leFormel, ui.labelFormel)
+        self.registerInput(ui.teScript, ui.labelScript)
+        self.registerInput(ui.teFinalscript, ui.labelFinalscript)
+
         self.ui.buttonPickScript.setText("\uf121")
         self.ui.buttonPickScript.clicked.connect(lambda: self.openScriptPicker(self.ui.teScript))
 

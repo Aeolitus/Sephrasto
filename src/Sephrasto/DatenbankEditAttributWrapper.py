@@ -12,6 +12,16 @@ class DatenbankEditAttributWrapper(DatenbankElementEditorBase):
         super().__init__(datenbank, UI.DatenbankEditAttribut.Ui_dialog(), AttributDefinition, element)
         self.beschreibungEditor = BeschreibungEditor(self)
 
+    def onSetupUi(self):
+        super().onSetupUi()
+        ui = self.ui
+        self.registerInput(ui.leName, ui.labelName)
+        self.registerInput(ui.leAnzeigeName, ui.labelAnzeigeName)
+        self.registerInput(ui.spinSF, ui.labelSF)
+        self.registerInput(ui.spinSortOrder, ui.labelSortOrder)
+        self.registerInput(ui.teBeschreibung, ui.labelBeschreibung)
+
+
     def load(self, attribut):
         super().load(attribut)
         self.htmlToolbar = HtmlToolbar(self.ui.teBeschreibung)

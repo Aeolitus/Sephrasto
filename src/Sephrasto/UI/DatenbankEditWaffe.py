@@ -32,18 +32,18 @@ class Ui_dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 430, 426))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 434, 430))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents_2)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.label_3 = QLabel(self.scrollAreaWidgetContents_2)
-        self.label_3.setObjectName(u"label_3")
+        self.labelTP = QLabel(self.scrollAreaWidgetContents_2)
+        self.labelTP.setObjectName(u"labelTP")
 
-        self.gridLayout.addWidget(self.label_3, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelTP, 2, 0, 1, 1)
 
-        self.comboFert = QComboBox(self.scrollAreaWidgetContents_2)
-        self.comboFert.setObjectName(u"comboFert")
+        self.comboFertigkeit = QComboBox(self.scrollAreaWidgetContents_2)
+        self.comboFertigkeit.setObjectName(u"comboFertigkeit")
 
-        self.gridLayout.addWidget(self.comboFert, 7, 1, 1, 1)
+        self.gridLayout.addWidget(self.comboFertigkeit, 7, 1, 1, 1)
 
         self.layoutLZ = QHBoxLayout()
         self.layoutLZ.setObjectName(u"layoutLZ")
@@ -62,15 +62,15 @@ class Ui_dialog(object):
 
         self.gridLayout.addLayout(self.layoutLZ, 5, 1, 1, 1)
 
-        self.label_6 = QLabel(self.scrollAreaWidgetContents_2)
-        self.label_6.setObjectName(u"label_6")
+        self.labelFertigkeit = QLabel(self.scrollAreaWidgetContents_2)
+        self.labelFertigkeit.setObjectName(u"labelFertigkeit")
 
-        self.gridLayout.addWidget(self.label_6, 7, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelFertigkeit, 7, 0, 1, 1)
 
-        self.label = QLabel(self.scrollAreaWidgetContents_2)
-        self.label.setObjectName(u"label")
+        self.labelName = QLabel(self.scrollAreaWidgetContents_2)
+        self.labelName.setObjectName(u"labelName")
 
-        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelName, 0, 0, 1, 1)
 
         self.teEigenschaften = QPlainTextEdit(self.scrollAreaWidgetContents_2)
         self.teEigenschaften.setObjectName(u"teEigenschaften")
@@ -100,15 +100,15 @@ class Ui_dialog(object):
 
         self.horizontalLayout_4.addItem(self.horizontalSpacer_2)
 
-        self.spinRW1 = QSpinBox(self.scrollAreaWidgetContents_2)
-        self.spinRW1.setObjectName(u"spinRW1")
-        self.spinRW1.setMinimumSize(QSize(50, 0))
-        self.spinRW1.setAlignment(Qt.AlignCenter)
-        self.spinRW1.setButtonSymbols(QAbstractSpinBox.PlusMinus)
-        self.spinRW1.setMaximum(999)
-        self.spinRW1.setValue(1)
+        self.spinRW = QSpinBox(self.scrollAreaWidgetContents_2)
+        self.spinRW.setObjectName(u"spinRW")
+        self.spinRW.setMinimumSize(QSize(50, 0))
+        self.spinRW.setAlignment(Qt.AlignCenter)
+        self.spinRW.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.spinRW.setMaximum(999)
+        self.spinRW.setValue(1)
 
-        self.horizontalLayout_4.addWidget(self.spinRW1)
+        self.horizontalLayout_4.addWidget(self.spinRW)
 
 
         self.gridLayout.addLayout(self.horizontalLayout_4, 3, 1, 1, 1)
@@ -128,41 +128,41 @@ class Ui_dialog(object):
 
         self.gridLayout.addLayout(self.layoutKampfstile, 9, 1, 1, 1)
 
-        self.label_5 = QLabel(self.scrollAreaWidgetContents_2)
-        self.label_5.setObjectName(u"label_5")
+        self.labelEigenschaften = QLabel(self.scrollAreaWidgetContents_2)
+        self.labelEigenschaften.setObjectName(u"labelEigenschaften")
 
-        self.gridLayout.addWidget(self.label_5, 10, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelEigenschaften, 10, 0, 1, 1)
 
-        self.label_10 = QLabel(self.scrollAreaWidgetContents_2)
-        self.label_10.setObjectName(u"label_10")
+        self.labelKampfstil = QLabel(self.scrollAreaWidgetContents_2)
+        self.labelKampfstil.setObjectName(u"labelKampfstil")
 
-        self.gridLayout.addWidget(self.label_10, 9, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelKampfstil, 9, 0, 1, 1)
 
-        self.label_4 = QLabel(self.scrollAreaWidgetContents_2)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setMinimumSize(QSize(110, 0))
+        self.labelRW = QLabel(self.scrollAreaWidgetContents_2)
+        self.labelRW.setObjectName(u"labelRW")
+        self.labelRW.setMinimumSize(QSize(110, 0))
 
-        self.gridLayout.addWidget(self.label_4, 3, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelRW, 3, 0, 1, 1)
 
-        self.label_8 = QLabel(self.scrollAreaWidgetContents_2)
-        self.label_8.setObjectName(u"label_8")
+        self.labelTalent = QLabel(self.scrollAreaWidgetContents_2)
+        self.labelTalent.setObjectName(u"labelTalent")
 
-        self.gridLayout.addWidget(self.label_8, 8, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelTalent, 8, 0, 1, 1)
 
-        self.label_9 = QLabel(self.scrollAreaWidgetContents_2)
-        self.label_9.setObjectName(u"label_9")
+        self.labelHaerte = QLabel(self.scrollAreaWidgetContents_2)
+        self.labelHaerte.setObjectName(u"labelHaerte")
 
-        self.gridLayout.addWidget(self.label_9, 6, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelHaerte, 6, 0, 1, 1)
 
         self.leName = QLineEdit(self.scrollAreaWidgetContents_2)
         self.leName.setObjectName(u"leName")
 
         self.gridLayout.addWidget(self.leName, 0, 1, 1, 1)
 
-        self.label_2 = QLabel(self.scrollAreaWidgetContents_2)
-        self.label_2.setObjectName(u"label_2")
+        self.labelTyp = QLabel(self.scrollAreaWidgetContents_2)
+        self.labelTyp.setObjectName(u"labelTyp")
 
-        self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelTyp, 1, 0, 1, 1)
 
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
@@ -258,12 +258,12 @@ class Ui_dialog(object):
         QWidget.setTabOrder(self.comboTyp, self.spinWuerfel)
         QWidget.setTabOrder(self.spinWuerfel, self.comboWuerfelSeiten)
         QWidget.setTabOrder(self.comboWuerfelSeiten, self.spinPlus)
-        QWidget.setTabOrder(self.spinPlus, self.spinRW1)
-        QWidget.setTabOrder(self.spinRW1, self.spinWM)
+        QWidget.setTabOrder(self.spinPlus, self.spinRW)
+        QWidget.setTabOrder(self.spinRW, self.spinWM)
         QWidget.setTabOrder(self.spinWM, self.spinLZ)
         QWidget.setTabOrder(self.spinLZ, self.spinHaerte)
-        QWidget.setTabOrder(self.spinHaerte, self.comboFert)
-        QWidget.setTabOrder(self.comboFert, self.comboTalent)
+        QWidget.setTabOrder(self.spinHaerte, self.comboFertigkeit)
+        QWidget.setTabOrder(self.comboFertigkeit, self.comboTalent)
         QWidget.setTabOrder(self.comboTalent, self.teEigenschaften)
 
         self.retranslateUi(dialog)
@@ -273,20 +273,20 @@ class Ui_dialog(object):
 
     def retranslateUi(self, dialog):
         dialog.setWindowTitle(QCoreApplication.translate("dialog", u"Sephrasto - Waffe bearbeiten...", None))
-        self.label_3.setText(QCoreApplication.translate("dialog", u"Trefferpunkte", None))
-        self.label_6.setText(QCoreApplication.translate("dialog", u"Fertigkeit", None))
-        self.label.setText(QCoreApplication.translate("dialog", u"Name", None))
+        self.labelTP.setText(QCoreApplication.translate("dialog", u"Trefferpunkte", None))
+        self.labelFertigkeit.setText(QCoreApplication.translate("dialog", u"Fertigkeit", None))
+        self.labelName.setText(QCoreApplication.translate("dialog", u"Name", None))
         self.comboTyp.setItemText(0, QCoreApplication.translate("dialog", u"Nahkampfwaffe", None))
         self.comboTyp.setItemText(1, QCoreApplication.translate("dialog", u"Fernkampfwaffe", None))
 
         self.labelWM.setText(QCoreApplication.translate("dialog", u"WM", None))
         self.labelLZ.setText(QCoreApplication.translate("dialog", u"LZ", None))
-        self.label_5.setText(QCoreApplication.translate("dialog", u"Eigenschaften", None))
-        self.label_10.setText(QCoreApplication.translate("dialog", u"Kampfstil", None))
-        self.label_4.setText(QCoreApplication.translate("dialog", u"Reichweite", None))
-        self.label_8.setText(QCoreApplication.translate("dialog", u"Talent", None))
-        self.label_9.setText(QCoreApplication.translate("dialog", u"H\u00e4rte", None))
-        self.label_2.setText(QCoreApplication.translate("dialog", u"Typ", None))
+        self.labelEigenschaften.setText(QCoreApplication.translate("dialog", u"Eigenschaften", None))
+        self.labelKampfstil.setText(QCoreApplication.translate("dialog", u"Kampfstil", None))
+        self.labelRW.setText(QCoreApplication.translate("dialog", u"Reichweite", None))
+        self.labelTalent.setText(QCoreApplication.translate("dialog", u"Talent", None))
+        self.labelHaerte.setText(QCoreApplication.translate("dialog", u"H\u00e4rte", None))
+        self.labelTyp.setText(QCoreApplication.translate("dialog", u"Typ", None))
         self.spinWuerfel.setSuffix("")
         self.comboWuerfelSeiten.setItemText(0, QCoreApplication.translate("dialog", u"W6", None))
         self.comboWuerfelSeiten.setItemText(1, QCoreApplication.translate("dialog", u"W20", None))

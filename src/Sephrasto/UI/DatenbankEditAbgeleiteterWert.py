@@ -33,7 +33,7 @@ class Ui_dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 502, 593))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 506, 597))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName(u"gridLayout")
         self.horizontalLayout_2 = QHBoxLayout()
@@ -71,10 +71,10 @@ class Ui_dialog(object):
 
         self.gridLayout.addLayout(self.horizontalLayout_3, 7, 2, 1, 1)
 
-        self.label_5 = QLabel(self.scrollAreaWidgetContents)
-        self.label_5.setObjectName(u"label_5")
+        self.labelBeschreibung = QLabel(self.scrollAreaWidgetContents)
+        self.labelBeschreibung.setObjectName(u"labelBeschreibung")
 
-        self.gridLayout.addWidget(self.label_5, 5, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelBeschreibung, 5, 1, 1, 1)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -98,26 +98,26 @@ class Ui_dialog(object):
 
         self.gridLayout.addWidget(self.leName, 1, 2, 1, 1)
 
-        self.label_8 = QLabel(self.scrollAreaWidgetContents)
-        self.label_8.setObjectName(u"label_8")
+        self.labelShow = QLabel(self.scrollAreaWidgetContents)
+        self.labelShow.setObjectName(u"labelShow")
 
-        self.gridLayout.addWidget(self.label_8, 3, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelShow, 3, 1, 1, 1)
 
-        self.label_2 = QLabel(self.scrollAreaWidgetContents)
-        self.label_2.setObjectName(u"label_2")
+        self.labelAnzeigeName = QLabel(self.scrollAreaWidgetContents)
+        self.labelAnzeigeName.setObjectName(u"labelAnzeigeName")
 
-        self.gridLayout.addWidget(self.label_2, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelAnzeigeName, 2, 1, 1, 1)
 
-        self.label_7 = QLabel(self.scrollAreaWidgetContents)
-        self.label_7.setObjectName(u"label_7")
+        self.labelFinalscript = QLabel(self.scrollAreaWidgetContents)
+        self.labelFinalscript.setObjectName(u"labelFinalscript")
 
-        self.gridLayout.addWidget(self.label_7, 8, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelFinalscript, 8, 1, 1, 1)
 
-        self.label_3 = QLabel(self.scrollAreaWidgetContents)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setMinimumSize(QSize(110, 0))
+        self.labelScript = QLabel(self.scrollAreaWidgetContents)
+        self.labelScript.setObjectName(u"labelScript")
+        self.labelScript.setMinimumSize(QSize(110, 0))
 
-        self.gridLayout.addWidget(self.label_3, 7, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelScript, 7, 1, 1, 1)
 
         self.leAnzeigeName = QLineEdit(self.scrollAreaWidgetContents)
         self.leAnzeigeName.setObjectName(u"leAnzeigeName")
@@ -162,20 +162,20 @@ class Ui_dialog(object):
 
         self.gridLayout.addWidget(self.tabWidget, 5, 2, 1, 1)
 
-        self.label = QLabel(self.scrollAreaWidgetContents)
-        self.label.setObjectName(u"label")
+        self.labelName = QLabel(self.scrollAreaWidgetContents)
+        self.labelName.setObjectName(u"labelName")
 
-        self.gridLayout.addWidget(self.label, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelName, 1, 1, 1, 1)
 
-        self.label_6 = QLabel(self.scrollAreaWidgetContents)
-        self.label_6.setObjectName(u"label_6")
+        self.labelSortOrder = QLabel(self.scrollAreaWidgetContents)
+        self.labelSortOrder.setObjectName(u"labelSortOrder")
 
-        self.gridLayout.addWidget(self.label_6, 4, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelSortOrder, 4, 1, 1, 1)
 
-        self.label_4 = QLabel(self.scrollAreaWidgetContents)
-        self.label_4.setObjectName(u"label_4")
+        self.labelFormel = QLabel(self.scrollAreaWidgetContents)
+        self.labelFormel.setObjectName(u"labelFormel")
 
-        self.gridLayout.addWidget(self.label_4, 6, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelFormel, 6, 1, 1, 1)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
@@ -222,19 +222,19 @@ class Ui_dialog(object):
 #endif // QT_CONFIG(tooltip)
         self.buttonPickScript.setText(QCoreApplication.translate("dialog", u"+", None))
         self.buttonPickScript.setProperty("class", QCoreApplication.translate("dialog", u"iconSmall", None))
-        self.label_5.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
+        self.labelBeschreibung.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
 #if QT_CONFIG(tooltip)
         self.spinSortOrder.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Die Reihenfolge, in der der Wert im Charaktereditor aufgef\u00fchrt werden soll.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_8.setText(QCoreApplication.translate("dialog", u"Anzeigen", None))
-        self.label_2.setText(QCoreApplication.translate("dialog", u"Voller Name", None))
-        self.label_7.setText(QCoreApplication.translate("dialog", u"Finalwert Script", None))
-        self.label_3.setText(QCoreApplication.translate("dialog", u"Script", None))
+        self.labelShow.setText(QCoreApplication.translate("dialog", u"Anzeigen", None))
+        self.labelAnzeigeName.setText(QCoreApplication.translate("dialog", u"Voller Name", None))
+        self.labelFinalscript.setText(QCoreApplication.translate("dialog", u"Finalwert Script", None))
+        self.labelScript.setText(QCoreApplication.translate("dialog", u"Script", None))
         self.checkShow.setText(QCoreApplication.translate("dialog", u"Im Attribute-Tab des Charaktereditors zeigen", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("dialog", u"HTML", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("dialog", u"Vorschau", None))
-        self.label.setText(QCoreApplication.translate("dialog", u"Name", None))
-        self.label_6.setText(QCoreApplication.translate("dialog", u"Sortierreihenfolge", None))
-        self.label_4.setText(QCoreApplication.translate("dialog", u"Formel", None))
+        self.labelName.setText(QCoreApplication.translate("dialog", u"Name", None))
+        self.labelSortOrder.setText(QCoreApplication.translate("dialog", u"Sortierreihenfolge", None))
+        self.labelFormel.setText(QCoreApplication.translate("dialog", u"Formel", None))
     # retranslateUi
 

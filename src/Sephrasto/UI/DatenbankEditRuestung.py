@@ -32,29 +32,29 @@ class Ui_dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 451, 569))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 455, 573))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.label_2 = QLabel(self.scrollAreaWidgetContents)
-        self.label_2.setObjectName(u"label_2")
+        self.labelBeine = QLabel(self.scrollAreaWidgetContents)
+        self.labelBeine.setObjectName(u"labelBeine")
 
-        self.gridLayout.addWidget(self.label_2, 4, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelBeine, 4, 1, 1, 1)
 
         self.label_8 = QLabel(self.scrollAreaWidgetContents)
         self.label_8.setObjectName(u"label_8")
 
         self.gridLayout.addWidget(self.label_8, 3, 0, 1, 1)
 
-        self.label = QLabel(self.scrollAreaWidgetContents)
-        self.label.setObjectName(u"label")
-        self.label.setMinimumSize(QSize(110, 0))
+        self.labelName = QLabel(self.scrollAreaWidgetContents)
+        self.labelName.setObjectName(u"labelName")
+        self.labelName.setMinimumSize(QSize(110, 0))
 
-        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelName, 0, 0, 1, 1)
 
-        self.label_10 = QLabel(self.scrollAreaWidgetContents)
-        self.label_10.setObjectName(u"label_10")
+        self.labelBeschreibung = QLabel(self.scrollAreaWidgetContents)
+        self.labelBeschreibung.setObjectName(u"labelBeschreibung")
 
-        self.gridLayout.addWidget(self.label_10, 10, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelBeschreibung, 10, 0, 1, 1)
 
         self.leName = QLineEdit(self.scrollAreaWidgetContents)
         self.leName.setObjectName(u"leName")
@@ -67,10 +67,10 @@ class Ui_dialog(object):
 
         self.gridLayout.addWidget(self.labelRS, 3, 2, 1, 1)
 
-        self.label_9 = QLabel(self.scrollAreaWidgetContents)
-        self.label_9.setObjectName(u"label_9")
+        self.labelKategorie = QLabel(self.scrollAreaWidgetContents)
+        self.labelKategorie.setObjectName(u"labelKategorie")
 
-        self.gridLayout.addWidget(self.label_9, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelKategorie, 1, 0, 1, 1)
 
         self.spinSchwert = QSpinBox(self.scrollAreaWidgetContents)
         self.spinSchwert.setObjectName(u"spinSchwert")
@@ -81,15 +81,15 @@ class Ui_dialog(object):
 
         self.gridLayout.addWidget(self.spinSchwert, 6, 2, 1, 1)
 
-        self.label_5 = QLabel(self.scrollAreaWidgetContents)
-        self.label_5.setObjectName(u"label_5")
+        self.labelBauch = QLabel(self.scrollAreaWidgetContents)
+        self.labelBauch.setObjectName(u"labelBauch")
 
-        self.gridLayout.addWidget(self.label_5, 7, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelBauch, 7, 1, 1, 1)
 
-        self.label_11 = QLabel(self.scrollAreaWidgetContents)
-        self.label_11.setObjectName(u"label_11")
+        self.labelSystem = QLabel(self.scrollAreaWidgetContents)
+        self.labelSystem.setObjectName(u"labelSystem")
 
-        self.gridLayout.addWidget(self.label_11, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelSystem, 2, 0, 1, 1)
 
         self.spinBrust = QSpinBox(self.scrollAreaWidgetContents)
         self.spinBrust.setObjectName(u"spinBrust")
@@ -150,10 +150,10 @@ class Ui_dialog(object):
 
         self.gridLayout.addWidget(self.spinBeine, 4, 2, 1, 1)
 
-        self.label_6 = QLabel(self.scrollAreaWidgetContents)
-        self.label_6.setObjectName(u"label_6")
+        self.labelBrust = QLabel(self.scrollAreaWidgetContents)
+        self.labelBrust.setObjectName(u"labelBrust")
 
-        self.gridLayout.addWidget(self.label_6, 8, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelBrust, 8, 1, 1, 1)
 
         self.spinSchild = QSpinBox(self.scrollAreaWidgetContents)
         self.spinSchild.setObjectName(u"spinSchild")
@@ -164,20 +164,20 @@ class Ui_dialog(object):
 
         self.gridLayout.addWidget(self.spinSchild, 5, 2, 1, 1)
 
-        self.label_3 = QLabel(self.scrollAreaWidgetContents)
-        self.label_3.setObjectName(u"label_3")
+        self.labelSchild = QLabel(self.scrollAreaWidgetContents)
+        self.labelSchild.setObjectName(u"labelSchild")
 
-        self.gridLayout.addWidget(self.label_3, 5, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelSchild, 5, 1, 1, 1)
 
-        self.comboTyp = QComboBox(self.scrollAreaWidgetContents)
-        self.comboTyp.setObjectName(u"comboTyp")
+        self.comboKategorie = QComboBox(self.scrollAreaWidgetContents)
+        self.comboKategorie.setObjectName(u"comboKategorie")
 
-        self.gridLayout.addWidget(self.comboTyp, 1, 1, 1, 2)
+        self.gridLayout.addWidget(self.comboKategorie, 1, 1, 1, 2)
 
-        self.label_4 = QLabel(self.scrollAreaWidgetContents)
-        self.label_4.setObjectName(u"label_4")
+        self.labelSchwert = QLabel(self.scrollAreaWidgetContents)
+        self.labelSchwert.setObjectName(u"labelSchwert")
 
-        self.gridLayout.addWidget(self.label_4, 6, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelSchwert, 6, 1, 1, 1)
 
         self.spinKopf = QSpinBox(self.scrollAreaWidgetContents)
         self.spinKopf.setObjectName(u"spinKopf")
@@ -188,10 +188,10 @@ class Ui_dialog(object):
 
         self.gridLayout.addWidget(self.spinKopf, 9, 2, 1, 1)
 
-        self.label_7 = QLabel(self.scrollAreaWidgetContents)
-        self.label_7.setObjectName(u"label_7")
+        self.labelKopf = QLabel(self.scrollAreaWidgetContents)
+        self.labelKopf.setObjectName(u"labelKopf")
 
-        self.gridLayout.addWidget(self.label_7, 9, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelKopf, 9, 1, 1, 1)
 
         self.comboSystem = QComboBox(self.scrollAreaWidgetContents)
         self.comboSystem.addItem("")
@@ -205,8 +205,8 @@ class Ui_dialog(object):
 
         self.verticalLayout_3.addWidget(self.scrollArea)
 
-        QWidget.setTabOrder(self.leName, self.comboTyp)
-        QWidget.setTabOrder(self.comboTyp, self.comboSystem)
+        QWidget.setTabOrder(self.leName, self.comboKategorie)
+        QWidget.setTabOrder(self.comboKategorie, self.comboSystem)
         QWidget.setTabOrder(self.comboSystem, self.spinBeine)
         QWidget.setTabOrder(self.spinBeine, self.spinSchild)
         QWidget.setTabOrder(self.spinSchild, self.spinSchwert)
@@ -224,20 +224,20 @@ class Ui_dialog(object):
 
     def retranslateUi(self, dialog):
         dialog.setWindowTitle(QCoreApplication.translate("dialog", u"Sephrasto - R\u00fcstung bearbeiten...", None))
-        self.label_2.setText(QCoreApplication.translate("dialog", u"Beine", None))
+        self.labelBeine.setText(QCoreApplication.translate("dialog", u"Beine", None))
         self.label_8.setText(QCoreApplication.translate("dialog", u"RS", None))
-        self.label.setText(QCoreApplication.translate("dialog", u"Name", None))
-        self.label_10.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
+        self.labelName.setText(QCoreApplication.translate("dialog", u"Name", None))
+        self.labelBeschreibung.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
         self.labelRS.setText(QCoreApplication.translate("dialog", u"0", None))
-        self.label_9.setText(QCoreApplication.translate("dialog", u"Kategorie", None))
-        self.label_5.setText(QCoreApplication.translate("dialog", u"Bauch", None))
-        self.label_11.setText(QCoreApplication.translate("dialog", u"Verf\u00fcgbarkeit", None))
+        self.labelKategorie.setText(QCoreApplication.translate("dialog", u"Kategorie", None))
+        self.labelBauch.setText(QCoreApplication.translate("dialog", u"Bauch", None))
+        self.labelSystem.setText(QCoreApplication.translate("dialog", u"Verf\u00fcgbarkeit", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("dialog", u"HTML", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("dialog", u"Vorschau", None))
-        self.label_6.setText(QCoreApplication.translate("dialog", u"Brust", None))
-        self.label_3.setText(QCoreApplication.translate("dialog", u"Schildarm", None))
-        self.label_4.setText(QCoreApplication.translate("dialog", u"Schwertarm", None))
-        self.label_7.setText(QCoreApplication.translate("dialog", u"Kopf", None))
+        self.labelBrust.setText(QCoreApplication.translate("dialog", u"Brust", None))
+        self.labelSchild.setText(QCoreApplication.translate("dialog", u"Schildarm", None))
+        self.labelSchwert.setText(QCoreApplication.translate("dialog", u"Schwertarm", None))
+        self.labelKopf.setText(QCoreApplication.translate("dialog", u"Kopf", None))
         self.comboSystem.setItemText(0, QCoreApplication.translate("dialog", u"Beide R\u00fcstungssysteme", None))
         self.comboSystem.setItemText(1, QCoreApplication.translate("dialog", u"Einfaches R\u00fcstungssystem", None))
         self.comboSystem.setItemText(2, QCoreApplication.translate("dialog", u"Zonenr\u00fcstungssystem", None))

@@ -24,8 +24,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>416</width>
-        <height>412</height>
+        <width>420</width>
+        <height>416</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
@@ -76,7 +76,7 @@
         </layout>
        </item>
        <item row="3" column="1">
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="labelScript">
          <property name="minimumSize">
           <size>
            <width>110</width>
@@ -89,7 +89,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="labelName">
          <property name="text">
           <string>Name</string>
          </property>
@@ -157,7 +157,7 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLabel" name="label_5">
+        <widget class="QLabel" name="labelBeschreibung">
          <property name="text">
           <string>Beschreibung</string>
          </property>

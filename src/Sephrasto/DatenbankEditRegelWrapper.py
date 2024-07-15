@@ -20,6 +20,16 @@ class DatenbankEditRegelWrapper(DatenbankElementEditorBase):
         self.beschreibungEditor = BeschreibungEditor(self)
         self.voraussetzungenEditor = VoraussetzungenEditor(self)
 
+    def onSetupUi(self):
+        super().onSetupUi()
+
+        ui = self.ui
+        self.registerInput(ui.leName, ui.labelName)
+        self.registerInput(ui.leProbe, ui.labelProbe)
+        self.registerInput(ui.comboKategorie, ui.labelKategorie)
+        self.registerInput(ui.teVoraussetzungen, ui.labelVoraussetzungen)
+        self.registerInput(ui.teBeschreibung, ui.labelBeschreibung)
+
     def load(self, regel):
         super().load(regel)
         self.htmlToolbar = HtmlToolbar(self.ui.teBeschreibung)
@@ -27,16 +37,16 @@ class DatenbankEditRegelWrapper(DatenbankElementEditorBase):
         self.voraussetzungenEditor.load(regel)
         self.beschreibungEditor.load(regel)
         self.ui.leProbe.setText(regel.probe)
-        self.ui.comboTyp.clear()
-        self.ui.comboTyp.addItems(self.datenbank.einstellungen["Regeln: Kategorien"].wert.keyList)
-        self.ui.comboTyp.setCurrentIndex(regel.kategorie)
+        self.ui.comboKategorie.clear()
+        self.ui.comboKategorie.addItems(self.datenbank.einstellungen["Regeln: Kategorien"].wert.keyList)
+        self.ui.comboKategorie.setCurrentIndex(regel.kategorie)
 
     def update(self, regel):
         super().update(regel)
         self.voraussetzungenEditor.update(regel)
         self.beschreibungEditor.update(regel)    
         regel.probe = self.ui.leProbe.text()
-        regel.kategorie = self.ui.comboTyp.currentIndex()
+        regel.kategorie = self.ui.comboKategorie.currentIndex()
 
     def nameChanged(self):
         super().nameChanged()

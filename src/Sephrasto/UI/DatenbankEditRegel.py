@@ -31,23 +31,23 @@ class Ui_dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 416, 438))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 420, 442))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.label_5 = QLabel(self.scrollAreaWidgetContents)
-        self.label_5.setObjectName(u"label_5")
+        self.labelBeschreibung = QLabel(self.scrollAreaWidgetContents)
+        self.labelBeschreibung.setObjectName(u"labelBeschreibung")
 
-        self.gridLayout.addWidget(self.label_5, 5, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelBeschreibung, 5, 1, 1, 1)
 
         self.leProbe = QLineEdit(self.scrollAreaWidgetContents)
         self.leProbe.setObjectName(u"leProbe")
 
         self.gridLayout.addWidget(self.leProbe, 2, 2, 1, 1)
 
-        self.label_6 = QLabel(self.scrollAreaWidgetContents)
-        self.label_6.setObjectName(u"label_6")
+        self.labelKategorie = QLabel(self.scrollAreaWidgetContents)
+        self.labelKategorie.setObjectName(u"labelKategorie")
 
-        self.gridLayout.addWidget(self.label_6, 3, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelKategorie, 3, 1, 1, 1)
 
         self.teVoraussetzungen = QPlainTextEdit(self.scrollAreaWidgetContents)
         self.teVoraussetzungen.setObjectName(u"teVoraussetzungen")
@@ -88,49 +88,49 @@ class Ui_dialog(object):
 
         self.gridLayout.addWidget(self.tabWidget, 5, 2, 1, 1)
 
-        self.comboTyp = QComboBox(self.scrollAreaWidgetContents)
-        self.comboTyp.addItem("")
-        self.comboTyp.addItem("")
-        self.comboTyp.addItem("")
-        self.comboTyp.addItem("")
-        self.comboTyp.addItem("")
-        self.comboTyp.addItem("")
-        self.comboTyp.addItem("")
-        self.comboTyp.addItem("")
-        self.comboTyp.addItem("")
-        self.comboTyp.addItem("")
-        self.comboTyp.setObjectName(u"comboTyp")
+        self.comboKategorie = QComboBox(self.scrollAreaWidgetContents)
+        self.comboKategorie.addItem("")
+        self.comboKategorie.addItem("")
+        self.comboKategorie.addItem("")
+        self.comboKategorie.addItem("")
+        self.comboKategorie.addItem("")
+        self.comboKategorie.addItem("")
+        self.comboKategorie.addItem("")
+        self.comboKategorie.addItem("")
+        self.comboKategorie.addItem("")
+        self.comboKategorie.addItem("")
+        self.comboKategorie.setObjectName(u"comboKategorie")
 
-        self.gridLayout.addWidget(self.comboTyp, 3, 2, 1, 1)
+        self.gridLayout.addWidget(self.comboKategorie, 3, 2, 1, 1)
 
         self.leName = QLineEdit(self.scrollAreaWidgetContents)
         self.leName.setObjectName(u"leName")
 
         self.gridLayout.addWidget(self.leName, 1, 2, 1, 1)
 
-        self.label_4 = QLabel(self.scrollAreaWidgetContents)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setMinimumSize(QSize(110, 0))
+        self.labelVoraussetzungen = QLabel(self.scrollAreaWidgetContents)
+        self.labelVoraussetzungen.setObjectName(u"labelVoraussetzungen")
+        self.labelVoraussetzungen.setMinimumSize(QSize(110, 0))
 
-        self.gridLayout.addWidget(self.label_4, 4, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelVoraussetzungen, 4, 1, 1, 1)
 
-        self.label = QLabel(self.scrollAreaWidgetContents)
-        self.label.setObjectName(u"label")
+        self.labelName = QLabel(self.scrollAreaWidgetContents)
+        self.labelName.setObjectName(u"labelName")
 
-        self.gridLayout.addWidget(self.label, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelName, 1, 1, 1, 1)
 
-        self.label_2 = QLabel(self.scrollAreaWidgetContents)
-        self.label_2.setObjectName(u"label_2")
+        self.labelProbe = QLabel(self.scrollAreaWidgetContents)
+        self.labelProbe.setObjectName(u"labelProbe")
 
-        self.gridLayout.addWidget(self.label_2, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelProbe, 2, 1, 1, 1)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
         self.verticalLayout_3.addWidget(self.scrollArea)
 
         QWidget.setTabOrder(self.leName, self.leProbe)
-        QWidget.setTabOrder(self.leProbe, self.comboTyp)
-        QWidget.setTabOrder(self.comboTyp, self.teVoraussetzungen)
+        QWidget.setTabOrder(self.leProbe, self.comboKategorie)
+        QWidget.setTabOrder(self.comboKategorie, self.teVoraussetzungen)
 
         self.retranslateUi(dialog)
 
@@ -142,26 +142,26 @@ class Ui_dialog(object):
 
     def retranslateUi(self, dialog):
         dialog.setWindowTitle(QCoreApplication.translate("dialog", u"Sephrasto - Regel bearbeiten...", None))
-        self.label_5.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
-        self.label_6.setText(QCoreApplication.translate("dialog", u"Kategorie", None))
+        self.labelBeschreibung.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
+        self.labelKategorie.setText(QCoreApplication.translate("dialog", u"Kategorie", None))
 #if QT_CONFIG(tooltip)
         self.teVoraussetzungen.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Siehe \"Datenbank Editor -> Einstellungsm\u00f6glichkeiten -> Voraussetzungen\" in der Sephrasto-Hilfe f\u00fcr eine Anleitung.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("dialog", u"HTML", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("dialog", u"Vorschau", None))
-        self.comboTyp.setItemText(0, QCoreApplication.translate("dialog", u"Nahkampfman\u00f6ver", None))
-        self.comboTyp.setItemText(1, QCoreApplication.translate("dialog", u"Fernkampfman\u00f6ver", None))
-        self.comboTyp.setItemText(2, QCoreApplication.translate("dialog", u"Magische Modifikation", None))
-        self.comboTyp.setItemText(3, QCoreApplication.translate("dialog", u"Karmale Modifikation", None))
-        self.comboTyp.setItemText(4, QCoreApplication.translate("dialog", u"Weitere Magieregeln", None))
-        self.comboTyp.setItemText(5, QCoreApplication.translate("dialog", u"Aktion", None))
-        self.comboTyp.setItemText(6, QCoreApplication.translate("dialog", u"D\u00e4monische Modifikation", None))
-        self.comboTyp.setItemText(7, QCoreApplication.translate("dialog", u"Weitere Karmaregeln", None))
-        self.comboTyp.setItemText(8, QCoreApplication.translate("dialog", u"Weitere Kampfregeln", None))
-        self.comboTyp.setItemText(9, QCoreApplication.translate("dialog", u"Profane Regeln", None))
+        self.comboKategorie.setItemText(0, QCoreApplication.translate("dialog", u"Nahkampfman\u00f6ver", None))
+        self.comboKategorie.setItemText(1, QCoreApplication.translate("dialog", u"Fernkampfman\u00f6ver", None))
+        self.comboKategorie.setItemText(2, QCoreApplication.translate("dialog", u"Magische Modifikation", None))
+        self.comboKategorie.setItemText(3, QCoreApplication.translate("dialog", u"Karmale Modifikation", None))
+        self.comboKategorie.setItemText(4, QCoreApplication.translate("dialog", u"Weitere Magieregeln", None))
+        self.comboKategorie.setItemText(5, QCoreApplication.translate("dialog", u"Aktion", None))
+        self.comboKategorie.setItemText(6, QCoreApplication.translate("dialog", u"D\u00e4monische Modifikation", None))
+        self.comboKategorie.setItemText(7, QCoreApplication.translate("dialog", u"Weitere Karmaregeln", None))
+        self.comboKategorie.setItemText(8, QCoreApplication.translate("dialog", u"Weitere Kampfregeln", None))
+        self.comboKategorie.setItemText(9, QCoreApplication.translate("dialog", u"Profane Regeln", None))
 
-        self.label_4.setText(QCoreApplication.translate("dialog", u"Voraussetzungen", None))
-        self.label.setText(QCoreApplication.translate("dialog", u"Name", None))
-        self.label_2.setText(QCoreApplication.translate("dialog", u"Probe", None))
+        self.labelVoraussetzungen.setText(QCoreApplication.translate("dialog", u"Voraussetzungen", None))
+        self.labelName.setText(QCoreApplication.translate("dialog", u"Name", None))
+        self.labelProbe.setText(QCoreApplication.translate("dialog", u"Probe", None))
     # retranslateUi
 

@@ -24,8 +24,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>416</width>
-        <height>527</height>
+        <width>420</width>
+        <height>531</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
@@ -104,7 +104,7 @@
         </widget>
        </item>
        <item row="8" column="1">
-        <widget class="QLabel" name="label_5">
+        <widget class="QLabel" name="labelBeschreibung">
          <property name="text">
           <string>Beschreibung</string>
          </property>
@@ -172,7 +172,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="labelName">
          <property name="text">
           <string>Name</string>
          </property>
@@ -221,7 +221,7 @@
         <widget class="QLineEdit" name="leName"/>
        </item>
        <item row="2" column="1">
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="labelSF">
          <property name="minimumSize">
           <size>
            <width>110</width>
@@ -254,7 +254,7 @@
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="labelAttribute">
          <property name="text">
           <string>Attribute</string>
          </property>
@@ -300,7 +300,7 @@
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QLabel" name="label_12">
+        <widget class="QLabel" name="labelKategorie">
          <property name="minimumSize">
           <size>
            <width>110</width>
@@ -313,7 +313,7 @@
         </widget>
        </item>
        <item row="4" column="2">
-        <widget class="QComboBox" name="comboTyp">
+        <widget class="QComboBox" name="comboKategorie">
          <property name="toolTip">
           <string>Fertigkeiten werden nach diesem Typ gruppiert und dann alphabetisch sortiert.</string>
          </property>
@@ -331,7 +331,7 @@
   <tabstop>comboAttribut1</tabstop>
   <tabstop>comboAttribut2</tabstop>
   <tabstop>comboAttribut3</tabstop>
-  <tabstop>comboTyp</tabstop>
+  <tabstop>comboKategorie</tabstop>
   <tabstop>comboKampffertigkeit</tabstop>
   <tabstop>checkGruppieren</tabstop>
   <tabstop>teVoraussetzungen</tabstop>

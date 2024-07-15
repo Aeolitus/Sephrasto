@@ -28,6 +28,27 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
 
     def onSetupUi(self):
         super().onSetupUi()
+        
+        ui = self.ui
+        self.registerInput(ui.leName, ui.labelName)
+        self.registerInput(ui.comboKategorie, ui.labelKategorie)
+        self.registerInput(ui.comboNachkauf, ui.labelNachkauf)
+        self.registerInput(ui.spinKosten, ui.labelKosten)
+        self.registerInput(ui.checkVariable, ui.labelVariable)
+        self.registerInput(ui.checkKommentar, ui.labelKommentar)
+        self.registerInput(ui.checkScript, ui.labelScriptfeld)
+        self.registerInput(ui.checkCheatsheet, ui.labelCheatsheet)
+        self.registerInput(ui.teVoraussetzungen, ui.labelVoraussetzungen)
+        self.registerInput(ui.teBeschreibung, ui.labelBeschreibung)
+        self.registerInput(ui.teBedingungen, ui.labelBeschreibung)
+        self.registerInput(ui.teCheatsheet, ui.labelBeschreibung)
+        self.registerInput(ui.teInfo, ui.labelBeschreibung)
+        self.registerInput(ui.teScript, ui.labelScript)
+        self.registerInput(ui.spinScriptPrio, ui.labelScript)
+        self.registerInput(ui.comboLinkKategorie, ui.labelLink)
+        self.registerInput(ui.comboLinkElement, ui.labelLink)
+        self.registerInput(ui.listVerweise, ui.labelVerweise)
+        
         self.ui.buttonPickScript.setText("\uf121")
         self.ui.buttonPickScript.clicked.connect(self.openScriptPicker)
 
@@ -51,8 +72,8 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
         self.ui.spinKosten.setValue(vorteil.kosten)
         self.ui.comboNachkauf.setCurrentText(vorteil.nachkauf)
 
-        self.ui.comboTyp.addItems(self.datenbank.einstellungen["Vorteile: Kategorien"].wert.keyList)
-        self.ui.comboTyp.setCurrentIndex(vorteil.kategorie)
+        self.ui.comboKategorie.addItems(self.datenbank.einstellungen["Vorteile: Kategorien"].wert.keyList)
+        self.ui.comboKategorie.setCurrentIndex(vorteil.kategorie)
 
         self.ui.checkVariable.setChecked(vorteil.variableKosten)
         self.ui.checkKommentar.setChecked(vorteil.kommentarErlauben)
@@ -119,7 +140,7 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
         self.beschreibungInfoEditor.update(vorteil)
         vorteil.kosten = self.ui.spinKosten.value()
         vorteil.nachkauf = self.ui.comboNachkauf.currentText()
-        vorteil.kategorie = self.ui.comboTyp.currentIndex()
+        vorteil.kategorie = self.ui.comboKategorie.currentIndex()
         vorteil.variableKosten = self.ui.checkVariable.isChecked()
         vorteil.kommentarErlauben = self.ui.checkKommentar.isChecked()
         vorteil.editorScriptErlauben = self.ui.checkScript.isChecked()

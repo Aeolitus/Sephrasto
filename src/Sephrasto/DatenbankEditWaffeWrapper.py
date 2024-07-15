@@ -20,6 +20,40 @@ class DatenbankEditWaffeWrapper(DatenbankElementEditorBase):
         super().__init__(datenbank, UI.DatenbankEditWaffe.Ui_dialog(), WaffeDefinition, waffe)
         self.validator["Waffeneigenschaften"] = True
 
+    def onSetupUi(self):
+        super().onSetupUi()
+
+        ui = self.ui
+        self.registerInput(ui.leName, ui.labelName)
+        self.registerInput(ui.comboTyp, ui.labelTyp)
+        self.registerInput(ui.spinWuerfel, ui.labelTP)
+        self.registerInput(ui.comboWuerfelSeiten, ui.labelTP)
+        self.registerInput(ui.spinPlus, ui.labelTP)
+        self.registerInput(ui.spinRW, ui.labelRW)
+        self.registerInput(ui.spinWM, ui.labelWM)
+        self.registerInput(ui.spinLZ, ui.labelLZ)
+        self.registerInput(ui.spinHaerte, ui.labelHaerte)
+        self.registerInput(ui.comboFertigkeit, ui.labelFertigkeit)
+        self.registerInput(ui.comboTalent, ui.labelTalent)
+        self.registerInput(ui.teEigenschaften, ui.labelEigenschaften)
+
+        col = 0
+        row = 0
+        self.kampfstile = []
+        self.checkKampfstile = {}
+        for kampfstil in self.datenbank.findKampfstile():
+            checkbox = QtWidgets.QCheckBox(kampfstil)
+            checkbox.setObjectName("checkKampfstil" + kampfstil)
+            checkbox.stateChanged.connect(partial(self.kampfstilChanged, kampfstil=kampfstil))
+            self.checkKampfstile[kampfstil] = checkbox
+            self.ui.layoutKampfstile.addWidget(checkbox, row, col)
+            if col == 0:
+                col +=1
+            else:
+                row += 1
+                col = 0
+            self.registerInput(checkbox, ui.labelKampfstil)
+
     def load(self, waffe):
         super().load(waffe)
         self.ui.comboTyp.setCurrentIndex(1 if waffe.fernkampf else 0)
@@ -34,7 +68,7 @@ class DatenbankEditWaffeWrapper(DatenbankElementEditorBase):
         self.ui.spinWuerfel.setValue(waffe.würfel)
         self.ui.comboWuerfelSeiten.setCurrentText("W" + str(waffe.würfelSeiten))
         self.ui.spinPlus.setValue(waffe.plus)
-        self.ui.spinRW1.setValue(waffe.rw)
+        self.ui.spinRW.setValue(waffe.rw)
         self.ui.spinWM.setValue(waffe.wm)
         if waffe.fernkampf:
             self.switchType(1)
@@ -45,45 +79,33 @@ class DatenbankEditWaffeWrapper(DatenbankElementEditorBase):
         for fert in self.datenbank.fertigkeiten.values():
             if fert.kampffertigkeit == KampffertigkeitTyp.Keine:
                 continue
-            self.ui.comboFert.addItem(fert.name)
+            self.ui.comboFertigkeit.addItem(fert.name)
 
         if waffe.fertigkeit != '':
             try: 
-                self.ui.comboFert.setCurrentText(waffe.fertigkeit)
+                self.ui.comboFertigkeit.setCurrentText(waffe.fertigkeit)
                 fff = waffe.fertigkeit
             except:
                 pass
         else:
-            fff = self.ui.comboFert.currentText()
+            fff = self.ui.comboFertigkeit.currentText()
         self.switchTals(fff)
-        self.ui.comboFert.currentTextChanged.connect(self.switchTals)
+        self.ui.comboFertigkeit.currentTextChanged.connect(self.switchTals)
         if waffe.talent != '':
             try:
                 self.ui.comboTalent.setCurrentText(waffe.talent)
             except:
                 pass
-
-        col = 0
-        row = 0
-        self.kampfstile = []
-        for kampfstil in self.datenbank.findKampfstile():
-            checkbox = QtWidgets.QCheckBox(kampfstil)
-            checkbox.stateChanged.connect(partial(self.kampfstilChanged, kampfstil=kampfstil))
-            if kampfstil in waffe.kampfstile:
-                checkbox.setChecked(True)
-            self.ui.layoutKampfstile.addWidget(checkbox, row, col)
-            if col == 0:
-                col +=1
-            else:
-                row += 1
-                col = 0
+            
+        for kampfstil, checkbox in self.checkKampfstile.items():
+            checkbox.setChecked(True if kampfstil in waffe.kampfstile else False)
 
     def update(self, waffe):
         super().update(waffe)
         if self.ui.comboTyp.currentIndex() == 1:
             waffe.fernkampf = True
             waffe.lz = int(self.ui.spinLZ.value())
-        waffe.rw = int(self.ui.spinRW1.value())
+        waffe.rw = int(self.ui.spinRW.value())
         waffe.würfel = int(self.ui.spinWuerfel.value())
         waffe.würfelSeiten = int(self.ui.comboWuerfelSeiten.currentText()[1:])
         waffe.plus = int(self.ui.spinPlus.value())
@@ -92,7 +114,7 @@ class DatenbankEditWaffeWrapper(DatenbankElementEditorBase):
         eigenschaftStr = self.ui.teEigenschaften.toPlainText()
         if eigenschaftStr:
             waffe.eigenschaften = list(map(str.strip, eigenschaftStr.strip().rstrip(',').split(",")))
-        waffe.fertigkeit = self.ui.comboFert.currentText()
+        waffe.fertigkeit = self.ui.comboFertigkeit.currentText()
         waffe.talent = self.ui.comboTalent.currentText()
         waffe.kampfstile = sorted(self.kampfstile)
 

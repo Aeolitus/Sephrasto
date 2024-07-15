@@ -31,39 +31,39 @@ class Ui_dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 416, 214))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 420, 218))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.label = QLabel(self.scrollAreaWidgetContents)
-        self.label.setObjectName(u"label")
+        self.labelName = QLabel(self.scrollAreaWidgetContents)
+        self.labelName.setObjectName(u"labelName")
 
-        self.gridLayout.addWidget(self.label, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelName, 1, 0, 1, 1)
 
         self.leName = QLineEdit(self.scrollAreaWidgetContents)
         self.leName.setObjectName(u"leName")
 
         self.gridLayout.addWidget(self.leName, 1, 1, 1, 1)
 
-        self.label_2 = QLabel(self.scrollAreaWidgetContents)
-        self.label_2.setObjectName(u"label_2")
+        self.labelKategorie = QLabel(self.scrollAreaWidgetContents)
+        self.labelKategorie.setObjectName(u"labelKategorie")
 
-        self.gridLayout.addWidget(self.label_2, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelKategorie, 2, 0, 1, 1)
 
-        self.comboTyp = QComboBox(self.scrollAreaWidgetContents)
-        self.comboTyp.setObjectName(u"comboTyp")
+        self.comboKategorie = QComboBox(self.scrollAreaWidgetContents)
+        self.comboKategorie.setObjectName(u"comboKategorie")
 
-        self.gridLayout.addWidget(self.comboTyp, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.comboKategorie, 2, 1, 1, 1)
 
         self.teVoraussetzungen = QPlainTextEdit(self.scrollAreaWidgetContents)
         self.teVoraussetzungen.setObjectName(u"teVoraussetzungen")
 
         self.gridLayout.addWidget(self.teVoraussetzungen, 3, 1, 1, 1)
 
-        self.label_4 = QLabel(self.scrollAreaWidgetContents)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setMinimumSize(QSize(110, 0))
+        self.labelVoraussetzungen = QLabel(self.scrollAreaWidgetContents)
+        self.labelVoraussetzungen.setObjectName(u"labelVoraussetzungen")
+        self.labelVoraussetzungen.setMinimumSize(QSize(110, 0))
 
-        self.gridLayout.addWidget(self.label_4, 3, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelVoraussetzungen, 3, 0, 1, 1)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
@@ -77,11 +77,11 @@ class Ui_dialog(object):
 
     def retranslateUi(self, dialog):
         dialog.setWindowTitle(QCoreApplication.translate("dialog", u"Sephrasto - Freie Fertigkeit bearbeiten...", None))
-        self.label.setText(QCoreApplication.translate("dialog", u"Name", None))
-        self.label_2.setText(QCoreApplication.translate("dialog", u"Kategorie", None))
+        self.labelName.setText(QCoreApplication.translate("dialog", u"Name", None))
+        self.labelKategorie.setText(QCoreApplication.translate("dialog", u"Kategorie", None))
 #if QT_CONFIG(tooltip)
         self.teVoraussetzungen.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Siehe \"Datenbank Editor -> Einstellungsm\u00f6glichkeiten -> Voraussetzungen\" in der Sephrasto-Hilfe f\u00fcr eine Anleitung.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_4.setText(QCoreApplication.translate("dialog", u"Voraussetzungen", None))
+        self.labelVoraussetzungen.setText(QCoreApplication.translate("dialog", u"Voraussetzungen", None))
     # retranslateUi
 

@@ -18,6 +18,22 @@ class DatenbankEditRuestungWrapper(DatenbankElementEditorBase):
         super().__init__(datenbank, UI.DatenbankEditRuestung.Ui_dialog(), RuestungDefinition, rüstung)
         self.beschreibungEditor = BeschreibungEditor(self)
 
+    def onSetupUi(self):
+        super().onSetupUi()
+
+        ui = self.ui
+        self.registerInput(ui.leName, ui.labelName)
+        self.registerInput(ui.comboKategorie, ui.labelKategorie)
+        self.registerInput(ui.comboSystem, ui.labelSystem)
+        self.registerInput(ui.spinBeine, ui.labelBeine)
+        self.registerInput(ui.spinSchild, ui.labelSchild)
+        self.registerInput(ui.spinSchwert, ui.labelSchwert)
+        self.registerInput(ui.spinBauch, ui.labelBauch)
+        self.registerInput(ui.spinBrust, ui.labelBrust)
+        self.registerInput(ui.spinKopf, ui.labelKopf)
+        self.registerInput(ui.teBeschreibung, ui.labelBeschreibung)
+
+
     def load(self, rüstung):
         super().load(rüstung)
         self.htmlToolbar = HtmlToolbar(self.ui.teBeschreibung)
@@ -30,8 +46,8 @@ class DatenbankEditRuestungWrapper(DatenbankElementEditorBase):
         self.ui.spinBrust.valueChanged.connect(self.rsChanged)
         self.ui.spinKopf.valueChanged.connect(self.rsChanged)
 
-        self.ui.comboTyp.addItems(self.datenbank.einstellungen["Rüstungen: Kategorien"].wert.keyList)
-        self.ui.comboTyp.setCurrentIndex(rüstung.kategorie)
+        self.ui.comboKategorie.addItems(self.datenbank.einstellungen["Rüstungen: Kategorien"].wert.keyList)
+        self.ui.comboKategorie.setCurrentIndex(rüstung.kategorie)
         self.ui.comboSystem.setCurrentIndex(rüstung.system)
         self.ui.spinBeine.setValue(rüstung.rs[0])
         self.ui.spinSchwert.setValue(rüstung.rs[1])
@@ -43,7 +59,7 @@ class DatenbankEditRuestungWrapper(DatenbankElementEditorBase):
     def update(self, rüstung):
         super().update(rüstung)
         self.beschreibungEditor.update(rüstung)   
-        rüstung.kategorie = self.ui.comboTyp.currentIndex()
+        rüstung.kategorie = self.ui.comboKategorie.currentIndex()
         rüstung.system = self.ui.comboSystem.currentIndex()
         rüstung.rs[0] = int(self.ui.spinBeine.value())
         rüstung.rs[1] = int(self.ui.spinSchwert.value())

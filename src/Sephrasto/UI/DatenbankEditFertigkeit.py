@@ -33,7 +33,7 @@ class Ui_dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 416, 527))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 420, 531))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName(u"gridLayout")
         self.horizontalLayout = QHBoxLayout()
@@ -80,10 +80,10 @@ class Ui_dialog(object):
 
         self.gridLayout.addWidget(self.labelVoraussetzungen, 7, 1, 1, 1)
 
-        self.label_5 = QLabel(self.scrollAreaWidgetContents)
-        self.label_5.setObjectName(u"label_5")
+        self.labelBeschreibung = QLabel(self.scrollAreaWidgetContents)
+        self.labelBeschreibung.setObjectName(u"labelBeschreibung")
 
-        self.gridLayout.addWidget(self.label_5, 8, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelBeschreibung, 8, 1, 1, 1)
 
         self.tabWidget = QTabWidget(self.scrollAreaWidgetContents)
         self.tabWidget.setObjectName(u"tabWidget")
@@ -118,10 +118,10 @@ class Ui_dialog(object):
 
         self.gridLayout.addWidget(self.tabWidget, 8, 2, 1, 1)
 
-        self.label = QLabel(self.scrollAreaWidgetContents)
-        self.label.setObjectName(u"label")
+        self.labelName = QLabel(self.scrollAreaWidgetContents)
+        self.labelName.setObjectName(u"labelName")
 
-        self.gridLayout.addWidget(self.label, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelName, 1, 1, 1, 1)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
@@ -147,11 +147,11 @@ class Ui_dialog(object):
 
         self.gridLayout.addWidget(self.leName, 1, 2, 1, 1)
 
-        self.label_2 = QLabel(self.scrollAreaWidgetContents)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setMinimumSize(QSize(110, 0))
+        self.labelSF = QLabel(self.scrollAreaWidgetContents)
+        self.labelSF.setObjectName(u"labelSF")
+        self.labelSF.setMinimumSize(QSize(110, 0))
 
-        self.gridLayout.addWidget(self.label_2, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelSF, 2, 1, 1, 1)
 
         self.teVoraussetzungen = QPlainTextEdit(self.scrollAreaWidgetContents)
         self.teVoraussetzungen.setObjectName(u"teVoraussetzungen")
@@ -164,10 +164,10 @@ class Ui_dialog(object):
 
         self.gridLayout.addWidget(self.labelKampffertigkeit, 5, 1, 1, 1)
 
-        self.label_3 = QLabel(self.scrollAreaWidgetContents)
-        self.label_3.setObjectName(u"label_3")
+        self.labelAttribute = QLabel(self.scrollAreaWidgetContents)
+        self.labelAttribute.setObjectName(u"labelAttribute")
 
-        self.gridLayout.addWidget(self.label_3, 3, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelAttribute, 3, 1, 1, 1)
 
         self.labelGruppieren = QLabel(self.scrollAreaWidgetContents)
         self.labelGruppieren.setObjectName(u"labelGruppieren")
@@ -187,16 +187,16 @@ class Ui_dialog(object):
 
         self.gridLayout.addWidget(self.comboKampffertigkeit, 5, 2, 1, 1)
 
-        self.label_12 = QLabel(self.scrollAreaWidgetContents)
-        self.label_12.setObjectName(u"label_12")
-        self.label_12.setMinimumSize(QSize(110, 0))
+        self.labelKategorie = QLabel(self.scrollAreaWidgetContents)
+        self.labelKategorie.setObjectName(u"labelKategorie")
+        self.labelKategorie.setMinimumSize(QSize(110, 0))
 
-        self.gridLayout.addWidget(self.label_12, 4, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelKategorie, 4, 1, 1, 1)
 
-        self.comboTyp = QComboBox(self.scrollAreaWidgetContents)
-        self.comboTyp.setObjectName(u"comboTyp")
+        self.comboKategorie = QComboBox(self.scrollAreaWidgetContents)
+        self.comboKategorie.setObjectName(u"comboKategorie")
 
-        self.gridLayout.addWidget(self.comboTyp, 4, 2, 1, 1)
+        self.gridLayout.addWidget(self.comboKategorie, 4, 2, 1, 1)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
@@ -206,8 +206,8 @@ class Ui_dialog(object):
         QWidget.setTabOrder(self.spinSF, self.comboAttribut1)
         QWidget.setTabOrder(self.comboAttribut1, self.comboAttribut2)
         QWidget.setTabOrder(self.comboAttribut2, self.comboAttribut3)
-        QWidget.setTabOrder(self.comboAttribut3, self.comboTyp)
-        QWidget.setTabOrder(self.comboTyp, self.comboKampffertigkeit)
+        QWidget.setTabOrder(self.comboAttribut3, self.comboKategorie)
+        QWidget.setTabOrder(self.comboKategorie, self.comboKampffertigkeit)
         QWidget.setTabOrder(self.comboKampffertigkeit, self.checkGruppieren)
         QWidget.setTabOrder(self.checkGruppieren, self.teVoraussetzungen)
 
@@ -224,17 +224,17 @@ class Ui_dialog(object):
         self.label_6.setText(QCoreApplication.translate("dialog", u" - ", None))
         self.label_7.setText(QCoreApplication.translate("dialog", u" - ", None))
         self.labelVoraussetzungen.setText(QCoreApplication.translate("dialog", u"Voraussetzungen", None))
-        self.label_5.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
+        self.labelBeschreibung.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("dialog", u"HTML", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("dialog", u"Vorschau", None))
-        self.label.setText(QCoreApplication.translate("dialog", u"Name", None))
+        self.labelName.setText(QCoreApplication.translate("dialog", u"Name", None))
         self.spinSF.setSuffix("")
-        self.label_2.setText(QCoreApplication.translate("dialog", u"Steigerungsfaktor", None))
+        self.labelSF.setText(QCoreApplication.translate("dialog", u"Steigerungsfaktor", None))
 #if QT_CONFIG(tooltip)
         self.teVoraussetzungen.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Siehe \"Datenbank Editor -> Einstellungsm\u00f6glichkeiten -> Voraussetzungen\" in der Sephrasto-Hilfe f\u00fcr eine Anleitung.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.labelKampffertigkeit.setText(QCoreApplication.translate("dialog", u"Kampffertigkeit", None))
-        self.label_3.setText(QCoreApplication.translate("dialog", u"Attribute", None))
+        self.labelAttribute.setText(QCoreApplication.translate("dialog", u"Attribute", None))
         self.labelGruppieren.setText(QCoreApplication.translate("dialog", u"Talente", None))
 #if QT_CONFIG(tooltip)
         self.checkGruppieren.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Talente werden grunds\u00e4tzlich nach Fertigkeitskategorie gruppiert. Mit dieser Option werden sie zus\u00e4tzlich noch nach dem Namen der Fertigkeit gruppiert. Bei Talenten mit mehreren Fertigkeiten werden bei der Gruppierung au\u00dferdem Fertigkeiten mit dieser Option priorisiert.</p></body></html>", None))
@@ -247,9 +247,9 @@ class Ui_dialog(object):
 #if QT_CONFIG(tooltip)
         self.comboKampffertigkeit.setToolTip(QCoreApplication.translate("dialog", u"Nahkampf- und Sonstige Kampffertigkeiten stehen bei Waffen zur Auswahl. Nahkampffertigkeiten werden gegebenenfalls nach einem abweichenden Steigerungsfaktor berechnet.", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_12.setText(QCoreApplication.translate("dialog", u"Kategorie", None))
+        self.labelKategorie.setText(QCoreApplication.translate("dialog", u"Kategorie", None))
 #if QT_CONFIG(tooltip)
-        self.comboTyp.setToolTip(QCoreApplication.translate("dialog", u"Fertigkeiten werden nach diesem Typ gruppiert und dann alphabetisch sortiert.", None))
+        self.comboKategorie.setToolTip(QCoreApplication.translate("dialog", u"Fertigkeiten werden nach diesem Typ gruppiert und dann alphabetisch sortiert.", None))
 #endif // QT_CONFIG(tooltip)
     # retranslateUi
 
