@@ -9,7 +9,7 @@ Ein Charaktergenerator für das DSA-Hausregelsystem Ilaris, erstellt von Aeolitu
 Bei Fragen / Änderungswünschen / Feedback einfach Bescheid sagen - im dsaforum oder hier!
 
 ## Verwendete Pakete und Programme
-* Um Sephrasto mit Python zu verwenden, wird Version 3.9 empfohlen. Höhere Versionen sollten auch gehen, niedrigere werden nicht unterstützt.
+* Um Sephrasto mit Python zu verwenden, wird Version 3.11 empfohlen. Höhere Versionen sollten auch gehen, die Mindestversion ist 3.9.
 * PySide6 (https://www.qt.io/qt-for-python) für die Grafische Oberfläche
 * lxml (http://lxml.de/) als xml-parser (unter Linux: `libxml2-dev` und `libxmlsec1-dev` global installieren, wenn lxml via pip installiert werden soll)
 * PyYAML (https://pyyaml.org/) als yaml-parser
@@ -54,7 +54,7 @@ Für Windows stellen wir unter https://github.com/Aeolitus/Sephrasto/releases bu
 
 ## Installation macOS
 * Lade den neuesten Sephrasto Sourcecode herunter (https://github.com/Aeolitus/Sephrasto/releases) und entpacke ihn an einen Ort deiner Wahl. 
-* Installiere Python 3: https://www.python.org/downloads/macos/
+* Installiere Python 3.11: https://www.python.org/downloads/macos/
 * Control-Click auf den Sephrasto-Ordner und wähle "New Terminal at Folder"
 * Tippe im Terminal: ```python3 -m ensurepip```
 * ... gefolgt von: ```python3 -m pip install -r requirements.txt```
@@ -81,7 +81,7 @@ Gestartet wird Sephrasto dann folgendermaßen:
 ## Für Entwickler
 
 ### Erstellen von Windows builds
-Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktuell nutzen wir außerdem Python 3.9.7 und cx_Freeze 7.0.0 zum Erstellen von Windows builds. Nun solltest du build.bat im Sephrasto root ausführen können.
+Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktuell nutzen wir außerdem Python 3.11 und cx_Freeze 7.0.0 zum Erstellen von Windows builds. Nun solltest du build.bat im Sephrasto root ausführen können.
 
 ### Einrichtung von Visual Studio als IDE
 * Installiere VS Community Edition mit dem Python Workload (kann auch nachträglich über den Installer installiert werden)
