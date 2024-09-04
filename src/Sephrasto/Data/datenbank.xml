@@ -9828,7 +9828,7 @@ Die &lt;b&gt;Hauptwaffe&lt;/b&gt; wählst du zu Kampfbeginn, andere sind &lt;b&g
   <FreieFertigkeit name="Rogolan" kategorie="1"></FreieFertigkeit>
   <FreieFertigkeit name="Tiefzwergisch" kategorie="1"></FreieFertigkeit>
   <FreieFertigkeit name="Amuurak" kategorie="1"></FreieFertigkeit>
-  <FreieFertigkeit name="Atak (+Schrift)" kategorie="1"></FreieFertigkeit>
+  <FreieFertigkeit name="Atak" kategorie="1"></FreieFertigkeit>
   <FreieFertigkeit name="Drachisch" kategorie="1" voraussetzungen="Vorteil Zauberer I"></FreieFertigkeit>
   <FreieFertigkeit name="Füchsisch (+Schrift)" kategorie="1"></FreieFertigkeit>
   <FreieFertigkeit name="Goblinisch" kategorie="1"></FreieFertigkeit>
