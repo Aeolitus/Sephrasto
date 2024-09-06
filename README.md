@@ -25,6 +25,14 @@ Mitgeliefert werden außerdem:
 Die zugehörigen Lizenzen können hier gefunden werden: [Acknowledgements](docs/acknowledgements.md)
 
 ## Installation Linux
+
+Auto:
+```bash
+curl -sSL https://github.com/Aeolitus/Sephrasto/raw/installscript/tools/install_linux.sh | bash
+```
+
+Manual:
+
 ```
 sudo apt install python3-pip
 sudo apt install openjdk-11-jdk
