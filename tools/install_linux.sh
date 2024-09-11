@@ -50,7 +50,9 @@ mv Sephrasto.desktop ~/.local/share/applications/
 
 echo ""
 echo "Installation abgeschlossen."
+echo ""
 echo "Sephrasto wurde im Ordner $INSTALL installiert."
-echo "Zum Updaten lösche diesen Ordner und führe den Installationsbefehl erneut aus. Helden, Regeln und Plugins liegen in separaten Ordnern und wbleiben erhalten."
+echo "Zum Updaten lösche diesen Ordner und führe den Installationsbefehl erneut aus."
+echo "Helden, Regeln und Plugins liegen in separaten Ordnern und bleiben erhalten."
 echo "Ein Starter wurde in ~/.local/share/applications/Sephrasto.desktop erstellt."
 echo "Sephrasto kann nun über das Startmenü gestartet werden."
