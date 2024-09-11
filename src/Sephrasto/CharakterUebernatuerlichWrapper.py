@@ -278,6 +278,7 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
                 self.spinRef[el] = QtWidgets.QSpinBox()
                 self.spinRef[el].setFocusPolicy(QtCore.Qt.StrongFocus)
                 self.spinRef[el].installEventFilter(self.mwp)
+                self.spinRef[el].setKeyboardTracking(False)
                 self.spinRef[el].setMinimum(0)
                 self.spinRef[el].setMaximum(fert.maxWert)
                 self.spinRef[el].setValue(fert.wert)
