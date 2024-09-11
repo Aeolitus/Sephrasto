@@ -28,7 +28,7 @@ Die zugehörigen Lizenzen können hier gefunden werden: [Acknowledgements](docs/
 
 Auto:
 ```bash
-curl -sSL https://github.com/Aeolitus/Sephrasto/raw/installscript/tools/install_linux.sh | bash
+curl -sSL https://github.com/Aeolitus/Sephrasto/raw/master/tools/install_linux.sh | bash
 ```
 
 Manual:

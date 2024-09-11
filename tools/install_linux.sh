@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # install dependencies
-echo "Bitte gib dein Adminpasswort ein, um die für Sephrasto erforderlichen Pakete zu installiern:"
-echo "sudo apt install python3-pip python3-venv openjdk-11-jdk pdftk libxcb-cursor0"
+echo "Bitte gib dein Adminpasswort ein, um die für Sephrasto erforderlichen Pakete zu installieren:"
+echo "sudo apt install -y python3-pip python3-venv openjdk-11-jdk pdftk libxcb-cursor0"
 sudo apt install python3-pip python3-venv openjdk-11-jdk pdftk libxcb-cursor0
 
 # download code from latest sephrasto release
@@ -30,6 +30,7 @@ pip install -r $INSTALL/requirements.txt
 
 
 # Create desktop entry file (starter)
+echo "Erstelle Starter..."
 cat <<EOL > Sephrasto.desktop
 [Desktop Entry]
 Encoding=UTF-8
@@ -44,4 +45,12 @@ EOL
 
 # make desktop entry executable and found by desktop environemnt
 chmod +x Sephrasto.desktop
+mkdir -p ~/.local/share/applications/
 mv Sephrasto.desktop ~/.local/share/applications/
+
+echo ""
+echo "Installation abgeschlossen."
+echo "Sephrasto wurde im Ordner $INSTALL installiert."
+echo "Zum Updaten lösche diesen Ordner und führe den Installationsbefehl erneut aus. Helden, Regeln und Plugins liegen in separaten Ordnern und wbleiben erhalten."
+echo "Ein Starter wurde in ~/.local/share/applications/Sephrasto.desktop erstellt."
+echo "Sephrasto kann nun über das Startmenü gestartet werden."
