@@ -5,7 +5,7 @@ Ein Charaktergenerator für das DSA-Hausregelsystem Ilaris, erstellt von Aeolitu
 
 ## Features
 * ⚡ **Schnell**: Dank Archetypen kann ein Charakter binnen Minuten erstellt werden
-* 📜 **Komfortabel**: Relevante Regeln werden angezeigt und können der PDF angehängt werden.
+* 📜 **Komfortabel**: Relevante Regeln werden angezeigt und können der PDF angehängt werden
 * ⚖️ **Flexibel**: Die Regelbasis (Fertigkeiten, Vorteile etc.) kann frei editiert und erweitert werden
 * 🧩 **Erweiterbar**: Tierbegleiter, VTT-Exports, Manöverkarten und vieles mehr steht durch [Plugins](https://github.com/brzGatsu/SephrastoPlugins) bereit
 * ♻️ **Reversibel**: Steigerungen können rückgängig gemacht werden
