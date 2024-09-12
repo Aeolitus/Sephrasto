@@ -19,7 +19,7 @@ Für Windows stellen wir unter https://github.com/Aeolitus/Sephrasto/releases Bu
 ### Linux
 Für Ubuntu und ähnliche Distributionen kannst du den automatischen Installer benutzen, indem du diesen Befehl in deinem Terminal ausführst:
 ```bash
-curl -sSL https://github.com/Aeolitus/Sephrasto/raw/master/tools/install_linux.sh | bash
+curl -sSL https://raw.githubusercontent.com/Aeolitus/Sephrasto/master/tools/install_linux.sh | bash
 ```
 Der Installer erstellt einen Sephrasto Ordner dort, wo er ausgeführt wird, lädt alle Dateien und Pakete die benötigt werden automatisch herunter und erstellt einen Eintrag in deinem Startmenü.
 Zum späteren Updaten kannst du den Ordner löschen und den Befehl erneut ausführen. Helden, Regeln und Plugins werden standardmäßig in einem anderen Ordner abgelegt.
