@@ -1,26 +1,29 @@
 # Sephrasto
 Ein Charaktergenerator für das DSA-Hausregelsystem Ilaris, erstellt von Aeolitus. So vollständig wie möglich. Eine Gebrauchsanweisung findest du, wenn du im Hauptfenster auf den Hilfe-Button clickst.
 
-## Features
-* Automatisches Befüllen des Ilaris Charakterbogens (Benötigt pdftk : Gratis-Download für Windows @ https://www.pdflabs.com/tools/pdftk-server/, Mac- und Linux-Installation siehe unten)
-* Einfaches Einarbeiten von Hausregeln wie neuen Fertigkeiten, Vorteilen etc. durch frei editierbare Regelbasis
-* Fast alle relevanten Regeln sind im Tool enthalten
+![Screenshot](docs/assets/images/screenshot.png)
 
-Bei Fragen / Änderungswünschen / Feedback einfach Bescheid sagen - im dsaforum oder hier!
+## Features
+* ⚡ **Schnell**: Dank Archetypen kann ein Charakter binnen Minuten erstellt werden
+* 📜 **Komfortabel**: Relevante Regeln werden angezeigt und können der PDF angehängt werden.
+* ⚖️ **Flexibel**: Die Regelbasis (Fertigkeiten, Vorteile etc.) kann frei editiert und erweitert werden
+* 🧩 **Erweiterbar**: Tierbegleiter, VTT-Exports, Manöverkarten und vieles mehr steht durch plugins bereit
+* ♻️ **Reversibel**: Steigerungen können rückgängig gemacht werden
+* 🤝 **Freundlich**: Von und für die Ilaris-Community entwickelt. Fragen und Vorschläge sind immer wilkommen: [DSA-Forum](https://dsaforum.de/viewtopic.php?t=45794&sid=f6d460e9749e5943fbd2c06b439bd46a) | [Discord](https://discord.gg/RsRcspq254)
 
 ## Verwendete Pakete und Programme
-* Um Sephrasto mit Python zu verwenden, wird Version 3.11 empfohlen. Höhere Versionen sollten auch gehen, die Mindestversion ist 3.9.
-* PySide6 (https://www.qt.io/qt-for-python) für die Grafische Oberfläche
-* lxml (http://lxml.de/) als xml-parser (unter Linux: `libxml2-dev` und `libxmlsec1-dev` global installieren, wenn lxml via pip installiert werden soll)
-* PyYAML (https://pyyaml.org/) als yaml-parser
-* RestrictedPython (https://github.com/zopefoundation/RestrictedPython) zum Absichern der durch Benutzer erstellbaren Python Scripts
-* cx_freeze (optional, https://github.com/marcelotduarte/cx_Freeze) um Sephrasto-Builds zu erstellen
-* mkdocs (optional, https://github.com/mkdocs/) und mkdocs-material. Zum Konvertieren der Markdown-Dokumentation in HTML.
+* Um Sephrasto mit [Python](https://www.python.org) zu verwenden, wird Version 3.11 empfohlen. Höhere Versionen sollten auch gehen, die Mindestversion ist 3.9.
+* [PySide6](https://www.qt.io/qt-for-python) für die Grafische Oberfläche
+* [lxml](http://lxml.de/) als xml-parser
+* [PyYAML](https://pyyaml.org/) als yaml-parser
+* [RestrictedPython](https://github.com/zopefoundation/RestrictedPython) zum Absichern der durch Benutzer erstellbaren Python Scripts
+* [cx_freeze](https://github.com/marcelotduarte/cx_Freeze) (optional) um Sephrasto-Builds zu erstellen
+* [mkdocs](https://github.com/mkdocs/) und mkdocs-material (optional). Zum Konvertieren der Markdown-Dokumentation in HTML.
 
 Mitgeliefert werden außerdem:
-* fdfgen (https://github.com/ccnmtl/fdfgen) zum Editieren des Charakterbogens
-* cpdf (https://www.coherentpdf.com) zur Reduzierung der Dateigröße des Charakterbogens
-* hyphen (https://github.com/ytiurin/hyphen) für das korrekte Umbrechen von Textzeilen im Regelanhang
+* [fdfgen](https://github.com/ccnmtl/fdfgen) zum Editieren des Charakterbogens
+* [cpdf](https://www.coherentpdf.com) zur Reduzierung der Dateigröße des Charakterbogens
+* [hyphen](https://github.com/ytiurin/hyphen) für das korrekte Umbrechen von Textzeilen im Regelanhang
 
 Die zugehörigen Lizenzen können hier gefunden werden: [Acknowledgements](docs/acknowledgements.md)
 
