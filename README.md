@@ -27,43 +27,46 @@ Mitgeliefert werden außerdem:
 
 Die zugehörigen Lizenzen können hier gefunden werden: [Acknowledgements](docs/acknowledgements.md)
 
-## Installation Linux
+## Installation
 
-Auto:
+### Windows
+Für Windows stellen wir unter https://github.com/Aeolitus/Sephrasto/releases Builds zur Verfügung.
+
+### Linux
+Für Ubuntu und ähnliche Distributionen kannst du den automatischen Installer benutzen, indem du diesen Befehl in deinem Terminal ausführst:
 ```bash
 curl -sSL https://github.com/Aeolitus/Sephrasto/raw/master/tools/install_linux.sh | bash
 ```
+Der Installer erstellt einen Sephrasto Ordner dort, wo er ausgeführt wird, lädt alle Dateien und Pakete die benötigt werden automatisch herunter und erstellt einen Eintrag in deinem Startmenü.
+Zum späteren Updaten kannst du den Ordner löschen und den Befehl erneut ausführen. Helden, Regeln und Plugins werden standardmäßig in einem anderen Ordner abgelegt.
 
-Manual:
+Alternativ gibt es hier aus der Community einen Installer für Void Linux, Ubuntu/Debian und Arch Linux (ohne Gewähr): https://github.com/kgitthoene/multi-linux-sephrasto-installer
+
+#### Manuelle Installation
+Du kannst die aktuellste Entwicklerversion von Sephrasto auch in wenigen Schritten manuell herunterladen und starten.
+Die folgenden Befehle installieren Python, PDFtk für den Charakterbogen-Export (inklusive das dafür benötigte OpenJDK) und die für Qt benötigte Cursor Lib. 
+Danach wird das Sephrasto Repository mit git heruntergeladen - alternativ kannst du es natürlich auch manuell herunterladen und entpacken (unter "Code" den Punkt "Download zip" auswählen). 
+Als nächstes wird in Python ein Virtual Environment für Sephrasto erstellt. Der letzte Befehl installiert alle benötigten Python-Pakete.
 
 ```
-sudo apt install python3-pip
-sudo apt install openjdk-11-jdk
-sudo apt install pdftk
+cd ziel/pfad/für/sephrasto
+sudo apt install python3-pip openjdk-11-jdk pdftk libxcb-cursor0
 git clone https://github.com/Aeolitus/Sephrasto.git
+mkdir -p ~/.venvs
+python3 -m venv ~/.venvs/sephrasto
+source ~/.venvs/sephrasto/bin/activate
 pip install -r Sephrasto/requirements.txt
 ```
-OpenJDK wird für pdftk benötigt, ohne diese beiden Pakete können keine Charakterbogen-PDFs erzeugt werden. Statt das Sephrasto Repository mit git zu klonen, kannst du es natürlich auch manuell herunterladen und entpacken (unter "Code" den Punkt "Download zip" auswählen).
 
 Gestartet wird Sephrasto dann folgendermaßen:
-```
-python Sephrasto/src/Sephrasto/Sephrasto.py
-```
-
-Versuche es folgendermaßen, falls das nicht klappt:
 ```
 python3 Sephrasto/src/Sephrasto/Sephrasto.py
 ```
 
-Alternativ gibt es hier aus der Community einen Installer für Void Linux, Ubuntu/Debian und Arch Linux (ohne Gewähr): https://github.com/kgitthoene/multi-linux-sephrasto-installer
-
-### Sephrasto Userordner ###
+#### Sephrasto Userordner
 Wenn dich der automatisch generierte Sephrasto-Ordner im Userverzeichnis stört, kannst du ihn von "sephrasto" in ".sephrasto" umbenennen, um ihn zu verstecken. Sephrasto wird dann den "sephrasto" Ordner nicht neu erstellen.
 
-## Installation Windows
-Für Windows stellen wir unter https://github.com/Aeolitus/Sephrasto/releases builds zur Verfügung.
-
-## Installation macOS
+### MacOS
 * Lade den neuesten Sephrasto Sourcecode herunter (https://github.com/Aeolitus/Sephrasto/releases) und entpacke ihn an einen Ort deiner Wahl. 
 * Installiere Python 3.11: https://www.python.org/downloads/macos/
 * Control-Click auf den Sephrasto-Ordner und wähle "New Terminal at Folder"
