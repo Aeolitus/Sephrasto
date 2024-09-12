@@ -64,6 +64,7 @@ class AttrWrapper(QtCore.QObject):
             self.widgetAttributName[attribut] = labelName
             
             spinWert = QtWidgets.QSpinBox()
+            spinWert.setKeyboardTracking(False)
             spinWert.setButtonSymbols(QtWidgets.QAbstractSpinBox.PlusMinus)
             spinWert.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
             spinWert.valueChanged.connect(self.update)
