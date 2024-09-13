@@ -1,12 +1,12 @@
 # Sephrasto
-Ein Charaktergenerator für das DSA-Hausregelsystem Ilaris, erstellt von Aeolitus. So vollständig wie möglich. Eine Gebrauchsanweisung findest du, wenn du im Hauptfenster auf den Hilfe-Button clickst.
+Der Charaktergenerator für [Ilaris](https://www.f-shop.de/das-schwarze-auge/partnerprodukte/buecher-cds/3803/ilaris-das-alternative-regelwerk-fuer-dsa), das alternative Regelwerk für Aventurien. Entwickelt von Aeolitus und Gatsu. So vollständig wie möglich. Eine Gebrauchsanweisung findest du, wenn du im Hauptfenster auf den Hilfe-Button klickst.
 
 ![Screenshot](docs/assets/images/readme_screenshot.png)
 
 ## Features
-* ⚡ Dank Archetypen kann ein Charakter binnen Minuten erstellt werden
-* 📜 Relevante Regeln werden angezeigt und können der PDF angehängt werden
-* ⚖️ Die Regelbasis (Fertigkeiten, Vorteile etc.) kann frei editiert und erweitert werden
+* ⚡ Blitzschnelle Charaktererstellung dank Archetypen
+* 📜 Relevante Regeln direkt im Editor und Charakteranhang
+* ⚖️ Hausregeln könne nahtlos eingefügt werden
 * 🧩 Tierbegleiter, VTT-Exports, Manöverkarten und vieles mehr steht durch [Plugins](https://github.com/brzGatsu/SephrastoPlugins) bereit
 * ♻️ Steigerungen können rückgängig gemacht werden
 * 🤝 Von und für die Ilaris-Community entwickelt. Fragen und Vorschläge sind immer wilkommen: [DSA-Forum](https://dsaforum.de/viewtopic.php?t=45794&sid=f6d460e9749e5943fbd2c06b439bd46a) | [Discord](https://discord.gg/RsRcspq254)
