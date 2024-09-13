@@ -1,15 +1,15 @@
 # Sephrasto
 Ein Charaktergenerator für das DSA-Hausregelsystem Ilaris, erstellt von Aeolitus. So vollständig wie möglich. Eine Gebrauchsanweisung findest du, wenn du im Hauptfenster auf den Hilfe-Button clickst.
 
-![Screenshot](docs/assets/images/screenshot.png)
+![Screenshot](docs/assets/images/readme_screenshot.png)
 
 ## Features
-* ⚡ **Schnell**: Dank Archetypen kann ein Charakter binnen Minuten erstellt werden
-* 📜 **Komfortabel**: Relevante Regeln werden angezeigt und können der PDF angehängt werden
-* ⚖️ **Flexibel**: Die Regelbasis (Fertigkeiten, Vorteile etc.) kann frei editiert und erweitert werden
-* 🧩 **Erweiterbar**: Tierbegleiter, VTT-Exports, Manöverkarten und vieles mehr steht durch [Plugins](https://github.com/brzGatsu/SephrastoPlugins) bereit
-* ♻️ **Reversibel**: Steigerungen können rückgängig gemacht werden
-* 🤝 **Freundlich**: Von und für die Ilaris-Community entwickelt. Fragen und Vorschläge sind immer wilkommen: [DSA-Forum](https://dsaforum.de/viewtopic.php?t=45794&sid=f6d460e9749e5943fbd2c06b439bd46a) | [Discord](https://discord.gg/RsRcspq254)
+* ⚡ Dank Archetypen kann ein Charakter binnen Minuten erstellt werden
+* 📜 Relevante Regeln werden angezeigt und können der PDF angehängt werden
+* ⚖️ Die Regelbasis (Fertigkeiten, Vorteile etc.) kann frei editiert und erweitert werden
+* 🧩 Tierbegleiter, VTT-Exports, Manöverkarten und vieles mehr steht durch [Plugins](https://github.com/brzGatsu/SephrastoPlugins) bereit
+* ♻️ Steigerungen können rückgängig gemacht werden
+* 🤝 Von und für die Ilaris-Community entwickelt. Fragen und Vorschläge sind immer wilkommen: [DSA-Forum](https://dsaforum.de/viewtopic.php?t=45794&sid=f6d460e9749e5943fbd2c06b439bd46a) | [Discord](https://discord.gg/RsRcspq254)
 
 ## Installation
 
