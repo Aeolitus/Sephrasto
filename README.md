@@ -1,58 +1,56 @@
 # Sephrasto
-Ein Charaktergenerator für das DSA-Hausregelsystem Ilaris, erstellt von Aeolitus. So vollständig wie möglich. Eine Gebrauchsanweisung findest du, wenn du im Hauptfenster auf den Hilfe-Button clickst.
+Der Charaktergenerator für [Ilaris](https://www.f-shop.de/das-schwarze-auge/partnerprodukte/buecher-cds/3803/ilaris-das-alternative-regelwerk-fuer-dsa), das alternative Regelwerk für Aventurien. Entwickelt von Aeolitus und Gatsu. So vollständig wie möglich. Eine Gebrauchsanweisung findest du, wenn du im Hauptfenster auf den Hilfe-Button klickst.
+
+![Screenshot](docs/assets/images/readme_screenshot.png)
 
 ## Features
-* Automatisches Befüllen des Ilaris Charakterbogens (Benötigt pdftk : Gratis-Download für Windows @ https://www.pdflabs.com/tools/pdftk-server/, Mac- und Linux-Installation siehe unten)
-* Einfaches Einarbeiten von Hausregeln wie neuen Fertigkeiten, Vorteilen etc. durch frei editierbare Regelbasis
-* Fast alle relevanten Regeln sind im Tool enthalten
+* ⚡ Blitzschnelle Charaktererstellung dank Archetypen
+* 📜 Relevante Regeln direkt im Editor und Charakteranhang
+* ⚖️ Hausregeln könne nahtlos eingefügt werden
+* 🧩 Tierbegleiter, VTT-Exports, Manöverkarten und vieles mehr steht durch [Plugins](https://github.com/brzGatsu/SephrastoPlugins) bereit
+* ♻️ Steigerungen können rückgängig gemacht werden
+* 🤝 Von und für die Ilaris-Community entwickelt. Fragen und Vorschläge sind immer wilkommen: [DSA-Forum](https://dsaforum.de/viewtopic.php?t=45794&sid=f6d460e9749e5943fbd2c06b439bd46a) | [Discord](https://discord.gg/RsRcspq254)
 
-Bei Fragen / Änderungswünschen / Feedback einfach Bescheid sagen - im dsaforum oder hier!
+## Installation
 
-## Verwendete Pakete und Programme
-* Um Sephrasto mit Python zu verwenden, wird Version 3.11 empfohlen. Höhere Versionen sollten auch gehen, die Mindestversion ist 3.9.
-* PySide6 (https://www.qt.io/qt-for-python) für die Grafische Oberfläche
-* lxml (http://lxml.de/) als xml-parser (unter Linux: `libxml2-dev` und `libxmlsec1-dev` global installieren, wenn lxml via pip installiert werden soll)
-* PyYAML (https://pyyaml.org/) als yaml-parser
-* RestrictedPython (https://github.com/zopefoundation/RestrictedPython) zum Absichern der durch Benutzer erstellbaren Python Scripts
-* cx_freeze (optional, https://github.com/marcelotduarte/cx_Freeze) um Sephrasto-Builds zu erstellen
-* mkdocs (optional, https://github.com/mkdocs/) und mkdocs-material. Zum Konvertieren der Markdown-Dokumentation in HTML.
+### Windows
+Für Windows stellen wir unter https://github.com/Aeolitus/Sephrasto/releases Builds zur Verfügung.
 
-Mitgeliefert werden außerdem:
-* fdfgen (https://github.com/ccnmtl/fdfgen) zum Editieren des Charakterbogens
-* cpdf (https://www.coherentpdf.com) zur Reduzierung der Dateigröße des Charakterbogens
-* hyphen (https://github.com/ytiurin/hyphen) für das korrekte Umbrechen von Textzeilen im Regelanhang
-
-Die zugehörigen Lizenzen können hier gefunden werden: [Acknowledgements](docs/acknowledgements.md)
-
-## Installation Linux
+### Linux
+Für Ubuntu und ähnliche Distributionen kannst du den automatischen Installer benutzen, indem du diesen Befehl in deinem Terminal ausführst:
+```bash
+curl -sSL https://raw.githubusercontent.com/Aeolitus/Sephrasto/master/tools/install_linux.sh | bash
 ```
-sudo apt install python3-pip
-sudo apt install openjdk-11-jdk
-sudo apt install pdftk
+Der Installer erstellt einen Sephrasto Ordner dort, wo er ausgeführt wird, lädt alle Dateien und Pakete die benötigt werden automatisch herunter und erstellt einen Eintrag in deinem Startmenü.
+Zum späteren Updaten kannst du den Ordner löschen und den Befehl erneut ausführen. Helden, Regeln und Plugins werden standardmäßig in einem anderen Ordner abgelegt.
+
+Alternativ gibt es hier aus der Community einen Installer für Void Linux, Ubuntu/Debian und Arch Linux (ohne Gewähr): https://github.com/kgitthoene/multi-linux-sephrasto-installer
+
+#### Manuelle Installation
+Du kannst die aktuellste Entwicklerversion von Sephrasto auch in wenigen Schritten manuell herunterladen und starten.
+Die folgenden Befehle installieren Python, PDFtk für den Charakterbogen-Export (inklusive das dafür benötigte OpenJDK) und die für Qt benötigte Cursor Lib. 
+Danach wird das Sephrasto Repository mit git heruntergeladen - alternativ kannst du es natürlich auch manuell herunterladen und entpacken (unter "Code" den Punkt "Download zip" auswählen). 
+Als nächstes wird in Python ein Virtual Environment für Sephrasto erstellt. Der letzte Befehl installiert alle benötigten Python-Pakete.
+
+```
+cd ziel/pfad/für/sephrasto
+sudo apt install python3-pip openjdk-11-jdk pdftk libxcb-cursor0
 git clone https://github.com/Aeolitus/Sephrasto.git
+mkdir -p ~/.venvs
+python3 -m venv ~/.venvs/sephrasto
+source ~/.venvs/sephrasto/bin/activate
 pip install -r Sephrasto/requirements.txt
 ```
-OpenJDK wird für pdftk benötigt, ohne diese beiden Pakete können keine Charakterbogen-PDFs erzeugt werden. Statt das Sephrasto Repository mit git zu klonen, kannst du es natürlich auch manuell herunterladen und entpacken (unter "Code" den Punkt "Download zip" auswählen).
 
 Gestartet wird Sephrasto dann folgendermaßen:
-```
-python Sephrasto/src/Sephrasto/Sephrasto.py
-```
-
-Versuche es folgendermaßen, falls das nicht klappt:
 ```
 python3 Sephrasto/src/Sephrasto/Sephrasto.py
 ```
 
-Alternativ gibt es hier aus der Community einen Installer für Void Linux, Ubuntu/Debian und Arch Linux (ohne Gewähr): https://github.com/kgitthoene/multi-linux-sephrasto-installer
-
-### Sephrasto Userordner ###
+#### Sephrasto Userordner
 Wenn dich der automatisch generierte Sephrasto-Ordner im Userverzeichnis stört, kannst du ihn von "sephrasto" in ".sephrasto" umbenennen, um ihn zu verstecken. Sephrasto wird dann den "sephrasto" Ordner nicht neu erstellen.
 
-## Installation Windows
-Für Windows stellen wir unter https://github.com/Aeolitus/Sephrasto/releases builds zur Verfügung.
-
-## Installation macOS
+### MacOS
 * Lade den neuesten Sephrasto Sourcecode herunter (https://github.com/Aeolitus/Sephrasto/releases) und entpacke ihn an einen Ort deiner Wahl. 
 * Installiere Python 3.11: https://www.python.org/downloads/macos/
 * Control-Click auf den Sephrasto-Ordner und wähle "New Terminal at Folder"
@@ -78,49 +76,28 @@ Gestartet wird Sephrasto dann folgendermaßen:
 |\-\-migrate|"pfad/zu/charakter.xml"|Lädt und speichert den angegeben Charakter. Dies kann genutzt werden, um ohne UI-Interaktion Migrationen zu applizieren, z. B. für Charakterassistent-Dateien.|
 |\-\-prerelease\-plugins|kein Parameter|Weist den Pluginmanager an, die neuesten Prerelease-Plugins herunterzuladen, falls verfügbar.|
 
-## Für Entwickler
 
-### Erstellen von Windows builds
-Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktuell nutzen wir außerdem Python 3.11 und cx_Freeze 7.0.0 zum Erstellen von Windows builds. Nun solltest du build.bat im Sephrasto root ausführen können.
 
-### Einrichtung von Visual Studio als IDE
-* Installiere VS Community Edition mit dem Python Workload (kann auch nachträglich über den Installer installiert werden)
-* Setze den Pfad der Python-Umgebung in der Umgebungsvariable PATH (in der Regel C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64)
-* Erstelle ein virtual environment
-    * Navigiere auf der Kommandozeile in den Sephrasto repository root
-    * venv erstellen: ```python -m venv venv```
-	* venv aktivieren: ```venv\Scripts\activate```
-	* pip upgraden: ```python -m pip install --upgrade pip```
-	* Von Sephrasto benötigte Pakete installieren: ```pip install -r requirements.txt```
-* Öffne Sephrasto/src/Sephrasto.sln
-* Erstelle die IntelliSense Datenbank: Solution Explorer -> Rechtsclick auf Python Environments -> View all Python environments -> IntelliSense im Dropdown auswahlen und aktivieren/refreshen
-* Stelle das Tab-Verhalten auf "Insert Spaces": Tools -> Options -> Text Editor -> Python -> Tabs
-* Öffne das Exception Settings Fenster (Debug -> Windows -> Exception Settings) und selektiere alle Python Exceptions, dann deaktiviere <All Python Exceptions not in this list>, BaseException und Exception - damit breaken die custom exceptions nicht, die Sephrasto intern nutzt.
+## Verwendete Pakete und Programme
+* Um Sephrasto mit [Python](https://www.python.org) zu verwenden, wird Version 3.11 empfohlen. Höhere Versionen sollten auch gehen, die Mindestversion ist 3.9.
+* [PySide6](https://www.qt.io/qt-for-python) für die Grafische Oberfläche
+* [lxml](http://lxml.de/) als xml-parser
+* [PyYAML](https://pyyaml.org/) als yaml-parser
+* [RestrictedPython](https://github.com/zopefoundation/RestrictedPython) zum Absichern der durch Benutzer erstellbaren Python Scripts
+* [cx_freeze](https://github.com/marcelotduarte/cx_Freeze) (optional) um Sephrasto-Builds zu erstellen
+* [mkdocs](https://github.com/mkdocs/) und mkdocs-material (optional). Zum Konvertieren der Markdown-Dokumentation in HTML.
 
-### UI design mit Qt
-* Modifiziere niemals Dateien im "src/Sephrasto/UI" Ordner von Hand!
-* Stattdessen wird das UI durch ".ui"-XML-Dateien im "designer" Ordner definiert. Optionalerweise können diese mit dem Qt Creator visuell designed werden (enthalten im Qt-Installer unter https://www.qt.io/).
-* Aus diesen Dateien wird dann der Python-Code mit Hilfe von "designer/convert.bat" erzeugt.
-* Bei Problemen mit convert.bat, stelle sicher, dass:
-    * ... der Python Install-Ordner und der Unterordner "Scripts" in deiner PATH-Umgebungsvariable enthalten sind. Dies wird normalerweise vom Python installer automatisch gemacht. (Windows 10: System -> Advanced System Settings -> Environment Variables -> Path - in User oder System)
-    * ... "Python/Scripts" die Datei "pyside6-uic.exe" enthält. Diese wird normalerweise durch das Installieren von PySide6 dort angelegt.
+Mitgeliefert werden außerdem:
+* [fdfgen](https://github.com/ccnmtl/fdfgen) zum Editieren des Charakterbogens
+* [cpdf](https://www.coherentpdf.com) zur Reduzierung der Dateigröße des Charakterbogens
+* [hyphen](https://github.com/ytiurin/hyphen) für das korrekte Umbrechen von Textzeilen im Regelanhang
 
-### Update der Dokumentation
-Die Markdown-Dokumente in /docs werden für Sephrastos-In-App-Hilfe in HTML konvertiert. Dies muss also nach jeder Änderung der Dokumente durchgeführt werden.
+Die zugehörigen Lizenzen können hier gefunden werden: [Acknowledgements](docs/acknowledgements.md)
 
-Installation:
-* Installiere mkdocs: ```pip install mkdocs```
-* Installiere mkdocs-material: ```pip install mkdocs-material```
 
-Update der HTML-Dateien:
-* Navigiere auf der Kommandozeile in den Serphasto-Repo-Root.
-* Führe aus: ```mkdocs build```
+## Mitmachen
+Falls du Fragen oder Anregungen hast, schreib uns gerne:
 
-### Plugin Repositories
-Sephrasto unterstützt Plugin repositories, um als User die Plugins bequem aus den Einstellungen heraus verwalten zu können. In den Standardeinstellungen ist https://github.com/brzGatsu/SephrastoPlugins voreingetragen und wir empfehlen dir dort für deine Plugins einen PR zu erstellen. Du kannst aber auch ein eigenes Repository anlegen. Aktuell ist Sephrasto hier auf Github beschränkt und du musst folgender Konvention folgen:
-* Der Sephrasto Pluginmanager benötigt eine Github API URL zu deiner /releases page. Beispiel: https://api.github.com/repos/brzGatsu/SephrastoPlugins/releases
-* Du musst den oder die Pluginordner zippen (.zip) und bei Github als Release hochladen (nur diese eine Datei). Der Release muss als Git-Tag die Sephrasto-Target-Version im folgenden Format enthalten: "v4.4.0.0". Die vierte Zahl kannst du für Plugin-Updates innerhalb derselben Sephrastoversion verwenden. Sephrasto-Versionen die älter als das Target sind wird das Plugin(-Update) nicht angezeigt.
-* Es gibt im Einstellungsdialog keine Option für weitere Repos, aber du kannst es händisch in der Sephrasto.ini eintragen unter "Plugin-Repos".
+[DSA-Forum](https://dsaforum.de/viewtopic.php?t=45794&sid=f6d460e9749e5943fbd2c06b439bd46a) | [Discord](https://discord.gg/RsRcspq254) | [GitHub Issue](https://github.com/Aeolitus/Sephrasto/issues/new)
 
-## Abschlussbemerkung
-Der Code ist teilweise von furchtbarem Denglisch durchzogen, da Sephrasto ein ausschließlich deutsches Regelwerk umsetzt. Die Begrifflichkeiten in zu übersetzen wäre aber wenig hilfreich für die Lesbarkeit.
+Wenn du für dich oder für die Allgemeinheit an Sephrasto mitarbeiten willst oder ein eigenes Plugin schreiben möchtest lohnt sich ein Blick in die [CONTRIBUTING.md](CONTRIBUTING.md).
