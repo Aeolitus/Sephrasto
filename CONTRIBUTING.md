@@ -5,7 +5,7 @@ Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktue
 
 ## Einrichtung von Visual Studio als IDE
 * Installiere VS Community Edition mit dem Python Workload (kann auch nachträglich über den Installer installiert werden)
-* Setze den Pfad der Python-Umgebung in der Umgebungsvariable PATH (in der Regel C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64)
+* Installiere Python 3.11, aktiviere dabei die Option, dass Python zur Pfad-Umgebungsvariable hinzugefügt wird: https://www.python.org/downloads/windows/
 * Erstelle ein virtual environment
     * Navigiere auf der Kommandozeile in den Sephrasto repository root
     * venv erstellen: ```python -m venv venv```
@@ -22,8 +22,8 @@ Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktue
 * Stattdessen wird das UI durch ".ui"-XML-Dateien im "designer" Ordner definiert. Optionalerweise können diese mit dem Qt Creator visuell designed werden (enthalten im Qt-Installer unter https://www.qt.io/).
 * Aus diesen Dateien wird dann der Python-Code mit Hilfe von "designer/convert.bat" erzeugt.
 * Bei Problemen mit convert.bat, stelle sicher, dass:
-    * ... der Python Install-Ordner und der Unterordner "Scripts" in deiner PATH-Umgebungsvariable enthalten sind. Dies wird normalerweise vom Python installer automatisch gemacht. (Windows 10: System -> Advanced System Settings -> Environment Variables -> Path - in User oder System)
-    * ... "Python/Scripts" die Datei "pyside6-uic.exe" enthält. Diese wird normalerweise durch das Installieren von PySide6 dort angelegt.
+    * ... du im Repository root ein Virutal Environment mit dem Namen venv angelegt (s.o.) und darin die requirements installiert hast (s. o.). Wenn dein environment wo anders liegt, musst du die convert.bat lokal entsprechend anpassen.
+    * ... "venv/Scripts" die Datei "pyside6-uic.exe" enthält. Diese wird normalerweise durch das Installieren von PySide6 dort angelegt.
 
 ## Update der Dokumentation
 Die Markdown-Dokumente in /docs werden für Sephrastos-In-App-Hilfe in HTML konvertiert. Dies muss also nach jeder Änderung der Dokumente durchgeführt werden.
