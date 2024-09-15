@@ -16,7 +16,7 @@ class TreeExpansionHelper:
         self.collapseTooltip = "<html><body>Alle Kategorien einklappen<br>"\
             "Strg+<span style='" + Wolke.FontAwesomeCSS + "'>\uf30c</span> (einklappen)<br>Strg+<span style='" + Wolke.FontAwesomeCSS + "'>\uf309</span> (ausklappen)</body></html>"
 
-        self.button.setText("\uf102")
+        self.button.setText("\uf78c")
         self.button.setToolTip(self.collapseTooltip)
 
         self.shortcutExpand = QtGui.QAction()
@@ -40,10 +40,10 @@ class TreeExpansionHelper:
 
     def updateButton(self):
         if self.willExpand():
-            self.button.setText("\uf103")
+            self.button.setText("\uf31e")
             self.button.setToolTip(self.expandTooltip)
         else:
-            self.button.setText("\uf102")
+            self.button.setText("\uf78c")
             self.button.setToolTip(self.collapseTooltip)
 
     def toggleTreeExpansion(self):
