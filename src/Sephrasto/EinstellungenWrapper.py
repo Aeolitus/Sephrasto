@@ -130,9 +130,6 @@ class EinstellungenWrapper():
         self.ui.resetCharakterboegen.clicked.connect(self.resetCharakterboegenPath)
         self.ui.resetCharakterboegen.setText('\uf2ea')
 
-        self.ui.resetFontDefault.clicked.connect(self.resetFonts)
-        self.ui.resetFontDefault.setText('\uf2ea')
-
         self.ui.buttonLogOpen.clicked.connect(self.openLogLocation)
         self.ui.buttonLogOpen.setText('\uf07c')
 
@@ -143,8 +140,8 @@ class EinstellungenWrapper():
 
         self.ui.checkDPI.setChecked(Wolke.Settings['DPI-Skalierung'])
 
-        self.ui.resetFontOS.clicked.connect(lambda: self.resetFonts(True))
-        self.ui.resetFontOS.setText('\uf390')
+        self.ui.resetFontOS.clicked.connect(self.resetFonts)
+        self.ui.resetFontOS.setText('\uf2ea')
 
         self.ui.buttonSettings.setText('\uf013')
         self.ui.buttonSettings.setVisible(False)
@@ -795,12 +792,9 @@ class EinstellungenWrapper():
         p = os.path.join(PathHelper.getDefaultUserFolder(), 'Charakterbögen')
         self.ui.editCharakterboegen.setText(p)
 
-    def resetFonts(self, systemFont = False):
+    def resetFonts(self):
         self.ui.comboTheme.setCurrentText("Ilaris")
-        if systemFont:
-            self.ui.comboFont.setCurrentText(Wolke.DefaultOSFont)
-        else:
-            self.ui.comboFont.setCurrentText("Crimson Pro")
+        self.ui.comboFont.setCurrentText(Wolke.DefaultOSFont)
         self.ui.spinAppFontSize.setValue(Wolke.DefaultOSFontSize)
         self.ui.comboFontHeading.setCurrentText("Aniron")
         self.ui.spinAppFontHeadingSize.setValue(Wolke.DefaultOSFontSize -1)

@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'Einstellungen.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.0
+## Created by: Qt User Interface Compiler version 6.7.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -39,7 +39,7 @@ class Ui_SettingsWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 632, 625))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 652, 598))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -443,11 +443,6 @@ class Ui_SettingsWindow(object):
 
         self.horizontalLayout_2.addWidget(self.resetFontOS)
 
-        self.resetFontDefault = QPushButton(self.groupBox_3)
-        self.resetFontDefault.setObjectName(u"resetFontDefault")
-
-        self.horizontalLayout_2.addWidget(self.resetFontDefault)
-
 
         self.gridLayout_2.addLayout(self.horizontalLayout_2, 0, 2, 1, 1)
 
@@ -549,8 +544,7 @@ class Ui_SettingsWindow(object):
         QWidget.setTabOrder(self.buttonCharakterboegen, self.resetCharakterboegen)
         QWidget.setTabOrder(self.resetCharakterboegen, self.comboTheme)
         QWidget.setTabOrder(self.comboTheme, self.resetFontOS)
-        QWidget.setTabOrder(self.resetFontOS, self.resetFontDefault)
-        QWidget.setTabOrder(self.resetFontDefault, self.spinCharListCols)
+        QWidget.setTabOrder(self.resetFontOS, self.spinCharListCols)
         QWidget.setTabOrder(self.spinCharListCols, self.spinCharListRows)
         QWidget.setTabOrder(self.spinCharListRows, self.checkUpdate)
         QWidget.setTabOrder(self.checkUpdate, self.checkPDFOpen)
@@ -675,11 +669,6 @@ class Ui_SettingsWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.resetFontOS.setText(QCoreApplication.translate("SettingsWindow", u"OS", None))
         self.resetFontOS.setProperty("class", QCoreApplication.translate("SettingsWindow", u"icon", None))
-#if QT_CONFIG(tooltip)
-        self.resetFontDefault.setToolTip(QCoreApplication.translate("SettingsWindow", u"Darstellungsoptionen auf Sephrastostandard zur\u00fccksetzen", None))
-#endif // QT_CONFIG(tooltip)
-        self.resetFontDefault.setText(QCoreApplication.translate("SettingsWindow", u"Zur\u00fccksetzen", None))
-        self.resetFontDefault.setProperty("class", QCoreApplication.translate("SettingsWindow", u"icon", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), QCoreApplication.translate("SettingsWindow", u"Darstellung", None))
         self.buttonSettings.setText(QCoreApplication.translate("SettingsWindow", u"Einstellungen", None))
         self.buttonSettings.setProperty("class", QCoreApplication.translate("SettingsWindow", u"icon", None))

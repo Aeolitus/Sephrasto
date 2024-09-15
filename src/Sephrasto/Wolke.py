@@ -34,7 +34,7 @@ class Wolke:
         'UpdateCheck_Disable' : False,
         'UpdateCheck_DisableFor' : '',
         'Theme' : "Ilaris",
-        'Font' : "Crimson Pro",
+        'Font' : "", # we default this to os font after start
         'FontSize' : 0, # we default this to os font size after start
         'FontHeading' : "Aniron",
         'FontHeadingSize' : 8,

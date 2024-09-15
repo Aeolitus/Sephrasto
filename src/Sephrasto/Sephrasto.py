@@ -215,7 +215,10 @@ class MainWindowWrapper(object):
 
         # Query system font and font size for settings dialog restore option
         defaultFont = QtGui.QFont()
-        Wolke.DefaultOSFont = defaultFont.family() 
+        Wolke.DefaultOSFont = defaultFont.family()
+        if not Wolke.Settings['Font']:
+            Wolke.Settings['Font'] = Wolke.DefaultOSFont
+
         fontSize = defaultFont.pointSize()
         if fontSize != -1:
             Wolke.DefaultOSFontSize = fontSize

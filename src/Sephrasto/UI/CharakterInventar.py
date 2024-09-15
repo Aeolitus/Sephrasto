@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterInventar.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.0
+## Created by: Qt User Interface Compiler version 6.7.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -538,7 +538,7 @@ class Ui_formInventar(object):
         self.lineEdit_1 = QLineEdit(self.gbInventar)
         self.lineEdit_1.setObjectName(u"lineEdit_1")
         self.lineEdit_1.setMinimumSize(QSize(320, 0))
-        self.lineEdit_1.setCursor(QCursor(Qt.IBeamCursor))
+        self.lineEdit_1.setCursor(QCursor(Qt.CursorShape.IBeamCursor))
 
         self.gridLayout_2.addWidget(self.lineEdit_1, 0, 0, 1, 1)
 

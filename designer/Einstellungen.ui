@@ -48,8 +48,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>632</width>
-        <height>625</height>
+        <width>652</width>
+        <height>598</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -853,19 +853,6 @@
                   </property>
                  </widget>
                 </item>
-                <item>
-                 <widget class="QPushButton" name="resetFontDefault">
-                  <property name="toolTip">
-                   <string>Darstellungsoptionen auf Sephrastostandard zurücksetzen</string>
-                  </property>
-                  <property name="text">
-                   <string>Zurücksetzen</string>
-                  </property>
-                  <property name="class" stdset="0">
-                   <string>icon</string>
-                  </property>
-                 </widget>
-                </item>
                </layout>
               </item>
              </layout>
@@ -1006,7 +993,6 @@
   <tabstop>resetCharakterboegen</tabstop>
   <tabstop>comboTheme</tabstop>
   <tabstop>resetFontOS</tabstop>
-  <tabstop>resetFontDefault</tabstop>
   <tabstop>spinCharListCols</tabstop>
   <tabstop>spinCharListRows</tabstop>
   <tabstop>checkUpdate</tabstop>
