@@ -16,6 +16,8 @@ Der Charaktergenerator für [Ilaris](https://www.f-shop.de/das-schwarze-auge/par
 ### Windows
 Für Windows stellen wir unter https://github.com/Aeolitus/Sephrasto/releases Builds zur Verfügung.
 
+Bitte installiere außerdem PDTtk Server. Sephrasto benötigt das Programm für den PDF Export: https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/pdftk_server-2.02-win-setup.exe
+
 ### Linux
 Für Ubuntu und ähnliche Distributionen kannst du den automatischen Installer benutzen, indem du diesen Befehl in deinem Terminal ausführst:
 ```bash
