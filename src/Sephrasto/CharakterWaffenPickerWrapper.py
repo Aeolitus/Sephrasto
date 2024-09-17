@@ -43,6 +43,8 @@ class WaffenPicker(object):
         width = self.ui.splitter.size().width()
         self.ui.splitter.setSizes([int(width*0.6), int(width*0.4)])
 
+        self.onSetupUi()
+
         logging.debug("Ui is Setup...")
         self.populateTree()
         logging.debug("Tree Filled...")
@@ -77,6 +79,9 @@ class WaffenPicker(object):
             self.waffe = copy.copy(Wolke.DB.waffen[self.current])
         else:
             self.waffe = None
+
+    def onSetupUi(self):
+        pass # for usage in plugins
 
     def populateTree(self):
         currSet = self.current != ""
@@ -143,14 +148,14 @@ class WaffenPicker(object):
         if self.current == "":
             self.ui.labelName.setText("Keine Waffe selektiert")
             self.ui.labelTyp.setText("")
-            self.ui.labelFert.setText("")
-            self.ui.labelTalent.setText("")
+            self.ui.labelFertigkeitWert.setText("")
+            self.ui.labelTalentWert.setText("")
             self.ui.labelKampfstile.setText("Kampfstile:")
-            self.ui.labelTP.setText("")
-            self.ui.labelRW.setText("")
-            self.ui.labelWM.setText("")
-            self.ui.labelLZ.setText("")
-            self.ui.labelH.setText("")
+            self.ui.labelTPWert.setText("")
+            self.ui.labelRWWert.setText("")
+            self.ui.labelWMWert.setText("")
+            self.ui.labelLZWert.setText("")
+            self.ui.labelHaerteWert.setText("")
             self.ui.labelEigenschaften.setText("Eigenschaften:")
         else:
             w = Wolke.DB.waffen[self.current]
@@ -162,35 +167,35 @@ class WaffenPicker(object):
                 self.ui.labelTyp.setText("Nahkampfwaffe")
             else:
                 self.ui.labelTyp.setText("Fernkampfwaffe")
-            self.ui.labelFert.setText(w.fertigkeit)
-            self.ui.labelTalent.setText(w.talent)
+            self.ui.labelFertigkeitWert.setText(w.fertigkeit)
+            self.ui.labelTalentWert.setText(w.talent)
+            
             stile = WaffeDefinition.keinKampfstil
-
             if len(w.kampfstile) > 0:
                 stile = ", ".join(w.kampfstile)
-
             self.ui.labelKampfstile.setText("Kampfstile: " + stile)
+            
             tp = str(w.würfel) + "W" + str(w.würfelSeiten)
             if w.plus < 0:
                 tp += "" + str(w.plus)
             else:
                 tp += "+" + str(w.plus)
-            self.ui.labelTP.setText(tp)
-            self.ui.labelRW.setText(str(w.rw))
+            self.ui.labelTPWert.setText(tp)
+            self.ui.labelRWWert.setText(str(w.rw))
 
             if w.wm<0:
-                self.ui.labelWM.setText(str(w.wm))
+                self.ui.labelWMWert.setText(str(w.wm))
             else:
-                self.ui.labelWM.setText("+" + str(w.wm))
+                self.ui.labelWMWert.setText("+" + str(w.wm))
 
             if w.nahkampf:
-                self.ui.labelLZ_Text.hide()
-                self.ui.labelLZ.hide()
+                self.ui.formLayout.setRowVisible(self.ui.labelLZ, False)
             else:
-                self.ui.labelLZ_Text.show()
-                self.ui.labelLZ.show()
-                self.ui.labelLZ.setText(str(w.lz))
-            self.ui.labelH.setText(str(w.härte))
+                self.ui.formLayout.setRowVisible(self.ui.labelLZ, True)
+                self.ui.labelLZWert.setText(str(w.lz))
+                
+            self.ui.labelHaerteWert.setText(str(w.härte))
+            
             if len(w.eigenschaften) > 0:
                 self.ui.labelEigenschaften.setText("Eigenschaften: " + ", ".join(w.eigenschaften))
             else:

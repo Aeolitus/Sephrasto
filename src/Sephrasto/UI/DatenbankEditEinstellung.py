@@ -15,9 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QDoubleSpinBox, QGridLayout,
-    QLabel, QPlainTextEdit, QScrollArea, QSizePolicy,
-    QSpacerItem, QSpinBox, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QCheckBox, QDoubleSpinBox,
+    QFormLayout, QLabel, QPlainTextEdit, QScrollArea,
+    QSizePolicy, QSpacerItem, QSpinBox, QVBoxLayout,
+    QWidget)
 
 class Ui_dialog(object):
     def setupUi(self, dialog):
@@ -31,35 +32,35 @@ class Ui_dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 552, 391))
-        self.gridLayout = QGridLayout(self.scrollAreaWidgetContents)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.labelLabelBeschreibung = QLabel(self.scrollAreaWidgetContents)
-        self.labelLabelBeschreibung.setObjectName(u"labelLabelBeschreibung")
-
-        self.gridLayout.addWidget(self.labelLabelBeschreibung, 3, 1, 1, 1)
-
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 548, 387))
+        self.formLayout = QFormLayout(self.scrollAreaWidgetContents)
+        self.formLayout.setObjectName(u"formLayout")
         self.labelName_2 = QLabel(self.scrollAreaWidgetContents)
         self.labelName_2.setObjectName(u"labelName_2")
 
-        self.gridLayout.addWidget(self.labelName_2, 2, 1, 1, 1)
+        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.labelName_2)
 
-        self.labelWert = QLabel(self.scrollAreaWidgetContents)
-        self.labelWert.setObjectName(u"labelWert")
-        self.labelWert.setMinimumSize(QSize(110, 0))
+        self.labelName = QLabel(self.scrollAreaWidgetContents)
+        self.labelName.setObjectName(u"labelName")
 
-        self.gridLayout.addWidget(self.labelWert, 4, 1, 1, 1)
+        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.labelName)
+
+        self.labelLabelBeschreibung = QLabel(self.scrollAreaWidgetContents)
+        self.labelLabelBeschreibung.setObjectName(u"labelLabelBeschreibung")
+
+        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.labelLabelBeschreibung)
 
         self.labelBeschreibung = QLabel(self.scrollAreaWidgetContents)
         self.labelBeschreibung.setObjectName(u"labelBeschreibung")
         self.labelBeschreibung.setWordWrap(True)
 
-        self.gridLayout.addWidget(self.labelBeschreibung, 3, 2, 1, 1)
+        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.labelBeschreibung)
 
-        self.labelName = QLabel(self.scrollAreaWidgetContents)
-        self.labelName.setObjectName(u"labelName")
+        self.labelWert = QLabel(self.scrollAreaWidgetContents)
+        self.labelWert.setObjectName(u"labelWert")
+        self.labelWert.setMinimumSize(QSize(110, 0))
 
-        self.gridLayout.addWidget(self.labelName, 2, 2, 1, 1)
+        self.formLayout.setWidget(2, QFormLayout.LabelRole, self.labelWert)
 
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -70,6 +71,7 @@ class Ui_dialog(object):
 
         self.spinText = QSpinBox(self.scrollAreaWidgetContents)
         self.spinText.setObjectName(u"spinText")
+        self.spinText.setButtonSymbols(QAbstractSpinBox.PlusMinus)
         self.spinText.setMinimum(-99999)
         self.spinText.setMaximum(99999)
 
@@ -77,6 +79,7 @@ class Ui_dialog(object):
 
         self.dspinText = QDoubleSpinBox(self.scrollAreaWidgetContents)
         self.dspinText.setObjectName(u"dspinText")
+        self.dspinText.setButtonSymbols(QAbstractSpinBox.PlusMinus)
         self.dspinText.setMinimum(-99999.000000000000000)
         self.dspinText.setMaximum(99999.000000000000000)
 
@@ -92,7 +95,7 @@ class Ui_dialog(object):
         self.verticalLayout.addItem(self.horizontalSpacer)
 
 
-        self.gridLayout.addLayout(self.verticalLayout, 4, 2, 1, 1)
+        self.formLayout.setLayout(2, QFormLayout.FieldRole, self.verticalLayout)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
@@ -106,11 +109,11 @@ class Ui_dialog(object):
 
     def retranslateUi(self, dialog):
         dialog.setWindowTitle(QCoreApplication.translate("dialog", u"Sephrasto - Einstellung bearbeiten...", None))
-        self.labelLabelBeschreibung.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
         self.labelName_2.setText(QCoreApplication.translate("dialog", u"Name", None))
-        self.labelWert.setText(QCoreApplication.translate("dialog", u"Wert", None))
-        self.labelBeschreibung.setText("")
         self.labelName.setText("")
+        self.labelLabelBeschreibung.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
+        self.labelBeschreibung.setText("")
+        self.labelWert.setText(QCoreApplication.translate("dialog", u"Wert", None))
         self.checkText.setText("")
     # retranslateUi
 

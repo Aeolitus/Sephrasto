@@ -57,6 +57,7 @@ class RuestungPicker(object):
             self.replaceButton.clicked.connect(self.replaceClicked)
             self.ui.buttonBox.addButton(self.replaceButton, QtWidgets.QDialogButtonBox.AcceptRole)
 
+        self.onSetupUi()
         logging.debug("Ui is Setup...")
         self.ui.treeArmors.setHeaderHidden(True)
         self.populateTree()
@@ -127,6 +128,9 @@ class RuestungPicker(object):
 
     def replaceClicked(self):
         self.ruestungErsetzen = True
+
+    def onSetupUi(self):
+        pass # for usage in plugins
 
     def populateTree(self):
         currSet = self.current != ""

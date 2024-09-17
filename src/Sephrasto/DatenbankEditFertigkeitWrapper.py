@@ -54,13 +54,11 @@ class DatenbankEditFertigkeitWrapper(DatenbankElementEditorBase):
         self.ui.comboAttribut3.setCurrentText(fertigkeit.attribute[2])
 
         if self.fertigkeitUeber:
-            self.ui.labelKampffertigkeit.setVisible(False)
-            self.ui.comboKampffertigkeit.setVisible(False)
+            self.ui.formLayout.setRowVisible(self.ui.labelKampffertigkeit, False)
             self.ui.checkGruppieren.setChecked(fertigkeit.talenteGruppieren)
             fertigkeitsKategorien = self.datenbank.einstellungen["Fertigkeiten: Kategorien übernatürlich"].wert.keyList
         else:
-            self.ui.labelGruppieren.setVisible(False)
-            self.ui.checkGruppieren.setVisible(False)
+            self.ui.formLayout.setRowVisible(self.ui.labelGruppieren, False)
             self.ui.comboKampffertigkeit.setCurrentIndex(fertigkeit.kampffertigkeit)
             fertigkeitsKategorien = self.datenbank.einstellungen["Fertigkeiten: Kategorien profan"].wert.keyList
 

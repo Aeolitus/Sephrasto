@@ -24,11 +24,161 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>422</width>
-        <height>567</height>
+        <width>418</width>
+        <height>563</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="gridLayout">
+      <layout class="QFormLayout" name="formLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="labelName">
+         <property name="text">
+          <string>Name</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="leName"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="labelKategorie">
+         <property name="text">
+          <string>Kategorie und Kosten</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QComboBox" name="comboKategorie">
+             <property name="toolTip">
+              <string>Spezialtalente können nur übernatürlichen Fertigkeiten zugewiesen werden und sie haben frei wählbare Kosten.</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkVerbilligt">
+             <property name="toolTip">
+              <string>Verbilligte Talente kosten nur die Hälfte</string>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::RightToLeft</enum>
+             </property>
+             <property name="text">
+              <string>verbilligt</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spinKosten">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>60</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::PlusMinus</enum>
+             </property>
+             <property name="suffix">
+              <string> EP</string>
+             </property>
+             <property name="minimum">
+              <number>0</number>
+             </property>
+             <property name="maximum">
+              <number>9999</number>
+             </property>
+             <property name="singleStep">
+              <number>20</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="labelVariable">
+         <property name="text">
+          <string>Variable Kosten</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QCheckBox" name="checkVariable">
+         <property name="text">
+          <string>Kosten sind durch Nutzer änderbar</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="labelKommentar">
+         <property name="text">
+          <string>Kommentar</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QCheckBox" name="checkKommentar">
+         <property name="text">
+          <string>Feld für Nutzerkommentare hinzufügen</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="labelCheatsheet">
+         <property name="text">
+          <string>Regelanhang</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="checkCheatsheet">
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string>Auflisten</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="labelFertigkeiten">
+         <property name="text">
+          <string>Fertigkeiten</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLineEdit" name="leFertigkeiten"/>
+       </item>
        <item row="6" column="0">
         <widget class="QLabel" name="labelVoraussetzungen">
          <property name="minimumSize">
@@ -42,13 +192,6 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="1">
-        <widget class="QCheckBox" name="checkVariable">
-         <property name="text">
-          <string>Kosten sind durch Nutzer änderbar</string>
-         </property>
-        </widget>
-       </item>
        <item row="6" column="1">
         <widget class="QPlainTextEdit" name="teVoraussetzungen">
          <property name="maximumSize">
@@ -59,6 +202,13 @@
          </property>
          <property name="toolTip">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Siehe &quot;Datenbank Editor -&gt; Einstellungsmöglichkeiten -&gt; Voraussetzungen&quot; in der Sephrasto-Hilfe für eine Anleitung.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="labelBeschreibung">
+         <property name="text">
+          <string>Beschreibung</string>
          </property>
         </widget>
        </item>
@@ -168,90 +318,12 @@
          </widget>
         </widget>
        </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="labelVariable">
+       <item row="8" column="0">
+        <widget class="QLabel" name="labelSeite">
          <property name="text">
-          <string>Variable Kosten</string>
+          <string>Seitenreferenz</string>
          </property>
         </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="leName"/>
-       </item>
-       <item row="1" column="1">
-        <layout class="QVBoxLayout" name="verticalLayout">
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout">
-           <item>
-            <widget class="QComboBox" name="comboKategorie">
-             <property name="toolTip">
-              <string>Spezialtalente können nur übernatürlichen Fertigkeiten zugewiesen werden und sie haben frei wählbare Kosten.</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_3">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="checkVerbilligt">
-             <property name="toolTip">
-              <string>Verbilligte Talente kosten nur die Hälfte</string>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::RightToLeft</enum>
-             </property>
-             <property name="text">
-              <string>verbilligt</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QSpinBox" name="spinKosten">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>60</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="buttonSymbols">
-              <enum>QAbstractSpinBox::PlusMinus</enum>
-             </property>
-             <property name="suffix">
-              <string> EP</string>
-             </property>
-             <property name="minimum">
-              <number>0</number>
-             </property>
-             <property name="maximum">
-              <number>9999</number>
-             </property>
-             <property name="singleStep">
-              <number>20</number>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
        </item>
        <item row="8" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -282,78 +354,6 @@
           </widget>
          </item>
         </layout>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="labelCheatsheet">
-         <property name="text">
-          <string>Regelanhang</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="labelName">
-         <property name="text">
-          <string>Name</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="labelKategorie">
-         <property name="text">
-          <string>Kategorie und Kosten</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QCheckBox" name="checkKommentar">
-         <property name="text">
-          <string>Feld für Nutzerkommentare hinzufügen</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="labelFertigkeiten">
-         <property name="text">
-          <string>Fertigkeiten</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="0">
-        <widget class="QLabel" name="labelSeite">
-         <property name="text">
-          <string>Seitenreferenz</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1">
-        <widget class="QLineEdit" name="leFertigkeiten"/>
-       </item>
-       <item row="7" column="0">
-        <widget class="QLabel" name="labelBeschreibung">
-         <property name="text">
-          <string>Beschreibung</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QCheckBox" name="checkCheatsheet">
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="text">
-          <string>Auflisten</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="labelKommentar">
-         <property name="text">
-          <string>Kommentar</string>
-         </property>
-        </widget>
        </item>
       </layout>
      </widget>

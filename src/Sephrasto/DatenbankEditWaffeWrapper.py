@@ -124,9 +124,8 @@ class DatenbankEditWaffeWrapper(DatenbankElementEditorBase):
         else:
             self.kampfstile.append(kampfstil)
 
-    def switchType(self, index):
-        self.ui.labelLZ.setVisible(index == 1)
-        self.ui.spinLZ.setVisible(index == 1)
+    def switchType(self, typIndex):
+        self.ui.formLayout.setRowVisible(self.ui.labelLZ, typIndex == 1)
             
     def switchTals(self, ff):
         self.ui.comboTalent.setCurrentIndex(0)

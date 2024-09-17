@@ -24,175 +24,92 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>641</width>
-        <height>1180</height>
+        <width>637</width>
+        <height>1176</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="1" column="2">
-        <widget class="QLineEdit" name="leName"/>
-       </item>
-       <item row="9" column="1">
-        <widget class="QLabel" name="labelVoraussetzungen">
-         <property name="minimumSize">
-          <size>
-           <width>110</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Voraussetzungen</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="2">
-        <widget class="QCheckBox" name="checkKommentar">
-         <property name="text">
-          <string>Nutzer können Kommentare hinzufügen</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="2">
-        <widget class="QComboBox" name="comboKategorie"/>
-       </item>
-       <item row="8" column="1">
-        <widget class="QLabel" name="labelCheatsheet">
-         <property name="text">
-          <string>Regelanhang</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="1">
-        <widget class="QLabel" name="labelKommentar">
-         <property name="text">
-          <string>Kommentarfeld</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="2">
-        <widget class="QCheckBox" name="checkVariable">
-         <property name="text">
-          <string>Nutzer können die EP-Kosten ändern</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="2">
-        <layout class="QHBoxLayout" name="horizontalLayout_4">
-         <item>
-          <widget class="QPlainTextEdit" name="teScript"/>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_7">
-           <item>
-            <widget class="QSpinBox" name="spinScriptPrio">
-             <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Skript-Priorität legt die Reihenfolge der Auswertung fest. 0 ist Standard, negative Werte werden davor, positive Werte danach ausgewertet. Dies ist relevant, falls bspw. die INI verdoppelt werden soll nachdem Kampfreflexe eingerechnet wurde. In diesem Fall sollte die Skript-Priorität höher als die von Kampfreflexe sein.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-             <property name="buttonSymbols">
-              <enum>QAbstractSpinBox::PlusMinus</enum>
-             </property>
-             <property name="minimum">
-              <number>-999</number>
-             </property>
-             <property name="maximum">
-              <number>999</number>
-             </property>
-             <property name="singleStep">
-              <number>1</number>
-             </property>
-             <property name="value">
-              <number>0</number>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="buttonPickScript">
-             <property name="toolTip">
-              <string>Scripteditor öffnen</string>
-             </property>
-             <property name="text">
-              <string>+</string>
-             </property>
-             <property name="class" stdset="0">
-              <string>iconSmall</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </item>
-       <item row="11" column="1">
-        <widget class="QLabel" name="labelScript">
-         <property name="minimumSize">
-          <size>
-           <width>110</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Script / Priorität</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QLabel" name="labelKosten">
-         <property name="text">
-          <string>Kosten</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
+      <layout class="QFormLayout" name="formLayout">
+       <item row="0" column="0">
         <widget class="QLabel" name="labelName">
          <property name="text">
           <string>Name</string>
          </property>
         </widget>
        </item>
-       <item row="12" column="2">
-        <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="leName"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="labelKategorie">
+         <property name="text">
+          <string>Kategorie</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="comboKategorie"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="labelNachkauf">
+         <property name="text">
+          <string>Nachkauf</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <widget class="QComboBox" name="comboLinkKategorie">
-           <property name="minimumSize">
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
             <size>
-             <width>150</width>
-             <height>0</height>
+             <width>40</width>
+             <height>20</height>
             </size>
            </property>
-           <property name="maximumSize">
-            <size>
-             <width>150</width>
-             <height>16777215</height>
-            </size>
-           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboNachkauf">
            <item>
             <property name="text">
-             <string>Nicht verknüpfen</string>
+             <string>häufig</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Regel</string>
+             <string>üblich</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Übernat. Talent</string>
+             <string>selten</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Vorteil</string>
+             <string>extrem selten</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>nicht möglich</string>
             </property>
            </item>
           </widget>
          </item>
-         <item>
-          <widget class="QComboBox" name="comboLinkElement"/>
-         </item>
         </layout>
        </item>
-       <item row="4" column="2">
+       <item row="3" column="0">
+        <widget class="QLabel" name="labelKosten">
+         <property name="text">
+          <string>Kosten</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
           <spacer name="horizontalSpacer_2">
@@ -240,21 +157,99 @@
          </item>
         </layout>
        </item>
-       <item row="3" column="1">
-        <widget class="QLabel" name="labelNachkauf">
+       <item row="4" column="0">
+        <widget class="QLabel" name="labelVariable">
          <property name="text">
-          <string>Nachkauf</string>
+          <string>Variable Kosten</string>
          </property>
         </widget>
        </item>
-       <item row="7" column="2">
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="checkVariable">
+         <property name="text">
+          <string>Nutzer können die EP-Kosten ändern</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="labelKommentar">
+         <property name="text">
+          <string>Kommentarfeld</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QCheckBox" name="checkKommentar">
+         <property name="text">
+          <string>Nutzer können Kommentare hinzufügen</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="labelScriptfeld">
+         <property name="text">
+          <string>Scriptfeld</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
         <widget class="QCheckBox" name="checkScript">
          <property name="text">
           <string>Nutzer können Scripts hinzufügen</string>
          </property>
         </widget>
        </item>
-       <item row="10" column="2">
+       <item row="7" column="0">
+        <widget class="QLabel" name="labelCheatsheet">
+         <property name="text">
+          <string>Regelanhang</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QCheckBox" name="checkCheatsheet">
+         <property name="text">
+          <string>Auflisten</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="labelVoraussetzungen">
+         <property name="minimumSize">
+          <size>
+           <width>110</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Voraussetzungen</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QPlainTextEdit" name="teVoraussetzungen">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>250</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Siehe &amp;quot;Datenbank Editor -&amp;gt; Einstellungsmöglichkeiten -&amp;gt; Voraussetzungen&amp;quot; in der Sephrasto-Hilfe für eine Anleitung.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0">
+        <widget class="QLabel" name="labelBeschreibung">
+         <property name="text">
+          <string>Beschreibung</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
         <widget class="QTabWidget" name="tabWidget">
          <property name="currentIndex">
           <number>0</number>
@@ -439,7 +434,66 @@
          </widget>
         </widget>
        </item>
-       <item row="12" column="1">
+       <item row="10" column="0">
+        <widget class="QLabel" name="labelScript">
+         <property name="minimumSize">
+          <size>
+           <width>110</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Script / Priorität</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QPlainTextEdit" name="teScript"/>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <item>
+            <widget class="QSpinBox" name="spinScriptPrio">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Skript-Priorität legt die Reihenfolge der Auswertung fest. 0 ist Standard, negative Werte werden davor, positive Werte danach ausgewertet. Dies ist relevant, falls bspw. die INI verdoppelt werden soll nachdem Kampfreflexe eingerechnet wurde. In diesem Fall sollte die Skript-Priorität höher als die von Kampfreflexe sein.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::PlusMinus</enum>
+             </property>
+             <property name="minimum">
+              <number>-999</number>
+             </property>
+             <property name="maximum">
+              <number>999</number>
+             </property>
+             <property name="singleStep">
+              <number>1</number>
+             </property>
+             <property name="value">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="buttonPickScript">
+             <property name="toolTip">
+              <string>Scripteditor öffnen</string>
+             </property>
+             <property name="text">
+              <string>+</string>
+             </property>
+             <property name="class" stdset="0">
+              <string>iconSmall</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item row="11" column="0">
         <widget class="QLabel" name="labelLink">
          <property name="text">
           <string>Verknüpfung</string>
@@ -449,74 +503,57 @@
          </property>
         </widget>
        </item>
-       <item row="10" column="1">
-        <widget class="QLabel" name="labelBeschreibung">
-         <property name="text">
-          <string>Beschreibung</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="2">
-        <layout class="QHBoxLayout" name="horizontalLayout">
+       <item row="11" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
          <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
+          <widget class="QComboBox" name="comboLinkKategorie">
+           <property name="minimumSize">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>150</width>
+             <height>0</height>
             </size>
            </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QComboBox" name="comboNachkauf">
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <item>
             <property name="text">
-             <string>häufig</string>
+             <string>Nicht verknüpfen</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>üblich</string>
+             <string>Regel</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>selten</string>
+             <string>Übernat. Talent</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>extrem selten</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>nicht möglich</string>
+             <string>Vorteil</string>
             </property>
            </item>
           </widget>
          </item>
+         <item>
+          <widget class="QComboBox" name="comboLinkElement"/>
+         </item>
         </layout>
        </item>
-       <item row="7" column="1">
-        <widget class="QLabel" name="labelScriptfeld">
-         <property name="text">
-          <string>Scriptfeld</string>
-         </property>
-        </widget>
-       </item>
-       <item row="13" column="1">
+       <item row="12" column="0">
         <widget class="QLabel" name="labelVerweise">
          <property name="text">
           <string>Querverweise</string>
          </property>
         </widget>
        </item>
-       <item row="13" column="2">
+       <item row="12" column="1">
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
           <string/>
@@ -653,43 +690,6 @@
            </layout>
           </item>
          </layout>
-        </widget>
-       </item>
-       <item row="8" column="2">
-        <widget class="QCheckBox" name="checkCheatsheet">
-         <property name="text">
-          <string>Auflisten</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="2">
-        <widget class="QPlainTextEdit" name="teVoraussetzungen">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>250</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Siehe &amp;quot;Datenbank Editor -&amp;gt; Einstellungsmöglichkeiten -&amp;gt; Voraussetzungen&amp;quot; in der Sephrasto-Hilfe für eine Anleitung.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1">
-        <widget class="QLabel" name="labelVariable">
-         <property name="text">
-          <string>Variable Kosten</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLabel" name="labelKategorie">
-         <property name="text">
-          <string>Kategorie</string>
-         </property>
         </widget>
        </item>
       </layout>

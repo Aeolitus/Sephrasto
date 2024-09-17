@@ -21,10 +21,6 @@ class DatenbankEditEinstellungWrapper(DatenbankElementEditorBase):
         self.registerInput(ui.dspinText, ui.labelWert)
         self.registerInput(ui.teText, ui.labelWert)
 
-        if self.elementPicked.typ in ['Int', 'Float', 'Bool']:
-            self.ui.verticalSpacer = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-            self.ui.gridLayout.addItem(self.ui.verticalSpacer, 5, 1, 1, 1)
-
     def load(self, einstellung):
         self.ui.labelName.setText(einstellung.name)
         self.ui.labelBeschreibung.setText(einstellung.beschreibung)

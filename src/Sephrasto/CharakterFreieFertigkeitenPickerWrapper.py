@@ -33,8 +33,10 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
 
         windowSize = Wolke.Settings["WindowSize-FreieFert"]
         self.form.resize(windowSize[0], windowSize[1])
+        self.onSetupUi()
         
         self.ui.treeFerts.setHeaderHidden(True)
+
         self.populateTree()
 
         self.ui.treeFerts.itemSelectionChanged.connect(self.changeHandler)
@@ -74,6 +76,9 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
             return kategorie + ": " + freieFertigkeit.name
         else:
             return freieFertigkeit.name
+        
+    def onSetupUi(self):
+        pass # for usage in plugins
 
     def populateTree(self):
         currSet = self.current != ""

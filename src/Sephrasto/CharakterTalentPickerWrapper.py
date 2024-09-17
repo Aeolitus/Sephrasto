@@ -53,6 +53,8 @@ class TalentPicker(object):
         width = self.ui.splitter.size().width()
         self.ui.splitter.setSizes([int(width*0.4), int(width*0.6)])
 
+        self.onSetupUi()
+
         self.currentTalent = ""
         self.talentKosten = {}
         self.talentKommentare = {}
@@ -136,6 +138,9 @@ class TalentPicker(object):
                     Wolke.Char.removeTalent(el)
         else:
             self.gekaufteTalente = None
+            
+    def onSetupUi(self):
+        pass # for usage in plugins
 
     def talChanged(self, item, prev):
         talent = item.data(QtCore.Qt.UserRole)

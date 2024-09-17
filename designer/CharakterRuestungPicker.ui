@@ -154,69 +154,12 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>451</width>
-            <height>469</height>
+            <width>424</width>
+            <height>459</height>
            </rect>
           </property>
-          <layout class="QGridLayout" name="gridLayout">
-           <item row="12" column="1">
-            <widget class="QLabel" name="lblKopf">
-             <property name="text">
-              <string>0</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="11" column="0">
-            <widget class="QLabel" name="lblBrustL">
-             <property name="text">
-              <string>Brust</string>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="1">
-            <widget class="QLabel" name="lblBeine">
-             <property name="text">
-              <string>0</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="10" column="0">
-            <widget class="QLabel" name="lblBauchL">
-             <property name="text">
-              <string>Bauch</string>
-             </property>
-            </widget>
-           </item>
-           <item row="16" column="1">
-            <spacer name="verticalSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="9" column="1">
-            <widget class="QLabel" name="lblSchild">
-             <property name="text">
-              <string>0</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0" colspan="2">
+          <layout class="QFormLayout" name="formLayout">
+           <item row="0" column="0">
             <widget class="QLabel" name="lblName">
              <property name="font">
               <font>
@@ -232,7 +175,7 @@
              </property>
             </widget>
            </item>
-           <item row="1" column="0" colspan="2">
+           <item row="1" column="0">
             <widget class="QLabel" name="lblTyp">
              <property name="text">
               <string>Kettenrüstung</string>
@@ -242,49 +185,15 @@
              </property>
             </widget>
            </item>
-           <item row="10" column="1">
-            <widget class="QLabel" name="lblBauch">
-             <property name="text">
-              <string>0</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="12" column="0">
-            <widget class="QLabel" name="lblKopfL">
-             <property name="text">
-              <string>Kopf</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="0" colspan="2">
-            <widget class="Line" name="line">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="14" column="1">
-            <widget class="QLabel" name="lblZRS">
-             <property name="text">
-              <string>= 0</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
+           <item row="2" column="0">
             <widget class="QLabel" name="label_5">
              <property name="text">
               <string>RS / BE</string>
              </property>
             </widget>
            </item>
-           <item row="11" column="1">
-            <widget class="QLabel" name="lblBrust">
+           <item row="2" column="1">
+            <widget class="QLabel" name="lblRS">
              <property name="text">
               <string>0</string>
              </property>
@@ -293,14 +202,14 @@
              </property>
             </widget>
            </item>
-           <item row="9" column="0">
-            <widget class="QLabel" name="lblSchildL">
-             <property name="text">
-              <string>Schildarm</string>
+           <item row="3" column="0" colspan="2">
+            <widget class="Line" name="line">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
              </property>
             </widget>
            </item>
-           <item row="7" column="0">
+           <item row="4" column="0">
             <widget class="QLabel" name="lblBeineL">
              <property name="font">
               <font>
@@ -313,7 +222,24 @@
              </property>
             </widget>
            </item>
-           <item row="8" column="1">
+           <item row="4" column="1">
+            <widget class="QLabel" name="lblBeine">
+             <property name="text">
+              <string>0</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="lblSchwertL">
+             <property name="text">
+              <string>Schwertarm</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
             <widget class="QLabel" name="lblSchwert">
              <property name="text">
               <string>0</string>
@@ -323,15 +249,15 @@
              </property>
             </widget>
            </item>
-           <item row="8" column="0">
-            <widget class="QLabel" name="lblSchwertL">
+           <item row="6" column="0">
+            <widget class="QLabel" name="lblSchildL">
              <property name="text">
-              <string>Schwertarm</string>
+              <string>Schildarm</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="1">
-            <widget class="QLabel" name="lblRS">
+           <item row="6" column="1">
+            <widget class="QLabel" name="lblSchild">
              <property name="text">
               <string>0</string>
              </property>
@@ -340,8 +266,82 @@
              </property>
             </widget>
            </item>
-           <item row="15" column="0" colspan="2">
+           <item row="7" column="0">
+            <widget class="QLabel" name="lblBauchL">
+             <property name="text">
+              <string>Bauch</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QLabel" name="lblBauch">
+             <property name="text">
+              <string>0</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QLabel" name="lblBrustL">
+             <property name="text">
+              <string>Brust</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <widget class="QLabel" name="lblBrust">
+             <property name="text">
+              <string>0</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0">
+            <widget class="QLabel" name="lblKopfL">
+             <property name="text">
+              <string>Kopf</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1">
+            <widget class="QLabel" name="lblKopf">
+             <property name="text">
+              <string>0</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="1">
+            <widget class="QLabel" name="lblZRS">
+             <property name="text">
+              <string>= 0</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="0" colspan="2">
             <widget class="QTextBrowser" name="teBeschreibung"/>
+           </item>
+           <item row="12" column="1">
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
            </item>
           </layout>
          </widget>

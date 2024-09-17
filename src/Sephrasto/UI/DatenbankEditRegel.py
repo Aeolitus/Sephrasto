@@ -15,7 +15,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QLabel,
+from PySide6.QtWidgets import (QApplication, QComboBox, QFormLayout, QLabel,
     QLineEdit, QPlainTextEdit, QScrollArea, QSizePolicy,
     QTabWidget, QTextBrowser, QVBoxLayout, QWidget)
 
@@ -31,29 +31,65 @@ class Ui_dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 420, 442))
-        self.gridLayout = QGridLayout(self.scrollAreaWidgetContents)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.labelBeschreibung = QLabel(self.scrollAreaWidgetContents)
-        self.labelBeschreibung.setObjectName(u"labelBeschreibung")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 416, 438))
+        self.formLayout = QFormLayout(self.scrollAreaWidgetContents)
+        self.formLayout.setObjectName(u"formLayout")
+        self.labelName = QLabel(self.scrollAreaWidgetContents)
+        self.labelName.setObjectName(u"labelName")
 
-        self.gridLayout.addWidget(self.labelBeschreibung, 5, 1, 1, 1)
+        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.labelName)
+
+        self.leName = QLineEdit(self.scrollAreaWidgetContents)
+        self.leName.setObjectName(u"leName")
+
+        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.leName)
+
+        self.labelProbe = QLabel(self.scrollAreaWidgetContents)
+        self.labelProbe.setObjectName(u"labelProbe")
+
+        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.labelProbe)
 
         self.leProbe = QLineEdit(self.scrollAreaWidgetContents)
         self.leProbe.setObjectName(u"leProbe")
 
-        self.gridLayout.addWidget(self.leProbe, 2, 2, 1, 1)
+        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.leProbe)
 
         self.labelKategorie = QLabel(self.scrollAreaWidgetContents)
         self.labelKategorie.setObjectName(u"labelKategorie")
 
-        self.gridLayout.addWidget(self.labelKategorie, 3, 1, 1, 1)
+        self.formLayout.setWidget(2, QFormLayout.LabelRole, self.labelKategorie)
+
+        self.comboKategorie = QComboBox(self.scrollAreaWidgetContents)
+        self.comboKategorie.addItem("")
+        self.comboKategorie.addItem("")
+        self.comboKategorie.addItem("")
+        self.comboKategorie.addItem("")
+        self.comboKategorie.addItem("")
+        self.comboKategorie.addItem("")
+        self.comboKategorie.addItem("")
+        self.comboKategorie.addItem("")
+        self.comboKategorie.addItem("")
+        self.comboKategorie.addItem("")
+        self.comboKategorie.setObjectName(u"comboKategorie")
+
+        self.formLayout.setWidget(2, QFormLayout.FieldRole, self.comboKategorie)
+
+        self.labelVoraussetzungen = QLabel(self.scrollAreaWidgetContents)
+        self.labelVoraussetzungen.setObjectName(u"labelVoraussetzungen")
+        self.labelVoraussetzungen.setMinimumSize(QSize(110, 0))
+
+        self.formLayout.setWidget(3, QFormLayout.LabelRole, self.labelVoraussetzungen)
 
         self.teVoraussetzungen = QPlainTextEdit(self.scrollAreaWidgetContents)
         self.teVoraussetzungen.setObjectName(u"teVoraussetzungen")
         self.teVoraussetzungen.setMaximumSize(QSize(16777215, 250))
 
-        self.gridLayout.addWidget(self.teVoraussetzungen, 4, 2, 1, 1)
+        self.formLayout.setWidget(3, QFormLayout.FieldRole, self.teVoraussetzungen)
+
+        self.labelBeschreibung = QLabel(self.scrollAreaWidgetContents)
+        self.labelBeschreibung.setObjectName(u"labelBeschreibung")
+
+        self.formLayout.setWidget(4, QFormLayout.LabelRole, self.labelBeschreibung)
 
         self.tabWidget = QTabWidget(self.scrollAreaWidgetContents)
         self.tabWidget.setObjectName(u"tabWidget")
@@ -86,43 +122,7 @@ class Ui_dialog(object):
 
         self.tabWidget.addTab(self.tab_2, "")
 
-        self.gridLayout.addWidget(self.tabWidget, 5, 2, 1, 1)
-
-        self.comboKategorie = QComboBox(self.scrollAreaWidgetContents)
-        self.comboKategorie.addItem("")
-        self.comboKategorie.addItem("")
-        self.comboKategorie.addItem("")
-        self.comboKategorie.addItem("")
-        self.comboKategorie.addItem("")
-        self.comboKategorie.addItem("")
-        self.comboKategorie.addItem("")
-        self.comboKategorie.addItem("")
-        self.comboKategorie.addItem("")
-        self.comboKategorie.addItem("")
-        self.comboKategorie.setObjectName(u"comboKategorie")
-
-        self.gridLayout.addWidget(self.comboKategorie, 3, 2, 1, 1)
-
-        self.leName = QLineEdit(self.scrollAreaWidgetContents)
-        self.leName.setObjectName(u"leName")
-
-        self.gridLayout.addWidget(self.leName, 1, 2, 1, 1)
-
-        self.labelVoraussetzungen = QLabel(self.scrollAreaWidgetContents)
-        self.labelVoraussetzungen.setObjectName(u"labelVoraussetzungen")
-        self.labelVoraussetzungen.setMinimumSize(QSize(110, 0))
-
-        self.gridLayout.addWidget(self.labelVoraussetzungen, 4, 1, 1, 1)
-
-        self.labelName = QLabel(self.scrollAreaWidgetContents)
-        self.labelName.setObjectName(u"labelName")
-
-        self.gridLayout.addWidget(self.labelName, 1, 1, 1, 1)
-
-        self.labelProbe = QLabel(self.scrollAreaWidgetContents)
-        self.labelProbe.setObjectName(u"labelProbe")
-
-        self.gridLayout.addWidget(self.labelProbe, 2, 1, 1, 1)
+        self.formLayout.setWidget(4, QFormLayout.FieldRole, self.tabWidget)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
@@ -142,13 +142,9 @@ class Ui_dialog(object):
 
     def retranslateUi(self, dialog):
         dialog.setWindowTitle(QCoreApplication.translate("dialog", u"Sephrasto - Regel bearbeiten...", None))
-        self.labelBeschreibung.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
+        self.labelName.setText(QCoreApplication.translate("dialog", u"Name", None))
+        self.labelProbe.setText(QCoreApplication.translate("dialog", u"Probe", None))
         self.labelKategorie.setText(QCoreApplication.translate("dialog", u"Kategorie", None))
-#if QT_CONFIG(tooltip)
-        self.teVoraussetzungen.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Siehe \"Datenbank Editor -> Einstellungsm\u00f6glichkeiten -> Voraussetzungen\" in der Sephrasto-Hilfe f\u00fcr eine Anleitung.</p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("dialog", u"HTML", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("dialog", u"Vorschau", None))
         self.comboKategorie.setItemText(0, QCoreApplication.translate("dialog", u"Nahkampfman\u00f6ver", None))
         self.comboKategorie.setItemText(1, QCoreApplication.translate("dialog", u"Fernkampfman\u00f6ver", None))
         self.comboKategorie.setItemText(2, QCoreApplication.translate("dialog", u"Magische Modifikation", None))
@@ -161,7 +157,11 @@ class Ui_dialog(object):
         self.comboKategorie.setItemText(9, QCoreApplication.translate("dialog", u"Profane Regeln", None))
 
         self.labelVoraussetzungen.setText(QCoreApplication.translate("dialog", u"Voraussetzungen", None))
-        self.labelName.setText(QCoreApplication.translate("dialog", u"Name", None))
-        self.labelProbe.setText(QCoreApplication.translate("dialog", u"Probe", None))
+#if QT_CONFIG(tooltip)
+        self.teVoraussetzungen.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Siehe \"Datenbank Editor -> Einstellungsm\u00f6glichkeiten -> Voraussetzungen\" in der Sephrasto-Hilfe f\u00fcr eine Anleitung.</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.labelBeschreibung.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("dialog", u"HTML", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("dialog", u"Vorschau", None))
     # retranslateUi
 
