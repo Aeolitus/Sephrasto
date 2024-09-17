@@ -46,6 +46,7 @@ pip install -r Sephrasto/requirements.txt
 
 Gestartet wird Sephrasto dann folgendermaßen:
 ```
+source ~/.venvs/sephrasto/bin/activate
 python3 Sephrasto/src/Sephrasto/Sephrasto.py
 ```
 
@@ -78,8 +79,6 @@ Gestartet wird Sephrasto dann folgendermaßen:
 |\-\-migrate|"pfad/zu/charakter.xml"|Lädt und speichert den angegeben Charakter. Dies kann genutzt werden, um ohne UI-Interaktion Migrationen zu applizieren, z. B. für Charakterassistent-Dateien.|
 |\-\-prerelease\-plugins|kein Parameter|Weist den Pluginmanager an, die neuesten Prerelease-Plugins herunterzuladen, falls verfügbar.|
 
-
-
 ## Verwendete Pakete und Programme
 * Um Sephrasto mit [Python](https://www.python.org) zu verwenden, wird Version 3.11 empfohlen. Höhere Versionen sollten auch gehen, die Mindestversion ist 3.9.
 * [PySide6](https://www.qt.io/qt-for-python) für die Grafische Oberfläche
@@ -95,7 +94,6 @@ Mitgeliefert werden außerdem:
 * [hyphen](https://github.com/ytiurin/hyphen) für das korrekte Umbrechen von Textzeilen im Regelanhang
 
 Die zugehörigen Lizenzen können hier gefunden werden: [Acknowledgements](docs/acknowledgements.md)
-
 
 ## Mitmachen
 Falls du Fragen oder Anregungen hast, schreib uns gerne:
