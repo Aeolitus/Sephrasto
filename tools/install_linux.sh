@@ -2,8 +2,8 @@
 
 # install dependencies
 echo "Bitte gib dein Passwort ein, um die für Sephrasto erforderlichen Pakete zu installieren:"
-echo "sudo apt install -y python3-pip python3-venv openjdk-11-jdk pdftk libxcb-cursor0"
-sudo apt install python3-pip python3-venv openjdk-11-jdk pdftk libxcb-cursor0
+echo "sudo apt install -y python3-pip python3-venv openjdk-11-jdk pdftk libxcb-cursor0 python3-lxml"
+sudo apt install python3-pip python3-venv openjdk-11-jdk pdftk libxcb-cursor0 python3-lxml
 
 # download code from latest sephrasto release
 # git clone https://github.com/Aeolitus/Sephrasto.git
