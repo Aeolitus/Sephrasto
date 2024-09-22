@@ -59,7 +59,7 @@ Wenn dich der automatisch generierte Sephrasto-Ordner im Userverzeichnis stört,
 * Control-Click auf den Sephrasto-Ordner und wähle "Services -> New Terminal at Folder"
 * Tippe im Terminal die folgenden drei Befehle, bestätige jeweils mit Enter:
     - ```python3 -m ensurepip```
-    - ```python -m pip install --upgrade pip```
+    - ```python3 -m pip install --upgrade pip```
     - ```python3 -m pip install -r requirements.txt```
 * Installiere pdftk von folgendem Link: https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/pdftk_server-2.02-mac_osx-10.11-setup.pkg
     - WICHTIG: Nutze bitte den genannten Link. Der Download-Button auf der Webseite führt zu einer alten Version, die nicht mehr funktioniert (Stand 08/22).
