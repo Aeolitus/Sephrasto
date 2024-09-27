@@ -55,19 +55,20 @@ Wenn dich der automatisch generierte Sephrasto-Ordner im Userverzeichnis stört,
 
 ### MacOS
 * Lade den neuesten Sephrasto Sourcecode herunter (https://github.com/Aeolitus/Sephrasto/releases) und entpacke ihn an einen Ort deiner Wahl. 
-* Installiere Python 3.11: https://www.python.org/downloads/macos/
-* Control-Click auf den Sephrasto-Ordner und wähle "New Terminal at Folder"
-* Tippe im Terminal: ```python3 -m ensurepip```
-* ... gefolgt von: ```python3 -m pip install -r requirements.txt```
+* Installiere Python 3.11.9: https://www.python.org/downloads/macos/
+* Control-Click auf den Sephrasto-Ordner und wähle "Services -> New Terminal at Folder"
+* Tippe im Terminal die folgenden drei Befehle, bestätige jeweils mit Enter:
+    - ```python3 -m ensurepip```
+    - ```python3 -m pip install --upgrade pip```
+    - ```python3 -m pip install -r requirements.txt```
 * Installiere pdftk von folgendem Link: https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/pdftk_server-2.02-mac_osx-10.11-setup.pkg
- WICHTIG: Nutze bitte den genannten Link. Der Download-Button auf der Webseite führt zu einer alten Version, die nicht mehr funktioniert (Stand 08/22).
-* Wechsle im Sephrasto-Ordner in src/Sephrasto
-* Control-Click auf Sephrasto.py -> Get Info -> Open with -> "Python Launcher" auswählen.
+    - WICHTIG: Nutze bitte den genannten Link. Der Download-Button auf der Webseite führt zu einer alten Version, die nicht mehr funktioniert (Stand 08/22).
+    - Die Installation wird zunächst blockiert. Du musst über "System Preferences -> Security & Privacy" die Ausführung erlauben
 
 Gestartet wird Sephrasto dann folgendermaßen:
-* Doppelclick auf Sephrasto.py (natürlich kannst du auch ein Alias erstellen)
-* Beim ersten Start musst du über System Preferences -> Security & Privacy noch die Ausführung erlauben. Beim ersten PDF-Export das gleiche für cpdf.
-* Optional kannst du im Python Launcher noch "Run in a Terminal window" deaktivieren, um das zusätzliche Terminalfenster loszuwerden
+* Navigiere zu Sephrasto/tools/macOS und doppelclicke auf Sephrasto
+* Beim ersten PDF-Export musst du wieder über "System Preferences -> Security & Privacy" die Ausführung von PDFtk erlauben, das gleiche für cpdf.
+* Optional kannst du einen Alias für die obige Sephrasto-Datei erstellen. Dabei geht eventuell das Icon verloren - über Get Info kannst du das Icon kopieren und beim Alias einfügen.
 
 ## Kommandozeilenargumente
 |Argument|Parameter|Beschreibung|
