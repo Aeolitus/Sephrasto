@@ -74,7 +74,7 @@ class Ui_Form(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 429, 529))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 442, 529))
         self.gridLayout_3 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.label_9 = QLabel(self.scrollAreaWidgetContents)
@@ -95,6 +95,8 @@ class Ui_Form(object):
         self.spinPWT.setAlignment(Qt.AlignCenter)
         self.spinPWT.setReadOnly(True)
         self.spinPWT.setButtonSymbols(QAbstractSpinBox.NoButtons)
+        self.spinPWT.setMinimum(-999999999)
+        self.spinPWT.setMaximum(999999999)
 
         self.gridLayout_3.addWidget(self.spinPWT, 5, 4, 1, 1)
 
@@ -191,6 +193,8 @@ class Ui_Form(object):
         self.spinSF.setAlignment(Qt.AlignCenter)
         self.spinSF.setReadOnly(True)
         self.spinSF.setButtonSymbols(QAbstractSpinBox.NoButtons)
+        self.spinSF.setMinimum(-999999999)
+        self.spinSF.setMaximum(999999999)
 
         self.gridLayout_3.addWidget(self.spinSF, 4, 1, 1, 1)
 
@@ -202,6 +206,8 @@ class Ui_Form(object):
         self.spinBasis.setAlignment(Qt.AlignCenter)
         self.spinBasis.setReadOnly(True)
         self.spinBasis.setButtonSymbols(QAbstractSpinBox.NoButtons)
+        self.spinBasis.setMinimum(-999999999)
+        self.spinBasis.setMaximum(999999999)
 
         self.gridLayout_3.addWidget(self.spinBasis, 5, 1, 1, 1)
 
@@ -218,6 +224,8 @@ class Ui_Form(object):
         self.spinPW.setAlignment(Qt.AlignCenter)
         self.spinPW.setReadOnly(True)
         self.spinPW.setButtonSymbols(QAbstractSpinBox.NoButtons)
+        self.spinPW.setMinimum(-999999999)
+        self.spinPW.setMaximum(999999999)
 
         self.gridLayout_3.addWidget(self.spinPW, 4, 4, 1, 1)
 
