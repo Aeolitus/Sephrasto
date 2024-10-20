@@ -438,6 +438,8 @@ class Editor(object):
             tab.wrapper.load()
 
     def saveButton(self):
+        self.form.setFocus() #make sure editingfinished is called on potential line edits in focus
+
         if self.savepath != "":
             startDir = self.savepath
         elif os.path.isdir(Wolke.Settings['Pfad-Chars']):
@@ -469,11 +471,14 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
         if self.savepath == "":
             self.saveButton()
         else:
+            self.form.setFocus() #make sure editingfinished is called on potential line edits in focus
             Wolke.Char.saveFile(self.savepath)
 
         self.changed = False
 
     def pdfButton(self, bogen = None):
+        self.form.setFocus() #make sure editingfinished is called on potential line edits in focus
+        
         if which("pdftk") is None:
             messagebox = QtWidgets.QMessageBox()
             messagebox.setTextFormat(QtCore.Qt.RichText)
