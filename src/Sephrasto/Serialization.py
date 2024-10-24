@@ -10,6 +10,7 @@ class JsonSerializerBase:
         self._tagStack = []
         self._currentNode = None
         self.options = options
+        self._iterating = False
 
 
     @property
@@ -24,10 +25,12 @@ class JsonSerializerBase:
 
 
     def listTags(self):
+        self._iterating = True
         for node in self._currentNode:
             self._currentNode = node
             yield self._currentNode["@tag"]
         self._currentNode = self._nodeStack[-1]
+        self._iterating = False
 
     # call end when done
     def find(self, name):
@@ -35,6 +38,7 @@ class JsonSerializerBase:
         if found is not None:
             self._nodeStack.append(found)
             self._currentNode = found
+            self._tagStack.append(name)
             return True
         return False
 
@@ -106,6 +110,7 @@ class JsonDeserializer(JsonSerializerBase):
         self._nodeStack = []
         self._currentNode = None
         self.options = options
+        self._iterating = False
 
     def initFromSerializer(self, serializer):
         self._nodeStack = [serializer._nodeStack[0]]
@@ -126,11 +131,28 @@ class JsonDeserializer(JsonSerializerBase):
 
     # helper method for getting a key/value pair set as a child node
     def getNested(self, name, default = None):
+        if self._iterating:
+            if self.currentTag == name:
+                return self._currentNode.get('text', default)
+            return default
         if self.find(name):
-            val = self._currentNode.get("text", default)
+            val = self._currentNode
             self.end()
             return val
         return default
+        if name in self._currentNode:
+            return self._currentNode[name]
+        elif "@tag" in self._currentNode:
+            return self._currentNode.get("text", default)
+        # if self.find(name):
+        #     val = self._currentNode.get("text", default)
+        #     self.end()
+        #     return val
+        # return default
+        else:
+            print("Don't know how to get nested value for", name)
+            print("I'm at: ", self._currentNode)
+            return default
 
     def getNestedBool(self, name, default = False):
         value = self.getNested(name)
