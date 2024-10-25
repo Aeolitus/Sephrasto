@@ -118,8 +118,10 @@ class JsonDeserializer(JsonSerializerBase):
 
     def initFromSerializer(self, serializer):
         self._nodeStack = [serializer._nodeStack[0]]
-        self._tagStack = []
+        self._tagStack = [] 
+        # self._tagStack = [serializer._tagStack[0]] 
         self._currentNode = serializer._nodeStack[0]  # TODO: should this be current or stack[0]?
+        # self._currentNode = serializer._currentNode
 
     def get(self, name, default = None):
         return self._currentNode.get(name, default)
@@ -135,28 +137,28 @@ class JsonDeserializer(JsonSerializerBase):
 
     # helper method for getting a key/value pair set as a child node
     def getNested(self, name, default = None):
-        # if self._iterating:
-        #     if self.currentTag == name:
-        #         return self._currentNode.get('text', default)
-        #     return default
-        # if self.find(name):
-        #     val = self._currentNode
-        #     self.end()
-        #     return val
-        return self._currentNode.get(name, default)
-        if name in self._currentNode:
-            return self._currentNode[name]
-        elif "@tag" in self._currentNode:
-            return self._currentNode.get("text", default)
+        if self._iterating:
+            if self.currentTag == name:  #  @tag...
+                return self._currentNode.get('text', default)
+            return default
+        if self.find(name):
+            val = self._currentNode
+            self.end()
+            return val
+        return default
+        # if name in self._currentNode:
+        #     return self._currentNode[name]
+        # elif "@tag" in self._currentNode:
+        #     return self._currentNode.get("text", default)
         # if self.find(name):
         #     val = self._currentNode.get("text", default)
         #     self.end()
         #     return val
         # return default
-        else:
-            print("Don't know how to get nested value for", name)
-            print("I'm at: ", self._currentNode)
-            return default
+        # else:
+        #     print("Don't know how to get nested value for", name)
+        #     print("I'm at: ", self._currentNode)
+        #     return default
 
     def getNestedBool(self, name, default = False):
         value = self.getNested(name)
@@ -172,6 +174,7 @@ class JsonDeserializer(JsonSerializerBase):
         with open(filePath, 'r', encoding="utf-8") as f:
             self._currentNode = json.load(f)
         self._nodeStack = [self._currentNode]
+        # TODO: get type key (i.e. char), apply migrations and set stacks and current to actual data
         return True
 
     def readFileStream(self, filePath, tagFilter = None):
@@ -276,6 +279,7 @@ class XmlDeserializer(XmlSerializerBase):
 
     def initFromSerializer(self, serializer):
         self._nodeStack = [serializer._nodeStack[0]]
+        # TODO: shouldnt this be independent from serializer current state?
         self._currentNode = serializer._currentNode
 
     def get(self, name, default = None):
