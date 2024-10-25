@@ -25,10 +25,14 @@ class JsonSerializerBase:
 
 
     def listTags(self):
+        print("listTags")
         self._iterating = True
         for node in self._currentNode:
+            print("cchanging node and yielding tag")
+            print("node", node)
+            print("tag", self.currentTag)
             self._currentNode = node
-            yield self._currentNode["@tag"]
+            yield self._currentNode.get("@tag", "")
         self._currentNode = self._nodeStack[-1]
         self._iterating = False
 
@@ -114,8 +118,8 @@ class JsonDeserializer(JsonSerializerBase):
 
     def initFromSerializer(self, serializer):
         self._nodeStack = [serializer._nodeStack[0]]
-        self._tagStack = [serializer._tagStack[0]]
-        self._currentNode = serializer._currentNode  # TODO: should this be current or stack[0]?
+        self._tagStack = []
+        self._currentNode = serializer._nodeStack[0]  # TODO: should this be current or stack[0]?
 
     def get(self, name, default = None):
         return self._currentNode.get(name, default)
@@ -131,15 +135,15 @@ class JsonDeserializer(JsonSerializerBase):
 
     # helper method for getting a key/value pair set as a child node
     def getNested(self, name, default = None):
-        if self._iterating:
-            if self.currentTag == name:
-                return self._currentNode.get('text', default)
-            return default
-        if self.find(name):
-            val = self._currentNode
-            self.end()
-            return val
-        return default
+        # if self._iterating:
+        #     if self.currentTag == name:
+        #         return self._currentNode.get('text', default)
+        #     return default
+        # if self.find(name):
+        #     val = self._currentNode
+        #     self.end()
+        #     return val
+        return self._currentNode.get(name, default)
         if name in self._currentNode:
             return self._currentNode[name]
         elif "@tag" in self._currentNode:
