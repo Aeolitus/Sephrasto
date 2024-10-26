@@ -32,14 +32,15 @@ class DatenbankErrorLogWrapper():
         self.form.show()
         Wolke.Settings[settingName] = [self.form.size().width(), self.form.size().height()]
 
-    def refresh(self):
-        self.datenbank.verify()
+    def refresh(self):      
         self.load()
         if len(self.datenbank.loadingErrors) > 0:
             self.form.show()
             self.form.activateWindow()
 
+
     def load(self):
+        self.datenbank.verify()
         self.ui.listWidget.clear()
         if len(self.datenbank.loadingErrors) == 0:
             self.ui.label.setText("<span style='" + Wolke.FontAwesomeCSS + " color: green;'>\uf164</span>&nbsp;&nbsp;Keine Probleme gefunden.")
