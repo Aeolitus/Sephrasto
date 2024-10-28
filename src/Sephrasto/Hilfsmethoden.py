@@ -290,7 +290,11 @@ ol {{ padding: 0; margin: 0; -qt-list-indent: 0; margin-left: {Hilfsmethoden.emT
     def unicodeCaseInsensitive(s):
         def NFD(s):
             return unicodedata.normalize('NFD', s)
-        return locale.strxfrm(NFD(NFD(s).casefold()))
+        lowercase = NFD(NFD(s).casefold())
+        try:
+            return locale.strxfrm(lowercase) 
+        except:
+            return lowercase # in case the system locale is screwed (happened for a user on macos)
 
     @staticmethod
     def createScriptAPI():
