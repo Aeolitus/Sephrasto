@@ -774,9 +774,9 @@ class Char():
             for el in remove:
                 self.talente.pop(el)
 
-    def findUnerfüllteVorteilVoraussetzungen(self, vorteile = None, waffen = None, attribute = None, übernatürlicheFertigkeiten = None, fertigkeiten = None, talente = None):
+    def findUnerfüllteVoraussetzungen(self, vorteile = None, waffen = None, attribute = None, übernatürlicheFertigkeiten = None, fertigkeiten = None, talente = None):
         ''' 
-        Checks for all Vorteile if the requirements are still met until in one 
+        Checks for all Vorteile and Talente if the requirements are still met until in one 
         run, all of them meet the requirements. This gets rid of stacks of them
         that all depend onto each other, like Zauberer I-IV when removing I.
         The parameters can be used to override character values. If None is specified, the character values are used.
@@ -790,21 +790,28 @@ class Char():
         übernatürlicheFertigkeiten = übernatürlicheFertigkeiten or self.übernatürlicheFertigkeiten
         fertigkeiten = fertigkeiten or self.fertigkeiten
         talente = talente or self.talente
-        allRemoved = []
+        removedVorteile = []
+        removedTalente = []
         while True:
             contFlag = True
             remove = []
             for vor in vorteile.values():
                 if not Hilfsmethoden.voraussetzungenPrüfen(vor, vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, talente):
                     remove.append(vor.name)
-                    allRemoved.append(vor.name)
+                    removedVorteile.append(vor.name)
                     contFlag = False
             for el in remove:
                 vorteile.pop(el)
             if contFlag:
                 break
 
-        return allRemoved
+        # Would be better to handle this inside the while loop in case of talents requiring talents
+        # but it's not so relevant for our usecase right now, only need a rough count
+        for tal in talente.values():
+            if not Hilfsmethoden.voraussetzungenPrüfen(tal, vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, talente):
+                removedTalente.append(tal.name)
+
+        return removedVorteile, removedTalente
 
     def voraussetzungenPrüfen(self, dbElement):
         if not self.voraussetzungenPruefen:

@@ -515,19 +515,21 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 vorteile[vorteil].voraussetzungen = VoraussetzungenListe().compile("Vorteil Minderpakt", Wolke.DB)
         else:
             vorteile.pop(vorteil)
-        remove = Wolke.Char.findUnerfüllteVorteilVoraussetzungen(vorteile=vorteile)
-        if remove:
+
+        vorteile, talente = Wolke.Char.findUnerfüllteVoraussetzungen(vorteile=vorteile)
+        if vorteile or talente:
             messageBox = QtWidgets.QMessageBox()
             messageBox.setIcon(QtWidgets.QMessageBox.Question)
             messageBox.setWindowTitle(vorteil + " " + ("kaufen" if add else "entfernen"))
-            messageBox.setText("Wenn du " + vorteil + " " + ("kaufst" if add else "entfernst") + ", verlierst du die folgenden Vorteile:")
+            messageBox.setText("Wenn du " + vorteil + " " + ("kaufst" if add else "entfernst") + ", verlierst du:")
 
-            for i in range(len(remove)):
-                if "Tradition" in remove[i]:
-                    remove[i] += " (inklusive Talente!)"
+            vorteile = vorteile + talente[:3]
+            talente = talente[3:]
+            if len(talente) > 0:
+                vorteile.append("... und " + str(len(talente)) + " weitere Talente")
 
-            remove.append("\nBist du sicher?")
-            messageBox.setInformativeText("\n".join(remove))
+            vorteile.append("\nBist du sicher?")
+            messageBox.setInformativeText("\n".join(vorteile))
             messageBox.setStandardButtons(QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.Cancel)
             result = messageBox.exec()
             return result == QtWidgets.QMessageBox.Yes
