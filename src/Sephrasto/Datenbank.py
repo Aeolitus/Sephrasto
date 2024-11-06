@@ -118,7 +118,7 @@ class Datenbank():
         return self.isChanged(element) and element == self.referenceDB[element.__class__][element.name]
 
     def loadFile(self, datei = os.path.join('Data', 'datenbank.xml'), hausregeln = None, isCharakterEditor = False):
-        self.datei = datei
+        self.datei = EventBus.applyFilter("basisdatenbank_datei", datei)
         self.hausregelDatei = None
         
         if hausregeln is not None:
