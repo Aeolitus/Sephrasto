@@ -280,14 +280,20 @@ class AttrWrapper(QtCore.QObject):
         attribute = copy.deepcopy(Wolke.Char.attribute)
         attribute[attribut].wert = wert
         attribute[attribut].aktualisieren()
-        remove = Wolke.Char.findUnerfüllteVorteilVoraussetzungen(attribute=attribute)
-        if remove:
+        vorteile, talente = Wolke.Char.findUnerfüllteVoraussetzungen(attribute=attribute)
+        if vorteile or talente:
             messageBox = QtWidgets.QMessageBox()
             messageBox.setIcon(QtWidgets.QMessageBox.Question)
             messageBox.setWindowTitle(attribut + " senken")
-            messageBox.setText("Wenn du " + attribut + " auf " + str(wert) + " senkst, verlierst du die folgenden Vorteile:")
-            remove.append("\nBist du sicher?")
-            messageBox.setInformativeText("\n".join(remove))
+            messageBox.setText("Wenn du " + attribut + " auf " + str(wert) + " senkst, verlierst du:")
+
+            vorteile = vorteile + talente[:3]
+            talente = talente[3:]
+            if len(talente) > 0:
+                vorteile.append("... und " + str(len(talente)) + " weitere Talente")
+
+            vorteile.append("\nBist du sicher?")
+            messageBox.setInformativeText("\n".join(vorteile))
             messageBox.setStandardButtons(QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.Cancel)
             result = messageBox.exec()
             return result == QtWidgets.QMessageBox.Yes

@@ -20,6 +20,7 @@ from VoraussetzungenListe import VoraussetzungenListe
 from Hilfsmethoden import SortedCategoryToListDict
 from QtUtils.RichTextButton import RichTextToolButton
 from ScriptPickerWrapper import ScriptPickerWrapper
+import copy
 
 class CharakterVorteileWrapper(QtCore.QObject):
     modified = QtCore.Signal()
@@ -390,7 +391,12 @@ class CharakterVorteileWrapper(QtCore.QObject):
         if mpWrapper.minderpakt is None:
             Wolke.Char.removeVorteil(name)
             return None
+
         if mpWrapper.minderpakt not in Wolke.Char.vorteile:
+            if not self.checkConsequences(mpWrapper.minderpakt, True, True):
+                Wolke.Char.removeVorteil(name)
+                return None
+
             minderpakt = Wolke.Char.vorteile["Minderpakt"]
             minderpakt.kommentar = mpWrapper.minderpakt
             minderpakt.voraussetzungen = VoraussetzungenListe().compile("Vorteil " + minderpakt.kommentar, Wolke.DB)
@@ -418,11 +424,13 @@ class CharakterVorteileWrapper(QtCore.QObject):
         manualUpdate = None
 
         if cs == QtCore.Qt.Checked and name not in Wolke.Char.vorteile and name != "":
-            Wolke.Char.addVorteil(name)
-            manualUpdate = self.handleAddMinderpakt(name, item)
-            self.handleAddSubwidgets(name, item)   
+            if self.checkConsequences(name, True):
+                Wolke.Char.addVorteil(name)
+                manualUpdate = self.handleAddMinderpakt(name, item)
+                self.handleAddSubwidgets(name, item)   
         elif cs != QtCore.Qt.Checked and name in Wolke.Char.vorteile:
-            Wolke.Char.removeVorteil(name)
+            if self.checkConsequences(name, False):
+                Wolke.Char.removeVorteil(name)
 
         self.modified.emit()
         self.load()
@@ -497,3 +505,32 @@ class CharakterVorteileWrapper(QtCore.QObject):
 
     def updateSectionHeight(self, width, height, qv):
         self.qvSections[qv].updateHeight(height, True)
+
+
+    def checkConsequences(self, vorteil, add = True, minderpakt = False):
+        vorteile = copy.copy(Wolke.Char.vorteile)
+        if add:
+            vorteile[vorteil] = Vorteil(Wolke.DB.vorteile[vorteil], Wolke.Char)
+            if minderpakt:
+                vorteile[vorteil].voraussetzungen = VoraussetzungenListe().compile("Vorteil Minderpakt", Wolke.DB)
+        else:
+            vorteile.pop(vorteil)
+
+        vorteile, talente = Wolke.Char.findUnerfüllteVoraussetzungen(vorteile=vorteile)
+        if vorteile or talente:
+            messageBox = QtWidgets.QMessageBox()
+            messageBox.setIcon(QtWidgets.QMessageBox.Question)
+            messageBox.setWindowTitle(vorteil + " " + ("kaufen" if add else "entfernen"))
+            messageBox.setText("Wenn du " + vorteil + " " + ("kaufst" if add else "entfernst") + ", verlierst du:")
+
+            vorteile = vorteile + talente[:3]
+            talente = talente[3:]
+            if len(talente) > 0:
+                vorteile.append("... und " + str(len(talente)) + " weitere Talente")
+
+            vorteile.append("\nBist du sicher?")
+            messageBox.setInformativeText("\n".join(vorteile))
+            messageBox.setStandardButtons(QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.Cancel)
+            result = messageBox.exec()
+            return result == QtWidgets.QMessageBox.Yes
+        return True
