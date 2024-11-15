@@ -160,6 +160,7 @@ class RuestungPicker(object):
                     self.current = el
                     currSet = True
                 child = QtWidgets.QTreeWidgetItem(parent)
+                child.setData(0, QtCore.Qt.UserRole, el)
                 if el.endswith(" (ZRS)"):
                     child.setText(0, el[:-6])
                 else:
@@ -178,7 +179,7 @@ class RuestungPicker(object):
         for el in self.ui.treeArmors.selectedItems():
             if el.text(0) in Wolke.DB.einstellungen["Rüstungen: Kategorien"].wert:
                 continue
-            self.current = el.text(0)
+            self.current = el.data(0, QtCore.Qt.UserRole) # contains key of armor
             break
         self.updateInfo()
         
