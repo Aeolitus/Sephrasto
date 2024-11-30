@@ -105,3 +105,4 @@ venv.bak/
 
 # Visual Studio
 *.suo
+.vs/
