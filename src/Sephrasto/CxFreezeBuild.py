@@ -76,6 +76,7 @@ removeFiles = [
     "lib/PySide6/resources/qtwebengine_resources_100p.pak",
     "lib/PySide6/resources/qtwebengine_resources_200p.pak",
     "lib/PySide6/resources/v8_context_snapshot.debug.bin",
+    "lib/PySide6/translations/qtwebengine_locales",
     "lib/PySide6/bin",
     "lib/PySide6/plugins/designer",
     "lib/PySide6/plugins/platforminputcontexts",
@@ -84,7 +85,7 @@ removeFiles = [
     "lib/PySide6/plugins/generic",
     "lib/PySide6/d3dcompiler_47.dll",
     "lib/D3DCOMPILER_47.dll",
-    "Doc/assets/external/unpkg.com/mermaid@10.7.0"
+    "Doc/assets/external/unpkg.com/mermaid@11"
 ]
 
 for filename in removeFiles:
