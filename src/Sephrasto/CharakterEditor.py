@@ -285,10 +285,6 @@ class Editor(object):
             if hasattr(tab.wrapper, "modified"):
                 tab.wrapper.modified.connect(self.onModified)
 
-        for i in range(self.ui.tabs.tabBar().count()):
-            self.ui.tabs.tabBar().setTabTextColor(i, QtGui.QColor(Wolke.HeadingColor))
-
-        self.ui.tabs.setStyleSheet('QTabBar { font-weight: bold; font-size: ' + str(Wolke.FontHeadingSizeL1) + 'pt; font-family: \"' + Wolke.Settings["FontHeading"] + '\"; }')
         self.ui.tabs.currentChanged.connect(lambda idx : self.reload(idx))
         self.updateDetailsVisibility()
 
@@ -415,10 +411,11 @@ class Editor(object):
         self.ui.spinEP.setValue(Wolke.Char.epGesamt)
         self.ui.spinRemaining.setValue(Wolke.Char.epGesamt-Wolke.Char.epAusgegeben)
         if Wolke.Char.epGesamt < Wolke.Char.epAusgegeben:
-            self.ui.spinRemaining.setStyleSheet("QSpinBox { color: white; background-color: rgb(200,50,50) }")
+            self.ui.spinRemaining.setProperty("error", True)
         else:
-            self.ui.spinRemaining.setStyleSheet("")
-        self.ui.spinSpent.setStyleSheet("")
+            self.ui.spinRemaining.setProperty("error", False)
+        self.ui.spinRemaining.style().unpolish(self.ui.spinRemaining)
+        self.ui.spinRemaining.style().polish(self.ui.spinRemaining)
         self.ui.spinSpent.setValue(Wolke.Char.epAusgegeben)
     
     def epChanged(self):

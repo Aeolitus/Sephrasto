@@ -382,7 +382,7 @@ class MainWindowWrapper(object):
             wizardEd.form.hide()
             wizardEd.form.deleteLater()
             if result != QtWidgets.QDialog.Accepted:
-                return
+                return6
 
         EventBus.doAction("charaktereditor_oeffnet", { "neu" : True, "filepath" : "" })
         self.form.hide()
@@ -491,17 +491,16 @@ class MainWindowWrapper(object):
         Wolke.FontHeadingSizeL3 = Wolke.Settings["FontSize"] + 2
 
         # Set theme
-        palette = self.app.style().standardPalette()
         themeName = Wolke.Settings['Theme']
         if themeName in Wolke.Themes:
             theme = Wolke.Themes[themeName]
+            
+            if "ForceColorScheme" in theme:
+                self.app.styleHints().setColorScheme(getattr(QtCore.Qt.ColorScheme, theme["ForceColorScheme"]))
 
             # Set style, i.e. fusion
             self.app.setStyle(theme["Style"])
-
-            # Set color palette
-            if "StandardPalette" not in theme or not theme["StandardPalette"]:
-                palette = QPalette()
+            palette = QPalette()
 
             if "Palette" in theme:
                 for elem, col in theme["Palette"].items():
@@ -528,16 +527,35 @@ class MainWindowWrapper(object):
             QToolTip.setPalette(palette)
 
             # Set remaining colors that we also need elsewhere in the code
-            if "HeadingColor" in theme:
-                Wolke.HeadingColor = theme["HeadingColor"]
-            if "BorderColor" in theme:
-                Wolke.BorderColor = theme["BorderColor"]
-            if "ReadonlyColor" in theme:
-                Wolke.ReadonlyColor = theme["ReadonlyColor"]
-            if "PanelColor" in theme:
-                Wolke.PanelColor = theme["PanelColor"]
+            Wolke.HeadingColor = theme["HeadingColor"] if "HeadingColor" in theme else palette.text().color().name()
+            Wolke.BorderColor = theme["BorderColor"] if "BorderColor" in theme else palette.mid().color().name()
+            Wolke.ReadonlyColor = theme["ReadonlyColor"] if "ReadonlyColor" in theme else palette.color(QPalette.Disabled, QPalette.Base).name()
+            
+            if "ValidColor" in theme:
+                Wolke.ValidColor = theme["ValidColor"]
+            if "WarningColor" in theme:
+                Wolke.WarningColor = theme["WarningColor"]
+            if "ErrorColor" in theme:
+                Wolke.ErrorColor = theme["ErrorColor"]
+            if "ModifiedColor" in theme:
+                Wolke.ModifiedColor = theme["ModifiedColor"]
+            if "CodeKeywordColor" in theme:
+                Wolke.CodeKeywordColor = theme["CodeKeywordColor"]
+            if "CodeOperatorsBracesColor" in theme:
+                Wolke.CodeOperatorsBracesColor = theme["CodeOperatorsBracesColor"]
+            if "CodeDeclarationColor" in theme:
+                Wolke.CodeDeclarationColor = theme["CodeDeclarationColor"]
+            if "CodeStringColor" in theme:
+                Wolke.CodeStringColor = theme["CodeStringColor"]
+            if "CodeCommentColor" in theme:
+                Wolke.CodeCommentColor = theme["CodeCommentColor"]
+            if "CodeNumberColor" in theme:
+                Wolke.CodeNumberColor = theme["CodeNumberColor"]
+            if "CodeBackgroundColor" in theme:
+                Wolke.CodeBackgroundColor = theme["CodeBackgroundColor"]   
         else:
             theme = ''
+            palette = QPalette()
             
         # Create stylesheet
         standardFont = f"font-family: '{Wolke.Settings['Font']}'"
@@ -545,19 +563,24 @@ class MainWindowWrapper(object):
         Wolke.FontAwesomeCSS = f"font-size: {Wolke.Settings['FontSize']}pt; font-family: \"Font Awesome 6 Free Solid\"; font-weight: 900;"
         Wolke.FontAwesomeRegularCSS = f"font-size: {Wolke.Settings['FontSize']}pt; font-family: \"Font Awesome 6 Free Regular\"; font-weight: 400;"
         Wolke.FontAwesomeFont = QtGui.QFont("Font Awesome 6 Free Solid", Wolke.Settings['FontSize'], QtGui.QFont.Black)
+        Wolke.FontAwesomeFont.setHintingPreference(QtGui.QFont.PreferNoHinting)
         Wolke.FontAwesomeRegularFont = QtGui.QFont("Font Awesome 6 Free Regular", Wolke.Settings['FontSize'], QtGui.QFont.Normal)
+        Wolke.FontAwesomeRegularFont.setHintingPreference(QtGui.QFont.PreferNoHinting)
         css = f"""*[readOnly=\"true\"] {{ background-color: {Wolke.ReadonlyColor}; border: none; }}
 QWidget, QToolTip {{ {standardFont}; font-size: {Wolke.Settings['FontSize']}pt; }}
+
+QWidget[valid=true] {{ border: 2px solid {Wolke.ValidColor}; border-radius: 2px; padding: 1px;}}
+QWidget[warning=true] {{ border: 2px solid {Wolke.WarningColor}; border-radius: 2px; padding: 1px;}}
+QWidget[error=true] {{ border: 2px solid {Wolke.ErrorColor}; border-radius: 2px; padding: 1px;}}
+QTabBar, QTabBar::tab {{ font-weight: bold; font-size: {Wolke.FontHeadingSizeL1}pt; font-family: \"{Wolke.Settings["FontHeading"]}\"; color: {Wolke.HeadingColor};}}
 QHeaderView::section {{ font-weight: bold; font-size: {Wolke.Settings['FontHeadingSize']-1}pt; {headingFont}; }}
 QListView::item {{ margin-top: 0.3em; margin-bottom: 0.3em; }}
 QTreeView::item {{ margin-top: 0.3em; margin-bottom: 0.3em; }}
-.treeVorteile::item {{ margin: 0.1em; }}
-QLineEdit {{color: {palette.text().color().name()};}} /* for some reason the color isnt applied to the palceholder text otherwise */
+QLineEdit {{color: {palette.text().color().name()};}} /* for some reason the color isnt applied to the placeholder text otherwise */
 QCheckBox::indicator {{ width: {Hilfsmethoden.emToPixels(1.9)}px; height: {Hilfsmethoden.emToPixels(1.9)}px; }} /* doesnt work for tree/list - setting it via ::indicator breaks text offsets*/
 .smallText {{ font-size: {Wolke.Settings['FontSize']-1}pt; }}
 .smallTextBright {{ font-size: {Wolke.Settings['FontSize']-1}pt; color: #ffffff }}
 .italic {{ font-style: italic; }}
-.panel {{ background: {Wolke.PanelColor}; }}
 .h1 {{ font-weight: bold; font-size: {Wolke.FontHeadingSizeL1}pt; {headingFont}; }}
 .h2 {{ font-weight: bold; font-size: {Wolke.Settings['FontHeadingSize']}pt; {headingFont}; }}
 .h3, QGroupBox {{ font-weight: bold; font-variant: small-caps; font-size: {Wolke.FontHeadingSizeL3}pt; {standardFont}; color: {Wolke.HeadingColor}; }}
@@ -569,13 +592,21 @@ QCheckBox::indicator {{ width: {Hilfsmethoden.emToPixels(1.9)}px; height: {Hilfs
 .iconSmall {{ {Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(2.3)}px; max-height: {Hilfsmethoden.emToPixels(2.3)}px;}}
 .iconTiny {{ {Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(1.5)}px; max-height: {Hilfsmethoden.emToPixels(1.5)}px;}}
 .iconTopDownArrow {{ {Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(2.3)}px; max-height: {Hilfsmethoden.emToPixels(1.2)}px;}}
-.charListScrollArea {{ background-color:#44444444; }}
+.alternateBase {{ background-color: {palette.alternateBase().color().name()}; }}
+.noBorder {{ border: none; }}
+.treeVorteile::item {{ margin: 0.1em; }}
+.monospace {{ font-family: Consolas,'Lucida Console','Liberation Mono','DejaVu Sans Mono','Bitstream Vera Sans Mono','Courier New',monospace,sans-serif; }}
+.codeEditor {{ background: {Wolke.CodeBackgroundColor}; }}
+.weaponsBorderTop {{ border-left: 1px solid {Wolke.BorderColor}; border-right: 1px solid {Wolke.BorderColor}; border-top: 1px solid {Wolke.BorderColor}; border-top-left-radius : 0px; border-top-right-radius : 0px; }}
+.weaponsBorderBottom {{ border-left: 1px solid {Wolke.BorderColor}; border-right: 1px solid {Wolke.BorderColor}; border-bottom: 1px solid {Wolke.BorderColor}; border-bottom-left-radius : 0px; border-bottom-right-radius : 0px; }}
+.weaponsBorderLeft {{ border-left: 1px solid {Wolke.BorderColor}; border-top-left-radius : 0px; }}
+.weaponsBorderRight {{ border-right: 1px solid {Wolke.BorderColor}; border-top-right-radius : 0px; }}
+.charListScrollArea {{ background-color:#44444444; border: none; }}
 .charWidget {{ border-image: url(Data/Images/recents_background.png) 0 0 0 0 stretch stretch; }}
 .charWidget:hover {{ border-image: url(Data/Images/recents_background_hovered.png) 0 0 0 0 stretch stretch; }}
 .charWidget[pressed="true"] {{ border-image: url(Data/Images/recents_background_pressed.png) 0 0 0 0 stretch stretch; }}
 .charWidgetLabel {{ color: #000000; }}
 .charWidgetIcon {{ {Wolke.FontAwesomeCSS} font-size: 14pt; color: #ffffff; background: #44444444; }}
-.warning {{ background-color: yellow; color: black; }}
 \n"""
 
         if 'CSS' in theme:

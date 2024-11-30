@@ -20,7 +20,7 @@ class DatenbankElementEditorBase(QtCore.QObject):
         self.validator = { "Name" : True } #modules can add their own keys
         self.ui = ui
         self.ui.warning = QtWidgets.QLabel()
-        self.ui.warning.setProperty("class", "warning")
+        self.ui.warning.setProperty("warning", True)
         self.ui.warning.setVisible(False)
         self.labelsByWidgets = {}
 
@@ -197,17 +197,20 @@ class DatenbankElementEditorBase(QtCore.QObject):
     def nameChanged(self):
         name = self.ui.leName.text()
         if name == "":
+            self.ui.leName.setProperty("error", True)
             self.ui.leName.setToolTip("Name darf nicht leer sein.")
-            self.ui.leName.setStyleSheet("border: 1px solid red;")
             self.validator["Name"] = False
         elif name != self.elementPicked.name and name in self.elementTable:
+            self.ui.leName.setProperty("error", True)
             self.ui.leName.setToolTip("Name existiert bereits.")
-            self.ui.leName.setStyleSheet("border: 1px solid red;")
             self.validator["Name"] = False
         else:
+            self.ui.leName.setProperty("error", False)
             self.ui.leName.setToolTip("")
-            self.ui.leName.setStyleSheet("")
             self.validator["Name"] = True
+            
+        self.ui.leName.style().unpolish(self.ui.leName)
+        self.ui.leName.style().polish(self.ui.leName)
         self.updateSaveButtonState()
     
     def updateSaveButtonState(self):
@@ -272,13 +275,17 @@ class VoraussetzungenEditor:
     def voraussetzungenTextChanged(self):
         try:
             VoraussetzungenListe().compile(self.editor.ui.teVoraussetzungen.toPlainText(), self.editor.datenbank)
-            self.editor.ui.teVoraussetzungen.setStyleSheet("")
+            
+            self.editor.ui.teVoraussetzungen.setProperty("error", False)
             self.editor.ui.teVoraussetzungen.setToolTip("")
             self.editor.validator["Voraussetzungen"] = True
         except VoraussetzungException as e:
-            self.editor.ui.teVoraussetzungen.setStyleSheet("border: 1px solid red;")
+            self.editor.ui.teVoraussetzungen.setProperty("error", True)
             self.editor.ui.teVoraussetzungen.setToolTip(str(e))
             self.editor.validator["Voraussetzungen"] = False
+
+        self.editor.ui.teVoraussetzungen.style().unpolish(self.editor.ui.teVoraussetzungen)
+        self.editor.ui.teVoraussetzungen.style().polish(self.editor.ui.teVoraussetzungen)
         self.editor.updateSaveButtonState()
 
 class ScriptEditor:
@@ -309,17 +316,20 @@ class ScriptEditor:
     def scriptTextChanged(self):
         textEdit = getattr(self.editor.ui, self.textEditName)
         if self.mode == "eval" and "\n" in textEdit.toPlainText():
-            textEdit.setStyleSheet("border: 1px solid red;")
+            textEdit.setProperty("error", True)
             textEdit.setToolTip("Dieses Script muss einen Ausdruck in einer einzelnen Zeile enthalten.")
             self.editor.validator[self.propertyName] = False
         else:
             try:
                 compile_restricted(textEdit.toPlainText() or "0", self.propertyName, self.mode)
-                textEdit.setStyleSheet("")
+                textEdit.setProperty("error", False)
                 textEdit.setToolTip(self.toolTip)
                 self.editor.validator[self.propertyName] = True
-            except SyntaxError as e:
-                textEdit.setStyleSheet("border: 1px solid red;")
+            except SyntaxError as e:                
+                textEdit.setProperty("error", True)
                 textEdit.setToolTip("\n".join(e.msg))
                 self.editor.validator[self.propertyName] = False
+                
+        textEdit.style().unpolish(textEdit)
+        textEdit.style().polish(textEdit)
         self.editor.updateSaveButtonState()

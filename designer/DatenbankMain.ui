@@ -3,7 +3,7 @@
  <class>Form</class>
  <widget class="QMainWindow" name="Form">
   <property name="windowModality">
-   <enum>Qt::NonModal</enum>
+   <enum>Qt::WindowModality::NonModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -21,7 +21,7 @@
     <item row="1" column="1">
      <widget class="QTabWidget" name="tabWidget">
       <property name="tabPosition">
-       <enum>QTabWidget::West</enum>
+       <enum>QTabWidget::TabPosition::West</enum>
       </property>
      </widget>
     </item>
@@ -37,7 +37,7 @@
       <item>
        <spacer name="horizontalSpacer">
         <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+         <enum>Qt::Orientation::Horizontal</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
@@ -49,6 +49,11 @@
       </item>
       <item>
        <widget class="QPushButton" name="buttonNeu">
+        <property name="font">
+         <font>
+          <hintingpreference>PreferNoHinting</hintingpreference>
+         </font>
+        </property>
         <property name="toolTip">
          <string>Neues Element hinzufügen</string>
         </property>
@@ -62,6 +67,11 @@
       </item>
       <item>
        <widget class="QPushButton" name="buttonEditieren">
+        <property name="font">
+         <font>
+          <hintingpreference>PreferNoHinting</hintingpreference>
+         </font>
+        </property>
         <property name="toolTip">
          <string>Element bearbeiten</string>
         </property>
@@ -75,6 +85,11 @@
       </item>
       <item>
        <widget class="QPushButton" name="buttonRAW">
+        <property name="font">
+         <font>
+          <hintingpreference>PreferNoHinting</hintingpreference>
+         </font>
+        </property>
         <property name="toolTip">
          <string>Änderungen mit dem Original-Element vergleichen</string>
         </property>
@@ -88,6 +103,11 @@
       </item>
       <item>
        <widget class="QPushButton" name="buttonDuplizieren">
+        <property name="font">
+         <font>
+          <hintingpreference>PreferNoHinting</hintingpreference>
+         </font>
+        </property>
         <property name="toolTip">
          <string>Element Duplizieren</string>
         </property>
@@ -101,6 +121,11 @@
       </item>
       <item>
        <widget class="QPushButton" name="buttonLoeschen">
+        <property name="font">
+         <font>
+          <hintingpreference>PreferNoHinting</hintingpreference>
+         </font>
+        </property>
         <property name="toolTip">
          <string>Element Löschen</string>
         </property>
@@ -114,6 +139,11 @@
       </item>
       <item>
        <widget class="QPushButton" name="buttonWiederherstellen">
+        <property name="font">
+         <font>
+          <hintingpreference>PreferNoHinting</hintingpreference>
+         </font>
+        </property>
         <property name="toolTip">
          <string>Element Wiederherstellen</string>
         </property>
@@ -131,6 +161,11 @@
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
        <widget class="QPushButton" name="buttonOpen">
+        <property name="font">
+         <font>
+          <hintingpreference>PreferNoHinting</hintingpreference>
+         </font>
+        </property>
         <property name="toolTip">
          <string>Öffnen</string>
         </property>
@@ -144,6 +179,11 @@
       </item>
       <item>
        <widget class="QPushButton" name="buttonQuicksave">
+        <property name="font">
+         <font>
+          <hintingpreference>PreferNoHinting</hintingpreference>
+         </font>
+        </property>
         <property name="toolTip">
          <string>Speichern</string>
         </property>
@@ -158,10 +198,10 @@
       <item>
        <spacer name="horizontalSpacer_3">
         <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+         <enum>Qt::Orientation::Horizontal</enum>
         </property>
         <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
+         <enum>QSizePolicy::Policy::Fixed</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
@@ -183,6 +223,11 @@
       </item>
       <item>
        <widget class="QLabel" name="labelFilterName">
+        <property name="font">
+         <font>
+          <hintingpreference>PreferNoHinting</hintingpreference>
+         </font>
+        </property>
         <property name="toolTip">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Suche unterstützt Wildcards. Dies sind Platzhalter, die verwendet werden können, um Übereinstimmungen mit einer Vielzahl von Suchergebnissen zu ermöglichen. Es gibt die folgenden Wildcards:&lt;/p&gt;&lt;table border=&quot;0&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;&quot; cellspacing=&quot;2&quot; cellpadding=&quot;0&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;td&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Platzhalter&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Wirkung&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tr&gt;&lt;td&gt;&lt;p&gt;*&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p&gt;Steht für null oder mehr beliebige Zeichen.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;p&gt;?&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p&gt;Steht für ein beliebiges einzelnes Zeichen.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;p&gt;[seq]&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p&gt;Steht für ein Zeichen in der angegebenen Sequenz 'seq'.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;p&gt;[!seq]&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p&gt;Steht für ein Zeichen, das nicht in der angegebenen Sequenz 'seq' enthalten ist.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
@@ -204,10 +249,10 @@
       <item>
        <spacer name="horizontalSpacer_2">
         <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+         <enum>Qt::Orientation::Horizontal</enum>
         </property>
         <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
+         <enum>QSizePolicy::Policy::Fixed</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
@@ -234,7 +279,7 @@
      <x>0</x>
      <y>0</y>
      <width>853</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuDatei">

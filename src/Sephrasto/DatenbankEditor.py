@@ -311,7 +311,6 @@ class DatenbankEditor(object):
         self.databaseTypes[Waffeneigenschaft] = DatenbankTypWrapper(Waffeneigenschaft, DatenbankEditWaffeneigenschaftWrapper.DatenbankEditWaffeneigenschaftWrapper, True)
         self.databaseTypes = EventBus.applyFilter("datenbank_editor_typen", self.databaseTypes)
 
-        self.ui.tabWidget.setStyleSheet(f"QTabBar::tab {{ max-height: {max(Hilfsmethoden.emToPixels(4.5), 40)}px; }}")
         tabIndex = 0
         self.lists = []
         self.models = []
@@ -509,7 +508,7 @@ class DatenbankEditor(object):
     def updateFilter(self):
         statusses = [a.data() for a in self.statusFilterMenu.actions()[1:] if a.isChecked()]
         if len(statusses) > 0:
-            self.ui.buttonStatusFilter.setText(f"{self.buttonStatusFilterText} <span style='color: green;'>({len(statusses)})</span>")
+            self.ui.buttonStatusFilter.setText(f"{self.buttonStatusFilterText} <span style='color: {Wolke.ValidColor};'>({len(statusses)})</span>")
             self.statusFilterMenu.actions()[0].setVisible(True)
         else:
             statusses = [a.data() for a in self.statusFilterMenu.actions()[1:]]
@@ -569,15 +568,15 @@ class DatenbankEditor(object):
             iconItem.setTextAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
             if self.datenbank.isRemoved(element):
                 iconItem.setText("\uf068")
-                iconItem.setForeground(QtGui.QBrush(QtCore.Qt.red))
+                iconItem.setForeground(QtGui.QBrush(QtGui.QColor(Wolke.ErrorColor)))
                 iconItem.setToolTip("<b>Gelöschtes</b> Original-Element.")
             elif self.datenbank.isNew(element):
                 iconItem.setText("\u002b")
-                iconItem.setForeground(QtGui.QBrush(QtCore.Qt.darkGreen))
+                iconItem.setForeground(QtGui.QBrush(QtGui.QColor(Wolke.ValidColor)))
                 iconItem.setToolTip("<b>Hinzugefügtes</b> Element.")
             elif self.datenbank.isChanged(element):
                 iconItem.setText('\uf044')
-                iconItem.setForeground(QtGui.QBrush(QtCore.Qt.blue))
+                iconItem.setForeground(QtGui.QBrush(QtGui.QColor(Wolke.ModifiedColor)))
                 iconItem.setToolTip("<b>Verändertes</b> Original-Element. Wenn du es löschst, erhältst du die Möglichkeit, die Original-Daten wiederherzustellen. Unten rechts kannst du über den Buch-Button deine Änderungen vergleichen.")
             elif not self.datenbank.isOverriddenByOther(element):
                 iconItem.setText("\uf02d")

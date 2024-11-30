@@ -24,7 +24,10 @@ class CharWidget(QtWidgets.QAbstractButton):
         self.setProperty("class", "charWidget")
 
         self.infoLabel = QtWidgets.QLabel(self)
-        self.infoLabel.setProperty("class", "iconTiny")
+        self.infoLabel.setProperty("class", ["charWidgetLabel", "iconTiny"])
+        font = self.infoLabel.font()
+        font.setHintingPreference(QtGui.QFont.PreferNoHinting)
+        self.infoLabel.setFont(font)
 
     # Fore some reason this is needed to support style sheets in QWidget subclasses
     def paintEvent(self, pe):    

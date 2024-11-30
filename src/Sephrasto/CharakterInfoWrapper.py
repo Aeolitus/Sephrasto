@@ -218,6 +218,9 @@ class InfoWrapper(QtCore.QObject):
 
         button = QtWidgets.QPushButton()
         button.setProperty("class", "icon")
+        font = button.font()
+        font.setHintingPreference(QtGui.QFont.PreferNoHinting)
+        button.setFont(font)
 
         rootLayout.addWidget(button)
         rootLayout.addWidget(tree)

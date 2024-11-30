@@ -24,8 +24,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>502</width>
-        <height>593</height>
+        <width>485</width>
+        <height>617</height>
        </rect>
       </property>
       <layout class="QFormLayout" name="formLayout">
@@ -75,7 +75,7 @@
          <item>
           <spacer name="horizontalSpacer">
            <property name="orientation">
-            <enum>Qt::Horizontal</enum>
+            <enum>Qt::Orientation::Horizontal</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
@@ -91,7 +91,7 @@
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Reihenfolge, in der der Wert im Charaktereditor aufgeführt werden soll.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="buttonSymbols">
-            <enum>QAbstractSpinBox::PlusMinus</enum>
+            <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
            </property>
            <property name="minimum">
             <number>-999</number>
@@ -209,6 +209,11 @@
          </item>
          <item>
           <widget class="QPushButton" name="buttonPickScript">
+           <property name="font">
+            <font>
+             <hintingpreference>PreferNoHinting</hintingpreference>
+            </font>
+           </property>
            <property name="toolTip">
             <string>Scripteditor öffnen</string>
            </property>
@@ -240,6 +245,11 @@
          </item>
          <item>
           <widget class="QPushButton" name="buttonPickFinalscript">
+           <property name="font">
+            <font>
+             <hintingpreference>PreferNoHinting</hintingpreference>
+            </font>
+           </property>
            <property name="toolTip">
             <string>Scripteditor öffnen</string>
            </property>

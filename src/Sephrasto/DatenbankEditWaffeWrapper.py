@@ -148,13 +148,17 @@ class DatenbankEditWaffeWrapper(DatenbankElementEditorBase):
                 try:
                     Hilfsmethoden.VerifyWaffeneigenschaft(el, self.datenbank)
                 except WaffeneigenschaftException as e:
+                    self.ui.teEigenschaften.setProperty("error", True)
+                    self.ui.teEigenschaften.style().unpolish(self.ui.teEigenschaften)
+                    self.ui.teEigenschaften.style().polish(self.ui.teEigenschaften)
                     self.ui.teEigenschaften.setToolTip(str(e))
-                    self.ui.teEigenschaften.setStyleSheet("border: 1px solid red;")
                     self.validator["Waffeneigenschaften"] = False
                     self.updateSaveButtonState()
                     return
 
+        self.ui.teEigenschaften.setProperty("error", False)
+        self.ui.teEigenschaften.style().unpolish(self.ui.teEigenschaften)
+        self.ui.teEigenschaften.style().polish(self.ui.teEigenschaften)
         self.ui.teEigenschaften.setToolTip("")
-        self.ui.teEigenschaften.setStyleSheet("")
         self.validator["Waffeneigenschaften"] = True
         self.updateSaveButtonState()

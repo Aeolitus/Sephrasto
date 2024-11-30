@@ -133,7 +133,7 @@
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Skript-Priorität legt die Reihenfolge der Auswertung fest. 0 ist Standard, negative Werte werden davor, positive Werte danach ausgewertet. Dies ist relevant, falls bspw. die INI verdoppelt werden soll nachdem Kampfreflexe eingerechnet wurde. In diesem Fall sollte die Skript-Priorität höher als die von Kampfreflexe sein.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="buttonSymbols">
-              <enum>QAbstractSpinBox::PlusMinus</enum>
+              <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
              </property>
              <property name="minimum">
               <number>-999</number>
@@ -151,6 +151,11 @@
            </item>
            <item>
             <widget class="QPushButton" name="buttonPickScript">
+             <property name="font">
+              <font>
+               <hintingpreference>PreferNoHinting</hintingpreference>
+              </font>
+             </property>
              <property name="toolTip">
               <string>Scripteditor öffnen</string>
              </property>

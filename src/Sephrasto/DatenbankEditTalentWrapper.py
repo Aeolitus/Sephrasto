@@ -138,8 +138,10 @@ class DatenbankEditTalentWrapper(DatenbankElementEditorBase):
         if not self.validator["Name"] and name != self.elementPicked.name and name in self.datenbank.talente:
             self.ui.leName.setToolTip(f"Name existiert bereits.\nVerwende am besten das Namensschema 'Fertigkeit: {name}'.")
         elif self.validator["Name"] and "Gebräuche" in fertigkeiten and not name.startswith("Gebräuche: "):
+            self.ui.leName.setProperty("error", True)
+            self.ui.leName.style().unpolish(self.ui.leName)
+            self.ui.leName.style().polish(self.ui.leName)
             self.ui.leName.setToolTip("Talentnamen für die Fertigkeit Gebräuche müssen mit 'Gebräuche: ' anfangen.")
-            self.ui.leName.setStyleSheet("border: 1px solid red;")
             self.validator["Name"] = False
             self.updateSaveButtonState()
 
@@ -149,20 +151,26 @@ class DatenbankEditTalentWrapper(DatenbankElementEditorBase):
         for fertigkeit in fertigkeiten:
             isSpezial = self.ui.comboKategorie.currentIndex() > 0
             if isSpezial:
-                if not fertigkeit in self.datenbank.übernatürlicheFertigkeiten:
-                    self.ui.leFertigkeiten.setStyleSheet("border: 1px solid red;")
+                if not fertigkeit in self.datenbank.übernatürlicheFertigkeiten:                 
+                    self.ui.leFertigkeiten.setProperty("error", True)
+                    self.ui.leFertigkeiten.style().unpolish(self.ui.leFertigkeiten)
+                    self.ui.leFertigkeiten.style().polish(self.ui.leFertigkeiten)
                     self.ui.leFertigkeiten.setToolTip("Unbekannte übernatürliche Fertigkeit '" + fertigkeit + "'. Spezialtalente müssen übernatürlichen Fertigkeiten zugewiesen werden.")
                     self.validator["Fertigkeiten"] = False
                     break
             else:
                 if not fertigkeit in self.datenbank.fertigkeiten:
-                    self.ui.leFertigkeiten.setStyleSheet("border: 1px solid red;")
+                    self.ui.leFertigkeiten.setProperty("error", True)
+                    self.ui.leFertigkeiten.style().unpolish(self.ui.leFertigkeiten)
+                    self.ui.leFertigkeiten.style().polish(self.ui.leFertigkeiten)
                     self.ui.leFertigkeiten.setToolTip("Unbekannte profane Fertigkeit '" + fertigkeit + "'. Reguläre Talente müssen profanen Fertigkeiten zugewiesen werden.")
                     self.validator["Fertigkeiten"] = False
                     break
 
         if self.validator["Fertigkeiten"]:
-            self.ui.leFertigkeiten.setStyleSheet("")
+            self.ui.leFertigkeiten.setProperty("error", False)
+            self.ui.leFertigkeiten.style().unpolish(self.ui.leFertigkeiten)
+            self.ui.leFertigkeiten.style().polish(self.ui.leFertigkeiten)
             self.ui.leFertigkeiten.setToolTip("")
         self.nameChanged()
 

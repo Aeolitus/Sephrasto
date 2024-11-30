@@ -23,9 +23,9 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
-        <width>637</width>
-        <height>1176</height>
+        <y>-37</y>
+        <width>620</width>
+        <height>1213</height>
        </rect>
       </property>
       <layout class="QFormLayout" name="formLayout">
@@ -61,7 +61,7 @@
          <item>
           <spacer name="horizontalSpacer">
            <property name="orientation">
-            <enum>Qt::Horizontal</enum>
+            <enum>Qt::Orientation::Horizontal</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
@@ -114,7 +114,7 @@
          <item>
           <spacer name="horizontalSpacer_2">
            <property name="orientation">
-            <enum>Qt::Horizontal</enum>
+            <enum>Qt::Orientation::Horizontal</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
@@ -133,10 +133,10 @@
             </sizepolicy>
            </property>
            <property name="alignment">
-            <set>Qt::AlignCenter</set>
+            <set>Qt::AlignmentFlag::AlignCenter</set>
            </property>
            <property name="buttonSymbols">
-            <enum>QAbstractSpinBox::PlusMinus</enum>
+            <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
            </property>
            <property name="suffix">
             <string> EP</string>
@@ -460,7 +460,7 @@
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Skript-Priorität legt die Reihenfolge der Auswertung fest. 0 ist Standard, negative Werte werden davor, positive Werte danach ausgewertet. Dies ist relevant, falls bspw. die INI verdoppelt werden soll nachdem Kampfreflexe eingerechnet wurde. In diesem Fall sollte die Skript-Priorität höher als die von Kampfreflexe sein.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="buttonSymbols">
-              <enum>QAbstractSpinBox::PlusMinus</enum>
+              <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
              </property>
              <property name="minimum">
               <number>-999</number>
@@ -478,6 +478,11 @@
            </item>
            <item>
             <widget class="QPushButton" name="buttonPickScript">
+             <property name="font">
+              <font>
+               <hintingpreference>PreferNoHinting</hintingpreference>
+              </font>
+             </property>
              <property name="toolTip">
               <string>Scripteditor öffnen</string>
              </property>
@@ -580,10 +585,10 @@
              </sizepolicy>
             </property>
             <property name="verticalScrollBarPolicy">
-             <enum>Qt::ScrollBarAlwaysOff</enum>
+             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
             </property>
             <property name="horizontalScrollBarPolicy">
-             <enum>Qt::ScrollBarAlwaysOff</enum>
+             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
             </property>
            </widget>
           </item>
@@ -645,6 +650,11 @@
             </item>
             <item>
              <widget class="QPushButton" name="buttonVerweisAdd">
+              <property name="font">
+               <font>
+                <hintingpreference>PreferNoHinting</hintingpreference>
+               </font>
+              </property>
               <property name="text">
                <string>+</string>
               </property>
@@ -659,6 +669,11 @@
            <layout class="QVBoxLayout" name="verticalLayout_6">
             <item>
              <widget class="QPushButton" name="buttonVerweisUp">
+              <property name="font">
+               <font>
+                <hintingpreference>PreferNoHinting</hintingpreference>
+               </font>
+              </property>
               <property name="text">
                <string>^</string>
               </property>
@@ -669,6 +684,11 @@
             </item>
             <item>
              <widget class="QPushButton" name="buttonVerweisDown">
+              <property name="font">
+               <font>
+                <hintingpreference>PreferNoHinting</hintingpreference>
+               </font>
+              </property>
               <property name="text">
                <string>v</string>
               </property>
@@ -679,6 +699,11 @@
             </item>
             <item>
              <widget class="QPushButton" name="buttonVerweisDelete">
+              <property name="font">
+               <font>
+                <hintingpreference>PreferNoHinting</hintingpreference>
+               </font>
+              </property>
               <property name="text">
                <string>DEL</string>
               </property>

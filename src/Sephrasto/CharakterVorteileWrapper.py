@@ -178,6 +178,9 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     child.setText(1, str(self.kosten(vorteil)) + " EP")
 
                 favoriteButton = QtWidgets.QPushButton()
+                font = favoriteButton.font()
+                font.setHintingPreference(QtGui.QFont.PreferNoHinting)
+                favoriteButton.setFont(font)
                 favoriteButton.setText("\uf005")
                 favoriteButton.setFlat(True)
                 favoriteButton.clicked.connect(partial(self.markFavorite, name=vorteil.name))
@@ -220,7 +223,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
             showPurchased = self.filterMenu.actions()[1].isChecked()
             showUnpurchased = self.filterMenu.actions()[2].isChecked()
             showUnvailable = self.filterMenu.actions()[3].isChecked()
-            self.ui.buttonFilter.setText(f"{self.buttonFilterText} <span style='color: green;'>({numFilters})</span>")
+            self.ui.buttonFilter.setText(f"{self.buttonFilterText} <span style='color: {Wolke.ValidColor};'>({numFilters})</span>")
         self.filterMenu.actions()[0].setVisible(not(showPurchased and showUnpurchased and not showUnvailable))
 
         self.ui.treeWidget.blockSignals(True)
@@ -277,7 +280,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     if showUnvailable:
                         chi.setFlags(QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable)
                         chi.setCheckState(0,QtCore.Qt.Unchecked)
-                        chi.setForeground(0, QtGui.QBrush(QtCore.Qt.red))
+                        chi.setForeground(0, QtGui.QBrush(QtGui.QColor(Wolke.ErrorColor)))
                         chi.setHidden(isFiltered)
                     else:
                         chi.setHidden(True)
@@ -322,11 +325,13 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.updateInfo()
 
         if vorteil.editorScriptFault:
-            widget.setStyleSheet("border: 1px solid red;")
+            widget.setProperty("error", True)
             widget.setToolTip(vorteil.editorScriptFault)
         else:
-            widget.setStyleSheet("")
+            widget.setProperty("error", False)
             widget.setToolTip("")
+        widget.style().unpolish(widget)
+        widget.style().polish(widget)
 
     def openScriptPicker(self, scriptEdit):
         pickerClass = EventBus.applyFilter("class_scriptpicker_wrapper", ScriptPickerWrapper)
@@ -360,12 +365,17 @@ class CharakterVorteileWrapper(QtCore.QObject):
             text.setFixedHeight(2 * self.rowHeight)
             text.textChanged.connect(partial(self.editorScriptChanged, name=name, widget=text))
             if vorteil.editorScriptFault:
-                text.setStyleSheet("border: 1px solid red;")
+                text.setProperty("error", True)
+                text.style().unpolish(text)
+                text.style().polish(text)
                 text.setToolTip(vorteil.editorScriptFault)
 
             button = QtWidgets.QPushButton()
             button.setProperty("class", "iconSmall")
             button.setText("\uf121")
+            font = button.font()
+            font.setHintingPreference(QtGui.QFont.PreferNoHinting)
+            button.setFont(font)
             button.setToolTip("Scripteditor öffnen")
             button.clicked.connect(partial(self.openScriptPicker, scriptEdit=text))
             childLayout.addWidget(text)

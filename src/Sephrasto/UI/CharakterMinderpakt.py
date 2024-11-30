@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterMinderpakt.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -44,7 +44,7 @@ class Ui_Dialog(object):
         self.treeWidget.setMinimumSize(QSize(0, 0))
         self.treeWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.treeWidget.setTabKeyNavigation(True)
-        self.treeWidget.setProperty("showDropIndicator", False)
+        self.treeWidget.setProperty(u"showDropIndicator", False)
         self.treeWidget.setAlternatingRowColors(True)
         self.treeWidget.setAnimated(False)
         self.treeWidget.setAllColumnsShowFocus(True)
@@ -161,11 +161,11 @@ class Ui_Dialog(object):
         ___qtreewidgetitem.setText(0, QCoreApplication.translate("Dialog", u"Vorteil", None));
         self.label.setText(QCoreApplication.translate("Dialog", u"Nachkauf:", None))
         self.labelTyp.setText(QCoreApplication.translate("Dialog", u"Profan", None))
-        self.labelTyp.setProperty("class", QCoreApplication.translate("Dialog", u"italic", None))
+        self.labelTyp.setProperty(u"class", QCoreApplication.translate("Dialog", u"italic", None))
         self.label_2.setText(QCoreApplication.translate("Dialog", u"Kosten:", None))
         self.labelNachkauf.setText(QCoreApplication.translate("Dialog", u"H\u00e4ufig", None))
         self.labelVorteil.setText(QCoreApplication.translate("Dialog", u"Vorteil", None))
-        self.labelVorteil.setProperty("class", QCoreApplication.translate("Dialog", u"h4", None))
+        self.labelVorteil.setProperty(u"class", QCoreApplication.translate("Dialog", u"h4", None))
         self.labelKosten.setText(QCoreApplication.translate("Dialog", u"20 EP", None))
     # retranslateUi
 

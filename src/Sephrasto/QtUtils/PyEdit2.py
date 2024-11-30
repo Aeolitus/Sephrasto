@@ -7,8 +7,6 @@ from PySide6.QtCore import Qt, QRect, QStringListModel
 from sys import argv
 from QtUtils.PyEdit2Syntax import *
 
-lineBarColor = QColor("#d3d7cf")
-lineHighlightColor  = QColor("#fce94f")
 tab = chr(9)
 
 wordlist = ["False",
@@ -92,7 +90,7 @@ wordlist = ["False",
 
 class TextEdit(QPlainTextEdit):
     def __init__(self, parent=None):
-        super(TextEdit, self).__init__(parent)
+        super().__init__(parent)
 
         self.installEventFilter(self)
 
@@ -106,23 +104,16 @@ class TextEdit(QPlainTextEdit):
         completer.setCompletionRole(Qt.EditRole)
         self.setCompleter(completer)
         self.setError(False)
+        self.setProperty("class", ["monospace", "codeEditor"])
 
-        # Just monospace doesn't work, have to specify fonts...
-        css = """\
-        QPlainTextEdit
-        {
-        font-family: Consolas,'Lucida Console','Liberation Mono','DejaVu Sans Mono','Bitstream Vera Sans Mono','Courier New',monospace,sans-serif;
-        background: #E2E2E2;
-        color: #202020;       
-        }
-        QPlainTextEdit[error=true] { border: 1px solid red; }
-        QPlainTextEdit[error=false] { 1px solid #1EAE3D; }"""
-        self.setStyleSheet(css)
+    def setPlainText(self, text):
+        self.highlighter.rebuildDynamicRules(text)
+        super().setPlainText(text)
 
     def setError(self, hasError):
         self.setProperty("error", hasError)
-        self.style().unpolish(self);
-        self.style().polish(self);
+        self.style().unpolish(self)
+        self.style().polish(self)
 
     def setCompleter(self, c):
         if self._completer is not None:
@@ -161,7 +152,7 @@ class TextEdit(QPlainTextEdit):
         if self._completer is not None:
             self._completer.setWidget(self)
 
-        super(TextEdit, self).focusInEvent(e)
+        super().focusInEvent(e)
 
     def keyPressEvent(self, e):
         if e.key() == Qt.Key_Backtab:
@@ -190,7 +181,7 @@ class TextEdit(QPlainTextEdit):
         isShortcut = ((e.modifiers() & Qt.ControlModifier) != 0 and e.key() == Qt.Key_Escape)
         if self._completer is None or not isShortcut:
             # Do not process the shortcut when we have a completer.
-            super(TextEdit, self).keyPressEvent(e)
+            super().keyPressEvent(e)
 
         ctrlOrShift = e.modifiers() & (Qt.ControlModifier | Qt.ShiftModifier)
         if self._completer is None or (ctrlOrShift and len(e.text()) == 0):
@@ -216,7 +207,7 @@ class TextEdit(QPlainTextEdit):
 
 class NumberBar(QWidget):
     def __init__(self, parent = None):
-        super(NumberBar, self).__init__(parent)
+        super().__init__(parent)
         self.editor = parent
         layout = QVBoxLayout()
         self.editor.blockCountChanged.connect(self.update_width)
@@ -241,8 +232,6 @@ class NumberBar(QWidget):
             height = self.fontMetrics().height()
             number = block.blockNumber()
             painter = QPainter(self)
-            painter.setPen(Qt.black)
-            painter.fillRect(event.rect(), lineBarColor)
             painter.drawRect(0, 0, event.rect().width() - 1, event.rect().height() - 1)
             font = painter.font()
 

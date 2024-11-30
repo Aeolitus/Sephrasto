@@ -75,12 +75,15 @@ class DatenbankEditEinstellungWrapper(DatenbankElementEditorBase):
                 break
 
         if text and not allLinesValid:
+            self.ui.teText.setProperty("error", True)
             self.ui.teText.setToolTip("Jeder Eintrag muss ein '=' enthalten.")
-            self.ui.teText.setStyleSheet("border: 1px solid red;")
             self.validator["Text"] = False
             self.updateSaveButtonState()
         else:
+            self.ui.teText.setProperty("error", False)
             self.ui.teText.setToolTip("")
-            self.ui.teText.setStyleSheet("")
             self.validator["Text"] = True
             self.updateSaveButtonState()
+            
+        self.ui.teText.style().unpolish(self.ui.teText)
+        self.ui.teText.style().polish(self.ui.teText)

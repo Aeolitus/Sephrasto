@@ -45,6 +45,7 @@ class CharakterWaffenWrapper(QtCore.QObject):
         self.labelMods = []
         self.waffenTypen = []
         self.addW = []
+        self.labelContainer = []
         
         for i in range(8):
             self.waffenTypen.append("")
@@ -117,50 +118,26 @@ class CharakterWaffenWrapper(QtCore.QObject):
                 downW.setText('\uf078')
                 downW.clicked.connect(partial(self.moveWeapon, index=i, direction=+1))
 
-            color = Wolke.BorderColor
-            labelContainer = getattr(self.ui, "labelContainerW" + str(i+1))
-            style = "border-left: 1px solid " + color + ";"\
-                "border-right: 1px solid " + color + ";"\
-                "border-bottom: 1px solid " + color + ";"\
-                "border-bottom-left-radius : 0px;"\
-                "border-bottom-right-radius : 0px;"
-            labelContainer.setStyleSheet(style)
             labelBasis = getattr(self.ui, "labelW" + str(i+1) + "Basis")
             labelBasis.setToolTip(f"""<p style='white-space:pre'><span style='{Wolke.FontAwesomeCSS}'>\uf02d</span>  Basiswaffe
 
 Sephrasto leitet von der Basiswaffe das verwendete Talent, die erlaubten Kampfstile und von dir vorgenommene Anpassungen der Waffenwerte ab.
 Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ändert sich dadurch nicht.</p>""")
-            labelBasis.setStyleSheet("border: none;")
             self.labelBasis.append(labelBasis)
             labelWerte = getattr(self.ui, "labelW" + str(i+1) + "Werte")
             labelWerte.setToolTip(f"""<p style='white-space:pre'><span style='{Wolke.FontAwesomeCSS}'>\uf6cf</span>   Kampfwerte
 
 - AT und VT: Talent-PW + WM + Kampfstilbonus - BE -2 (falls zu schwer)
 - TP: Waffen-TP + Schadensbonus (x2, falls kopflastig) + Kampfstilbonus</p>""")
-            labelWerte.setStyleSheet("border: none;")
             self.labelWerte.append(labelWerte)
+
             labelMods = getattr(self.ui, "labelW" + str(i+1) + "Mods")
             labelMods.setToolTip(f"""<p style='white-space:pre'><span style='{Wolke.FontAwesomeCSS}'>\uf6e3</span>   Anpassungen der Waffenwerte
 
 Üblich sind hier TP +1 und Härte +2 je Stufe Hohe Qualität bei der Fertigung (kein Härtebonus bei Fernkampfwaffen) und WM +1 für persönliche Waffen.</p>""")
-            labelMods.setStyleSheet("border: none;")
             self.labelMods.append(labelMods)
-
-            labelTopFrame = getattr(self.ui, "labelW" + str(i+1) + "TopFrame")
-            style = "border-left: 1px solid " + color + ";"\
-                "border-right: 1px solid " + color + ";"\
-                "border-top: 1px solid " + color + ";"\
-                "border-top-left-radius : 0px;"\
-                "border-top-right-radius : 0px;"
-            labelTopFrame.setStyleSheet(style)
-
-            labelLeftFrame = getattr(self.ui, "labelW" + str(i+1) + "LeftFrame")
-            style = "border-left: 1px solid " + color + "; border-top-left-radius : 0px;"
-            labelLeftFrame.setStyleSheet(style)
-
-            labelRightFrame = getattr(self.ui, "labelW" + str(i+1) + "RightFrame")
-            style = "border-right: 1px solid " + color + "; border-top-right-radius : 0px;"
-            labelRightFrame.setStyleSheet(style)
+            
+            self.labelContainer.append(getattr(self.ui, "labelContainerW" + str(i+1)))
 
         self.currentlyLoading = False
 
@@ -210,7 +187,7 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
             diff.append(f"<span style='{Wolke.FontAwesomeCSS}'>\u002b</span>&nbsp;&nbsp;" + ", ".join(eigPlusDiff))
         if len(eigMinusDiff) > 0:
             if len(eigPlusDiff) > 0:
-                diff[-1] += f"&nbsp;&nbsp;<span style='{Wolke.FontAwesomeCSS}'>\uf068</span>&nbsp;&nbsp;" + ",a ".join(eigMinusDiff)
+                diff[-1] += f"&nbsp;&nbsp;<span style='{Wolke.FontAwesomeCSS}'>\uf068</span>&nbsp;&nbsp;" + ", ".join(eigMinusDiff)
             else:
                 diff.append(f"<span style='{Wolke.FontAwesomeCSS}'>\uf068</span>&nbsp;&nbsp;" + ", ".join(eigMinusDiff))
         return diff
@@ -218,12 +195,9 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
     def updateWeaponStats(self):
         for index in range(8):
             if index >= len(Wolke.Char.waffen) or not Wolke.Char.waffen[index].name:
-                self.labelBasis[index].setText(f"<span style='{Wolke.FontAwesomeCSS}'>\uf02d</span>&nbsp;&nbsp;-")
-                self.labelWerte[index].hide()
-                self.labelMods[index].hide()
+                self.labelContainer[index].hide()               
                 continue
-            self.labelWerte[index].show()
-            self.labelMods[index].show()
+            self.labelContainer[index].show()
             waffe = Wolke.Char.waffen[index]
 
             at = waffe.at
@@ -240,12 +214,12 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
 
             diff = ', '.join(diff).replace(", Eigenschaften", "; Eigenschaften")
 
-            self.labelBasis[index].setText(f"<span style='{Wolke.FontAwesomeCSS}'>\uf02d</span>&nbsp;&nbsp;{waffe.definition.anzeigename} ({waffe.talent})")
-            self.labelWerte[index].setText(f"""<span style='{Wolke.FontAwesomeCSS}'>\uf6cf</span>&nbsp;&nbsp;AT {at}, VT {vt}, TP {tp}""")
+            self.labelBasis[index].setText(f"{waffe.definition.anzeigename} ({waffe.talent})")
+            self.labelWerte[index].setText(f"AT {at}, VT {vt}, TP {tp}")
             if len(diff) > 0:
-                self.labelMods[index].setText(f"<span style='{Wolke.FontAwesomeCSS}'>\uf6e3</span>&nbsp;&nbsp;{diff}")
+                self.labelMods[index].setText(f"{diff}")
             else:
-                self.labelMods[index].setText("")
+                self.labelMods[index].setText("-")
 
 
     def refreshDerivedWeaponValues(self, W, index):

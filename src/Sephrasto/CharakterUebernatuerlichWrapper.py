@@ -46,7 +46,6 @@ class UebernatuerlichWrapper(QtCore.QObject):
         self.ui.spinFW.valueChanged.connect(lambda: self.fwChanged(False))
         self.ui.tableWidget.currentCellChanged.connect(self.tableClicked)   
         self.ui.tableWidget.cellClicked.connect(self.tableClicked) 
-        self.ui.buttonAdd.setStyle(None) # dont know why but the below settings wont do anything without it
         self.ui.buttonAdd.setText('\u002b')
         self.ui.buttonAdd.clicked.connect(self.editTalents)
         
@@ -289,7 +288,6 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
                 
                 # Add Kosten
                 self.labelRef[el + "KO"] = QtWidgets.QLabel()
-                self.labelRef[el + "KO"].setStyleSheet("width: 100%;");
                 text, tooltip = ProfaneFertigkeitenWrapper.getSteigerungskosten(fert)
                 self.labelRef[el + "KO"].setText(text)
                 self.labelRef[el + "KO"].setToolTip(tooltip)
@@ -314,6 +312,9 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
                 self.buttonRef[el] = QtWidgets.QPushButton()
                 self.buttonRef[el].setProperty("class", "iconSmall")
                 self.buttonRef[el].setText('\u002b')
+                font = self.buttonRef[el].font()
+                font.setHintingPreference(QtGui.QFont.PreferNoHinting)
+                self.buttonRef[el].setFont(font)
                 self.buttonRef[el].clicked.connect(partial(self.addClicked, fert=el))
                 self.layoutRef[el].addWidget(self.buttonRef[el])
                 self.widgetRef[el] = QtWidgets.QWidget()

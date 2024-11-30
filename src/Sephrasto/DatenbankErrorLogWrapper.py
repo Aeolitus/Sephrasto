@@ -43,9 +43,9 @@ class DatenbankErrorLogWrapper():
         self.datenbank.verify()
         self.ui.listWidget.clear()
         if len(self.datenbank.loadingErrors) == 0:
-            self.ui.label.setText("<span style='" + Wolke.FontAwesomeCSS + " color: green;'>\uf164</span>&nbsp;&nbsp;Keine Probleme gefunden.")
+            self.ui.label.setText(f"<span style='{Wolke.FontAwesomeCSS} color: {Wolke.ValidColor};'>\uf164</span>&nbsp;&nbsp;Keine Probleme gefunden.")
         else:
-            self.ui.label.setText("<span style='" + Wolke.FontAwesomeCSS + " color: orange;'>\uf071</span>&nbsp;&nbsp;Probleme bei den Hausregeln entdeckt! Mit einem Doppelclick gelangst du direkt zum entsprechenden Element.")
+            self.ui.label.setText(f"<span style='{Wolke.FontAwesomeCSS} color: {Wolke.WarningColor};'>\uf071</span>&nbsp;&nbsp;Probleme bei den Hausregeln entdeckt! Mit einem Doppelclick gelangst du direkt zum entsprechenden Element.")
 
         for log in self.datenbank.loadingErrors:
             item = QtWidgets.QListWidgetItem(log[1])

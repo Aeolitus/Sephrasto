@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterWaffenPicker.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -26,13 +26,13 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.setWindowModality(Qt.ApplicationModal)
+        Dialog.setWindowModality(Qt.WindowModality.ApplicationModal)
         Dialog.resize(742, 522)
         self.gridLayout_2 = QGridLayout(Dialog)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.splitter = QSplitter(Dialog)
         self.splitter.setObjectName(u"splitter")
-        self.splitter.setOrientation(Qt.Horizontal)
+        self.splitter.setOrientation(Qt.Orientation.Horizontal)
         self.verticalLayout_2 = QWidget(self.splitter)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
@@ -46,6 +46,9 @@ class Ui_Dialog(object):
         self.filterLayout.setObjectName(u"filterLayout")
         self.buttonExpandToggle = QPushButton(self.verticalLayout_2)
         self.buttonExpandToggle.setObjectName(u"buttonExpandToggle")
+        font = QFont()
+        font.setHintingPreference(QFont.PreferNoHinting)
+        self.buttonExpandToggle.setFont(font)
 
         self.filterLayout.addWidget(self.buttonExpandToggle)
 
@@ -57,6 +60,7 @@ class Ui_Dialog(object):
 
         self.labelFilter = QLabel(self.verticalLayout_2)
         self.labelFilter.setObjectName(u"labelFilter")
+        self.labelFilter.setFont(font)
 
         self.filterLayout.addWidget(self.labelFilter)
 
@@ -70,8 +74,8 @@ class Ui_Dialog(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.treeWeapons.sizePolicy().hasHeightForWidth())
         self.treeWeapons.setSizePolicy(sizePolicy1)
-        self.treeWeapons.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.treeWeapons.setProperty("showDropIndicator", False)
+        self.treeWeapons.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
+        self.treeWeapons.setProperty(u"showDropIndicator", False)
         self.treeWeapons.setAlternatingRowColors(True)
         self.treeWeapons.setSortingEnabled(False)
         self.treeWeapons.setAllColumnsShowFocus(True)
@@ -87,36 +91,35 @@ class Ui_Dialog(object):
         self.layoutWidget.setObjectName(u"layoutWidget")
         self.verticalLayout = QVBoxLayout(self.layoutWidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setSizeConstraint(QLayout.SetDefaultConstraint)
+        self.verticalLayout.setSizeConstraint(QLayout.SizeConstraint.SetDefaultConstraint)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.scrollArea = QScrollArea(self.layoutWidget)
         self.scrollArea.setObjectName(u"scrollArea")
         self.scrollArea.setMinimumSize(QSize(0, 0))
-        font = QFont()
-        font.setBold(False)
-        self.scrollArea.setFont(font)
-        self.scrollArea.setStyleSheet(u"padding: 1px")
-        self.scrollArea.setFrameShape(QFrame.StyledPanel)
+        font1 = QFont()
+        font1.setBold(False)
+        self.scrollArea.setFont(font1)
+        self.scrollArea.setFrameShape(QFrame.Shape.StyledPanel)
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 326, 459))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 348, 460))
         self.formLayout = QFormLayout(self.scrollAreaWidgetContents)
         self.formLayout.setObjectName(u"formLayout")
         self.labelName = QLabel(self.scrollAreaWidgetContents)
         self.labelName.setObjectName(u"labelName")
-        font1 = QFont()
-        font1.setBold(True)
-        self.labelName.setFont(font1)
+        font2 = QFont()
+        font2.setBold(True)
+        self.labelName.setFont(font2)
 
         self.formLayout.setWidget(0, QFormLayout.LabelRole, self.labelName)
 
         self.labelTyp = QLabel(self.scrollAreaWidgetContents)
         self.labelTyp.setObjectName(u"labelTyp")
-        font2 = QFont()
-        font2.setItalic(True)
-        self.labelTyp.setFont(font2)
-        self.labelTyp.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        font3 = QFont()
+        font3.setItalic(True)
+        self.labelTyp.setFont(font3)
+        self.labelTyp.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.formLayout.setWidget(1, QFormLayout.LabelRole, self.labelTyp)
 
@@ -127,7 +130,7 @@ class Ui_Dialog(object):
 
         self.labelFertigkeitWert = QLabel(self.scrollAreaWidgetContents)
         self.labelFertigkeitWert.setObjectName(u"labelFertigkeitWert")
-        self.labelFertigkeitWert.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.labelFertigkeitWert.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
         self.labelFertigkeitWert.setWordWrap(True)
 
         self.formLayout.setWidget(2, QFormLayout.FieldRole, self.labelFertigkeitWert)
@@ -139,7 +142,7 @@ class Ui_Dialog(object):
 
         self.labelTalentWert = QLabel(self.scrollAreaWidgetContents)
         self.labelTalentWert.setObjectName(u"labelTalentWert")
-        self.labelTalentWert.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.labelTalentWert.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
         self.labelTalentWert.setWordWrap(True)
 
         self.formLayout.setWidget(3, QFormLayout.FieldRole, self.labelTalentWert)
@@ -153,13 +156,13 @@ class Ui_Dialog(object):
 
         self.labelTP = QLabel(self.scrollAreaWidgetContents)
         self.labelTP.setObjectName(u"labelTP")
-        self.labelTP.setFont(font)
+        self.labelTP.setFont(font1)
 
         self.formLayout.setWidget(6, QFormLayout.LabelRole, self.labelTP)
 
         self.labelTPWert = QLabel(self.scrollAreaWidgetContents)
         self.labelTPWert.setObjectName(u"labelTPWert")
-        self.labelTPWert.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.labelTPWert.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.formLayout.setWidget(6, QFormLayout.FieldRole, self.labelTPWert)
 
@@ -170,7 +173,7 @@ class Ui_Dialog(object):
 
         self.labelRWWert = QLabel(self.scrollAreaWidgetContents)
         self.labelRWWert.setObjectName(u"labelRWWert")
-        self.labelRWWert.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.labelRWWert.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.formLayout.setWidget(7, QFormLayout.FieldRole, self.labelRWWert)
 
@@ -181,7 +184,7 @@ class Ui_Dialog(object):
 
         self.labelWMWert = QLabel(self.scrollAreaWidgetContents)
         self.labelWMWert.setObjectName(u"labelWMWert")
-        self.labelWMWert.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.labelWMWert.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.formLayout.setWidget(8, QFormLayout.FieldRole, self.labelWMWert)
 
@@ -192,7 +195,7 @@ class Ui_Dialog(object):
 
         self.labelLZWert = QLabel(self.scrollAreaWidgetContents)
         self.labelLZWert.setObjectName(u"labelLZWert")
-        self.labelLZWert.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.labelLZWert.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.formLayout.setWidget(9, QFormLayout.FieldRole, self.labelLZWert)
 
@@ -203,7 +206,7 @@ class Ui_Dialog(object):
 
         self.labelHaerteWert = QLabel(self.scrollAreaWidgetContents)
         self.labelHaerteWert.setObjectName(u"labelHaerteWert")
-        self.labelHaerteWert.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.labelHaerteWert.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.formLayout.setWidget(10, QFormLayout.FieldRole, self.labelHaerteWert)
 
@@ -225,8 +228,8 @@ class Ui_Dialog(object):
 
         self.buttonBox = QDialogButtonBox(self.layoutWidget)
         self.buttonBox.setObjectName(u"buttonBox")
-        self.buttonBox.setOrientation(Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QDialogButtonBox.Cancel|QDialogButtonBox.Ok)
+        self.buttonBox.setOrientation(Qt.Orientation.Horizontal)
+        self.buttonBox.setStandardButtons(QDialogButtonBox.StandardButton.Cancel|QDialogButtonBox.StandardButton.Ok)
         self.buttonBox.setCenterButtons(True)
 
         self.verticalLayout.addWidget(self.buttonBox)
@@ -248,17 +251,17 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Sephrasto - Waffe w\u00e4hlen...", None))
         self.buttonExpandToggle.setText(QCoreApplication.translate("Dialog", u"Expand Toggle", None))
-        self.buttonExpandToggle.setProperty("class", QCoreApplication.translate("Dialog", u"icon", None))
+        self.buttonExpandToggle.setProperty(u"class", QCoreApplication.translate("Dialog", u"icon", None))
         self.nameFilterEdit.setPlaceholderText(QCoreApplication.translate("Dialog", u"Suchen...", None))
         self.labelFilter.setText(QCoreApplication.translate("Dialog", u"Suchen", None))
-        self.labelFilter.setProperty("class", QCoreApplication.translate("Dialog", u"icon", None))
+        self.labelFilter.setProperty(u"class", QCoreApplication.translate("Dialog", u"icon", None))
         ___qtreewidgetitem = self.treeWeapons.headerItem()
         ___qtreewidgetitem.setText(1, QCoreApplication.translate("Dialog", u"Talent", None));
         ___qtreewidgetitem.setText(0, QCoreApplication.translate("Dialog", u"Name", None));
         self.labelName.setText(QCoreApplication.translate("Dialog", u"Brabakbengel", None))
-        self.labelName.setProperty("class", QCoreApplication.translate("Dialog", u"h4", None))
+        self.labelName.setProperty(u"class", QCoreApplication.translate("Dialog", u"h4", None))
         self.labelTyp.setText(QCoreApplication.translate("Dialog", u"Nahkampfwaffe", None))
-        self.labelTyp.setProperty("class", QCoreApplication.translate("Dialog", u"italic", None))
+        self.labelTyp.setProperty(u"class", QCoreApplication.translate("Dialog", u"italic", None))
         self.labelFertigkeit.setText(QCoreApplication.translate("Dialog", u"Fertigkeit:", None))
         self.labelFertigkeitWert.setText(QCoreApplication.translate("Dialog", u"Hiebwaffen", None))
         self.labelTalent.setText(QCoreApplication.translate("Dialog", u"Talent:", None))

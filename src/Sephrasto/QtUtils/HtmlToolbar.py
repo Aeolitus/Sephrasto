@@ -103,6 +103,9 @@ class HtmlToolbar(QtWidgets.QWidget):
         for w in self._widgets:
             if isinstance(w, QtWidgets.QPushButton):
                 w.setProperty("class", "icon")
+                font = w.font()
+                font.setHintingPreference(QtGui.QFont.PreferNoHinting)
+                w.setFont(font)
             layout.addWidget(w)
 
         layout.addStretch()

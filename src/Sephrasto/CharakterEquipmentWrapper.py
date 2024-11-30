@@ -33,9 +33,6 @@ class EquipWrapper(QtCore.QObject):
             self.ui.tabs.addTab(self.inventarWrapper.form, "Inventar")
 
         self.ui.tabs.currentChanged.connect(self.load)
-        for i in range(self.ui.tabs.tabBar().count()):
-            self.ui.tabs.tabBar().setTabTextColor(i, QtGui.QColor(Wolke.HeadingColor))
-        self.ui.tabs.setStyleSheet('QTabBar { font-size: ' + str(Wolke.Settings["FontHeadingSize"]) + 'pt; font-family: \"' + Wolke.Settings["FontHeading"] + '\"; }')
 
     def load(self):
         if hasattr(self, "waffenWrapper") and self.ui.tabs.currentWidget() == self.waffenWrapper.form:

@@ -28,9 +28,6 @@ class CharakterInventarWrapper(QtCore.QObject):
         self.ui.setupUi(self.form)
         logging.debug("UI Setup...")
 
-        palette = QtWidgets.QApplication.instance().palette()
-        alternateBgStyle = "background-color: " + palette.alternateBase().color().name() + ";"
-
         self.editRName = []
         self.spinBE = []
         self.spinRS = []
@@ -85,7 +82,7 @@ class CharakterInventarWrapper(QtCore.QObject):
             self.inventoryLines.append(lineEdit)
 
             if i in [2, 3, 6, 7, 10, 11, 14, 15, 18, 19]:
-                lineEdit.setStyleSheet(alternateBgStyle)
+                lineEdit.setProperty("class", "alternateBase")
 
         self.currentlyLoading = False
         
@@ -104,15 +101,18 @@ class CharakterInventarWrapper(QtCore.QObject):
 
         spinPunkte = self.spinPunkte[index]
         if sum(R.rs) % 6 != 0:
-            spinPunkte.setStyleSheet("border: 1px solid orange;")
+            spinPunkte.setProperty("warning", True)
             missingPoints = 6 - sum(R.rs) % 6
             if missingPoints == 1:
                 spinPunkte.setToolTip("Der Rüstung fehlt " + str(missingPoints) + " Punkt ZRS.")
             else:
                 spinPunkte.setToolTip("Der Rüstung fehlen " + str(missingPoints) + " Punkte ZRS.")
         else:
-            spinPunkte.setStyleSheet("")
+            spinPunkte.setProperty("warning", False)
             spinPunkte.setToolTip("")
+            
+        spinPunkte.style().unpolish(spinPunkte)
+        spinPunkte.style().polish(spinPunkte)
 
         spinPunkte.setValue(sum(R.rs))
 

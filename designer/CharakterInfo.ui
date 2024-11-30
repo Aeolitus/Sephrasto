@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1058</width>
-    <height>849</height>
+    <height>864</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -41,7 +41,6 @@
       <widget class="QLabel" name="labelEinstellungen">
        <property name="font">
         <font>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -110,16 +109,16 @@
         </item>
         <item row="15" column="0" colspan="2">
          <widget class="QLabel" name="labelReload">
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
-          </property>
           <property name="text">
            <string>Der Charakter muss gespeichert und neu geladen werden, damit die neuen Hausregeln übernommen werden können!</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
           </property>
           <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+          <property name="warning" stdset="0">
            <bool>true</bool>
           </property>
          </widget>
@@ -164,10 +163,10 @@
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
-        <enum>Qt::Vertical</enum>
+        <enum>Qt::Orientation::Vertical</enum>
        </property>
        <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
+        <enum>QSizePolicy::Policy::Fixed</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -181,7 +180,6 @@
       <widget class="QLabel" name="label_16">
        <property name="font">
         <font>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -289,7 +287,7 @@
           <item>
            <spacer name="horizontalSpacer_2">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -301,6 +299,11 @@
           </item>
           <item>
            <widget class="QLabel" name="labelRegelnGroesse">
+            <property name="font">
+             <font>
+              <hintingpreference>PreferNoHinting</hintingpreference>
+             </font>
+            </property>
             <property name="text">
              <string>Schriftgröße</string>
             </property>
@@ -327,7 +330,7 @@
              <string>Schriftgröße des Regelanhangs</string>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::PlusMinus</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
             </property>
             <property name="minimum">
              <number>6</number>
@@ -342,6 +345,11 @@
           </item>
           <item>
            <widget class="QPushButton" name="buttonRegeln">
+            <property name="font">
+             <font>
+              <hintingpreference>PreferNoHinting</hintingpreference>
+             </font>
+            </property>
             <property name="toolTip">
              <string>Kategorien auswählen, die im Regelanhang erscheinen sollen.</string>
             </property>
@@ -368,10 +376,10 @@
      <item>
       <spacer name="verticalSpacer_2">
        <property name="orientation">
-        <enum>Qt::Vertical</enum>
+        <enum>Qt::Orientation::Vertical</enum>
        </property>
        <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
+        <enum>QSizePolicy::Policy::Fixed</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -385,7 +393,6 @@
       <widget class="QLabel" name="labelEP">
        <property name="font">
         <font>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -420,16 +427,16 @@
           <item row="3" column="1">
            <widget class="QSpinBox" name="spinFertigkeitenSpent">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
             </property>
             <property name="suffix">
              <string> EP</string>
@@ -442,16 +449,16 @@
           <item row="6" column="2">
            <widget class="QSpinBox" name="spinUebernatuerlichPercent">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
             </property>
             <property name="suffix">
              <string> %</string>
@@ -482,16 +489,16 @@
           <item row="2" column="2">
            <widget class="QSpinBox" name="spinProfanPercent">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
             </property>
             <property name="suffix">
              <string> %</string>
@@ -504,16 +511,16 @@
           <item row="1" column="1">
            <widget class="QSpinBox" name="spinVorteileSpent">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
             </property>
             <property name="suffix">
              <string> EP</string>
@@ -526,16 +533,16 @@
           <item row="0" column="1">
            <widget class="QSpinBox" name="spinAttributeSpent">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
             </property>
             <property name="suffix">
              <string> EP</string>
@@ -548,16 +555,16 @@
           <item row="8" column="1">
            <widget class="QSpinBox" name="spinUeberTalenteSpent">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
             </property>
             <property name="suffix">
              <string> EP</string>
@@ -570,16 +577,16 @@
           <item row="5" column="1">
            <widget class="QSpinBox" name="spinFreieSpent">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
             </property>
             <property name="suffix">
              <string> EP</string>
@@ -592,16 +599,16 @@
           <item row="7" column="2">
            <widget class="QSpinBox" name="spinUeberFertigkeitenPercent">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
             </property>
             <property name="suffix">
              <string> %)</string>
@@ -624,7 +631,6 @@
             </property>
             <property name="font">
              <font>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -639,16 +645,16 @@
           <item row="0" column="2">
            <widget class="QSpinBox" name="spinAttributePercent">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
             </property>
             <property name="suffix">
              <string> %</string>
@@ -661,16 +667,16 @@
           <item row="8" column="2">
            <widget class="QSpinBox" name="spinUeberTalentePercent">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
             </property>
             <property name="suffix">
              <string> %)</string>
@@ -693,7 +699,6 @@
             </property>
             <property name="font">
              <font>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -726,16 +731,16 @@
           <item row="6" column="1">
            <widget class="QSpinBox" name="spinUebernatuerlichSpent">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
             </property>
             <property name="suffix">
              <string> EP</string>
@@ -748,16 +753,16 @@
           <item row="7" column="1">
            <widget class="QSpinBox" name="spinUeberFertigkeitenSpent">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
             </property>
             <property name="suffix">
              <string> EP</string>
@@ -770,16 +775,16 @@
           <item row="5" column="2">
            <widget class="QSpinBox" name="spinFreiePercent">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
             </property>
             <property name="suffix">
              <string> %)</string>
@@ -795,16 +800,16 @@
           <item row="3" column="2">
            <widget class="QSpinBox" name="spinFertigkeitenPercent">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
             </property>
             <property name="suffix">
              <string> %)</string>
@@ -820,16 +825,16 @@
           <item row="4" column="2">
            <widget class="QSpinBox" name="spinTalentePercent">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
             </property>
             <property name="suffix">
              <string> %)</string>
@@ -845,16 +850,16 @@
           <item row="2" column="1">
            <widget class="QSpinBox" name="spinProfanSpent">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
             </property>
             <property name="suffix">
              <string> EP</string>
@@ -874,7 +879,6 @@
             </property>
             <property name="font">
              <font>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -950,7 +954,6 @@
             </property>
             <property name="font">
              <font>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -965,16 +968,16 @@
           <item row="4" column="1">
            <widget class="QSpinBox" name="spinTalenteSpent">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
             </property>
             <property name="suffix">
              <string> EP</string>
@@ -987,16 +990,16 @@
           <item row="1" column="2">
            <widget class="QSpinBox" name="spinVorteilePercent">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
             <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
+             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
             </property>
             <property name="suffix">
              <string> %</string>
@@ -1014,7 +1017,7 @@
      <item>
       <spacer name="verticalSpacer">
        <property name="orientation">
-        <enum>Qt::Vertical</enum>
+        <enum>Qt::Orientation::Vertical</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -1032,7 +1035,6 @@
       <widget class="QLabel" name="labelNotiz">
        <property name="font">
         <font>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>

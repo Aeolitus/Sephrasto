@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'DatenbankEditAbgeleiteterWert.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -33,7 +33,7 @@ class Ui_dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 502, 593))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 485, 617))
         self.formLayout = QFormLayout(self.scrollAreaWidgetContents)
         self.formLayout.setObjectName(u"formLayout")
         self.labelName = QLabel(self.scrollAreaWidgetContents)
@@ -79,7 +79,7 @@ class Ui_dialog(object):
 
         self.spinSortOrder = QSpinBox(self.scrollAreaWidgetContents)
         self.spinSortOrder.setObjectName(u"spinSortOrder")
-        self.spinSortOrder.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.spinSortOrder.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.PlusMinus)
         self.spinSortOrder.setMinimum(-999)
         self.spinSortOrder.setMaximum(999)
 
@@ -151,6 +151,9 @@ class Ui_dialog(object):
 
         self.buttonPickScript = QPushButton(self.scrollAreaWidgetContents)
         self.buttonPickScript.setObjectName(u"buttonPickScript")
+        font = QFont()
+        font.setHintingPreference(QFont.PreferNoHinting)
+        self.buttonPickScript.setFont(font)
 
         self.horizontalLayout_3.addWidget(self.buttonPickScript)
 
@@ -171,6 +174,7 @@ class Ui_dialog(object):
 
         self.buttonPickFinalscript = QPushButton(self.scrollAreaWidgetContents)
         self.buttonPickFinalscript.setObjectName(u"buttonPickFinalscript")
+        self.buttonPickFinalscript.setFont(font)
 
         self.horizontalLayout_2.addWidget(self.buttonPickFinalscript)
 
@@ -226,7 +230,7 @@ class Ui_dialog(object):
         self.buttonPickScript.setToolTip(QCoreApplication.translate("dialog", u"Scripteditor \u00f6ffnen", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonPickScript.setText(QCoreApplication.translate("dialog", u"+", None))
-        self.buttonPickScript.setProperty("class", QCoreApplication.translate("dialog", u"iconSmall", None))
+        self.buttonPickScript.setProperty(u"class", QCoreApplication.translate("dialog", u"iconSmall", None))
         self.labelFinalscript.setText(QCoreApplication.translate("dialog", u"Finalwert Script", None))
 #if QT_CONFIG(tooltip)
         self.teFinalscript.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Manche abgeleitete Werte werden nach allen Berechnungen (erneut) modifiziert, beispielsweise indem die BE noch abgezogen wird. In diesem Feld kannst du ein Python-Skript einf\u00fcgen, das den finalen Wert berechnet.</p></body></html>", None))
@@ -235,6 +239,6 @@ class Ui_dialog(object):
         self.buttonPickFinalscript.setToolTip(QCoreApplication.translate("dialog", u"Scripteditor \u00f6ffnen", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonPickFinalscript.setText(QCoreApplication.translate("dialog", u"+", None))
-        self.buttonPickFinalscript.setProperty("class", QCoreApplication.translate("dialog", u"iconSmall", None))
+        self.buttonPickFinalscript.setProperty(u"class", QCoreApplication.translate("dialog", u"iconSmall", None))
     # retranslateUi
 

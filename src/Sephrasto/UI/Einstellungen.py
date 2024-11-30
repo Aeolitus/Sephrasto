@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'Einstellungen.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -27,19 +27,19 @@ class Ui_SettingsWindow(object):
     def setupUi(self, SettingsWindow):
         if not SettingsWindow.objectName():
             SettingsWindow.setObjectName(u"SettingsWindow")
-        SettingsWindow.setWindowModality(Qt.ApplicationModal)
-        SettingsWindow.resize(654, 676)
+        SettingsWindow.setWindowModality(Qt.WindowModality.ApplicationModal)
+        SettingsWindow.resize(720, 715)
         SettingsWindow.setMinimumSize(QSize(520, 0))
         self.gridLayout = QGridLayout(SettingsWindow)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(11, 11, 11, 11)
         self.scrollArea = QScrollArea(SettingsWindow)
         self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setFrameShape(QFrame.NoFrame)
+        self.scrollArea.setFrameShape(QFrame.Shape.NoFrame)
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 652, 598))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 698, 657))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -82,6 +82,9 @@ class Ui_SettingsWindow(object):
 
         self.buttonLogOpen = QPushButton(self.groupBox_5)
         self.buttonLogOpen.setObjectName(u"buttonLogOpen")
+        font = QFont()
+        font.setHintingPreference(QFont.PreferNoHinting)
+        self.buttonLogOpen.setFont(font)
 
         self.horizontalLayout.addWidget(self.buttonLogOpen)
 
@@ -124,16 +127,19 @@ class Ui_SettingsWindow(object):
 
         self.buttonPlugins = QPushButton(self.groupBox_2)
         self.buttonPlugins.setObjectName(u"buttonPlugins")
+        self.buttonPlugins.setFont(font)
 
         self.gridLayout_5.addWidget(self.buttonPlugins, 3, 2, 1, 1)
 
         self.resetPlugins = QPushButton(self.groupBox_2)
         self.resetPlugins.setObjectName(u"resetPlugins")
+        self.resetPlugins.setFont(font)
 
         self.gridLayout_5.addWidget(self.resetPlugins, 3, 3, 1, 1)
 
         self.resetChar = QPushButton(self.groupBox_2)
         self.resetChar.setObjectName(u"resetChar")
+        self.resetChar.setFont(font)
 
         self.gridLayout_5.addWidget(self.resetChar, 0, 3, 1, 1)
 
@@ -151,11 +157,13 @@ class Ui_SettingsWindow(object):
 
         self.resetRegeln = QPushButton(self.groupBox_2)
         self.resetRegeln.setObjectName(u"resetRegeln")
+        self.resetRegeln.setFont(font)
 
         self.gridLayout_5.addWidget(self.resetRegeln, 2, 3, 1, 1)
 
         self.buttonRegeln = QPushButton(self.groupBox_2)
         self.buttonRegeln.setObjectName(u"buttonRegeln")
+        self.buttonRegeln.setFont(font)
 
         self.gridLayout_5.addWidget(self.buttonRegeln, 2, 2, 1, 1)
 
@@ -172,6 +180,7 @@ class Ui_SettingsWindow(object):
 
         self.buttonChar = QPushButton(self.groupBox_2)
         self.buttonChar.setObjectName(u"buttonChar")
+        self.buttonChar.setFont(font)
 
         self.gridLayout_5.addWidget(self.buttonChar, 0, 2, 1, 1)
 
@@ -187,11 +196,13 @@ class Ui_SettingsWindow(object):
 
         self.buttonCharakterboegen = QPushButton(self.groupBox_2)
         self.buttonCharakterboegen.setObjectName(u"buttonCharakterboegen")
+        self.buttonCharakterboegen.setFont(font)
 
         self.gridLayout_5.addWidget(self.buttonCharakterboegen, 4, 2, 1, 1)
 
         self.resetCharakterboegen = QPushButton(self.groupBox_2)
         self.resetCharakterboegen.setObjectName(u"resetCharakterboegen")
+        self.resetCharakterboegen.setFont(font)
 
         self.gridLayout_5.addWidget(self.resetCharakterboegen, 4, 3, 1, 1)
 
@@ -200,17 +211,18 @@ class Ui_SettingsWindow(object):
 
         self.groupBox = QGroupBox(self.tab)
         self.groupBox.setObjectName(u"groupBox")
-        font = QFont()
-        font.setBold(False)
-        self.groupBox.setFont(font)
+        font1 = QFont()
+        font1.setBold(False)
+        self.groupBox.setFont(font1)
         self.groupBox.setFlat(False)
         self.gridLayout_3 = QGridLayout(self.groupBox)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.label = QLabel(self.groupBox)
         self.label.setObjectName(u"label")
-        font1 = QFont()
-        font1.setItalic(False)
-        self.label.setFont(font1)
+        font2 = QFont()
+        font2.setBold(False)
+        font2.setItalic(False)
+        self.label.setFont(font2)
 
         self.gridLayout_3.addWidget(self.label, 4, 0, 1, 1)
 
@@ -222,7 +234,7 @@ class Ui_SettingsWindow(object):
 
         self.label_6 = QLabel(self.groupBox)
         self.label_6.setObjectName(u"label_6")
-        self.label_6.setFont(font1)
+        self.label_6.setFont(font2)
 
         self.gridLayout_3.addWidget(self.label_6, 9, 0, 1, 1)
 
@@ -273,8 +285,8 @@ class Ui_SettingsWindow(object):
         self.spinRulesFontSize.setObjectName(u"spinRulesFontSize")
         self.spinRulesFontSize.setMinimumSize(QSize(60, 0))
         self.spinRulesFontSize.setMaximumSize(QSize(60, 16777215))
-        self.spinRulesFontSize.setAlignment(Qt.AlignCenter)
-        self.spinRulesFontSize.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.spinRulesFontSize.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.spinRulesFontSize.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.PlusMinus)
         self.spinRulesFontSize.setMinimum(6)
         self.spinRulesFontSize.setMaximum(12)
         self.spinRulesFontSize.setValue(8)
@@ -323,7 +335,7 @@ class Ui_SettingsWindow(object):
         self.spinCharListCols.setObjectName(u"spinCharListCols")
         self.spinCharListCols.setMinimumSize(QSize(60, 0))
         self.spinCharListCols.setMaximumSize(QSize(60, 16777215))
-        self.spinCharListCols.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.spinCharListCols.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.PlusMinus)
         self.spinCharListCols.setMinimum(1)
         self.spinCharListCols.setMaximum(4)
         self.spinCharListCols.setValue(2)
@@ -339,7 +351,7 @@ class Ui_SettingsWindow(object):
         self.spinCharListRows.setObjectName(u"spinCharListRows")
         self.spinCharListRows.setMinimumSize(QSize(60, 0))
         self.spinCharListRows.setMaximumSize(QSize(60, 16777215))
-        self.spinCharListRows.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.spinCharListRows.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.PlusMinus)
         self.spinCharListRows.setMinimum(1)
         self.spinCharListRows.setMaximum(8)
         self.spinCharListRows.setValue(5)
@@ -378,9 +390,9 @@ class Ui_SettingsWindow(object):
         self.spinAppFontHeadingSize.setObjectName(u"spinAppFontHeadingSize")
         self.spinAppFontHeadingSize.setMinimumSize(QSize(60, 0))
         self.spinAppFontHeadingSize.setMaximumSize(QSize(60, 16777215))
-        self.spinAppFontHeadingSize.setLayoutDirection(Qt.LeftToRight)
-        self.spinAppFontHeadingSize.setAlignment(Qt.AlignCenter)
-        self.spinAppFontHeadingSize.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.spinAppFontHeadingSize.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.spinAppFontHeadingSize.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.spinAppFontHeadingSize.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.PlusMinus)
         self.spinAppFontHeadingSize.setMinimum(6)
         self.spinAppFontHeadingSize.setMaximum(18)
         self.spinAppFontHeadingSize.setValue(10)
@@ -415,9 +427,9 @@ class Ui_SettingsWindow(object):
         self.spinAppFontSize.setObjectName(u"spinAppFontSize")
         self.spinAppFontSize.setMinimumSize(QSize(60, 0))
         self.spinAppFontSize.setMaximumSize(QSize(60, 16777215))
-        self.spinAppFontSize.setLayoutDirection(Qt.LeftToRight)
-        self.spinAppFontSize.setAlignment(Qt.AlignCenter)
-        self.spinAppFontSize.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.spinAppFontSize.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.spinAppFontSize.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.spinAppFontSize.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.PlusMinus)
         self.spinAppFontSize.setMinimum(6)
         self.spinAppFontSize.setMaximum(18)
         self.spinAppFontSize.setValue(8)
@@ -440,6 +452,7 @@ class Ui_SettingsWindow(object):
 
         self.resetFontOS = QPushButton(self.groupBox_3)
         self.resetFontOS.setObjectName(u"resetFontOS")
+        self.resetFontOS.setFont(font)
 
         self.horizontalLayout_2.addWidget(self.resetFontOS)
 
@@ -456,10 +469,10 @@ class Ui_SettingsWindow(object):
         self.gridLayout_6.setObjectName(u"gridLayout_6")
         self.tablePlugins = QTableWidget(self.tab_2)
         self.tablePlugins.setObjectName(u"tablePlugins")
-        self.tablePlugins.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.tablePlugins.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.tablePlugins.setAlternatingRowColors(True)
-        self.tablePlugins.setSelectionMode(QAbstractItemView.SingleSelection)
-        self.tablePlugins.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.tablePlugins.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
+        self.tablePlugins.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
 
         self.gridLayout_6.addWidget(self.tablePlugins, 1, 0, 2, 1)
 
@@ -467,6 +480,7 @@ class Ui_SettingsWindow(object):
         self.layoutPluginButtons.setObjectName(u"layoutPluginButtons")
         self.buttonSettings = QPushButton(self.tab_2)
         self.buttonSettings.setObjectName(u"buttonSettings")
+        self.buttonSettings.setFont(font)
 
         self.layoutPluginButtons.addWidget(self.buttonSettings)
 
@@ -519,8 +533,8 @@ class Ui_SettingsWindow(object):
 
         self.buttonBox = QDialogButtonBox(SettingsWindow)
         self.buttonBox.setObjectName(u"buttonBox")
-        self.buttonBox.setOrientation(Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QDialogButtonBox.Cancel|QDialogButtonBox.Ok)
+        self.buttonBox.setOrientation(Qt.Orientation.Horizontal)
+        self.buttonBox.setStandardButtons(QDialogButtonBox.StandardButton.Cancel|QDialogButtonBox.StandardButton.Ok)
         self.buttonBox.setCenterButtons(True)
 
         self.gridLayout.addWidget(self.buttonBox, 2, 0, 1, 1)
@@ -580,7 +594,7 @@ class Ui_SettingsWindow(object):
         self.buttonLogOpen.setToolTip(QCoreApplication.translate("SettingsWindow", u"Logdatei zeigen", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonLogOpen.setText(QCoreApplication.translate("SettingsWindow", u"PushButton", None))
-        self.buttonLogOpen.setProperty("class", QCoreApplication.translate("SettingsWindow", u"icon", None))
+        self.buttonLogOpen.setProperty(u"class", QCoreApplication.translate("SettingsWindow", u"icon", None))
         self.label_15.setText(QCoreApplication.translate("SettingsWindow", u"Charakterbogen nach dem Erstellen \u00f6ffnen", None))
         self.checkPDFOpen.setText("")
         self.groupBox_2.setTitle(QCoreApplication.translate("SettingsWindow", u"Speicherpfade", None))
@@ -590,38 +604,38 @@ class Ui_SettingsWindow(object):
         self.buttonPlugins.setToolTip(QCoreApplication.translate("SettingsWindow", u"Ordner suchen", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonPlugins.setText(QCoreApplication.translate("SettingsWindow", u"Durchsuchen", None))
-        self.buttonPlugins.setProperty("class", QCoreApplication.translate("SettingsWindow", u"icon", None))
+        self.buttonPlugins.setProperty(u"class", QCoreApplication.translate("SettingsWindow", u"icon", None))
 #if QT_CONFIG(tooltip)
         self.resetPlugins.setToolTip(QCoreApplication.translate("SettingsWindow", u"Auf den Standardordner zur\u00fccksetzen", None))
 #endif // QT_CONFIG(tooltip)
         self.resetPlugins.setText(QCoreApplication.translate("SettingsWindow", u"Zur\u00fccksetzen", None))
-        self.resetPlugins.setProperty("class", QCoreApplication.translate("SettingsWindow", u"icon", None))
+        self.resetPlugins.setProperty(u"class", QCoreApplication.translate("SettingsWindow", u"icon", None))
 #if QT_CONFIG(tooltip)
         self.resetChar.setToolTip(QCoreApplication.translate("SettingsWindow", u"Auf den Standardordner zur\u00fccksetzen", None))
 #endif // QT_CONFIG(tooltip)
         self.resetChar.setText(QCoreApplication.translate("SettingsWindow", u"Zur\u00fccksetzen", None))
-        self.resetChar.setProperty("class", QCoreApplication.translate("SettingsWindow", u"icon", None))
+        self.resetChar.setProperty(u"class", QCoreApplication.translate("SettingsWindow", u"icon", None))
 #if QT_CONFIG(tooltip)
         self.resetRegeln.setToolTip(QCoreApplication.translate("SettingsWindow", u"Auf den Standardordner zur\u00fccksetzen", None))
 #endif // QT_CONFIG(tooltip)
         self.resetRegeln.setText(QCoreApplication.translate("SettingsWindow", u"Zur\u00fccksetzen", None))
-        self.resetRegeln.setProperty("class", QCoreApplication.translate("SettingsWindow", u"icon", None))
+        self.resetRegeln.setProperty(u"class", QCoreApplication.translate("SettingsWindow", u"icon", None))
 #if QT_CONFIG(tooltip)
         self.buttonRegeln.setToolTip(QCoreApplication.translate("SettingsWindow", u"Ordner suchen", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonRegeln.setText(QCoreApplication.translate("SettingsWindow", u"Durchsuchen", None))
-        self.buttonRegeln.setProperty("class", QCoreApplication.translate("SettingsWindow", u"icon", None))
+        self.buttonRegeln.setProperty(u"class", QCoreApplication.translate("SettingsWindow", u"icon", None))
         self.label_2.setText(QCoreApplication.translate("SettingsWindow", u"Charaktere", None))
 #if QT_CONFIG(tooltip)
         self.buttonChar.setToolTip(QCoreApplication.translate("SettingsWindow", u"Ordner suchen", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonChar.setText(QCoreApplication.translate("SettingsWindow", u"Durchsuchen", None))
-        self.buttonChar.setProperty("class", QCoreApplication.translate("SettingsWindow", u"icon", None))
+        self.buttonChar.setProperty(u"class", QCoreApplication.translate("SettingsWindow", u"icon", None))
         self.label_18.setText(QCoreApplication.translate("SettingsWindow", u"Charakterb\u00f6gen", None))
         self.buttonCharakterboegen.setText(QCoreApplication.translate("SettingsWindow", u"Durchsuchen", None))
-        self.buttonCharakterboegen.setProperty("class", QCoreApplication.translate("SettingsWindow", u"icon", None))
+        self.buttonCharakterboegen.setProperty(u"class", QCoreApplication.translate("SettingsWindow", u"icon", None))
         self.resetCharakterboegen.setText(QCoreApplication.translate("SettingsWindow", u"Zur\u00fccksetzen", None))
-        self.resetCharakterboegen.setProperty("class", QCoreApplication.translate("SettingsWindow", u"icon", None))
+        self.resetCharakterboegen.setProperty(u"class", QCoreApplication.translate("SettingsWindow", u"icon", None))
         self.groupBox.setTitle(QCoreApplication.translate("SettingsWindow", u"Standard-Einstellungen f\u00fcr neue Charaktere", None))
         self.label.setText(QCoreApplication.translate("SettingsWindow", u"Verwendeter Charakterbogen", None))
 #if QT_CONFIG(tooltip)
@@ -668,10 +682,10 @@ class Ui_SettingsWindow(object):
         self.resetFontOS.setToolTip(QCoreApplication.translate("SettingsWindow", u"Darstellungsoptionen auf Betriebssystemstandard zur\u00fccksetzen", None))
 #endif // QT_CONFIG(tooltip)
         self.resetFontOS.setText(QCoreApplication.translate("SettingsWindow", u"OS", None))
-        self.resetFontOS.setProperty("class", QCoreApplication.translate("SettingsWindow", u"icon", None))
+        self.resetFontOS.setProperty(u"class", QCoreApplication.translate("SettingsWindow", u"icon", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), QCoreApplication.translate("SettingsWindow", u"Darstellung", None))
         self.buttonSettings.setText(QCoreApplication.translate("SettingsWindow", u"Einstellungen", None))
-        self.buttonSettings.setProperty("class", QCoreApplication.translate("SettingsWindow", u"icon", None))
+        self.buttonSettings.setProperty(u"class", QCoreApplication.translate("SettingsWindow", u"icon", None))
         self.buttonInstall.setText(QCoreApplication.translate("SettingsWindow", u"Installieren", None))
         self.buttonUpdate.setText(QCoreApplication.translate("SettingsWindow", u"Update", None))
         self.buttonDowngrade.setText(QCoreApplication.translate("SettingsWindow", u"Downgrade", None))

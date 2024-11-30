@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterAttribute.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -210,39 +210,39 @@ class Ui_formAttribute(object):
     def retranslateUi(self, formAttribute):
         formAttribute.setWindowTitle(QCoreApplication.translate("formAttribute", u"Attribute", None))
         self.label_18.setText(QCoreApplication.translate("formAttribute", u"Abgeleitete Werte", None))
-        self.label_18.setProperty("class", QCoreApplication.translate("formAttribute", u"h2", None))
+        self.label_18.setProperty(u"class", QCoreApplication.translate("formAttribute", u"h2", None))
         self.gbAbgeleiteteWerte.setTitle("")
         self.label_9.setText("")
         self.label_8.setText("")
         self.label_4.setText(QCoreApplication.translate("formAttribute", u"Wert", None))
-        self.label_4.setProperty("class", QCoreApplication.translate("formAttribute", u"h2", None))
+        self.label_4.setProperty(u"class", QCoreApplication.translate("formAttribute", u"h2", None))
         self.label_5.setText(QCoreApplication.translate("formAttribute", u"Formel", None))
-        self.label_5.setProperty("class", QCoreApplication.translate("formAttribute", u"h2", None))
+        self.label_5.setProperty(u"class", QCoreApplication.translate("formAttribute", u"h2", None))
         self.label_16.setText(QCoreApplication.translate("formAttribute", u"Attribute", None))
-        self.label_16.setProperty("class", QCoreApplication.translate("formAttribute", u"h2", None))
+        self.label_16.setProperty(u"class", QCoreApplication.translate("formAttribute", u"h2", None))
         self.gbAttribute.setTitle("")
         self.label.setText(QCoreApplication.translate("formAttribute", u"Wert", None))
-        self.label.setProperty("class", QCoreApplication.translate("formAttribute", u"h2", None))
+        self.label.setProperty(u"class", QCoreApplication.translate("formAttribute", u"h2", None))
         self.label_3.setText(QCoreApplication.translate("formAttribute", u"Kosten", None))
-        self.label_3.setProperty("class", QCoreApplication.translate("formAttribute", u"h2", None))
+        self.label_3.setProperty(u"class", QCoreApplication.translate("formAttribute", u"h2", None))
         self.label_6.setText("")
         self.label_7.setText("")
         self.label_2.setText(QCoreApplication.translate("formAttribute", u"PW", None))
-        self.label_2.setProperty("class", QCoreApplication.translate("formAttribute", u"h2", None))
+        self.label_2.setProperty(u"class", QCoreApplication.translate("formAttribute", u"h2", None))
         self.labelEnergien.setText(QCoreApplication.translate("formAttribute", u"Energien", None))
-        self.labelEnergien.setProperty("class", QCoreApplication.translate("formAttribute", u"h2", None))
+        self.labelEnergien.setProperty(u"class", QCoreApplication.translate("formAttribute", u"h2", None))
         self.gbEnergien.setTitle("")
         self.label_10.setText("")
         self.label_15.setText(QCoreApplication.translate("formAttribute", u"Gebunden", None))
-        self.label_15.setProperty("class", QCoreApplication.translate("formAttribute", u"h2", None))
+        self.label_15.setProperty(u"class", QCoreApplication.translate("formAttribute", u"h2", None))
         self.label_12.setText(QCoreApplication.translate("formAttribute", u"Wert", None))
-        self.label_12.setProperty("class", QCoreApplication.translate("formAttribute", u"h2", None))
+        self.label_12.setProperty(u"class", QCoreApplication.translate("formAttribute", u"h2", None))
         self.label_11.setText("")
         self.label_13.setText(QCoreApplication.translate("formAttribute", u"Zukauf", None))
-        self.label_13.setProperty("class", QCoreApplication.translate("formAttribute", u"h2", None))
+        self.label_13.setProperty(u"class", QCoreApplication.translate("formAttribute", u"h2", None))
         self.label_14.setText(QCoreApplication.translate("formAttribute", u"Kosten", None))
-        self.label_14.setProperty("class", QCoreApplication.translate("formAttribute", u"h2", None))
+        self.label_14.setProperty(u"class", QCoreApplication.translate("formAttribute", u"h2", None))
         self.label_17.setText(QCoreApplication.translate("formAttribute", u"Gesamt", None))
-        self.label_17.setProperty("class", QCoreApplication.translate("formAttribute", u"h2", None))
+        self.label_17.setProperty(u"class", QCoreApplication.translate("formAttribute", u"h2", None))
     # retranslateUi
 

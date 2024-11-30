@@ -3,7 +3,8 @@
 
 import sys
 
-from PySide6.QtCore import QRegularExpression
+from Wolke import Wolke
+from PySide6.QtCore import QRegularExpression, QTimer
 from PySide6.QtGui import QColor, QTextCharFormat, QFont, QSyntaxHighlighter
 
 quote = "%s%s%s" % (chr(39), chr(39), chr(39))
@@ -26,24 +27,6 @@ def format(color, style=''):
         _format.setFontWeight(QFont.Bold)
     return _format
 
-mybrawn = ("#7E5916")
-# Syntax styles that can be shared by all languages
-STYLES = {
-    'keyword': format('#2C2CC8', 'bold'),
-    'operator': format('darkred'),
-    'brace': format('darkred'),
-    'defclass': format('#cc0000', 'bold'),
-    'classes': format('#cc0000', 'bold'),
-    'Qtclass': format('black', 'bold'),
-    'string': format(mybrawn),
-    'string2': format('#42923b', 'italic'),
-    'comment': format('#42923b', 'italic'),
-    'self': format('#D63030', 'italicbold'),
-    'selfnext': format('#2e3436', 'bold'),
-    'Qnext': format('#2e3436', 'bold'),
-    'numbers': format('#C82C2C'),
-}
-
 class Highlighter(QSyntaxHighlighter):
     '''Syntax highlighter for the Python language.
     '''
@@ -54,7 +37,7 @@ class Highlighter(QSyntaxHighlighter):
         'for', 'from', 'global', 'if', 'import', 'in',
         'is', 'lambda', 'not', 'or', 'pass', 'print',
         'raise', 'return', 'super', 'try', 'while', 'yield',
-        'None', 'True', 'False',
+        'None', 'True', 'False', 'self', 'sorted'
     ]
 
     # Python operators
@@ -74,72 +57,97 @@ class Highlighter(QSyntaxHighlighter):
     braces = [
         '\{', '\}', '\(', '\)', '\[', '\]',
     ]
+
     def __init__(self, document):
-        QSyntaxHighlighter.__init__(self, document)
-        tri = (quote)
-        trid = (dquote)
+        super().__init__(document)
+        
+        self.styles = {
+            'keyword': format(Wolke.CodeKeywordColor, 'bold'),
+            'operator': format(Wolke.CodeOperatorsBracesColor),
+            'brace': format(Wolke.CodeOperatorsBracesColor),
+            'defnext': format(Wolke.CodeDeclarationColor, 'bold'),
+            'classnext': format(Wolke.CodeDeclarationColor, 'bold'),
+            'string': format(Wolke.CodeStringColor),
+            'comment': format(Wolke.CodeCommentColor),
+            #'selfnext': format('#2e3436', 'bold'),
+            'numbers': format(Wolke.CodeNumberColor),
+        }
+
         # Multi-line strings (expression, flag, style)
         # FIXME: The triple-quotes in these two lines will mess up the
         # syntax highlighting from this point onward
-        self.tri_single = (QRegularExpression(tri), 1, STYLES['string2'])
-        self.tri_double = (QRegularExpression(trid), 2, STYLES['string2'])
+        self.tri_single = (QRegularExpression((quote)), 1, self.styles['string'])
+        self.tri_double = (QRegularExpression((dquote)), 2, self.styles['string'])
+
+        self.updateDynamicRules = True
 
         rules = []
 
         # Keyword, operator, and brace rules
-        rules += [(r'\b%s\b' % w, 0, STYLES['keyword'])
+        rules += [(r'\b%s\b' % w, 0, self.styles['keyword'])
             for w in Highlighter.keywords]
-        rules += [(r'%s' % o, 0, STYLES['operator'])
+        rules += [(r'%s' % o, 0, self.styles['operator'])
             for o in Highlighter.operators]
-        rules += [(r'%s' % b, 0, STYLES['brace'])
+        rules += [(r'%s' % b, 0, self.styles['brace'])
             for b in Highlighter.braces]
 
         # All other rules
         rules += [
             # Numeric literals
-            (r'\b[+-]?[0-9]+[lL]?\b', 0, STYLES['numbers']),
-            (r'\b[+-]?0[xX][0-9A-Fa-f]+[lL]?\b', 0, STYLES['numbers']),
-            (r'\b[+-]?[0-9]+(?:\.[0-9]+)?(?:[eE][+-]?[0-9]+)?\b', 0, STYLES['numbers']),
-
-            # 'self'
-            (r'\bself\b', 0, STYLES['self']),
+            (r'\b[+-]?[0-9]+[lL]?\b', 0, self.styles['numbers']),
+            (r'\b[+-]?0[xX][0-9A-Fa-f]+[lL]?\b', 0, self.styles['numbers']),
+            (r'\b[+-]?[0-9]+(?:\.[0-9]+)?(?:[eE][+-]?[0-9]+)?\b', 0, self.styles['numbers']),
 
             # Double-quoted string, possibly containing escape sequences ### "\"([^\"]*)\"" ### "\"(\\w)*\""
-            (r'"[^"\\]*(\\.[^"\\]*)*"', 0, STYLES['string']),
+            (r'"[^"\\]*(\\.[^"\\]*)*"', 0, self.styles['string']),
             # Single-quoted string, possibly containing escape sequences
-            (r"'[^'\\]*(\\.[^'\\]*)*'", 0, STYLES['string']),
+            (r"'[^'\\]*(\\.[^'\\]*)*'", 0, self.styles['string']),
 
             # 'def' followed by an word
-            (r'\bdef\b\s*(\w+)', 1, STYLES['defclass']), ### (r'\bdef\b\s*(\w+)', 1, STYLES['defclass']),
+            (r'\bdef\b\s*(\w+)', 1, self.styles['defnext']),
 
             # 'self.' followed by an word
-            (r'\bself\b\s*(\w+)', 1, STYLES['selfnext']), ### (r'\bself.\b\s*(\w+)', 1, STYLES['selfnext']),
-
-            # 'Q' followed by an word
-            (r'\b[Q.]\b\s*(\w+)', 1, STYLES['Qnext']),
+            #(r'\bself.\b\s*(\w+)', 1, self.styles['selfnext']),
 
             # 'class' followed by an identifier
-            (r'\bclass\b\s*(\w+)', 1, STYLES['classes']),
+            (r'\bclass\b\s*(\w+)', 1, self.styles['classnext']),
 
             # From '#' until a newline
-            (r'#[^\n]*', 0, STYLES['comment']),
-
-            # 'Q'  word
-            #(r'\\bQ[A-Za-z]+\\b', 1, STYLES['Qtclass']), #(QRegularExpression("\\bQ[A-Za-z]+\\b")
+            (r'#[^\n]*', 0, self.styles['comment']),
         ]
 
         # Build a QRegularExpression for each pattern
         self.rules = [(QRegularExpression(pat), index, fmt)
             for (pat, index, fmt) in rules]
+        self.dynamicRules = []
+        
+        self.importRule = QRegularExpression(r"\b(?:import|class)\b (.*)")
 
+    def rebuildDynamicRules(self, text):
+        self.dynamicRules = []
+        matchIt = self.importRule.globalMatch(text)
+        while matchIt.hasNext():
+            match = matchIt.next()
+            for i in range(1, match.lastCapturedIndex() + 1):
+                imports = list(map(str.strip, match.captured(i).split(",")))
+                for imp in [i.strip(":") for i in imports if i]:
+                    self.dynamicRules.append((QRegularExpression(r'\b' + imp + r'\b'), 0, self.styles['classnext']))
+
+    def rehighlight(self):
+        self.updateDynamicRules = False
+        self.rebuildDynamicRules(self.document().toPlainText())
+        super().rehighlight()
+        self.updateDynamicRules = True
 
     def highlightBlock(self, text):
-#        Apply syntax highlighting to the given block of text.
+        # Apply syntax highlighting to the given block of text.   
+        if self.updateDynamicRules and self.importRule.match(text).hasMatch():
+            self.updateDynamicRules = False
+            QTimer.singleShot(5000,self.rehighlight)
 
         # Do other syntax formatting
-        for expression, nth, format in self.rules:
+        for expression, nth, format in self.dynamicRules + self.rules:
             match = expression.match(text)
-
             while match.hasMatch():
                 # We actually want the index of the nth match
                 index = match.capturedStart(nth)

@@ -7,7 +7,7 @@ class ProgressDialogExt(QtWidgets.QProgressDialog):
         self.__cancelPlease = False
         self.cb = self.findChild(QtWidgets.QPushButton)
         self.cb.setText("Abbrechen")
-        self.canceled.disconnect(self.cancel)
+        self.canceled.disconnect()
         self.canceled.connect(self.cancelPlease)
         self.setMinimumWidth(400)
         self.setWindowModality(QtCore.Qt.ApplicationModal)
@@ -18,7 +18,7 @@ class ProgressDialogExt(QtWidgets.QProgressDialog):
         if event.spontaneous():
             event.ignore()
             self.cancelPlease()
-            
+
     def cancelPlease(self):
         if self.cb is not None:
             self.__cancelPlease = True

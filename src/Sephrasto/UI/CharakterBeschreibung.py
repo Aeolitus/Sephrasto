@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterBeschreibung.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -246,19 +246,19 @@ class Ui_formBeschreibung(object):
     def retranslateUi(self, formBeschreibung):
         formBeschreibung.setWindowTitle(QCoreApplication.translate("formBeschreibung", u"Beschreibung", None))
         self.label_3.setText(QCoreApplication.translate("formBeschreibung", u"Status", None))
-        self.label_3.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.label_3.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.labelFinanzen.setText(QCoreApplication.translate("formBeschreibung", u"Finanzen", None))
-        self.labelFinanzen.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.labelFinanzen.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.labelKurzbeschreibung.setText(QCoreApplication.translate("formBeschreibung", u"Kurzbeschreibung", None))
-        self.labelKurzbeschreibung.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.labelKurzbeschreibung.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.label_6.setText(QCoreApplication.translate("formBeschreibung", u"Eigenheiten", None))
-        self.label_6.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.label_6.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.label.setText(QCoreApplication.translate("formBeschreibung", u"Name", None))
-        self.label.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.label.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.label_2.setText(QCoreApplication.translate("formBeschreibung", u"Spezies", None))
-        self.label_2.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.label_2.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.label_7.setText(QCoreApplication.translate("formBeschreibung", u"Heimatgebiet", None))
-        self.label_7.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.label_7.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
 #if QT_CONFIG(tooltip)
         self.labelImage.setToolTip(QCoreApplication.translate("formBeschreibung", u"<html><head/><body><p>Das Bild wird im Sephrasto-Hauptfenster f\u00fcr die Schnellade-Funktion verwendet und im Charakterbogen ausgegeben. Hinweis: Der Standard Charakterbogen hat keinen Platz f\u00fcr ein Bild. Wechsle im Info-Tab auf den \"Standardbogen mit Bild statt SchiP\" oder einen der anderen B\u00f6gen.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)

@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterVorteile.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -31,7 +31,7 @@ class Ui_Form(object):
         self.gridLayout.setContentsMargins(20, 20, 20, 20)
         self.splitter = QSplitter(Form)
         self.splitter.setObjectName(u"splitter")
-        self.splitter.setOrientation(Qt.Horizontal)
+        self.splitter.setOrientation(Qt.Orientation.Horizontal)
         self.verticalLayoutWidget = QWidget(self.splitter)
         self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
         self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
@@ -41,6 +41,9 @@ class Ui_Form(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.buttonExpandToggle = QPushButton(self.verticalLayoutWidget)
         self.buttonExpandToggle.setObjectName(u"buttonExpandToggle")
+        font = QFont()
+        font.setHintingPreference(QFont.PreferNoHinting)
+        self.buttonExpandToggle.setFont(font)
 
         self.horizontalLayout.addWidget(self.buttonExpandToggle)
 
@@ -52,6 +55,7 @@ class Ui_Form(object):
 
         self.labelFilter = QLabel(self.verticalLayoutWidget)
         self.labelFilter.setObjectName(u"labelFilter")
+        self.labelFilter.setFont(font)
 
         self.horizontalLayout.addWidget(self.labelFilter)
 
@@ -69,9 +73,9 @@ class Ui_Form(object):
         sizePolicy.setHeightForWidth(self.treeWidget.sizePolicy().hasHeightForWidth())
         self.treeWidget.setSizePolicy(sizePolicy)
         self.treeWidget.setMaximumSize(QSize(16777215, 16777215))
-        self.treeWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.treeWidget.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.treeWidget.setTabKeyNavigation(True)
-        self.treeWidget.setProperty("showDropIndicator", False)
+        self.treeWidget.setProperty(u"showDropIndicator", False)
         self.treeWidget.setAlternatingRowColors(True)
         self.treeWidget.setAnimated(False)
         self.treeWidget.setAllColumnsShowFocus(True)
@@ -92,33 +96,33 @@ class Ui_Form(object):
         self.scrollArea.setSizePolicy(sizePolicy)
         self.scrollArea.setMinimumSize(QSize(0, 0))
         self.scrollArea.setMaximumSize(QSize(16777215, 16777215))
-        self.scrollArea.setFrameShape(QFrame.StyledPanel)
+        self.scrollArea.setFrameShape(QFrame.Shape.StyledPanel)
         self.scrollArea.setMidLineWidth(0)
         self.scrollArea.setWidgetResizable(True)
-        self.scrollArea.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.scrollArea.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 334, 418))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 316, 418))
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.labelVorteil = QLabel(self.scrollAreaWidgetContents)
         self.labelVorteil.setObjectName(u"labelVorteil")
-        font = QFont()
-        font.setBold(True)
-        self.labelVorteil.setFont(font)
+        font1 = QFont()
+        font1.setBold(True)
+        self.labelVorteil.setFont(font1)
 
         self.gridLayout_2.addWidget(self.labelVorteil, 0, 0, 1, 2)
 
         self.labelVoraussetzungen = QLabel(self.scrollAreaWidgetContents)
         self.labelVoraussetzungen.setObjectName(u"labelVoraussetzungen")
-        self.labelVoraussetzungen.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.labelVoraussetzungen.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
         self.labelVoraussetzungen.setWordWrap(True)
 
         self.gridLayout_2.addWidget(self.labelVoraussetzungen, 2, 1, 1, 1)
 
         self.label_3 = QLabel(self.scrollAreaWidgetContents)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.label_3.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
 
         self.gridLayout_2.addWidget(self.label_3, 2, 0, 1, 1)
 
@@ -142,10 +146,10 @@ class Ui_Form(object):
         self.labelTyp = QLabel(self.scrollAreaWidgetContents)
         self.labelTyp.setObjectName(u"labelTyp")
         self.labelTyp.setMinimumSize(QSize(0, 18))
-        font1 = QFont()
-        font1.setItalic(True)
-        self.labelTyp.setFont(font1)
-        self.labelTyp.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        font2 = QFont()
+        font2.setItalic(True)
+        self.labelTyp.setFont(font2)
+        self.labelTyp.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout_2.addWidget(self.labelTyp, 1, 0, 1, 2)
 
@@ -156,14 +160,14 @@ class Ui_Form(object):
 
         self.labelKosten = QLabel(self.scrollAreaWidgetContents)
         self.labelKosten.setObjectName(u"labelKosten")
-        self.labelKosten.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.labelKosten.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout_2.addWidget(self.labelKosten, 3, 1, 1, 1)
 
         self.labelNachkauf = QLabel(self.scrollAreaWidgetContents)
         self.labelNachkauf.setObjectName(u"labelNachkauf")
         self.labelNachkauf.setMinimumSize(QSize(0, 18))
-        self.labelNachkauf.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.labelNachkauf.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout_2.addWidget(self.labelNachkauf, 4, 1, 1, 1)
 
@@ -189,21 +193,21 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
         self.buttonExpandToggle.setText(QCoreApplication.translate("Form", u"Expand Toggle", None))
-        self.buttonExpandToggle.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+        self.buttonExpandToggle.setProperty(u"class", QCoreApplication.translate("Form", u"icon", None))
         self.nameFilterEdit.setPlaceholderText(QCoreApplication.translate("Form", u"Suchen...", None))
         self.labelFilter.setText(QCoreApplication.translate("Form", u"Suchen", None))
-        self.labelFilter.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+        self.labelFilter.setProperty(u"class", QCoreApplication.translate("Form", u"icon", None))
         ___qtreewidgetitem = self.treeWidget.headerItem()
         ___qtreewidgetitem.setText(2, QCoreApplication.translate("Form", u"\u00a0", None));
         ___qtreewidgetitem.setText(1, QCoreApplication.translate("Form", u"Kosten", None));
         ___qtreewidgetitem.setText(0, QCoreApplication.translate("Form", u"Vorteil", None));
         self.labelVorteil.setText(QCoreApplication.translate("Form", u"Vorteil", None))
-        self.labelVorteil.setProperty("class", QCoreApplication.translate("Form", u"h4", None))
+        self.labelVorteil.setProperty(u"class", QCoreApplication.translate("Form", u"h4", None))
         self.labelVoraussetzungen.setText(QCoreApplication.translate("Form", u"keine", None))
         self.label_3.setText(QCoreApplication.translate("Form", u"Voraussetzungen:", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"Kosten:", None))
         self.labelTyp.setText(QCoreApplication.translate("Form", u"Allgemeine Vorteile", None))
-        self.labelTyp.setProperty("class", QCoreApplication.translate("Form", u"italic", None))
+        self.labelTyp.setProperty(u"class", QCoreApplication.translate("Form", u"italic", None))
         self.label.setText(QCoreApplication.translate("Form", u"Nachkauf:", None))
         self.labelKosten.setText(QCoreApplication.translate("Form", u"20 EP", None))
         self.labelNachkauf.setText(QCoreApplication.translate("Form", u"H\u00e4ufig", None))

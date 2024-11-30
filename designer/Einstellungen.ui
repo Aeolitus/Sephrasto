@@ -3,14 +3,14 @@
  <class>SettingsWindow</class>
  <widget class="QDialog" name="SettingsWindow">
   <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
+   <enum>Qt::WindowModality::ApplicationModal</enum>
   </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>654</width>
-    <height>676</height>
+    <width>720</width>
+    <height>715</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -38,7 +38,7 @@
    <item row="0" column="0">
     <widget class="QScrollArea" name="scrollArea">
      <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
+      <enum>QFrame::Shape::NoFrame</enum>
      </property>
      <property name="widgetResizable">
       <bool>true</bool>
@@ -48,8 +48,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>652</width>
-        <height>598</height>
+        <width>698</width>
+        <height>657</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -140,6 +140,11 @@
                 </item>
                 <item>
                  <widget class="QPushButton" name="buttonLogOpen">
+                  <property name="font">
+                   <font>
+                    <hintingpreference>PreferNoHinting</hintingpreference>
+                   </font>
+                  </property>
                   <property name="toolTip">
                    <string>Logdatei zeigen</string>
                   </property>
@@ -156,7 +161,7 @@
               <item row="4" column="1">
                <spacer name="horizontalSpacer_5">
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -220,6 +225,11 @@
               </item>
               <item row="3" column="2">
                <widget class="QPushButton" name="buttonPlugins">
+                <property name="font">
+                 <font>
+                  <hintingpreference>PreferNoHinting</hintingpreference>
+                 </font>
+                </property>
                 <property name="toolTip">
                  <string>Ordner suchen</string>
                 </property>
@@ -233,6 +243,11 @@
               </item>
               <item row="3" column="3">
                <widget class="QPushButton" name="resetPlugins">
+                <property name="font">
+                 <font>
+                  <hintingpreference>PreferNoHinting</hintingpreference>
+                 </font>
+                </property>
                 <property name="toolTip">
                  <string>Auf den Standardordner zurücksetzen</string>
                 </property>
@@ -246,6 +261,11 @@
               </item>
               <item row="0" column="3">
                <widget class="QPushButton" name="resetChar">
+                <property name="font">
+                 <font>
+                  <hintingpreference>PreferNoHinting</hintingpreference>
+                 </font>
+                </property>
                 <property name="toolTip">
                  <string>Auf den Standardordner zurücksetzen</string>
                 </property>
@@ -272,6 +292,11 @@
               </item>
               <item row="2" column="3">
                <widget class="QPushButton" name="resetRegeln">
+                <property name="font">
+                 <font>
+                  <hintingpreference>PreferNoHinting</hintingpreference>
+                 </font>
+                </property>
                 <property name="toolTip">
                  <string>Auf den Standardordner zurücksetzen</string>
                 </property>
@@ -285,6 +310,11 @@
               </item>
               <item row="2" column="2">
                <widget class="QPushButton" name="buttonRegeln">
+                <property name="font">
+                 <font>
+                  <hintingpreference>PreferNoHinting</hintingpreference>
+                 </font>
+                </property>
                 <property name="toolTip">
                  <string>Ordner suchen</string>
                 </property>
@@ -314,6 +344,11 @@
               </item>
               <item row="0" column="2">
                <widget class="QPushButton" name="buttonChar">
+                <property name="font">
+                 <font>
+                  <hintingpreference>PreferNoHinting</hintingpreference>
+                 </font>
+                </property>
                 <property name="toolTip">
                  <string>Ordner suchen</string>
                 </property>
@@ -337,6 +372,11 @@
               </item>
               <item row="4" column="2">
                <widget class="QPushButton" name="buttonCharakterboegen">
+                <property name="font">
+                 <font>
+                  <hintingpreference>PreferNoHinting</hintingpreference>
+                 </font>
+                </property>
                 <property name="text">
                  <string>Durchsuchen</string>
                 </property>
@@ -347,6 +387,11 @@
               </item>
               <item row="4" column="3">
                <widget class="QPushButton" name="resetCharakterboegen">
+                <property name="font">
+                 <font>
+                  <hintingpreference>PreferNoHinting</hintingpreference>
+                 </font>
+                </property>
                 <property name="text">
                  <string>Zurücksetzen</string>
                 </property>
@@ -362,7 +407,6 @@
             <widget class="QGroupBox" name="groupBox">
              <property name="font">
               <font>
-               <weight>50</weight>
                <bold>false</bold>
               </font>
              </property>
@@ -378,6 +422,7 @@
                 <property name="font">
                  <font>
                   <italic>false</italic>
+                  <bold>false</bold>
                  </font>
                 </property>
                 <property name="text">
@@ -403,6 +448,7 @@
                 <property name="font">
                  <font>
                   <italic>false</italic>
+                  <bold>false</bold>
                  </font>
                 </property>
                 <property name="text">
@@ -458,7 +504,7 @@
               <item row="2" column="1">
                <spacer name="horizontalSpacer_4">
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -510,10 +556,10 @@
                  </size>
                 </property>
                 <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
                 </property>
                 <property name="buttonSymbols">
-                 <enum>QAbstractSpinBox::PlusMinus</enum>
+                 <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
                 </property>
                 <property name="minimum">
                  <number>6</number>
@@ -545,7 +591,7 @@
            <item row="3" column="0">
             <spacer name="verticalSpacer_2">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -565,7 +611,7 @@
            <item row="8" column="2">
             <spacer name="verticalSpacer">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -612,7 +658,7 @@
                    </size>
                   </property>
                   <property name="buttonSymbols">
-                   <enum>QAbstractSpinBox::PlusMinus</enum>
+                   <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
                   </property>
                   <property name="minimum">
                    <number>1</number>
@@ -647,7 +693,7 @@
                    </size>
                   </property>
                   <property name="buttonSymbols">
-                   <enum>QAbstractSpinBox::PlusMinus</enum>
+                   <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
                   </property>
                   <property name="minimum">
                    <number>1</number>
@@ -663,7 +709,7 @@
                 <item>
                  <spacer name="horizontalSpacer">
                   <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                   <enum>Qt::Orientation::Horizontal</enum>
                   </property>
                   <property name="sizeHint" stdset="0">
                    <size>
@@ -721,13 +767,13 @@
                  </size>
                 </property>
                 <property name="layoutDirection">
-                 <enum>Qt::LeftToRight</enum>
+                 <enum>Qt::LayoutDirection::LeftToRight</enum>
                 </property>
                 <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
                 </property>
                 <property name="buttonSymbols">
-                 <enum>QAbstractSpinBox::PlusMinus</enum>
+                 <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
                 </property>
                 <property name="minimum">
                  <number>6</number>
@@ -774,7 +820,7 @@
               <item row="3" column="1">
                <spacer name="horizontalSpacer_3">
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -799,13 +845,13 @@
                  </size>
                 </property>
                 <property name="layoutDirection">
-                 <enum>Qt::LeftToRight</enum>
+                 <enum>Qt::LayoutDirection::LeftToRight</enum>
                 </property>
                 <property name="alignment">
-                 <set>Qt::AlignCenter</set>
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
                 </property>
                 <property name="buttonSymbols">
-                 <enum>QAbstractSpinBox::PlusMinus</enum>
+                 <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
                 </property>
                 <property name="minimum">
                  <number>6</number>
@@ -842,6 +888,11 @@
                 </item>
                 <item>
                  <widget class="QPushButton" name="resetFontOS">
+                  <property name="font">
+                   <font>
+                    <hintingpreference>PreferNoHinting</hintingpreference>
+                   </font>
+                  </property>
                   <property name="toolTip">
                    <string>Darstellungsoptionen auf Betriebssystemstandard zurücksetzen</string>
                   </property>
@@ -868,16 +919,16 @@
            <item row="1" column="0" rowspan="2">
             <widget class="QTableWidget" name="tablePlugins">
              <property name="editTriggers">
-              <set>QAbstractItemView::NoEditTriggers</set>
+              <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
              </property>
              <property name="alternatingRowColors">
               <bool>true</bool>
              </property>
              <property name="selectionMode">
-              <enum>QAbstractItemView::SingleSelection</enum>
+              <enum>QAbstractItemView::SelectionMode::SingleSelection</enum>
              </property>
              <property name="selectionBehavior">
-              <enum>QAbstractItemView::SelectRows</enum>
+              <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
              </property>
             </widget>
            </item>
@@ -885,6 +936,11 @@
             <layout class="QHBoxLayout" name="layoutPluginButtons">
              <item>
               <widget class="QPushButton" name="buttonSettings">
+               <property name="font">
+                <font>
+                 <hintingpreference>PreferNoHinting</hintingpreference>
+                </font>
+               </property>
                <property name="text">
                 <string>Einstellungen</string>
                </property>
@@ -896,7 +952,7 @@
              <item>
               <spacer name="horizontalSpacer_2">
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
@@ -960,10 +1016,10 @@
    <item row="2" column="0">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
      </property>
      <property name="centerButtons">
       <bool>true</bool>

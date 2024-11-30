@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterFreieFertigkeitenPicker.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -24,7 +24,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.setWindowModality(Qt.ApplicationModal)
+        Dialog.setWindowModality(Qt.WindowModality.ApplicationModal)
         Dialog.resize(461, 522)
         self.gridLayout = QGridLayout(Dialog)
         self.gridLayout.setObjectName(u"gridLayout")
@@ -47,6 +47,9 @@ class Ui_Dialog(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.buttonExpandToggle = QPushButton(self.verticalLayout_2)
         self.buttonExpandToggle.setObjectName(u"buttonExpandToggle")
+        font = QFont()
+        font.setHintingPreference(QFont.PreferNoHinting)
+        self.buttonExpandToggle.setFont(font)
 
         self.horizontalLayout.addWidget(self.buttonExpandToggle)
 
@@ -58,6 +61,7 @@ class Ui_Dialog(object):
 
         self.labelFilter = QLabel(self.verticalLayout_2)
         self.labelFilter.setObjectName(u"labelFilter")
+        self.labelFilter.setFont(font)
 
         self.horizontalLayout.addWidget(self.labelFilter)
 
@@ -71,8 +75,8 @@ class Ui_Dialog(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.treeFerts.sizePolicy().hasHeightForWidth())
         self.treeFerts.setSizePolicy(sizePolicy1)
-        self.treeFerts.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.treeFerts.setProperty("showDropIndicator", False)
+        self.treeFerts.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
+        self.treeFerts.setProperty(u"showDropIndicator", False)
         self.treeFerts.setAlternatingRowColors(True)
         self.treeFerts.setSortingEnabled(False)
         self.treeFerts.setAllColumnsShowFocus(True)
@@ -85,8 +89,8 @@ class Ui_Dialog(object):
 
         self.buttonBox = QDialogButtonBox(self.verticalLayout_2)
         self.buttonBox.setObjectName(u"buttonBox")
-        self.buttonBox.setOrientation(Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QDialogButtonBox.Cancel|QDialogButtonBox.Ok)
+        self.buttonBox.setOrientation(Qt.Orientation.Horizontal)
+        self.buttonBox.setStandardButtons(QDialogButtonBox.StandardButton.Cancel|QDialogButtonBox.StandardButton.Ok)
         self.buttonBox.setCenterButtons(True)
 
         self.verticalLayout2.addWidget(self.buttonBox)
@@ -107,10 +111,10 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Sephrasto - Freie Fertigkeit w\u00e4hlen...", None))
         self.labelUnofficial.setText(QCoreApplication.translate("Dialog", u"Inoffiziell: Bei den aufgef\u00fchrten Sprachen und Schriften handelt es sich um an WdS orientierte Vorschl\u00e4ge.", None))
         self.buttonExpandToggle.setText(QCoreApplication.translate("Dialog", u"Expand Toggle", None))
-        self.buttonExpandToggle.setProperty("class", QCoreApplication.translate("Dialog", u"icon", None))
+        self.buttonExpandToggle.setProperty(u"class", QCoreApplication.translate("Dialog", u"icon", None))
         self.nameFilterEdit.setPlaceholderText(QCoreApplication.translate("Dialog", u"Suchen...", None))
         self.labelFilter.setText(QCoreApplication.translate("Dialog", u"Suchen", None))
-        self.labelFilter.setProperty("class", QCoreApplication.translate("Dialog", u"icon", None))
+        self.labelFilter.setProperty(u"class", QCoreApplication.translate("Dialog", u"icon", None))
         ___qtreewidgetitem = self.treeFerts.headerItem()
         ___qtreewidgetitem.setText(0, QCoreApplication.translate("Dialog", u"Freie Fertigkeit", None));
     # retranslateUi

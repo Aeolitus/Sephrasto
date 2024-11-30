@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'DatenbankMain.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -25,7 +25,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.setWindowModality(Qt.NonModal)
+        Form.setWindowModality(Qt.WindowModality.NonModal)
         Form.resize(853, 663)
         self.actionSpeichern = QAction(Form)
         self.actionSpeichern.setObjectName(u"actionSpeichern")
@@ -59,7 +59,7 @@ class Ui_Form(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.tabWidget = QTabWidget(self.centralwidget)
         self.tabWidget.setObjectName(u"tabWidget")
-        self.tabWidget.setTabPosition(QTabWidget.West)
+        self.tabWidget.setTabPosition(QTabWidget.TabPosition.West)
 
         self.gridLayout.addWidget(self.tabWidget, 1, 1, 1, 1)
 
@@ -76,31 +76,39 @@ class Ui_Form(object):
 
         self.buttonNeu = QPushButton(self.centralwidget)
         self.buttonNeu.setObjectName(u"buttonNeu")
+        font = QFont()
+        font.setHintingPreference(QFont.PreferNoHinting)
+        self.buttonNeu.setFont(font)
 
         self.horizontalLayout.addWidget(self.buttonNeu)
 
         self.buttonEditieren = QPushButton(self.centralwidget)
         self.buttonEditieren.setObjectName(u"buttonEditieren")
+        self.buttonEditieren.setFont(font)
 
         self.horizontalLayout.addWidget(self.buttonEditieren)
 
         self.buttonRAW = QPushButton(self.centralwidget)
         self.buttonRAW.setObjectName(u"buttonRAW")
+        self.buttonRAW.setFont(font)
 
         self.horizontalLayout.addWidget(self.buttonRAW)
 
         self.buttonDuplizieren = QPushButton(self.centralwidget)
         self.buttonDuplizieren.setObjectName(u"buttonDuplizieren")
+        self.buttonDuplizieren.setFont(font)
 
         self.horizontalLayout.addWidget(self.buttonDuplizieren)
 
         self.buttonLoeschen = QPushButton(self.centralwidget)
         self.buttonLoeschen.setObjectName(u"buttonLoeschen")
+        self.buttonLoeschen.setFont(font)
 
         self.horizontalLayout.addWidget(self.buttonLoeschen)
 
         self.buttonWiederherstellen = QPushButton(self.centralwidget)
         self.buttonWiederherstellen.setObjectName(u"buttonWiederherstellen")
+        self.buttonWiederherstellen.setFont(font)
 
         self.horizontalLayout.addWidget(self.buttonWiederherstellen)
 
@@ -111,11 +119,13 @@ class Ui_Form(object):
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.buttonOpen = QPushButton(self.centralwidget)
         self.buttonOpen.setObjectName(u"buttonOpen")
+        self.buttonOpen.setFont(font)
 
         self.horizontalLayout_3.addWidget(self.buttonOpen)
 
         self.buttonQuicksave = QPushButton(self.centralwidget)
         self.buttonQuicksave.setObjectName(u"buttonQuicksave")
+        self.buttonQuicksave.setFont(font)
 
         self.horizontalLayout_3.addWidget(self.buttonQuicksave)
 
@@ -131,6 +141,7 @@ class Ui_Form(object):
 
         self.labelFilterName = QLabel(self.centralwidget)
         self.labelFilterName.setObjectName(u"labelFilterName")
+        self.labelFilterName.setFont(font)
 
         self.horizontalLayout_3.addWidget(self.labelFilterName)
 
@@ -154,7 +165,7 @@ class Ui_Form(object):
         Form.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(Form)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 853, 26))
+        self.menubar.setGeometry(QRect(0, 0, 853, 25))
         self.menuDatei = QMenu(self.menubar)
         self.menuDatei.setObjectName(u"menuDatei")
         self.menuAnalysieren = QMenu(self.menubar)
@@ -218,48 +229,48 @@ class Ui_Form(object):
         self.buttonNeu.setToolTip(QCoreApplication.translate("Form", u"Neues Element hinzuf\u00fcgen", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonNeu.setText(QCoreApplication.translate("Form", u"Neu", None))
-        self.buttonNeu.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+        self.buttonNeu.setProperty(u"class", QCoreApplication.translate("Form", u"icon", None))
 #if QT_CONFIG(tooltip)
         self.buttonEditieren.setToolTip(QCoreApplication.translate("Form", u"Element bearbeiten", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonEditieren.setText(QCoreApplication.translate("Form", u"Editieren", None))
-        self.buttonEditieren.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+        self.buttonEditieren.setProperty(u"class", QCoreApplication.translate("Form", u"icon", None))
 #if QT_CONFIG(tooltip)
         self.buttonRAW.setToolTip(QCoreApplication.translate("Form", u"\u00c4nderungen mit dem Original-Element vergleichen", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonRAW.setText(QCoreApplication.translate("Form", u"RAW ansehen", None))
-        self.buttonRAW.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+        self.buttonRAW.setProperty(u"class", QCoreApplication.translate("Form", u"icon", None))
 #if QT_CONFIG(tooltip)
         self.buttonDuplizieren.setToolTip(QCoreApplication.translate("Form", u"Element Duplizieren", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonDuplizieren.setText(QCoreApplication.translate("Form", u"Duplizieren", None))
-        self.buttonDuplizieren.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+        self.buttonDuplizieren.setProperty(u"class", QCoreApplication.translate("Form", u"icon", None))
 #if QT_CONFIG(tooltip)
         self.buttonLoeschen.setToolTip(QCoreApplication.translate("Form", u"Element L\u00f6schen", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonLoeschen.setText(QCoreApplication.translate("Form", u"L\u00f6schen", None))
-        self.buttonLoeschen.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+        self.buttonLoeschen.setProperty(u"class", QCoreApplication.translate("Form", u"icon", None))
 #if QT_CONFIG(tooltip)
         self.buttonWiederherstellen.setToolTip(QCoreApplication.translate("Form", u"Element Wiederherstellen", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonWiederherstellen.setText(QCoreApplication.translate("Form", u"Wiederherstellen", None))
-        self.buttonWiederherstellen.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+        self.buttonWiederherstellen.setProperty(u"class", QCoreApplication.translate("Form", u"icon", None))
 #if QT_CONFIG(tooltip)
         self.buttonOpen.setToolTip(QCoreApplication.translate("Form", u"\u00d6ffnen", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonOpen.setText(QCoreApplication.translate("Form", u"\u00d6ffnen", None))
-        self.buttonOpen.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+        self.buttonOpen.setProperty(u"class", QCoreApplication.translate("Form", u"icon", None))
 #if QT_CONFIG(tooltip)
         self.buttonQuicksave.setToolTip(QCoreApplication.translate("Form", u"Speichern", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonQuicksave.setText(QCoreApplication.translate("Form", u"Speichern", None))
-        self.buttonQuicksave.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+        self.buttonQuicksave.setProperty(u"class", QCoreApplication.translate("Form", u"icon", None))
         self.nameFilterEdit.setPlaceholderText(QCoreApplication.translate("Form", u"Suchen...", None))
 #if QT_CONFIG(tooltip)
         self.labelFilterName.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>Die Suche unterst\u00fctzt Wildcards. Dies sind Platzhalter, die verwendet werden k\u00f6nnen, um \u00dcbereinstimmungen mit einer Vielzahl von Suchergebnissen zu erm\u00f6glichen. Es gibt die folgenden Wildcards:</p><table border=\"0\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;\" cellspacing=\"2\" cellpadding=\"0\"><thead><tr><td><p><span style=\" font-weight:600;\">Platzhalter</span></p></td><td><p><span style=\" font-weight:600;\">Wirkung</span></p></td></tr></thead><tr><td><p>*</p></td><td><p>Steht f\u00fcr null oder mehr beliebige Zeichen.</p></td></tr><tr><td><p>?</p></td><td><p>Steht f\u00fcr ein beliebiges einzelnes Zeichen.</p></td></tr><tr><td><p>[seq]</p></td><td><p>Steht f\u00fcr ein Zeichen in der angegebenen Sequenz 'seq'.</p></td></tr><tr><td><p>[!seq]</p></td><td><p>Steht f\u00fcr ein Zeichen, das nicht in der angegebenen Sequenz 'seq' enthalten ist.</p></td></tr></table></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.labelFilterName.setText(QCoreApplication.translate("Form", u"Suchen", None))
-        self.labelFilterName.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+        self.labelFilterName.setProperty(u"class", QCoreApplication.translate("Form", u"icon", None))
         self.checkFullText.setText(QCoreApplication.translate("Form", u"Volltext", None))
         self.checkDetails.setText(QCoreApplication.translate("Form", u"Erweiterte Details", None))
         self.menuDatei.setTitle(QCoreApplication.translate("Form", u"Datei", None))

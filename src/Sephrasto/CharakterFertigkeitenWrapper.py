@@ -40,9 +40,6 @@ class FertigkeitenWrapper(QtCore.QObject):
             self.ui.tabs.addTab(self.ueberWrapper.form, "Übernatürliche")
 
         self.ui.tabs.currentChanged.connect(self.load)
-        for i in range(self.ui.tabs.tabBar().count()):
-            self.ui.tabs.tabBar().setTabTextColor(i, QtGui.QColor(Wolke.HeadingColor))
-        self.ui.tabs.setStyleSheet('QTabBar { font-size: ' + str(Wolke.Settings["FontHeadingSize"]) + 'pt; font-family: \"' + Wolke.Settings["FontHeading"] + '\"; }')
 
     def load(self):
         if hasattr(self, "profanWrapper") and self.ui.tabs.currentWidget() == self.profanWrapper.form:

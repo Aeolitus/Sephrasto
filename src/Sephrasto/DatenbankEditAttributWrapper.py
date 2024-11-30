@@ -43,7 +43,9 @@ class DatenbankEditAttributWrapper(DatenbankElementEditorBase):
         super().nameChanged()
         name = self.ui.leName.text()
         if self.validator["Name"] and len(name) != 2:
+            self.ui.leName.setProperty("error", True)
+            self.ui.leName.style().unpolish(self.ui.leName)
+            self.ui.leName.style().polish(self.ui.leName)
             self.ui.leName.setToolTip("Attributsnamen müssen aus exakt zwei Zeichen bestehen.") # need to adjust VoraussetzungenListe to remove this
-            self.ui.leName.setStyleSheet("border: 1px solid red;")
             self.validator["Name"] = False
             self.updateSaveButtonState()

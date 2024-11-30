@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'DatenbankEditWaffeneigenschaft.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -100,7 +100,7 @@ class Ui_dialog(object):
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.spinScriptPrio = QSpinBox(self.scrollAreaWidgetContents)
         self.spinScriptPrio.setObjectName(u"spinScriptPrio")
-        self.spinScriptPrio.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.spinScriptPrio.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.PlusMinus)
         self.spinScriptPrio.setMinimum(-999)
         self.spinScriptPrio.setMaximum(999)
         self.spinScriptPrio.setSingleStep(1)
@@ -110,6 +110,9 @@ class Ui_dialog(object):
 
         self.buttonPickScript = QPushButton(self.scrollAreaWidgetContents)
         self.buttonPickScript.setObjectName(u"buttonPickScript")
+        font = QFont()
+        font.setHintingPreference(QFont.PreferNoHinting)
+        self.buttonPickScript.setFont(font)
 
         self.verticalLayout_3.addWidget(self.buttonPickScript)
 
@@ -146,6 +149,6 @@ class Ui_dialog(object):
         self.buttonPickScript.setToolTip(QCoreApplication.translate("dialog", u"Scripteditor \u00f6ffnen", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonPickScript.setText(QCoreApplication.translate("dialog", u"+", None))
-        self.buttonPickScript.setProperty("class", QCoreApplication.translate("dialog", u"iconSmall", None))
+        self.buttonPickScript.setProperty(u"class", QCoreApplication.translate("dialog", u"iconSmall", None))
     # retranslateUi
 

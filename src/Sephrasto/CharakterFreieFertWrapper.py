@@ -63,11 +63,14 @@ class CharakterFreieFertWrapper(QtCore.QObject):
                 self.buttonFF.append(ffButton)
                 ffButton.setProperty("class", "iconSmall")
                 ffButton.setText('\u002b')
+                font = ffButton.font()
+                font.setHintingPreference(QtGui.QFont.PreferNoHinting)
+                ffButton.setFont(font)
                 ffButton.clicked.connect(partial(self.ffButtonClicked, edit=ffEdit))
                 ffLayout.addWidget(ffButton)
 
                 if row % 2 != 0:
-                    ffEdit.setStyleSheet(bgStyle)
+                    ffEdit.setProperty("class", "alternateBase")
 
                 self.ui.freieFertsGrid.addLayout(ffLayout, row, column)
 

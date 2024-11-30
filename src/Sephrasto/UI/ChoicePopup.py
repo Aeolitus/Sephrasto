@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'ChoicePopup.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -81,7 +81,7 @@ class Ui_formMain(object):
     def retranslateUi(self, formMain):
         formMain.setWindowTitle(QCoreApplication.translate("formMain", u"Triff deine Auswahl", None))
         self.label.setText(QCoreApplication.translate("formMain", u"EP ausgegeben:", None))
-        self.label.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
+        self.label.setProperty(u"class", QCoreApplication.translate("formMain", u"h4", None))
         self.labelEP.setText(QCoreApplication.translate("formMain", u"200", None))
     # retranslateUi
 

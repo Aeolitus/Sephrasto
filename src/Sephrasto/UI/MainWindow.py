@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'MainWindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -34,16 +34,21 @@ class Ui_Form(object):
 
         self.buttonRules = QPushButton(Form)
         self.buttonRules.setObjectName(u"buttonRules")
+        font = QFont()
+        font.setHintingPreference(QFont.PreferNoHinting)
+        self.buttonRules.setFont(font)
 
         self.horizontalLayout.addWidget(self.buttonRules)
 
         self.buttonHelp = QPushButton(Form)
         self.buttonHelp.setObjectName(u"buttonHelp")
+        self.buttonHelp.setFont(font)
 
         self.horizontalLayout.addWidget(self.buttonHelp)
 
         self.buttonSettings = QPushButton(Form)
         self.buttonSettings.setObjectName(u"buttonSettings")
+        self.buttonSettings.setFont(font)
 
         self.horizontalLayout.addWidget(self.buttonSettings)
 
@@ -58,14 +63,14 @@ class Ui_Form(object):
         self.label.setObjectName(u"label")
         self.label.setMinimumSize(QSize(0, 50))
         self.label.setMaximumSize(QSize(16777215, 50))
-        font = QFont()
-        font.setPointSize(13)
-        font.setBold(True)
-        font.setItalic(True)
-        font.setKerning(True)
-        self.label.setFont(font)
+        font1 = QFont()
+        font1.setPointSize(13)
+        font1.setBold(True)
+        font1.setItalic(True)
+        font1.setKerning(True)
+        self.label.setFont(font1)
         self.label.setScaledContents(False)
-        self.label.setAlignment(Qt.AlignCenter)
+        self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.verticalLayout_2.addWidget(self.label)
 
@@ -73,7 +78,7 @@ class Ui_Form(object):
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMinimumSize(QSize(0, 30))
         self.label_2.setMaximumSize(QSize(16777215, 30))
-        self.label_2.setAlignment(Qt.AlignCenter)
+        self.label_2.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.verticalLayout_2.addWidget(self.label_2)
 
@@ -85,13 +90,13 @@ class Ui_Form(object):
 
         self.scrollArea = QScrollArea(Form)
         self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setFrameShape(QFrame.StyledPanel)
-        self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.scrollArea.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        self.scrollArea.setFrameShape(QFrame.Shape.StyledPanel)
+        self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.scrollArea.setSizeAdjustPolicy(QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
         self.scrollArea.setWidgetResizable(True)
         self.recents = QWidget()
         self.recents.setObjectName(u"recents")
-        self.recents.setGeometry(QRect(0, 0, 114, 215))
+        self.recents.setGeometry(QRect(0, 0, 114, 212))
         self.verticalLayout = QVBoxLayout(self.recents)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(20, 20, 20, 20)
@@ -112,11 +117,11 @@ class Ui_Form(object):
 
         self.labelVersion = QLabel(Form)
         self.labelVersion.setObjectName(u"labelVersion")
-        font1 = QFont()
-        font1.setPointSize(7)
-        font1.setItalic(True)
-        self.labelVersion.setFont(font1)
-        self.labelVersion.setAlignment(Qt.AlignBottom|Qt.AlignRight|Qt.AlignTrailing)
+        font2 = QFont()
+        font2.setPointSize(7)
+        font2.setItalic(True)
+        self.labelVersion.setFont(font2)
+        self.labelVersion.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing)
 
         self.verticalLayout_2.addWidget(self.labelVersion)
 
@@ -132,24 +137,24 @@ class Ui_Form(object):
         self.buttonRules.setToolTip(QCoreApplication.translate("Form", u"Regelbasis bearbeiten", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonRules.setText(QCoreApplication.translate("Form", u"Regelbasis bearbeiten", None))
-        self.buttonRules.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+        self.buttonRules.setProperty(u"class", QCoreApplication.translate("Form", u"icon", None))
 #if QT_CONFIG(tooltip)
         self.buttonHelp.setToolTip(QCoreApplication.translate("Form", u"Hilfe", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonHelp.setText(QCoreApplication.translate("Form", u"Hilfe", None))
-        self.buttonHelp.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+        self.buttonHelp.setProperty(u"class", QCoreApplication.translate("Form", u"icon", None))
 #if QT_CONFIG(tooltip)
         self.buttonSettings.setToolTip(QCoreApplication.translate("Form", u"Einstellungen", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonSettings.setText(QCoreApplication.translate("Form", u"Einst", None))
-        self.buttonSettings.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+        self.buttonSettings.setProperty(u"class", QCoreApplication.translate("Form", u"icon", None))
         self.label.setText(QCoreApplication.translate("Form", u"Sephrasto", None))
-        self.label.setProperty("class", QCoreApplication.translate("Form", u"title", None))
+        self.label.setProperty(u"class", QCoreApplication.translate("Form", u"title", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"Der Charaktergenerator f\u00fcr Ilaris", None))
-        self.label_2.setProperty("class", QCoreApplication.translate("Form", u"subtitle", None))
-        self.scrollArea.setProperty("class", QCoreApplication.translate("Form", u"charListScrollArea", None))
-        self.recents.setProperty("class", QCoreApplication.translate("Form", u"recentCharsScrollArea", None))
+        self.label_2.setProperty(u"class", QCoreApplication.translate("Form", u"subtitle", None))
+        self.scrollArea.setProperty(u"class", QCoreApplication.translate("Form", u"charListScrollArea", None))
+        self.recents.setProperty(u"class", QCoreApplication.translate("Form", u"recentCharsScrollArea", None))
         self.labelVersion.setText(QCoreApplication.translate("Form", u"PLACEHOLDER", None))
-        self.labelVersion.setProperty("class", QCoreApplication.translate("Form", u"smallTextBright", None))
+        self.labelVersion.setProperty(u"class", QCoreApplication.translate("Form", u"smallTextBright", None))
     # retranslateUi
 

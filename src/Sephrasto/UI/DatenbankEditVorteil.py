@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'DatenbankEditVorteil.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -34,7 +34,7 @@ class Ui_dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 637, 1176))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, -37, 620, 1213))
         self.formLayout = QFormLayout(self.scrollAreaWidgetContents)
         self.formLayout.setObjectName(u"formLayout")
         self.labelName = QLabel(self.scrollAreaWidgetContents)
@@ -99,8 +99,8 @@ class Ui_dialog(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinKosten.sizePolicy().hasHeightForWidth())
         self.spinKosten.setSizePolicy(sizePolicy)
-        self.spinKosten.setAlignment(Qt.AlignCenter)
-        self.spinKosten.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.spinKosten.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.spinKosten.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.PlusMinus)
         self.spinKosten.setMinimum(-9999)
         self.spinKosten.setMaximum(9999)
         self.spinKosten.setSingleStep(20)
@@ -281,7 +281,7 @@ class Ui_dialog(object):
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.spinScriptPrio = QSpinBox(self.scrollAreaWidgetContents)
         self.spinScriptPrio.setObjectName(u"spinScriptPrio")
-        self.spinScriptPrio.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.spinScriptPrio.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.PlusMinus)
         self.spinScriptPrio.setMinimum(-999)
         self.spinScriptPrio.setMaximum(999)
         self.spinScriptPrio.setSingleStep(1)
@@ -291,6 +291,9 @@ class Ui_dialog(object):
 
         self.buttonPickScript = QPushButton(self.scrollAreaWidgetContents)
         self.buttonPickScript.setObjectName(u"buttonPickScript")
+        font = QFont()
+        font.setHintingPreference(QFont.PreferNoHinting)
+        self.buttonPickScript.setFont(font)
 
         self.verticalLayout_7.addWidget(self.buttonPickScript)
 
@@ -344,8 +347,8 @@ class Ui_dialog(object):
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.listVerweise.sizePolicy().hasHeightForWidth())
         self.listVerweise.setSizePolicy(sizePolicy2)
-        self.listVerweise.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.listVerweise.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.listVerweise.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.listVerweise.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
 
         self.gridLayout_3.addWidget(self.listVerweise, 0, 0, 1, 1)
 
@@ -372,6 +375,7 @@ class Ui_dialog(object):
 
         self.buttonVerweisAdd = QPushButton(self.groupBox)
         self.buttonVerweisAdd.setObjectName(u"buttonVerweisAdd")
+        self.buttonVerweisAdd.setFont(font)
 
         self.horizontalLayout_3.addWidget(self.buttonVerweisAdd)
 
@@ -382,16 +386,19 @@ class Ui_dialog(object):
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.buttonVerweisUp = QPushButton(self.groupBox)
         self.buttonVerweisUp.setObjectName(u"buttonVerweisUp")
+        self.buttonVerweisUp.setFont(font)
 
         self.verticalLayout_6.addWidget(self.buttonVerweisUp)
 
         self.buttonVerweisDown = QPushButton(self.groupBox)
         self.buttonVerweisDown.setObjectName(u"buttonVerweisDown")
+        self.buttonVerweisDown.setFont(font)
 
         self.verticalLayout_6.addWidget(self.buttonVerweisDown)
 
         self.buttonVerweisDelete = QPushButton(self.groupBox)
         self.buttonVerweisDelete.setObjectName(u"buttonVerweisDelete")
+        self.buttonVerweisDelete.setFont(font)
 
         self.verticalLayout_6.addWidget(self.buttonVerweisDelete)
 
@@ -497,7 +504,7 @@ class Ui_dialog(object):
         self.buttonPickScript.setToolTip(QCoreApplication.translate("dialog", u"Scripteditor \u00f6ffnen", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonPickScript.setText(QCoreApplication.translate("dialog", u"+", None))
-        self.buttonPickScript.setProperty("class", QCoreApplication.translate("dialog", u"iconSmall", None))
+        self.buttonPickScript.setProperty(u"class", QCoreApplication.translate("dialog", u"iconSmall", None))
         self.labelLink.setText(QCoreApplication.translate("dialog", u"Verkn\u00fcpfung", None))
         self.comboLinkKategorie.setItemText(0, QCoreApplication.translate("dialog", u"Nicht verkn\u00fcpfen", None))
         self.comboLinkKategorie.setItemText(1, QCoreApplication.translate("dialog", u"Regel", None))
@@ -515,12 +522,12 @@ class Ui_dialog(object):
         self.comboVerweisTyp.setItemText(6, QCoreApplication.translate("dialog", u"Finanzen", None))
 
         self.buttonVerweisAdd.setText(QCoreApplication.translate("dialog", u"+", None))
-        self.buttonVerweisAdd.setProperty("class", QCoreApplication.translate("dialog", u"iconSmall", None))
+        self.buttonVerweisAdd.setProperty(u"class", QCoreApplication.translate("dialog", u"iconSmall", None))
         self.buttonVerweisUp.setText(QCoreApplication.translate("dialog", u"^", None))
-        self.buttonVerweisUp.setProperty("class", QCoreApplication.translate("dialog", u"iconSmall", None))
+        self.buttonVerweisUp.setProperty(u"class", QCoreApplication.translate("dialog", u"iconSmall", None))
         self.buttonVerweisDown.setText(QCoreApplication.translate("dialog", u"v", None))
-        self.buttonVerweisDown.setProperty("class", QCoreApplication.translate("dialog", u"iconSmall", None))
+        self.buttonVerweisDown.setProperty(u"class", QCoreApplication.translate("dialog", u"iconSmall", None))
         self.buttonVerweisDelete.setText(QCoreApplication.translate("dialog", u"DEL", None))
-        self.buttonVerweisDelete.setProperty("class", QCoreApplication.translate("dialog", u"iconSmall", None))
+        self.buttonVerweisDelete.setProperty(u"class", QCoreApplication.translate("dialog", u"iconSmall", None))
     # retranslateUi
 

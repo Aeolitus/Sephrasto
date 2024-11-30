@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'Wizard.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -24,7 +24,7 @@ class Ui_formMain(object):
         if not formMain.objectName():
             formMain.setObjectName(u"formMain")
         formMain.setWindowModality(Qt.ApplicationModal)
-        formMain.resize(611, 376)
+        formMain.resize(623, 376)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -221,27 +221,27 @@ class Ui_formMain(object):
     def retranslateUi(self, formMain):
         formMain.setWindowTitle(QCoreApplication.translate("formMain", u"Charakterassistent", None))
         self.label_3.setText(QCoreApplication.translate("formMain", u"Hausregeln", None))
-        self.label_3.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
+        self.label_3.setProperty(u"class", QCoreApplication.translate("formMain", u"h4", None))
         self.lblKultur.setText(QCoreApplication.translate("formMain", u"Kultur", None))
-        self.lblKultur.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
+        self.lblKultur.setProperty(u"class", QCoreApplication.translate("formMain", u"h4", None))
 #if QT_CONFIG(tooltip)
         self.cbProfession.setToolTip(QCoreApplication.translate("formMain", u"<html><head/><body><p>Hier sind manchmal Namen mitangegeben - dies sind vollwertige Archetypen mit Eigenheiten.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.label_4.setText(QCoreApplication.translate("formMain", u"Neuer Charakter", None))
-        self.label_4.setProperty("class", QCoreApplication.translate("formMain", u"h2", None))
+        self.label_4.setProperty(u"class", QCoreApplication.translate("formMain", u"h2", None))
         self.lblProfession.setText(QCoreApplication.translate("formMain", u"Profession", None))
-        self.lblProfession.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
+        self.lblProfession.setProperty(u"class", QCoreApplication.translate("formMain", u"h4", None))
         self.lblProfessionKategorie.setText(QCoreApplication.translate("formMain", u"Professionskategorie", None))
-        self.lblProfessionKategorie.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
+        self.lblProfessionKategorie.setProperty(u"class", QCoreApplication.translate("formMain", u"h4", None))
         self.lblSpezies.setText(QCoreApplication.translate("formMain", u"Spezies", None))
-        self.lblSpezies.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
+        self.lblSpezies.setProperty(u"class", QCoreApplication.translate("formMain", u"h4", None))
         self.btnAccept.setText(QCoreApplication.translate("formMain", u"\u00dcbernehmen", None))
         self.lblRegeln.setText(QCoreApplication.translate("formMain", u"Baukasten", None))
-        self.lblRegeln.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
+        self.lblRegeln.setProperty(u"class", QCoreApplication.translate("formMain", u"h4", None))
         self.label.setText(QCoreApplication.translate("formMain", u"<html><head/><body><p>Der Charakterassistent lebt von Communitybeitr\u00e4gen. Wie du eigene Spezies/Kulturen/Professionen/Archetypen erstellen kannst, erf\u00e4hrst du in der Sephrasto-Hilfe.</p></body></html>", None))
-        self.label.setProperty("class", QCoreApplication.translate("formMain", u"smallText", None))
+        self.label.setProperty(u"class", QCoreApplication.translate("formMain", u"smallText", None))
         self.lblGeschlecht.setText(QCoreApplication.translate("formMain", u"Geschlecht", None))
-        self.lblGeschlecht.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
+        self.lblGeschlecht.setProperty(u"class", QCoreApplication.translate("formMain", u"h4", None))
         self.btnSkip.setText(QCoreApplication.translate("formMain", u"\u00dcberspringen", None))
         self.btnMaennlich.setText(QCoreApplication.translate("formMain", u"M\u00e4nnlich", None))
         self.btnWeiblich.setText(QCoreApplication.translate("formMain", u"Weiblich", None))

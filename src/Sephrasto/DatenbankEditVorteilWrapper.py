@@ -238,8 +238,10 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
         super().nameChanged()
         name = self.ui.leName.text()
         if self.validator["Name"] and Hilfsmethoden.containsWildcard(name):
+            self.ui.leName.setProperty("error", True)
+            self.ui.leName.style().unpolish(self.ui.leName)
+            self.ui.leName.style().polish(self.ui.leName)
             self.ui.leName.setToolTip("Name enthält ein nicht erlaubtes Zeichen: *?[]")
-            self.ui.leName.setStyleSheet("border: 1px solid red;")
             self.validator["Name"] = False
             self.updateSaveButtonState()
 
@@ -279,13 +281,15 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
                     break
 
         if error:
-            self.ui.listVerweise.setStyleSheet("border: 1px solid red;")
+            self.ui.listVerweise.setProperty("error", True)
             self.ui.listVerweise.setToolTip(error)
             self.validator["Querverweise"] = False
         else:
-            self.ui.listVerweise.setStyleSheet("")
+            self.ui.listVerweise.setProperty("error", False)
             self.ui.listVerweise.setToolTip("")
             self.validator["Querverweise"] = True
+        self.ui.listVerweise.style().unpolish(self.ui.listVerweise)
+        self.ui.listVerweise.style().polish(self.ui.listVerweise)
 
         self.updateSaveButtonState()
 

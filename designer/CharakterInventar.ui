@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>971</width>
-    <height>586</height>
+    <height>690</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -56,7 +56,7 @@
       <item>
        <layout class="QGridLayout" name="Ruestungen">
         <property name="sizeConstraint">
-         <enum>QLayout::SetDefaultConstraint</enum>
+         <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
         </property>
         <item row="2" column="7">
          <widget class="QSpinBox" name="spinR2brust">
@@ -67,10 +67,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>8</number>
@@ -86,10 +86,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -98,6 +98,11 @@
         </item>
         <item row="3" column="10">
          <widget class="QPushButton" name="removeR3">
+          <property name="font">
+           <font>
+            <hintingpreference>PreferNoHinting</hintingpreference>
+           </font>
+          </property>
           <property name="text">
            <string>-</string>
           </property>
@@ -115,10 +120,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -134,10 +139,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -153,10 +158,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -172,10 +177,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -198,10 +203,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -217,10 +222,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -236,10 +241,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -250,7 +255,6 @@
          <widget class="QLabel" name="labelRS">
           <property name="font">
            <font>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -261,7 +265,7 @@
            <string>RS</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="class" stdset="0">
            <string>h4</string>
@@ -272,7 +276,6 @@
          <widget class="QLabel" name="labelRName">
           <property name="font">
            <font>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -286,6 +289,11 @@
         </item>
         <item row="3" column="11">
          <widget class="QPushButton" name="addR3">
+          <property name="font">
+           <font>
+            <hintingpreference>PreferNoHinting</hintingpreference>
+           </font>
+          </property>
           <property name="text">
            <string>+</string>
           </property>
@@ -303,10 +311,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -322,10 +330,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -342,7 +350,6 @@
           </property>
           <property name="font">
            <font>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -350,7 +357,7 @@
            <string>Brust</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="class" stdset="0">
            <string>h4</string>
@@ -367,7 +374,6 @@
           </property>
           <property name="font">
            <font>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -378,7 +384,7 @@
            <string>BE</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="class" stdset="0">
            <string>h4</string>
@@ -401,7 +407,6 @@
           </property>
           <property name="font">
            <font>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -409,7 +414,7 @@
            <string>Bauch</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="class" stdset="0">
            <string>h4</string>
@@ -425,10 +430,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -444,10 +449,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -470,7 +475,6 @@
           </property>
           <property name="font">
            <font>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -478,7 +482,7 @@
            <string>R. Arm</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="class" stdset="0">
            <string>h4</string>
@@ -495,7 +499,6 @@
           </property>
           <property name="font">
            <font>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -503,7 +506,7 @@
            <string>Bein</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="class" stdset="0">
            <string>h4</string>
@@ -525,13 +528,13 @@
            <bool>false</bool>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="readOnly">
            <bool>true</bool>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::NoButtons</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
           </property>
           <property name="maximum">
            <number>999</number>
@@ -550,13 +553,13 @@
            <bool>false</bool>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="readOnly">
            <bool>true</bool>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::NoButtons</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
           </property>
           <property name="maximum">
            <number>999</number>
@@ -572,10 +575,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -592,7 +595,6 @@
           </property>
           <property name="font">
            <font>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -600,7 +602,7 @@
            <string>L. Arm</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="class" stdset="0">
            <string>h4</string>
@@ -616,10 +618,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -635,10 +637,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -654,10 +656,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -681,7 +683,6 @@
           </property>
           <property name="font">
            <font>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -689,7 +690,7 @@
            <string>Kopf</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="class" stdset="0">
            <string>h4</string>
@@ -711,13 +712,13 @@
            <bool>false</bool>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="readOnly">
            <bool>true</bool>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::NoButtons</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
           </property>
           <property name="maximum">
            <number>999</number>
@@ -733,10 +734,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -745,6 +746,11 @@
         </item>
         <item row="1" column="11">
          <widget class="QPushButton" name="addR1">
+          <property name="font">
+           <font>
+            <hintingpreference>PreferNoHinting</hintingpreference>
+           </font>
+          </property>
           <property name="text">
            <string>+</string>
           </property>
@@ -769,10 +775,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -788,10 +794,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -800,6 +806,11 @@
         </item>
         <item row="2" column="10">
          <widget class="QPushButton" name="removeR2">
+          <property name="font">
+           <font>
+            <hintingpreference>PreferNoHinting</hintingpreference>
+           </font>
+          </property>
           <property name="text">
            <string>-</string>
           </property>
@@ -810,6 +821,11 @@
         </item>
         <item row="2" column="11">
          <widget class="QPushButton" name="addR2">
+          <property name="font">
+           <font>
+            <hintingpreference>PreferNoHinting</hintingpreference>
+           </font>
+          </property>
           <property name="text">
            <string>+</string>
           </property>
@@ -820,6 +836,11 @@
         </item>
         <item row="1" column="10">
          <widget class="QPushButton" name="removeR1">
+          <property name="font">
+           <font>
+            <hintingpreference>PreferNoHinting</hintingpreference>
+           </font>
+          </property>
           <property name="text">
            <string>-</string>
           </property>
@@ -832,7 +853,6 @@
          <widget class="QLabel" name="labelPunkte">
           <property name="font">
            <font>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -840,7 +860,7 @@
            <string>Punkte</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="class" stdset="0">
            <string>h4</string>
@@ -856,10 +876,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -875,10 +895,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -894,10 +914,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -913,10 +933,10 @@
            </size>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
           <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
           </property>
           <property name="maximum">
            <number>99</number>
@@ -934,7 +954,7 @@
          </size>
         </property>
         <property name="layoutDirection">
-         <enum>Qt::RightToLeft</enum>
+         <enum>Qt::LayoutDirection::RightToLeft</enum>
         </property>
         <property name="text">
          <string>Zonenrüstungssystem benutzen</string>
@@ -960,7 +980,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,0,0,0,0,0,0,0,0,0">
       <property name="sizeConstraint">
-       <enum>QLayout::SetDefaultConstraint</enum>
+       <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
       </property>
       <property name="leftMargin">
        <number>20</number>
@@ -1060,7 +1080,7 @@
    <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
-      <enum>Qt::Vertical</enum>
+      <enum>Qt::Orientation::Vertical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>

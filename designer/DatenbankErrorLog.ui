@@ -3,7 +3,7 @@
  <class>dialog</class>
  <widget class="QDialog" name="dialog">
   <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
+   <enum>Qt::WindowModality::ApplicationModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -39,6 +39,11 @@
          <width>28</width>
          <height>28</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <hintingpreference>PreferNoHinting</hintingpreference>
+        </font>
        </property>
        <property name="toolTip">
         <string>Aktualisieren</string>

@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterMain.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -140,17 +140,17 @@ class Ui_formMain(object):
 
     def retranslateUi(self, formMain):
         formMain.setWindowTitle(QCoreApplication.translate("formMain", u"Sephrasto - Charakter erstellen", None))
-        self.tabs.setProperty("class", QCoreApplication.translate("formMain", u"h1", None))
+        self.tabs.setProperty(u"class", QCoreApplication.translate("formMain", u"h1", None))
         self.tabs.setTabText(self.tabs.indexOf(self.tab), QCoreApplication.translate("formMain", u"Tab 1", None))
         self.tabs.setTabText(self.tabs.indexOf(self.tab_2), QCoreApplication.translate("formMain", u"Tab 2", None))
         self.label.setText(QCoreApplication.translate("formMain", u"    Total:    ", None))
-        self.label.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
+        self.label.setProperty(u"class", QCoreApplication.translate("formMain", u"h4", None))
         self.spinEP.setSuffix(QCoreApplication.translate("formMain", u" EP", None))
         self.label_3.setText(QCoreApplication.translate("formMain", u"    Ausgegeben:    ", None))
-        self.label_3.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
+        self.label_3.setProperty(u"class", QCoreApplication.translate("formMain", u"h4", None))
         self.spinSpent.setSuffix(QCoreApplication.translate("formMain", u" EP", None))
         self.label_2.setText(QCoreApplication.translate("formMain", u"    Verbleibend:    ", None))
-        self.label_2.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
+        self.label_2.setProperty(u"class", QCoreApplication.translate("formMain", u"h4", None))
         self.spinRemaining.setSuffix(QCoreApplication.translate("formMain", u" EP", None))
     # retranslateUi
 

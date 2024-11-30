@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterRuestungPicker.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -26,13 +26,13 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.setWindowModality(Qt.ApplicationModal)
+        Dialog.setWindowModality(Qt.WindowModality.ApplicationModal)
         Dialog.resize(928, 522)
         self.gridLayout_2 = QGridLayout(Dialog)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.splitter = QSplitter(Dialog)
         self.splitter.setObjectName(u"splitter")
-        self.splitter.setOrientation(Qt.Horizontal)
+        self.splitter.setOrientation(Qt.Orientation.Horizontal)
         self.verticalLayout_2 = QWidget(self.splitter)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
@@ -44,7 +44,7 @@ class Ui_Dialog(object):
         self.verticalLayout2.setObjectName(u"verticalLayout2")
         self.labelUnofficial = QLabel(self.verticalLayout_2)
         self.labelUnofficial.setObjectName(u"labelUnofficial")
-        self.labelUnofficial.setInputMethodHints(Qt.ImhNone)
+        self.labelUnofficial.setInputMethodHints(Qt.InputMethodHint.ImhNone)
         self.labelUnofficial.setWordWrap(True)
 
         self.verticalLayout2.addWidget(self.labelUnofficial)
@@ -53,6 +53,9 @@ class Ui_Dialog(object):
         self.filterLayout.setObjectName(u"filterLayout")
         self.buttonExpandToggle = QPushButton(self.verticalLayout_2)
         self.buttonExpandToggle.setObjectName(u"buttonExpandToggle")
+        font = QFont()
+        font.setHintingPreference(QFont.PreferNoHinting)
+        self.buttonExpandToggle.setFont(font)
 
         self.filterLayout.addWidget(self.buttonExpandToggle)
 
@@ -64,6 +67,7 @@ class Ui_Dialog(object):
 
         self.labelFilter = QLabel(self.verticalLayout_2)
         self.labelFilter.setObjectName(u"labelFilter")
+        self.labelFilter.setFont(font)
 
         self.filterLayout.addWidget(self.labelFilter)
 
@@ -77,8 +81,8 @@ class Ui_Dialog(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.treeArmors.sizePolicy().hasHeightForWidth())
         self.treeArmors.setSizePolicy(sizePolicy1)
-        self.treeArmors.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.treeArmors.setProperty("showDropIndicator", False)
+        self.treeArmors.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
+        self.treeArmors.setProperty(u"showDropIndicator", False)
         self.treeArmors.setAlternatingRowColors(True)
         self.treeArmors.setSortingEnabled(False)
         self.treeArmors.setAllColumnsShowFocus(True)
@@ -94,27 +98,26 @@ class Ui_Dialog(object):
         self.layoutWidget.setObjectName(u"layoutWidget")
         self.verticalLayout = QVBoxLayout(self.layoutWidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setSizeConstraint(QLayout.SetDefaultConstraint)
+        self.verticalLayout.setSizeConstraint(QLayout.SizeConstraint.SetDefaultConstraint)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.scrollArea = QScrollArea(self.layoutWidget)
         self.scrollArea.setObjectName(u"scrollArea")
         self.scrollArea.setMinimumSize(QSize(220, 0))
-        font = QFont()
-        font.setBold(False)
-        self.scrollArea.setFont(font)
-        self.scrollArea.setStyleSheet(u"padding: 1px")
-        self.scrollArea.setFrameShape(QFrame.StyledPanel)
+        font1 = QFont()
+        font1.setBold(False)
+        self.scrollArea.setFont(font1)
+        self.scrollArea.setFrameShape(QFrame.Shape.StyledPanel)
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 424, 459))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 405, 460))
         self.formLayout = QFormLayout(self.scrollAreaWidgetContents)
         self.formLayout.setObjectName(u"formLayout")
         self.lblName = QLabel(self.scrollAreaWidgetContents)
         self.lblName.setObjectName(u"lblName")
-        font1 = QFont()
-        font1.setBold(True)
-        self.lblName.setFont(font1)
+        font2 = QFont()
+        font2.setBold(True)
+        self.lblName.setFont(font2)
 
         self.formLayout.setWidget(0, QFormLayout.LabelRole, self.lblName)
 
@@ -130,7 +133,7 @@ class Ui_Dialog(object):
 
         self.lblRS = QLabel(self.scrollAreaWidgetContents)
         self.lblRS.setObjectName(u"lblRS")
-        self.lblRS.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.lblRS.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.formLayout.setWidget(2, QFormLayout.FieldRole, self.lblRS)
 
@@ -143,13 +146,13 @@ class Ui_Dialog(object):
 
         self.lblBeineL = QLabel(self.scrollAreaWidgetContents)
         self.lblBeineL.setObjectName(u"lblBeineL")
-        self.lblBeineL.setFont(font)
+        self.lblBeineL.setFont(font1)
 
         self.formLayout.setWidget(4, QFormLayout.LabelRole, self.lblBeineL)
 
         self.lblBeine = QLabel(self.scrollAreaWidgetContents)
         self.lblBeine.setObjectName(u"lblBeine")
-        self.lblBeine.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.lblBeine.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.formLayout.setWidget(4, QFormLayout.FieldRole, self.lblBeine)
 
@@ -160,7 +163,7 @@ class Ui_Dialog(object):
 
         self.lblSchwert = QLabel(self.scrollAreaWidgetContents)
         self.lblSchwert.setObjectName(u"lblSchwert")
-        self.lblSchwert.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.lblSchwert.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.formLayout.setWidget(5, QFormLayout.FieldRole, self.lblSchwert)
 
@@ -171,7 +174,7 @@ class Ui_Dialog(object):
 
         self.lblSchild = QLabel(self.scrollAreaWidgetContents)
         self.lblSchild.setObjectName(u"lblSchild")
-        self.lblSchild.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.lblSchild.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.formLayout.setWidget(6, QFormLayout.FieldRole, self.lblSchild)
 
@@ -182,7 +185,7 @@ class Ui_Dialog(object):
 
         self.lblBauch = QLabel(self.scrollAreaWidgetContents)
         self.lblBauch.setObjectName(u"lblBauch")
-        self.lblBauch.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.lblBauch.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.formLayout.setWidget(7, QFormLayout.FieldRole, self.lblBauch)
 
@@ -193,7 +196,7 @@ class Ui_Dialog(object):
 
         self.lblBrust = QLabel(self.scrollAreaWidgetContents)
         self.lblBrust.setObjectName(u"lblBrust")
-        self.lblBrust.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.lblBrust.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.formLayout.setWidget(8, QFormLayout.FieldRole, self.lblBrust)
 
@@ -204,13 +207,13 @@ class Ui_Dialog(object):
 
         self.lblKopf = QLabel(self.scrollAreaWidgetContents)
         self.lblKopf.setObjectName(u"lblKopf")
-        self.lblKopf.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.lblKopf.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.formLayout.setWidget(9, QFormLayout.FieldRole, self.lblKopf)
 
         self.lblZRS = QLabel(self.scrollAreaWidgetContents)
         self.lblZRS.setObjectName(u"lblZRS")
-        self.lblZRS.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.lblZRS.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.formLayout.setWidget(10, QFormLayout.FieldRole, self.lblZRS)
 
@@ -229,8 +232,8 @@ class Ui_Dialog(object):
 
         self.buttonBox = QDialogButtonBox(self.layoutWidget)
         self.buttonBox.setObjectName(u"buttonBox")
-        self.buttonBox.setOrientation(Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QDialogButtonBox.Cancel|QDialogButtonBox.Ok)
+        self.buttonBox.setOrientation(Qt.Orientation.Horizontal)
+        self.buttonBox.setStandardButtons(QDialogButtonBox.StandardButton.Cancel|QDialogButtonBox.StandardButton.Ok)
         self.buttonBox.setCenterButtons(True)
 
         self.verticalLayout.addWidget(self.buttonBox)
@@ -253,16 +256,16 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Sephrasto - R\u00fcstung w\u00e4hlen...", None))
         self.labelUnofficial.setText(QCoreApplication.translate("Dialog", u"Inoffiziell: Bei den hier aufgelisteten R\u00fcstungen handelt es sich um an WdS orientierte Vorschl\u00e4ge. Die Festlegung des RS einer R\u00fcstung obliegt am Ende dem Spielleiter.", None))
         self.buttonExpandToggle.setText(QCoreApplication.translate("Dialog", u"Expand Toggle", None))
-        self.buttonExpandToggle.setProperty("class", QCoreApplication.translate("Dialog", u"icon", None))
+        self.buttonExpandToggle.setProperty(u"class", QCoreApplication.translate("Dialog", u"icon", None))
         self.nameFilterEdit.setPlaceholderText(QCoreApplication.translate("Dialog", u"Suchen...", None))
         self.labelFilter.setText(QCoreApplication.translate("Dialog", u"Suchen", None))
-        self.labelFilter.setProperty("class", QCoreApplication.translate("Dialog", u"icon", None))
+        self.labelFilter.setProperty(u"class", QCoreApplication.translate("Dialog", u"icon", None))
         ___qtreewidgetitem = self.treeArmors.headerItem()
         ___qtreewidgetitem.setText(0, QCoreApplication.translate("Dialog", u"Name", None));
         self.lblName.setText(QCoreApplication.translate("Dialog", u"Kettenhemd", None))
-        self.lblName.setProperty("class", QCoreApplication.translate("Dialog", u"h4", None))
+        self.lblName.setProperty(u"class", QCoreApplication.translate("Dialog", u"h4", None))
         self.lblTyp.setText(QCoreApplication.translate("Dialog", u"Kettenr\u00fcstung", None))
-        self.lblTyp.setProperty("class", QCoreApplication.translate("Dialog", u"italic", None))
+        self.lblTyp.setProperty(u"class", QCoreApplication.translate("Dialog", u"italic", None))
         self.label_5.setText(QCoreApplication.translate("Dialog", u"RS / BE", None))
         self.lblRS.setText(QCoreApplication.translate("Dialog", u"0", None))
         self.lblBeineL.setText(QCoreApplication.translate("Dialog", u"Beine", None))

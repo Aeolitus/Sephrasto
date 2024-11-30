@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'DatenbankErrorLog.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -23,7 +23,7 @@ class Ui_dialog(object):
     def setupUi(self, dialog):
         if not dialog.objectName():
             dialog.setObjectName(u"dialog")
-        dialog.setWindowModality(Qt.ApplicationModal)
+        dialog.setWindowModality(Qt.WindowModality.ApplicationModal)
         dialog.resize(889, 449)
         self.gridLayout_2 = QGridLayout(dialog)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
@@ -43,6 +43,9 @@ class Ui_dialog(object):
         self.buttonRefresh.setObjectName(u"buttonRefresh")
         self.buttonRefresh.setMinimumSize(QSize(28, 28))
         self.buttonRefresh.setMaximumSize(QSize(28, 28))
+        font = QFont()
+        font.setHintingPreference(QFont.PreferNoHinting)
+        self.buttonRefresh.setFont(font)
 
         self.horizontalLayout.addWidget(self.buttonRefresh)
 
@@ -66,7 +69,7 @@ class Ui_dialog(object):
         self.buttonRefresh.setToolTip(QCoreApplication.translate("dialog", u"Aktualisieren", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonRefresh.setText(QCoreApplication.translate("dialog", u"Refresh", None))
-        self.buttonRefresh.setProperty("class", QCoreApplication.translate("dialog", u"icon", None))
+        self.buttonRefresh.setProperty(u"class", QCoreApplication.translate("dialog", u"icon", None))
         self.label.setText(QCoreApplication.translate("dialog", u"Probleme beim Laden der Hausregeln entdeckt! Mit einem Doppelclick gelangst du direkt zum entsprechenden Element.", None))
     # retranslateUi
 

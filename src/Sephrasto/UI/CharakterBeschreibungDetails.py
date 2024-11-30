@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterBeschreibungDetails.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.8.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -282,27 +282,27 @@ class Ui_formBeschreibung(object):
     def retranslateUi(self, formBeschreibung):
         formBeschreibung.setWindowTitle(QCoreApplication.translate("formBeschreibung", u"Beschreibung", None))
         self.label_10.setText(QCoreApplication.translate("formBeschreibung", u"Familie/Hintergrund/Herkunft", None))
-        self.label_10.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.label_10.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.label_9.setText(QCoreApplication.translate("formBeschreibung", u"Aussehen", None))
-        self.label_9.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.label_9.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.label_2.setText(QCoreApplication.translate("formBeschreibung", u"Titel", None))
-        self.label_2.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.label_2.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.label_8.setText(QCoreApplication.translate("formBeschreibung", u"Augenfarbe", None))
-        self.label_8.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.label_8.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.label_7.setText(QCoreApplication.translate("formBeschreibung", u"Haarfarbe", None))
-        self.label_7.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.label_7.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.label_4.setText(QCoreApplication.translate("formBeschreibung", u"Geburtsdatum", None))
-        self.label_4.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.label_4.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.label.setText(QCoreApplication.translate("formBeschreibung", u"Profession", None))
-        self.label.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.label.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.label_11.setText(QCoreApplication.translate("formBeschreibung", u"Kultur", None))
-        self.label_11.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.label_11.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.label_5.setText(QCoreApplication.translate("formBeschreibung", u"Gr\u00f6\u00dfe", None))
-        self.label_5.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.label_5.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.chkKultur.setText(QCoreApplication.translate("formBeschreibung", u"Automatisch bef\u00fcllen", None))
         self.label_6.setText(QCoreApplication.translate("formBeschreibung", u"Gewicht", None))
-        self.label_6.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.label_6.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.label_3.setText(QCoreApplication.translate("formBeschreibung", u"Geschlecht", None))
-        self.label_3.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.label_3.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
     # retranslateUi
 

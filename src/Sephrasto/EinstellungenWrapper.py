@@ -51,10 +51,6 @@ class EinstellungenWrapper():
                 QtCore.Qt.WindowCloseButtonHint |
                 QtCore.Qt.WindowMaximizeButtonHint |
                 QtCore.Qt.WindowMinimizeButtonHint)
-        
-        for i in range(self.ui.tabWidget.tabBar().count()):
-            self.ui.tabWidget.tabBar().setTabTextColor(i, QtGui.QColor(Wolke.HeadingColor))
-        self.ui.tabWidget.setStyleSheet('QTabBar { font-size: ' + str(Wolke.Settings["FontHeadingSize"]) + 'pt; font-family: \"' + Wolke.Settings["FontHeading"] + '\"; }')
 
         self.ui.checkCheatsheet.setChecked(Wolke.Settings['Cheatsheet'])
 
@@ -506,7 +502,6 @@ class EinstellungenWrapper():
             self.ui.tablePlugins.setItem(row, 0, item)
 
             label = QtWidgets.QLabel()
-            label.setStyleSheet("width: 100%;");
             label.setAlignment(QtCore.Qt.AlignCenter|QtCore.Qt.AlignVCenter)
             anzeigeversion = Version.toString(pdui.version)
 
@@ -528,9 +523,11 @@ class EinstellungenWrapper():
             self.ui.tablePlugins.setCellWidget(row, 1, label)
 
             label = QtWidgets.QLabel()
-            label.setStyleSheet("width: 100%;");
             label.setAlignment(QtCore.Qt.AlignCenter|QtCore.Qt.AlignVCenter)
             label.setProperty("class", "icon")
+            font = label.font()
+            font.setHintingPreference(QtGui.QFont.PreferNoHinting)
+            label.setFont(font)
 
             if pdui.updatable:
                 label.setText("\uf0aa")   
@@ -662,7 +659,10 @@ class EinstellungenWrapper():
                 Wolke.Charakterbögen[cb.name] = cb
 
         #Init themes
-        Wolke.Themes = EinstellungenWrapper.getThemes()
+        Wolke.Themes = EinstellungenWrapper.getThemes()     
+        if Wolke.Settings['Theme'] not in Wolke.Themes.keys():
+            Wolke.Settings['Theme'] = "Ilaris"
+
 
     @staticmethod
     def save():

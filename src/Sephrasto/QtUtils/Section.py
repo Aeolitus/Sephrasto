@@ -30,7 +30,7 @@ class Section(wd.QWidget):
         self.contentArea = wd.QScrollArea(self)
         self.mainLayout = wd.QGridLayout(self)
     
-        self.toggleButton.setStyleSheet("QToolButton {border: none;}")
+        self.toggleButton.setProperty("class", "noBorder")
         self.toggleButton.setToolButtonStyle(cr.Qt.ToolButtonTextBesideIcon)
         self.toggleButton.setArrowType(cr.Qt.RightArrow)
         self.toggleButton.setText(2*"&nbsp;" + title)

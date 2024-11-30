@@ -3,7 +3,7 @@
  <class>Dialog</class>
  <widget class="QDialog" name="Dialog">
   <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
+   <enum>Qt::WindowModality::ApplicationModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -40,6 +40,11 @@
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
          <widget class="QPushButton" name="buttonExpandToggle">
+          <property name="font">
+           <font>
+            <hintingpreference>PreferNoHinting</hintingpreference>
+           </font>
+          </property>
           <property name="text">
            <string>Expand Toggle</string>
           </property>
@@ -60,6 +65,11 @@
         </item>
         <item>
          <widget class="QLabel" name="labelFilter">
+          <property name="font">
+           <font>
+            <hintingpreference>PreferNoHinting</hintingpreference>
+           </font>
+          </property>
           <property name="text">
            <string>Suchen</string>
           </property>
@@ -79,7 +89,7 @@
          </sizepolicy>
         </property>
         <property name="editTriggers">
-         <set>QAbstractItemView::NoEditTriggers</set>
+         <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
         </property>
         <property name="showDropIndicator" stdset="0">
          <bool>false</bool>
@@ -115,10 +125,10 @@
       <item>
        <widget class="QDialogButtonBox" name="buttonBox">
         <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+         <enum>Qt::Orientation::Horizontal</enum>
         </property>
         <property name="standardButtons">
-         <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+         <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
         </property>
         <property name="centerButtons">
          <bool>true</bool>
