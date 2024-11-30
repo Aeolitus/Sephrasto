@@ -16,32 +16,75 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QCheckBox, QComboBox,
-    QGridLayout, QGroupBox, QHBoxLayout, QLabel,
-    QPlainTextEdit, QPushButton, QSizePolicy, QSpacerItem,
-    QSpinBox, QVBoxLayout, QWidget)
+    QFrame, QGridLayout, QGroupBox, QHBoxLayout,
+    QLabel, QPlainTextEdit, QPushButton, QScrollArea,
+    QSizePolicy, QSpacerItem, QSpinBox, QVBoxLayout,
+    QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(1058, 864)
+        Form.resize(1083, 847)
         self.gridLayout = QGridLayout(Form)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setHorizontalSpacing(20)
         self.gridLayout.setVerticalSpacing(10)
-        self.gridLayout.setContentsMargins(20, 20, 20, 20)
+        self.gridLayout.setContentsMargins(20, 20, 0, 20)
+        self.verticalLayout_3 = QVBoxLayout()
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.labelNotiz = QLabel(Form)
+        self.labelNotiz.setObjectName(u"labelNotiz")
+        font = QFont()
+        font.setBold(True)
+        self.labelNotiz.setFont(font)
+
+        self.verticalLayout_3.addWidget(self.labelNotiz)
+
+        self.groupBox = QGroupBox(Form)
+        self.groupBox.setObjectName(u"groupBox")
+        self.gridLayout_3 = QGridLayout(self.groupBox)
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.gridLayout_3.setContentsMargins(20, 20, 20, 20)
+        self.teNotiz = QPlainTextEdit(self.groupBox)
+        self.teNotiz.setObjectName(u"teNotiz")
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.teNotiz.sizePolicy().hasHeightForWidth())
+        self.teNotiz.setSizePolicy(sizePolicy)
+
+        self.gridLayout_3.addWidget(self.teNotiz, 0, 0, 1, 1)
+
+
+        self.verticalLayout_3.addWidget(self.groupBox)
+
+
+        self.gridLayout.addLayout(self.verticalLayout_3, 1, 0, 1, 1)
+
+        self.scrollArea = QScrollArea(Form)
+        self.scrollArea.setObjectName(u"scrollArea")
+        sizePolicy.setHeightForWidth(self.scrollArea.sizePolicy().hasHeightForWidth())
+        self.scrollArea.setSizePolicy(sizePolicy)
+        self.scrollArea.setFrameShape(QFrame.Shape.NoFrame)
+        self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 527, 884))
+        self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(0, 0, 20, 0)
         self.verticalLayout_4 = QVBoxLayout()
         self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.labelEinstellungen = QLabel(Form)
+        self.labelEinstellungen = QLabel(self.scrollAreaWidgetContents)
         self.labelEinstellungen.setObjectName(u"labelEinstellungen")
-        font = QFont()
-        font.setBold(True)
         self.labelEinstellungen.setFont(font)
 
         self.verticalLayout_4.addWidget(self.labelEinstellungen)
 
-        self.groupBox_3 = QGroupBox(Form)
+        self.groupBox_3 = QGroupBox(self.scrollAreaWidgetContents)
         self.groupBox_3.setObjectName(u"groupBox_3")
         self.gridLayout_5 = QGridLayout(self.groupBox_3)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
@@ -103,13 +146,13 @@ class Ui_Form(object):
 
         self.verticalLayout_4.addItem(self.horizontalSpacer)
 
-        self.label_16 = QLabel(Form)
+        self.label_16 = QLabel(self.scrollAreaWidgetContents)
         self.label_16.setObjectName(u"label_16")
         self.label_16.setFont(font)
 
         self.verticalLayout_4.addWidget(self.label_16)
 
-        self.groupBox_4 = QGroupBox(Form)
+        self.groupBox_4 = QGroupBox(self.scrollAreaWidgetContents)
         self.groupBox_4.setObjectName(u"groupBox_4")
         self.gridLayout_6 = QGridLayout(self.groupBox_4)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
@@ -200,13 +243,13 @@ class Ui_Form(object):
 
         self.verticalLayout_4.addItem(self.verticalSpacer_2)
 
-        self.labelEP = QLabel(Form)
+        self.labelEP = QLabel(self.scrollAreaWidgetContents)
         self.labelEP.setObjectName(u"labelEP")
         self.labelEP.setFont(font)
 
         self.verticalLayout_4.addWidget(self.labelEP)
 
-        self.groupBox_2 = QGroupBox(Form)
+        self.groupBox_2 = QGroupBox(self.scrollAreaWidgetContents)
         self.groupBox_2.setObjectName(u"groupBox_2")
         self.gridLayout_4 = QGridLayout(self.groupBox_2)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
@@ -469,38 +512,12 @@ class Ui_Form(object):
         self.verticalLayout_4.addItem(self.verticalSpacer)
 
 
-        self.gridLayout.addLayout(self.verticalLayout_4, 0, 1, 1, 1)
+        self.verticalLayout.addLayout(self.verticalLayout_4)
 
-        self.verticalLayout_3 = QVBoxLayout()
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.labelNotiz = QLabel(Form)
-        self.labelNotiz.setObjectName(u"labelNotiz")
-        self.labelNotiz.setFont(font)
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
-        self.verticalLayout_3.addWidget(self.labelNotiz)
+        self.gridLayout.addWidget(self.scrollArea, 1, 1, 1, 1)
 
-        self.groupBox = QGroupBox(Form)
-        self.groupBox.setObjectName(u"groupBox")
-        self.gridLayout_3 = QGridLayout(self.groupBox)
-        self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.gridLayout_3.setContentsMargins(20, 20, 20, 20)
-        self.teNotiz = QPlainTextEdit(self.groupBox)
-        self.teNotiz.setObjectName(u"teNotiz")
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.teNotiz.sizePolicy().hasHeightForWidth())
-        self.teNotiz.setSizePolicy(sizePolicy)
-
-        self.gridLayout_3.addWidget(self.teNotiz, 0, 0, 1, 1)
-
-
-        self.verticalLayout_3.addWidget(self.groupBox)
-
-
-        self.gridLayout.addLayout(self.verticalLayout_3, 0, 0, 1, 1)
-
-        self.gridLayout.setColumnStretch(0, 1)
         QWidget.setTabOrder(self.teNotiz, self.comboHausregeln)
 
         self.retranslateUi(Form)
@@ -510,6 +527,11 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
+        self.labelNotiz.setText(QCoreApplication.translate("Form", u"Notiz", None))
+        self.labelNotiz.setProperty(u"class", QCoreApplication.translate("Form", u"h2", None))
+        self.groupBox.setTitle("")
+        self.teNotiz.setPlainText("")
+        self.scrollArea.setProperty(u"class", QCoreApplication.translate("Form", u"transparent", None))
         self.labelEinstellungen.setText(QCoreApplication.translate("Form", u"Charakter-Einstellungen", None))
         self.labelEinstellungen.setProperty(u"class", QCoreApplication.translate("Form", u"h2", None))
         self.groupBox_3.setTitle("")
@@ -604,9 +626,5 @@ class Ui_Form(object):
         self.label_3.setProperty(u"class", QCoreApplication.translate("Form", u"h4", None))
         self.spinTalenteSpent.setSuffix(QCoreApplication.translate("Form", u" EP", None))
         self.spinVorteilePercent.setSuffix(QCoreApplication.translate("Form", u" %", None))
-        self.labelNotiz.setText(QCoreApplication.translate("Form", u"Notiz", None))
-        self.labelNotiz.setProperty(u"class", QCoreApplication.translate("Form", u"h2", None))
-        self.groupBox.setTitle("")
-        self.teNotiz.setPlainText("")
     # retranslateUi
 

@@ -17,8 +17,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QCheckBox, QGridLayout,
     QGroupBox, QLabel, QLayout, QLineEdit,
-    QPushButton, QSizePolicy, QSpacerItem, QSpinBox,
-    QVBoxLayout, QWidget)
+    QPushButton, QScrollArea, QSizePolicy, QSpacerItem,
+    QSpinBox, QVBoxLayout, QWidget)
 
 class Ui_formInventar(object):
     def setupUi(self, formInventar):
@@ -28,8 +28,17 @@ class Ui_formInventar(object):
         formInventar.setMinimumSize(QSize(802, 0))
         self.verticalLayout = QVBoxLayout(formInventar)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(20, 20, 20, 20)
-        self.gbRstungen = QGroupBox(formInventar)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.scrollArea = QScrollArea(formInventar)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 952, 690))
+        self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(20, 20, 20, 20)
+        self.gbRstungen = QGroupBox(self.scrollAreaWidgetContents)
         self.gbRstungen.setObjectName(u"gbRstungen")
         self.verticalLayout_3 = QVBoxLayout(self.gbRstungen)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
@@ -438,9 +447,9 @@ class Ui_formInventar(object):
         self.verticalLayout_3.addWidget(self.checkZonen)
 
 
-        self.verticalLayout.addWidget(self.gbRstungen)
+        self.verticalLayout_2.addWidget(self.gbRstungen)
 
-        self.gbInventar = QGroupBox(formInventar)
+        self.gbInventar = QGroupBox(self.scrollAreaWidgetContents)
         self.gbInventar.setObjectName(u"gbInventar")
         self.gbInventar.setFlat(False)
         self.gridLayout_2 = QGridLayout(self.gbInventar)
@@ -551,11 +560,15 @@ class Ui_formInventar(object):
         self.gridLayout_2.addWidget(self.lineEdit_1, 0, 0, 1, 1)
 
 
-        self.verticalLayout.addWidget(self.gbInventar)
+        self.verticalLayout_2.addWidget(self.gbInventar)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer = QSpacerItem(20, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.verticalLayout.addItem(self.verticalSpacer)
+        self.verticalLayout_2.addItem(self.verticalSpacer)
+
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+
+        self.verticalLayout.addWidget(self.scrollArea)
 
         QWidget.setTabOrder(self.editR1name, self.spinR1be)
         QWidget.setTabOrder(self.spinR1be, self.spinR1RS)
@@ -618,6 +631,7 @@ class Ui_formInventar(object):
 
     def retranslateUi(self, formInventar):
         formInventar.setWindowTitle(QCoreApplication.translate("formInventar", u"Form", None))
+        self.scrollArea.setProperty(u"class", QCoreApplication.translate("formInventar", u"transparent", None))
         self.gbRstungen.setTitle(QCoreApplication.translate("formInventar", u"R\u00fcstungen", None))
         self.gbRstungen.setProperty(u"class", QCoreApplication.translate("formInventar", u"h3", None))
         self.removeR3.setText(QCoreApplication.translate("formInventar", u"-", None))

@@ -15,37 +15,22 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QFrame, QGridLayout,
-    QHBoxLayout, QLabel, QScrollArea, QSizePolicy,
-    QSpacerItem, QSpinBox, QTabWidget, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QGridLayout, QHBoxLayout,
+    QLabel, QSizePolicy, QSpacerItem, QSpinBox,
+    QTabWidget, QWidget)
 
 class Ui_formMain(object):
     def setupUi(self, formMain):
         if not formMain.objectName():
             formMain.setObjectName(u"formMain")
-        formMain.setWindowModality(Qt.ApplicationModal)
+        formMain.setWindowModality(Qt.WindowModality.ApplicationModal)
         formMain.resize(1129, 903)
         self.gridLayout = QGridLayout(formMain)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.scrollArea = QScrollArea(formMain)
-        self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setFrameShape(QFrame.NoFrame)
-        self.scrollArea.setWidgetResizable(True)
-        self.scrollAreaWidgetContents = QWidget()
-        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 1107, 852))
-        self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout = QVBoxLayout()
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.tabs = QTabWidget(self.scrollAreaWidgetContents)
+        self.tabs = QTabWidget(formMain)
         self.tabs.setObjectName(u"tabs")
-        self.tabs.setTabPosition(QTabWidget.North)
-        self.tabs.setElideMode(Qt.ElideRight)
+        self.tabs.setTabPosition(QTabWidget.TabPosition.North)
+        self.tabs.setElideMode(Qt.TextElideMode.ElideRight)
         self.tabs.setDocumentMode(False)
         self.tab = QWidget()
         self.tab.setObjectName(u"tab")
@@ -54,17 +39,7 @@ class Ui_formMain(object):
         self.tab_2.setObjectName(u"tab_2")
         self.tabs.addTab(self.tab_2, "")
 
-        self.horizontalLayout.addWidget(self.tabs)
-
-
-        self.verticalLayout.addLayout(self.horizontalLayout)
-
-
-        self.verticalLayout_2.addLayout(self.verticalLayout)
-
-        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
-
-        self.gridLayout.addWidget(self.scrollArea, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.tabs, 0, 0, 1, 1)
 
         self.layoutBottomBar = QHBoxLayout()
         self.layoutBottomBar.setObjectName(u"layoutBottomBar")
@@ -78,8 +53,8 @@ class Ui_formMain(object):
 
         self.spinEP = QSpinBox(formMain)
         self.spinEP.setObjectName(u"spinEP")
-        self.spinEP.setAlignment(Qt.AlignCenter)
-        self.spinEP.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.spinEP.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.spinEP.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.PlusMinus)
         self.spinEP.setMaximum(100000)
 
         self.layoutBottomBar.addWidget(self.spinEP)
@@ -92,10 +67,10 @@ class Ui_formMain(object):
 
         self.spinSpent = QSpinBox(formMain)
         self.spinSpent.setObjectName(u"spinSpent")
-        self.spinSpent.setFocusPolicy(Qt.NoFocus)
-        self.spinSpent.setAlignment(Qt.AlignCenter)
+        self.spinSpent.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.spinSpent.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.spinSpent.setReadOnly(True)
-        self.spinSpent.setButtonSymbols(QAbstractSpinBox.NoButtons)
+        self.spinSpent.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.NoButtons)
         self.spinSpent.setMinimum(-100000)
         self.spinSpent.setMaximum(100000)
 
@@ -109,11 +84,11 @@ class Ui_formMain(object):
 
         self.spinRemaining = QSpinBox(formMain)
         self.spinRemaining.setObjectName(u"spinRemaining")
-        self.spinRemaining.setFocusPolicy(Qt.NoFocus)
+        self.spinRemaining.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.spinRemaining.setAutoFillBackground(False)
-        self.spinRemaining.setAlignment(Qt.AlignCenter)
+        self.spinRemaining.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.spinRemaining.setReadOnly(True)
-        self.spinRemaining.setButtonSymbols(QAbstractSpinBox.NoButtons)
+        self.spinRemaining.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.NoButtons)
         self.spinRemaining.setMinimum(-100000)
         self.spinRemaining.setMaximum(100000)
 
@@ -126,7 +101,6 @@ class Ui_formMain(object):
 
         self.gridLayout.addLayout(self.layoutBottomBar, 1, 0, 1, 1)
 
-        QWidget.setTabOrder(self.tabs, self.spinEP)
         QWidget.setTabOrder(self.spinEP, self.spinSpent)
         QWidget.setTabOrder(self.spinSpent, self.spinRemaining)
 

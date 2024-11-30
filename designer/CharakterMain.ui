@@ -3,7 +3,7 @@
  <class>formMain</class>
  <widget class="QWidget" name="formMain">
   <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
+   <enum>Qt::WindowModality::ApplicationModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -18,73 +18,31 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <widget class="QScrollArea" name="scrollArea">
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
+    <widget class="QTabWidget" name="tabs">
+     <property name="tabPosition">
+      <enum>QTabWidget::TabPosition::North</enum>
      </property>
-     <property name="widgetResizable">
-      <bool>true</bool>
+     <property name="currentIndex">
+      <number>1</number>
      </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>1107</width>
-        <height>852</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout">
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout">
-           <item>
-            <widget class="QTabWidget" name="tabs">
-             <property name="tabPosition">
-              <enum>QTabWidget::North</enum>
-             </property>
-             <property name="currentIndex">
-              <number>1</number>
-             </property>
-             <property name="elideMode">
-              <enum>Qt::ElideRight</enum>
-             </property>
-             <property name="documentMode">
-              <bool>false</bool>
-             </property>
-             <property name="class" stdset="0">
-              <string>h1</string>
-             </property>
-             <widget class="QWidget" name="tab">
-              <attribute name="title">
-               <string>Tab 1</string>
-              </attribute>
-             </widget>
-             <widget class="QWidget" name="tab_2">
-              <attribute name="title">
-               <string>Tab 2</string>
-              </attribute>
-             </widget>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </item>
-      </layout>
+     <property name="elideMode">
+      <enum>Qt::TextElideMode::ElideRight</enum>
+     </property>
+     <property name="documentMode">
+      <bool>false</bool>
+     </property>
+     <property name="class" stdset="0">
+      <string>h1</string>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Tab 1</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Tab 2</string>
+      </attribute>
      </widget>
     </widget>
    </item>
@@ -94,7 +52,6 @@
       <widget class="QLabel" name="label">
        <property name="font">
         <font>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -109,10 +66,10 @@
      <item>
       <widget class="QSpinBox" name="spinEP">
        <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <set>Qt::AlignmentFlag::AlignCenter</set>
        </property>
        <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
+        <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
        </property>
        <property name="suffix">
         <string> EP</string>
@@ -126,7 +83,6 @@
       <widget class="QLabel" name="label_3">
        <property name="font">
         <font>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -141,16 +97,16 @@
      <item>
       <widget class="QSpinBox" name="spinSpent">
        <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
+        <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <set>Qt::AlignmentFlag::AlignCenter</set>
        </property>
        <property name="readOnly">
         <bool>true</bool>
        </property>
        <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::NoButtons</enum>
+        <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
        </property>
        <property name="suffix">
         <string> EP</string>
@@ -167,7 +123,6 @@
       <widget class="QLabel" name="label_2">
        <property name="font">
         <font>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -182,19 +137,19 @@
      <item>
       <widget class="QSpinBox" name="spinRemaining">
        <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
+        <enum>Qt::FocusPolicy::NoFocus</enum>
        </property>
        <property name="autoFillBackground">
         <bool>false</bool>
        </property>
        <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <set>Qt::AlignmentFlag::AlignCenter</set>
        </property>
        <property name="readOnly">
         <bool>true</bool>
        </property>
        <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::NoButtons</enum>
+        <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
        </property>
        <property name="suffix">
         <string> EP</string>
@@ -210,7 +165,7 @@
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -225,7 +180,6 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>tabs</tabstop>
   <tabstop>spinEP</tabstop>
   <tabstop>spinSpent</tabstop>
   <tabstop>spinRemaining</tabstop>

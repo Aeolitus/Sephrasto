@@ -15,47 +15,58 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QGridLayout, QGroupBox, QLabel,
-    QSizePolicy, QSpacerItem, QWidget)
+from PySide6.QtWidgets import (QApplication, QGridLayout, QGroupBox, QHBoxLayout,
+    QLabel, QScrollArea, QSizePolicy, QVBoxLayout,
+    QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(872, 460)
-        self.gridLayout_3 = QGridLayout(Form)
-        self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.gridLayout_3.setContentsMargins(20, 20, 20, 20)
-        self.gridLayout = QGridLayout()
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setVerticalSpacing(20)
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.gridLayout.addItem(self.verticalSpacer, 0, 0, 1, 1)
-
-        self.labelInfo = QLabel(Form)
-        self.labelInfo.setObjectName(u"labelInfo")
-        self.labelInfo.setMinimumSize(QSize(0, 18))
-        self.labelInfo.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout.addWidget(self.labelInfo, 3, 0, 1, 1)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.gridLayout.addItem(self.verticalSpacer_2, 4, 0, 1, 1)
-
-        self.groupBox = QGroupBox(Form)
+        Form.resize(1101, 699)
+        self.verticalLayout_2 = QVBoxLayout(Form)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.scrollArea = QScrollArea(Form)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 1099, 697))
+        self.horizontalLayout = QHBoxLayout(self.scrollAreaWidgetContents)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(20, 20, 20, 20)
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setSpacing(20)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.groupBox = QGroupBox(self.scrollAreaWidgetContents)
         self.groupBox.setObjectName(u"groupBox")
-        self.groupBox.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.groupBox.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
         self.groupBox.setFlat(False)
         self.freieFertsGrid = QGridLayout(self.groupBox)
         self.freieFertsGrid.setObjectName(u"freieFertsGrid")
         self.freieFertsGrid.setContentsMargins(20, 20, 20, 20)
 
-        self.gridLayout.addWidget(self.groupBox, 2, 0, 1, 1)
+        self.verticalLayout.addWidget(self.groupBox)
+
+        self.labelInfo = QLabel(self.scrollAreaWidgetContents)
+        self.labelInfo.setObjectName(u"labelInfo")
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.labelInfo.sizePolicy().hasHeightForWidth())
+        self.labelInfo.setSizePolicy(sizePolicy)
+        self.labelInfo.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.labelInfo.setWordWrap(True)
+
+        self.verticalLayout.addWidget(self.labelInfo)
 
 
-        self.gridLayout_3.addLayout(self.gridLayout, 0, 0, 1, 1)
+        self.horizontalLayout.addLayout(self.verticalLayout)
+
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+
+        self.verticalLayout_2.addWidget(self.scrollArea)
 
 
         self.retranslateUi(Form)
@@ -65,10 +76,11 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
+        self.scrollArea.setProperty(u"class", QCoreApplication.translate("Form", u"transparent", None))
+        self.groupBox.setTitle("")
         self.labelInfo.setText(QCoreApplication.translate("Form", u"Freie Fertigkeiten sind in drei Stufen geteilt: Unerfahren (I), erfahren (II) und meisterlich (III). Sie entsprechen jeweils einem PW von 6/14/22 und kosten 4/8/16 EP.\n"
 "\n"
 "Der erste Eintrag ist die Muttersprache des Charakters.\n"
 "Jeder Charakter beherrscht seine Muttersprache meisterlich, ohne daf\u00fcr zu bezahlen.", None))
-        self.groupBox.setTitle("")
     # retranslateUi
 

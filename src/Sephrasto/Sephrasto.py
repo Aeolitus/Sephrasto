@@ -382,7 +382,7 @@ class MainWindowWrapper(object):
             wizardEd.form.hide()
             wizardEd.form.deleteLater()
             if result != QtWidgets.QDialog.Accepted:
-                return6
+                return
 
         EventBus.doAction("charaktereditor_oeffnet", { "neu" : True, "filepath" : "" })
         self.form.hide()
@@ -594,6 +594,8 @@ QCheckBox::indicator {{ width: {Hilfsmethoden.emToPixels(1.9)}px; height: {Hilfs
 .iconTopDownArrow {{ {Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(2.3)}px; max-height: {Hilfsmethoden.emToPixels(1.2)}px;}}
 .alternateBase {{ background-color: {palette.alternateBase().color().name()}; }}
 .noBorder {{ border: none; }}
+.transparent {{ background-color: transparent; }}
+.transparent QWidget#scrollAreaWidgetContents {{ background-color: transparent; }}
 .treeVorteile::item {{ margin: 0.1em; }}
 .monospace {{ font-family: Consolas,'Lucida Console','Liberation Mono','DejaVu Sans Mono','Bitstream Vera Sans Mono','Courier New',monospace,sans-serif; }}
 .codeEditor {{ background: {Wolke.CodeBackgroundColor}; }}

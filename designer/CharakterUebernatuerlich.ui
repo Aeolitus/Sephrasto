@@ -14,6 +14,18 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>20</number>
+   </property>
+   <property name="topMargin">
+    <number>20</number>
+   </property>
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
+   <property name="bottomMargin">
+    <number>20</number>
+   </property>
    <item row="0" column="0">
     <widget class="QSplitter" name="splitter">
      <property name="orientation">
@@ -163,8 +175,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>363</width>
-         <height>547</height>
+         <width>355</width>
+         <height>529</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_2">

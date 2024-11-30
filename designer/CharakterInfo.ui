@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1058</width>
-    <height>864</height>
+    <width>1083</width>
+    <height>847</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout" columnstretch="1,0">
+  <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
     <number>20</number>
    </property>
@@ -21,7 +21,7 @@
     <number>20</number>
    </property>
    <property name="rightMargin">
-    <number>20</number>
+    <number>0</number>
    </property>
    <property name="bottomMargin">
     <number>20</number>
@@ -32,1004 +32,7 @@
    <property name="verticalSpacing">
     <number>10</number>
    </property>
-   <item row="0" column="1">
-    <layout class="QVBoxLayout" name="verticalLayout_4">
-     <property name="spacing">
-      <number>0</number>
-     </property>
-     <item>
-      <widget class="QLabel" name="labelEinstellungen">
-       <property name="font">
-        <font>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Charakter-Einstellungen</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>h2</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QGroupBox" name="groupBox_3">
-       <property name="title">
-        <string/>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_5">
-        <property name="leftMargin">
-         <number>20</number>
-        </property>
-        <property name="topMargin">
-         <number>20</number>
-        </property>
-        <property name="rightMargin">
-         <number>20</number>
-        </property>
-        <property name="bottomMargin">
-         <number>20</number>
-        </property>
-        <item row="2" column="1">
-         <widget class="QCheckBox" name="checkDetails">
-          <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Wenn diese Option aktiviert ist, wird ein weiterer Tab &amp;quot;Hintergrund&amp;quot; angezeigt, in welchem du eine ausführliche Beschreibung des Charakters vornehmen kannst. Dafür wird in Beschreibungs-Tab die Kurzbeschreibung nicht mehr angezeigt.&lt;/p&gt;&lt;p&gt;Allerdings hat beispielsweise der Standard-Charakterbogen keine Formularfelder für diese Daten - deshalb ist diese Option standardmäßig deaktiviert.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="0">
-         <widget class="QLabel" name="label_5">
-          <property name="text">
-           <string>Hausregeln</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="label_15">
-          <property name="text">
-           <string>Hintergrundangaben</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QCheckBox" name="checkReq">
-          <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Falls abgewählt, werden sämtliche Voraussetzungsprüfungen für Vorteile, übernatürliche Fertigkeiten usw. deaktiviert.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="15" column="0" colspan="2">
-         <widget class="QLabel" name="labelReload">
-          <property name="text">
-           <string>Der Charakter muss gespeichert und neu geladen werden, damit die neuen Hausregeln übernommen werden können!</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-          </property>
-          <property name="wordWrap">
-           <bool>true</bool>
-          </property>
-          <property name="warning" stdset="0">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_11">
-          <property name="text">
-           <string>Voraussetzungen überprüfen</string>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="1">
-         <widget class="QComboBox" name="comboHausregeln">
-          <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hier erscheinen alle Hausregeldatenbanken in deinem Regel-Pfad.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QCheckBox" name="checkFinanzen">
-          <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Finanzen spielen nur bei einem neuen Charakter eine Rolle und können nach dem ersten Abenteuer ausgeblendet werden. Auch die aktuellen Schicksalspunkte werden dann nicht mehr ausgegeben, da diese ab dem ersten Abenteuer händisch verwaltet werden.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="label_12">
-          <property name="text">
-           <string>Vor dem ersten Abenteuer</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Orientation::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Policy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_16">
-       <property name="font">
-        <font>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Export-Einstellungen</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>h2</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QGroupBox" name="groupBox_4">
-       <property name="title">
-        <string/>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_6">
-        <property name="leftMargin">
-         <number>20</number>
-        </property>
-        <property name="topMargin">
-         <number>20</number>
-        </property>
-        <property name="rightMargin">
-         <number>20</number>
-        </property>
-        <property name="bottomMargin">
-         <number>20</number>
-        </property>
-        <item row="7" column="1">
-         <widget class="QCheckBox" name="checkFormular">
-          <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Manche PDF-Reader können Formularfelder in PDF-Dokumenten nicht durchsuchen oder machen beispielsweise Probleme wegen der automatischen Schriftgröße. Die Formularfelder erhöhen die Dateigröße außerdem rund 10%. Mit dieser Option kannst du diese in reine Textfelder umwandeln. Sie sind dann allerdings nicht mehr editierbar. Diese Einstellung gilt für neue Charaktere. Du kannst sie nachträglich im Info-Tab des Charaktereditors ändern.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="0">
-         <widget class="QLabel" name="cbFormular">
-          <property name="text">
-           <string>Formularfelder editierbar</string>
-          </property>
-         </widget>
-        </item>
-        <item row="8" column="0">
-         <widget class="QLabel" name="label_13">
-          <property name="text">
-           <string>Export-Option bei übernatürlichen Fertigkeiten</string>
-          </property>
-          <property name="wordWrap">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="8" column="1">
-         <widget class="QCheckBox" name="checkUeberPDF">
-          <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sephrasto übernimmt automatisch alle übernatürlichen Fertigkeiten in den Charakterbogen, deren FW mindestens 1 beträgt und für welche du mindestens ein Talent aktiviert hast. Wenn du diese Option aktivierst, zeigt Sephrasto eine PDF-Spalte bei den übernatürlichen Fertigkeiten an. Mit dieser kannst du selbst entscheiden, welche Fertigkeiten in den Charakterbogen übernommen werden sollen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="checked">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_6">
-          <property name="text">
-           <string>Charakterbogen</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="label_14">
-          <property name="text">
-           <string>Relevante Regeln anhängen</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <layout class="QHBoxLayout" name="horizontalLayout">
-          <item>
-           <widget class="QCheckBox" name="checkRegeln">
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sephrasto kann automatisch alle Regeln, die für deinen Charakter relevant sind, zusammentragen und deiner PDF hinten anfügen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-            <property name="tristate">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Orientation::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>0</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLabel" name="labelRegelnGroesse">
-            <property name="font">
-             <font>
-              <hintingpreference>PreferNoHinting</hintingpreference>
-             </font>
-            </property>
-            <property name="text">
-             <string>Schriftgröße</string>
-            </property>
-            <property name="class" stdset="0">
-             <string>icon</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSpinBox" name="spinRegelnGroesse">
-            <property name="minimumSize">
-             <size>
-              <width>60</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>60</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="toolTip">
-             <string>Schriftgröße des Regelanhangs</string>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
-            </property>
-            <property name="minimum">
-             <number>6</number>
-            </property>
-            <property name="maximum">
-             <number>12</number>
-            </property>
-            <property name="value">
-             <number>8</number>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="buttonRegeln">
-            <property name="font">
-             <font>
-              <hintingpreference>PreferNoHinting</hintingpreference>
-             </font>
-            </property>
-            <property name="toolTip">
-             <string>Kategorien auswählen, die im Regelanhang erscheinen sollen.</string>
-            </property>
-            <property name="text">
-             <string>Regeln</string>
-            </property>
-            <property name="class" stdset="0">
-             <string>icon</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="0" column="1">
-         <widget class="QComboBox" name="comboCharsheet">
-          <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hier erscheinen alle Charakterbögen, die mit Sephrasto geliefert werden sowie alle aus deinem Charakterbogen-Pfad.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item>
-      <spacer name="verticalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Orientation::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Policy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QLabel" name="labelEP">
-       <property name="font">
-        <font>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>EP-Verteilung</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>h2</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QGroupBox" name="groupBox_2">
-       <property name="title">
-        <string/>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_4">
-        <property name="leftMargin">
-         <number>20</number>
-        </property>
-        <property name="topMargin">
-         <number>20</number>
-        </property>
-        <property name="rightMargin">
-         <number>20</number>
-        </property>
-        <property name="bottomMargin">
-         <number>20</number>
-        </property>
-        <item row="0" column="0">
-         <layout class="QGridLayout" name="gridLayout_2">
-          <item row="3" column="1">
-           <widget class="QSpinBox" name="spinFertigkeitenSpent">
-            <property name="focusPolicy">
-             <enum>Qt::FocusPolicy::NoFocus</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
-            </property>
-            <property name="suffix">
-             <string> EP</string>
-            </property>
-            <property name="maximum">
-             <number>999999</number>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="2">
-           <widget class="QSpinBox" name="spinUebernatuerlichPercent">
-            <property name="focusPolicy">
-             <enum>Qt::FocusPolicy::NoFocus</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
-            </property>
-            <property name="suffix">
-             <string> %</string>
-            </property>
-            <property name="maximum">
-             <number>100</number>
-            </property>
-           </widget>
-          </item>
-          <item row="8" column="0">
-           <widget class="QLabel" name="labelUeber3">
-            <property name="minimumSize">
-             <size>
-              <width>230</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <italic>false</italic>
-             </font>
-            </property>
-            <property name="text">
-             <string>    Talente</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="2">
-           <widget class="QSpinBox" name="spinProfanPercent">
-            <property name="focusPolicy">
-             <enum>Qt::FocusPolicy::NoFocus</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
-            </property>
-            <property name="suffix">
-             <string> %</string>
-            </property>
-            <property name="maximum">
-             <number>100</number>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QSpinBox" name="spinVorteileSpent">
-            <property name="focusPolicy">
-             <enum>Qt::FocusPolicy::NoFocus</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
-            </property>
-            <property name="suffix">
-             <string> EP</string>
-            </property>
-            <property name="maximum">
-             <number>99999999</number>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QSpinBox" name="spinAttributeSpent">
-            <property name="focusPolicy">
-             <enum>Qt::FocusPolicy::NoFocus</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
-            </property>
-            <property name="suffix">
-             <string> EP</string>
-            </property>
-            <property name="maximum">
-             <number>99999999</number>
-            </property>
-           </widget>
-          </item>
-          <item row="8" column="1">
-           <widget class="QSpinBox" name="spinUeberTalenteSpent">
-            <property name="focusPolicy">
-             <enum>Qt::FocusPolicy::NoFocus</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
-            </property>
-            <property name="suffix">
-             <string> EP</string>
-            </property>
-            <property name="maximum">
-             <number>999999</number>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="1">
-           <widget class="QSpinBox" name="spinFreieSpent">
-            <property name="focusPolicy">
-             <enum>Qt::FocusPolicy::NoFocus</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
-            </property>
-            <property name="suffix">
-             <string> EP</string>
-            </property>
-            <property name="maximum">
-             <number>999999</number>
-            </property>
-           </widget>
-          </item>
-          <item row="7" column="2">
-           <widget class="QSpinBox" name="spinUeberFertigkeitenPercent">
-            <property name="focusPolicy">
-             <enum>Qt::FocusPolicy::NoFocus</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
-            </property>
-            <property name="suffix">
-             <string> %)</string>
-            </property>
-            <property name="prefix">
-             <string>(</string>
-            </property>
-            <property name="maximum">
-             <number>100</number>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_2">
-            <property name="minimumSize">
-             <size>
-              <width>230</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>Vorteile</string>
-            </property>
-            <property name="class" stdset="0">
-             <string>h4</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="2">
-           <widget class="QSpinBox" name="spinAttributePercent">
-            <property name="focusPolicy">
-             <enum>Qt::FocusPolicy::NoFocus</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
-            </property>
-            <property name="suffix">
-             <string> %</string>
-            </property>
-            <property name="maximum">
-             <number>100</number>
-            </property>
-           </widget>
-          </item>
-          <item row="8" column="2">
-           <widget class="QSpinBox" name="spinUeberTalentePercent">
-            <property name="focusPolicy">
-             <enum>Qt::FocusPolicy::NoFocus</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
-            </property>
-            <property name="suffix">
-             <string> %)</string>
-            </property>
-            <property name="prefix">
-             <string>(</string>
-            </property>
-            <property name="maximum">
-             <number>100</number>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="0">
-           <widget class="QLabel" name="labelUeber1">
-            <property name="minimumSize">
-             <size>
-              <width>230</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>Übernatürliche Fertigkeiten und Talente</string>
-            </property>
-            <property name="class" stdset="0">
-             <string>h4</string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="0">
-           <widget class="QLabel" name="label_4">
-            <property name="minimumSize">
-             <size>
-              <width>230</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <italic>false</italic>
-             </font>
-            </property>
-            <property name="text">
-             <string>    Freie Fertigkeiten</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="1">
-           <widget class="QSpinBox" name="spinUebernatuerlichSpent">
-            <property name="focusPolicy">
-             <enum>Qt::FocusPolicy::NoFocus</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
-            </property>
-            <property name="suffix">
-             <string> EP</string>
-            </property>
-            <property name="maximum">
-             <number>999999</number>
-            </property>
-           </widget>
-          </item>
-          <item row="7" column="1">
-           <widget class="QSpinBox" name="spinUeberFertigkeitenSpent">
-            <property name="focusPolicy">
-             <enum>Qt::FocusPolicy::NoFocus</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
-            </property>
-            <property name="suffix">
-             <string> EP</string>
-            </property>
-            <property name="maximum">
-             <number>999999</number>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="2">
-           <widget class="QSpinBox" name="spinFreiePercent">
-            <property name="focusPolicy">
-             <enum>Qt::FocusPolicy::NoFocus</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
-            </property>
-            <property name="suffix">
-             <string> %)</string>
-            </property>
-            <property name="prefix">
-             <string>(</string>
-            </property>
-            <property name="maximum">
-             <number>100</number>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="2">
-           <widget class="QSpinBox" name="spinFertigkeitenPercent">
-            <property name="focusPolicy">
-             <enum>Qt::FocusPolicy::NoFocus</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
-            </property>
-            <property name="suffix">
-             <string> %)</string>
-            </property>
-            <property name="prefix">
-             <string>(</string>
-            </property>
-            <property name="maximum">
-             <number>100</number>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="2">
-           <widget class="QSpinBox" name="spinTalentePercent">
-            <property name="focusPolicy">
-             <enum>Qt::FocusPolicy::NoFocus</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
-            </property>
-            <property name="suffix">
-             <string> %)</string>
-            </property>
-            <property name="prefix">
-             <string>(</string>
-            </property>
-            <property name="maximum">
-             <number>100</number>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QSpinBox" name="spinProfanSpent">
-            <property name="focusPolicy">
-             <enum>Qt::FocusPolicy::NoFocus</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
-            </property>
-            <property name="suffix">
-             <string> EP</string>
-            </property>
-            <property name="maximum">
-             <number>999999</number>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label">
-            <property name="minimumSize">
-             <size>
-              <width>230</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>Attribute</string>
-            </property>
-            <property name="class" stdset="0">
-             <string>h4</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="label_9">
-            <property name="minimumSize">
-             <size>
-              <width>230</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <italic>false</italic>
-             </font>
-            </property>
-            <property name="text">
-             <string>    Talente</string>
-            </property>
-           </widget>
-          </item>
-          <item row="7" column="0">
-           <widget class="QLabel" name="labelUeber2">
-            <property name="minimumSize">
-             <size>
-              <width>230</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <italic>false</italic>
-             </font>
-            </property>
-            <property name="text">
-             <string>    Fertigkeiten</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="label_8">
-            <property name="minimumSize">
-             <size>
-              <width>230</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <italic>false</italic>
-             </font>
-            </property>
-            <property name="text">
-             <string>    Fertigkeiten</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_3">
-            <property name="minimumSize">
-             <size>
-              <width>230</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>Profane Fertigkeiten und Talente</string>
-            </property>
-            <property name="class" stdset="0">
-             <string>h4</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="QSpinBox" name="spinTalenteSpent">
-            <property name="focusPolicy">
-             <enum>Qt::FocusPolicy::NoFocus</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
-            </property>
-            <property name="suffix">
-             <string> EP</string>
-            </property>
-            <property name="maximum">
-             <number>999999</number>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="2">
-           <widget class="QSpinBox" name="spinVorteilePercent">
-            <property name="focusPolicy">
-             <enum>Qt::FocusPolicy::NoFocus</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
-            </property>
-            <property name="suffix">
-             <string> %</string>
-            </property>
-            <property name="maximum">
-             <number>100</number>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item>
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Orientation::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>0</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
-   </item>
-   <item row="0" column="0">
+   <item row="1" column="0">
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
       <widget class="QLabel" name="labelNotiz">
@@ -1081,6 +84,1049 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item row="1" column="1">
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::NoFrame</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <property name="class" stdset="0">
+      <string>transparent</string>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>527</width>
+        <height>884</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>20</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="labelEinstellungen">
+           <property name="font">
+            <font>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Charakter-Einstellungen</string>
+           </property>
+           <property name="class" stdset="0">
+            <string>h2</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_3">
+           <property name="title">
+            <string/>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_5">
+            <property name="leftMargin">
+             <number>20</number>
+            </property>
+            <property name="topMargin">
+             <number>20</number>
+            </property>
+            <property name="rightMargin">
+             <number>20</number>
+            </property>
+            <property name="bottomMargin">
+             <number>20</number>
+            </property>
+            <item row="2" column="1">
+             <widget class="QCheckBox" name="checkDetails">
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Wenn diese Option aktiviert ist, wird ein weiterer Tab &amp;quot;Hintergrund&amp;quot; angezeigt, in welchem du eine ausführliche Beschreibung des Charakters vornehmen kannst. Dafür wird in Beschreibungs-Tab die Kurzbeschreibung nicht mehr angezeigt.&lt;/p&gt;&lt;p&gt;Allerdings hat beispielsweise der Standard-Charakterbogen keine Formularfelder für diese Daten - deshalb ist diese Option standardmäßig deaktiviert.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <widget class="QLabel" name="label_5">
+              <property name="text">
+               <string>Hausregeln</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_15">
+              <property name="text">
+               <string>Hintergrundangaben</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QCheckBox" name="checkReq">
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Falls abgewählt, werden sämtliche Voraussetzungsprüfungen für Vorteile, übernatürliche Fertigkeiten usw. deaktiviert.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="15" column="0" colspan="2">
+             <widget class="QLabel" name="labelReload">
+              <property name="text">
+               <string>Der Charakter muss gespeichert und neu geladen werden, damit die neuen Hausregeln übernommen werden können!</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+              <property name="warning" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_11">
+              <property name="text">
+               <string>Voraussetzungen überprüfen</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="1">
+             <widget class="QComboBox" name="comboHausregeln">
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hier erscheinen alle Hausregeldatenbanken in deinem Regel-Pfad.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QCheckBox" name="checkFinanzen">
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Finanzen spielen nur bei einem neuen Charakter eine Rolle und können nach dem ersten Abenteuer ausgeblendet werden. Auch die aktuellen Schicksalspunkte werden dann nicht mehr ausgegeben, da diese ab dem ersten Abenteuer händisch verwaltet werden.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_12">
+              <property name="text">
+               <string>Vor dem ersten Abenteuer</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Policy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_16">
+           <property name="font">
+            <font>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Export-Einstellungen</string>
+           </property>
+           <property name="class" stdset="0">
+            <string>h2</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_4">
+           <property name="title">
+            <string/>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_6">
+            <property name="leftMargin">
+             <number>20</number>
+            </property>
+            <property name="topMargin">
+             <number>20</number>
+            </property>
+            <property name="rightMargin">
+             <number>20</number>
+            </property>
+            <property name="bottomMargin">
+             <number>20</number>
+            </property>
+            <item row="7" column="1">
+             <widget class="QCheckBox" name="checkFormular">
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Manche PDF-Reader können Formularfelder in PDF-Dokumenten nicht durchsuchen oder machen beispielsweise Probleme wegen der automatischen Schriftgröße. Die Formularfelder erhöhen die Dateigröße außerdem rund 10%. Mit dieser Option kannst du diese in reine Textfelder umwandeln. Sie sind dann allerdings nicht mehr editierbar. Diese Einstellung gilt für neue Charaktere. Du kannst sie nachträglich im Info-Tab des Charaktereditors ändern.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QLabel" name="cbFormular">
+              <property name="text">
+               <string>Formularfelder editierbar</string>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="0">
+             <widget class="QLabel" name="label_13">
+              <property name="text">
+               <string>Export-Option bei übernatürlichen Fertigkeiten</string>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="1">
+             <widget class="QCheckBox" name="checkUeberPDF">
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sephrasto übernimmt automatisch alle übernatürlichen Fertigkeiten in den Charakterbogen, deren FW mindestens 1 beträgt und für welche du mindestens ein Talent aktiviert hast. Wenn du diese Option aktivierst, zeigt Sephrasto eine PDF-Spalte bei den übernatürlichen Fertigkeiten an. Mit dieser kannst du selbst entscheiden, welche Fertigkeiten in den Charakterbogen übernommen werden sollen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_6">
+              <property name="text">
+               <string>Charakterbogen</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_14">
+              <property name="text">
+               <string>Relevante Regeln anhängen</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QCheckBox" name="checkRegeln">
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sephrasto kann automatisch alle Regeln, die für deinen Charakter relevant sind, zusammentragen und deiner PDF hinten anfügen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+                <property name="tristate">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="labelRegelnGroesse">
+                <property name="font">
+                 <font>
+                  <hintingpreference>PreferNoHinting</hintingpreference>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Schriftgröße</string>
+                </property>
+                <property name="class" stdset="0">
+                 <string>icon</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="spinRegelnGroesse">
+                <property name="minimumSize">
+                 <size>
+                  <width>60</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>60</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>Schriftgröße des Regelanhangs</string>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
+                </property>
+                <property name="minimum">
+                 <number>6</number>
+                </property>
+                <property name="maximum">
+                 <number>12</number>
+                </property>
+                <property name="value">
+                 <number>8</number>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="buttonRegeln">
+                <property name="font">
+                 <font>
+                  <hintingpreference>PreferNoHinting</hintingpreference>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string>Kategorien auswählen, die im Regelanhang erscheinen sollen.</string>
+                </property>
+                <property name="text">
+                 <string>Regeln</string>
+                </property>
+                <property name="class" stdset="0">
+                 <string>icon</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="comboCharsheet">
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hier erscheinen alle Charakterbögen, die mit Sephrasto geliefert werden sowie alle aus deinem Charakterbogen-Pfad.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Policy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelEP">
+           <property name="font">
+            <font>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>EP-Verteilung</string>
+           </property>
+           <property name="class" stdset="0">
+            <string>h2</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_2">
+           <property name="title">
+            <string/>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_4">
+            <property name="leftMargin">
+             <number>20</number>
+            </property>
+            <property name="topMargin">
+             <number>20</number>
+            </property>
+            <property name="rightMargin">
+             <number>20</number>
+            </property>
+            <property name="bottomMargin">
+             <number>20</number>
+            </property>
+            <item row="0" column="0">
+             <layout class="QGridLayout" name="gridLayout_2">
+              <item row="3" column="1">
+               <widget class="QSpinBox" name="spinFertigkeitenSpent">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::NoFocus</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> EP</string>
+                </property>
+                <property name="maximum">
+                 <number>999999</number>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="2">
+               <widget class="QSpinBox" name="spinUebernatuerlichPercent">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::NoFocus</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> %</string>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="0">
+               <widget class="QLabel" name="labelUeber3">
+                <property name="minimumSize">
+                 <size>
+                  <width>230</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <italic>false</italic>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>    Talente</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QSpinBox" name="spinProfanPercent">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::NoFocus</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> %</string>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QSpinBox" name="spinVorteileSpent">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::NoFocus</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> EP</string>
+                </property>
+                <property name="maximum">
+                 <number>99999999</number>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QSpinBox" name="spinAttributeSpent">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::NoFocus</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> EP</string>
+                </property>
+                <property name="maximum">
+                 <number>99999999</number>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="1">
+               <widget class="QSpinBox" name="spinUeberTalenteSpent">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::NoFocus</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> EP</string>
+                </property>
+                <property name="maximum">
+                 <number>999999</number>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QSpinBox" name="spinFreieSpent">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::NoFocus</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> EP</string>
+                </property>
+                <property name="maximum">
+                 <number>999999</number>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="2">
+               <widget class="QSpinBox" name="spinUeberFertigkeitenPercent">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::NoFocus</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> %)</string>
+                </property>
+                <property name="prefix">
+                 <string>(</string>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>230</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Vorteile</string>
+                </property>
+                <property name="class" stdset="0">
+                 <string>h4</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QSpinBox" name="spinAttributePercent">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::NoFocus</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> %</string>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="2">
+               <widget class="QSpinBox" name="spinUeberTalentePercent">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::NoFocus</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> %)</string>
+                </property>
+                <property name="prefix">
+                 <string>(</string>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="labelUeber1">
+                <property name="minimumSize">
+                 <size>
+                  <width>230</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Übernatürliche Fertigkeiten und Talente</string>
+                </property>
+                <property name="class" stdset="0">
+                 <string>h4</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="label_4">
+                <property name="minimumSize">
+                 <size>
+                  <width>230</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <italic>false</italic>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>    Freie Fertigkeiten</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QSpinBox" name="spinUebernatuerlichSpent">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::NoFocus</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> EP</string>
+                </property>
+                <property name="maximum">
+                 <number>999999</number>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="1">
+               <widget class="QSpinBox" name="spinUeberFertigkeitenSpent">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::NoFocus</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> EP</string>
+                </property>
+                <property name="maximum">
+                 <number>999999</number>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="2">
+               <widget class="QSpinBox" name="spinFreiePercent">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::NoFocus</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> %)</string>
+                </property>
+                <property name="prefix">
+                 <string>(</string>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="2">
+               <widget class="QSpinBox" name="spinFertigkeitenPercent">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::NoFocus</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> %)</string>
+                </property>
+                <property name="prefix">
+                 <string>(</string>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="2">
+               <widget class="QSpinBox" name="spinTalentePercent">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::NoFocus</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> %)</string>
+                </property>
+                <property name="prefix">
+                 <string>(</string>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QSpinBox" name="spinProfanSpent">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::NoFocus</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> EP</string>
+                </property>
+                <property name="maximum">
+                 <number>999999</number>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label">
+                <property name="minimumSize">
+                 <size>
+                  <width>230</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Attribute</string>
+                </property>
+                <property name="class" stdset="0">
+                 <string>h4</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="label_9">
+                <property name="minimumSize">
+                 <size>
+                  <width>230</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <italic>false</italic>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>    Talente</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="0">
+               <widget class="QLabel" name="labelUeber2">
+                <property name="minimumSize">
+                 <size>
+                  <width>230</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <italic>false</italic>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>    Fertigkeiten</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_8">
+                <property name="minimumSize">
+                 <size>
+                  <width>230</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <italic>false</italic>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>    Fertigkeiten</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_3">
+                <property name="minimumSize">
+                 <size>
+                  <width>230</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Profane Fertigkeiten und Talente</string>
+                </property>
+                <property name="class" stdset="0">
+                 <string>h4</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QSpinBox" name="spinTalenteSpent">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::NoFocus</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> EP</string>
+                </property>
+                <property name="maximum">
+                 <number>999999</number>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QSpinBox" name="spinVorteilePercent">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::NoFocus</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                </property>
+                <property name="suffix">
+                 <string> %</string>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>0</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
    </item>
   </layout>
  </widget>

@@ -36,9 +36,7 @@ class CharakterFreieFertWrapper(QtCore.QObject):
         self.comboFF = []
         self.buttonFF = []
 
-        palette = QtWidgets.QApplication.instance().palette()
-        bgStyle = "background-color: " + palette.alternateBase().color().name() + ";"
-
+        self.ui.scrollAreaWidgetContents.layout().setAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter | QtCore.Qt.AlignmentFlag.AlignVCenter)
         for row in range(0,7):
             for column in range(0,4):
                 self.ffCount +=1

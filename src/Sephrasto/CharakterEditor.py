@@ -200,8 +200,6 @@ class Editor(object):
         windowSize = Wolke.Settings["WindowSize-Charakter"]
         self.form.resize(windowSize[0], windowSize[1])
 
-        self.ui.scrollArea.wheelEvent = self.wheelEvent
-
         self.updateEP()
 
         tabs = []
@@ -328,11 +326,6 @@ class Editor(object):
                 index = self.ui.tabs.count()-1
 
         self.ui.tabs.setCurrentIndex(index)
-
-    def wheelEvent(self, ev):
-        if ev.type() == QtCore.QEvent.Wheel:
-            if not self.ui.scrollArea.hasFocus():
-                ev.ignore()
 
     def cancelDueToPendingChanges(self, action):
         if self.changed:
