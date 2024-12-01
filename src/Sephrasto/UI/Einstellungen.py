@@ -28,28 +28,232 @@ class Ui_SettingsWindow(object):
         if not SettingsWindow.objectName():
             SettingsWindow.setObjectName(u"SettingsWindow")
         SettingsWindow.setWindowModality(Qt.WindowModality.ApplicationModal)
-        SettingsWindow.resize(720, 715)
+        SettingsWindow.resize(792, 810)
         SettingsWindow.setMinimumSize(QSize(520, 0))
         self.gridLayout = QGridLayout(SettingsWindow)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(11, 11, 11, 11)
-        self.scrollArea = QScrollArea(SettingsWindow)
-        self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setFrameShape(QFrame.Shape.NoFrame)
-        self.scrollArea.setWidgetResizable(True)
-        self.scrollAreaWidgetContents = QWidget()
-        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 698, 663))
-        self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.tabWidget = QTabWidget(self.scrollAreaWidgetContents)
+        self.buttonBox = QDialogButtonBox(SettingsWindow)
+        self.buttonBox.setObjectName(u"buttonBox")
+        self.buttonBox.setOrientation(Qt.Orientation.Horizontal)
+        self.buttonBox.setStandardButtons(QDialogButtonBox.StandardButton.Cancel|QDialogButtonBox.StandardButton.Ok)
+        self.buttonBox.setCenterButtons(True)
+
+        self.gridLayout.addWidget(self.buttonBox, 3, 0, 1, 1)
+
+        self.tabWidget = QTabWidget(SettingsWindow)
         self.tabWidget.setObjectName(u"tabWidget")
         self.tab = QWidget()
         self.tab.setObjectName(u"tab")
         self.gridLayout_7 = QGridLayout(self.tab)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
-        self.groupBox_5 = QGroupBox(self.tab)
+        self.gridLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.scrollArea = QScrollArea(self.tab)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setFrameShape(QFrame.Shape.NoFrame)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 766, 715))
+        self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(20, 20, 20, 20)
+        self.groupBox = QGroupBox(self.scrollAreaWidgetContents)
+        self.groupBox.setObjectName(u"groupBox")
+        font = QFont()
+        font.setBold(False)
+        self.groupBox.setFont(font)
+        self.groupBox.setFlat(False)
+        self.gridLayout_3 = QGridLayout(self.groupBox)
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.label_16 = QLabel(self.groupBox)
+        self.label_16.setObjectName(u"label_16")
+
+        self.gridLayout_3.addWidget(self.label_16, 8, 0, 1, 1)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_3.addItem(self.horizontalSpacer_4, 2, 1, 1, 1)
+
+        self.spinRulesFontSize = QSpinBox(self.groupBox)
+        self.spinRulesFontSize.setObjectName(u"spinRulesFontSize")
+        self.spinRulesFontSize.setMinimumSize(QSize(60, 0))
+        self.spinRulesFontSize.setMaximumSize(QSize(60, 16777215))
+        self.spinRulesFontSize.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.spinRulesFontSize.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.PlusMinus)
+        self.spinRulesFontSize.setMinimum(6)
+        self.spinRulesFontSize.setMaximum(12)
+        self.spinRulesFontSize.setValue(8)
+
+        self.gridLayout_3.addWidget(self.spinRulesFontSize, 9, 2, 1, 1)
+
+        self.label_19 = QLabel(self.groupBox)
+        self.label_19.setObjectName(u"label_19")
+
+        self.gridLayout_3.addWidget(self.label_19, 10, 0, 1, 1)
+
+        self.checkFormular = QCheckBox(self.groupBox)
+        self.checkFormular.setObjectName(u"checkFormular")
+        self.checkFormular.setChecked(True)
+
+        self.gridLayout_3.addWidget(self.checkFormular, 10, 2, 1, 1)
+
+        self.checkWizard = QCheckBox(self.groupBox)
+        self.checkWizard.setObjectName(u"checkWizard")
+        self.checkWizard.setChecked(True)
+
+        self.gridLayout_3.addWidget(self.checkWizard, 1, 2, 1, 1)
+
+        self.label_17 = QLabel(self.groupBox)
+        self.label_17.setObjectName(u"label_17")
+
+        self.gridLayout_3.addWidget(self.label_17, 1, 0, 1, 1)
+
+        self.comboBogen = QComboBox(self.groupBox)
+        self.comboBogen.setObjectName(u"comboBogen")
+        self.comboBogen.setMinimumSize(QSize(240, 0))
+
+        self.gridLayout_3.addWidget(self.comboBogen, 4, 2, 1, 1)
+
+        self.label_6 = QLabel(self.groupBox)
+        self.label_6.setObjectName(u"label_6")
+        font1 = QFont()
+        font1.setBold(False)
+        font1.setItalic(False)
+        self.label_6.setFont(font1)
+
+        self.gridLayout_3.addWidget(self.label_6, 9, 0, 1, 1)
+
+        self.label_4 = QLabel(self.groupBox)
+        self.label_4.setObjectName(u"label_4")
+
+        self.gridLayout_3.addWidget(self.label_4, 2, 0, 1, 1)
+
+        self.comboRegelbasis = QComboBox(self.groupBox)
+        self.comboRegelbasis.addItem("")
+        self.comboRegelbasis.setObjectName(u"comboRegelbasis")
+        self.comboRegelbasis.setMinimumSize(QSize(240, 0))
+
+        self.gridLayout_3.addWidget(self.comboRegelbasis, 2, 2, 1, 1)
+
+        self.checkCheatsheet = QCheckBox(self.groupBox)
+        self.checkCheatsheet.setObjectName(u"checkCheatsheet")
+        self.checkCheatsheet.setChecked(True)
+
+        self.gridLayout_3.addWidget(self.checkCheatsheet, 8, 2, 1, 1)
+
+        self.label = QLabel(self.groupBox)
+        self.label.setObjectName(u"label")
+        self.label.setFont(font1)
+
+        self.gridLayout_3.addWidget(self.label, 4, 0, 1, 1)
+
+
+        self.verticalLayout.addWidget(self.groupBox)
+
+        self.groupBox_2 = QGroupBox(self.scrollAreaWidgetContents)
+        self.groupBox_2.setObjectName(u"groupBox_2")
+        self.gridLayout_5 = QGridLayout(self.groupBox_2)
+        self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.label_7 = QLabel(self.groupBox_2)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setMinimumSize(QSize(70, 0))
+
+        self.gridLayout_5.addWidget(self.label_7, 3, 0, 1, 1)
+
+        self.label_3 = QLabel(self.groupBox_2)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setMinimumSize(QSize(70, 0))
+
+        self.gridLayout_5.addWidget(self.label_3, 2, 0, 1, 1)
+
+        self.buttonPlugins = QPushButton(self.groupBox_2)
+        self.buttonPlugins.setObjectName(u"buttonPlugins")
+        font2 = QFont()
+        font2.setHintingPreference(QFont.PreferNoHinting)
+        self.buttonPlugins.setFont(font2)
+
+        self.gridLayout_5.addWidget(self.buttonPlugins, 3, 2, 1, 1)
+
+        self.resetPlugins = QPushButton(self.groupBox_2)
+        self.resetPlugins.setObjectName(u"resetPlugins")
+        self.resetPlugins.setFont(font2)
+
+        self.gridLayout_5.addWidget(self.resetPlugins, 3, 3, 1, 1)
+
+        self.resetChar = QPushButton(self.groupBox_2)
+        self.resetChar.setObjectName(u"resetChar")
+        self.resetChar.setFont(font2)
+
+        self.gridLayout_5.addWidget(self.resetChar, 0, 3, 1, 1)
+
+        self.editRegeln = QLineEdit(self.groupBox_2)
+        self.editRegeln.setObjectName(u"editRegeln")
+
+        self.gridLayout_5.addWidget(self.editRegeln, 2, 1, 1, 1)
+
+        self.editChar = QLineEdit(self.groupBox_2)
+        self.editChar.setObjectName(u"editChar")
+        self.editChar.setReadOnly(False)
+        self.editChar.setClearButtonEnabled(False)
+
+        self.gridLayout_5.addWidget(self.editChar, 0, 1, 1, 1)
+
+        self.resetRegeln = QPushButton(self.groupBox_2)
+        self.resetRegeln.setObjectName(u"resetRegeln")
+        self.resetRegeln.setFont(font2)
+
+        self.gridLayout_5.addWidget(self.resetRegeln, 2, 3, 1, 1)
+
+        self.buttonRegeln = QPushButton(self.groupBox_2)
+        self.buttonRegeln.setObjectName(u"buttonRegeln")
+        self.buttonRegeln.setFont(font2)
+
+        self.gridLayout_5.addWidget(self.buttonRegeln, 2, 2, 1, 1)
+
+        self.label_2 = QLabel(self.groupBox_2)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setMinimumSize(QSize(70, 0))
+
+        self.gridLayout_5.addWidget(self.label_2, 0, 0, 1, 1)
+
+        self.editPlugins = QLineEdit(self.groupBox_2)
+        self.editPlugins.setObjectName(u"editPlugins")
+
+        self.gridLayout_5.addWidget(self.editPlugins, 3, 1, 1, 1)
+
+        self.buttonChar = QPushButton(self.groupBox_2)
+        self.buttonChar.setObjectName(u"buttonChar")
+        self.buttonChar.setFont(font2)
+
+        self.gridLayout_5.addWidget(self.buttonChar, 0, 2, 1, 1)
+
+        self.label_18 = QLabel(self.groupBox_2)
+        self.label_18.setObjectName(u"label_18")
+
+        self.gridLayout_5.addWidget(self.label_18, 4, 0, 1, 1)
+
+        self.editCharakterboegen = QLineEdit(self.groupBox_2)
+        self.editCharakterboegen.setObjectName(u"editCharakterboegen")
+
+        self.gridLayout_5.addWidget(self.editCharakterboegen, 4, 1, 1, 1)
+
+        self.buttonCharakterboegen = QPushButton(self.groupBox_2)
+        self.buttonCharakterboegen.setObjectName(u"buttonCharakterboegen")
+        self.buttonCharakterboegen.setFont(font2)
+
+        self.gridLayout_5.addWidget(self.buttonCharakterboegen, 4, 2, 1, 1)
+
+        self.resetCharakterboegen = QPushButton(self.groupBox_2)
+        self.resetCharakterboegen.setObjectName(u"resetCharakterboegen")
+        self.resetCharakterboegen.setFont(font2)
+
+        self.gridLayout_5.addWidget(self.resetCharakterboegen, 4, 3, 1, 1)
+
+
+        self.verticalLayout.addWidget(self.groupBox_2)
+
+        self.groupBox_5 = QGroupBox(self.scrollAreaWidgetContents)
         self.groupBox_5.setObjectName(u"groupBox_5")
         self.gridLayout_4 = QGridLayout(self.groupBox_5)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
@@ -82,9 +286,7 @@ class Ui_SettingsWindow(object):
 
         self.buttonLogOpen = QPushButton(self.groupBox_5)
         self.buttonLogOpen.setObjectName(u"buttonLogOpen")
-        font = QFont()
-        font.setHintingPreference(QFont.PreferNoHinting)
-        self.buttonLogOpen.setFont(font)
+        self.buttonLogOpen.setFont(font2)
 
         self.horizontalLayout.addWidget(self.buttonLogOpen)
 
@@ -107,204 +309,15 @@ class Ui_SettingsWindow(object):
         self.gridLayout_4.addWidget(self.checkPDFOpen, 3, 2, 1, 1)
 
 
-        self.gridLayout_7.addWidget(self.groupBox_5, 2, 0, 1, 1)
-
-        self.groupBox_2 = QGroupBox(self.tab)
-        self.groupBox_2.setObjectName(u"groupBox_2")
-        self.gridLayout_5 = QGridLayout(self.groupBox_2)
-        self.gridLayout_5.setObjectName(u"gridLayout_5")
-        self.label_7 = QLabel(self.groupBox_2)
-        self.label_7.setObjectName(u"label_7")
-        self.label_7.setMinimumSize(QSize(70, 0))
-
-        self.gridLayout_5.addWidget(self.label_7, 3, 0, 1, 1)
-
-        self.label_3 = QLabel(self.groupBox_2)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setMinimumSize(QSize(70, 0))
-
-        self.gridLayout_5.addWidget(self.label_3, 2, 0, 1, 1)
-
-        self.buttonPlugins = QPushButton(self.groupBox_2)
-        self.buttonPlugins.setObjectName(u"buttonPlugins")
-        self.buttonPlugins.setFont(font)
-
-        self.gridLayout_5.addWidget(self.buttonPlugins, 3, 2, 1, 1)
-
-        self.resetPlugins = QPushButton(self.groupBox_2)
-        self.resetPlugins.setObjectName(u"resetPlugins")
-        self.resetPlugins.setFont(font)
-
-        self.gridLayout_5.addWidget(self.resetPlugins, 3, 3, 1, 1)
-
-        self.resetChar = QPushButton(self.groupBox_2)
-        self.resetChar.setObjectName(u"resetChar")
-        self.resetChar.setFont(font)
-
-        self.gridLayout_5.addWidget(self.resetChar, 0, 3, 1, 1)
-
-        self.editRegeln = QLineEdit(self.groupBox_2)
-        self.editRegeln.setObjectName(u"editRegeln")
-
-        self.gridLayout_5.addWidget(self.editRegeln, 2, 1, 1, 1)
-
-        self.editChar = QLineEdit(self.groupBox_2)
-        self.editChar.setObjectName(u"editChar")
-        self.editChar.setReadOnly(False)
-        self.editChar.setClearButtonEnabled(False)
-
-        self.gridLayout_5.addWidget(self.editChar, 0, 1, 1, 1)
-
-        self.resetRegeln = QPushButton(self.groupBox_2)
-        self.resetRegeln.setObjectName(u"resetRegeln")
-        self.resetRegeln.setFont(font)
-
-        self.gridLayout_5.addWidget(self.resetRegeln, 2, 3, 1, 1)
-
-        self.buttonRegeln = QPushButton(self.groupBox_2)
-        self.buttonRegeln.setObjectName(u"buttonRegeln")
-        self.buttonRegeln.setFont(font)
-
-        self.gridLayout_5.addWidget(self.buttonRegeln, 2, 2, 1, 1)
-
-        self.label_2 = QLabel(self.groupBox_2)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setMinimumSize(QSize(70, 0))
-
-        self.gridLayout_5.addWidget(self.label_2, 0, 0, 1, 1)
-
-        self.editPlugins = QLineEdit(self.groupBox_2)
-        self.editPlugins.setObjectName(u"editPlugins")
-
-        self.gridLayout_5.addWidget(self.editPlugins, 3, 1, 1, 1)
-
-        self.buttonChar = QPushButton(self.groupBox_2)
-        self.buttonChar.setObjectName(u"buttonChar")
-        self.buttonChar.setFont(font)
-
-        self.gridLayout_5.addWidget(self.buttonChar, 0, 2, 1, 1)
-
-        self.label_18 = QLabel(self.groupBox_2)
-        self.label_18.setObjectName(u"label_18")
-
-        self.gridLayout_5.addWidget(self.label_18, 4, 0, 1, 1)
-
-        self.editCharakterboegen = QLineEdit(self.groupBox_2)
-        self.editCharakterboegen.setObjectName(u"editCharakterboegen")
-
-        self.gridLayout_5.addWidget(self.editCharakterboegen, 4, 1, 1, 1)
-
-        self.buttonCharakterboegen = QPushButton(self.groupBox_2)
-        self.buttonCharakterboegen.setObjectName(u"buttonCharakterboegen")
-        self.buttonCharakterboegen.setFont(font)
-
-        self.gridLayout_5.addWidget(self.buttonCharakterboegen, 4, 2, 1, 1)
-
-        self.resetCharakterboegen = QPushButton(self.groupBox_2)
-        self.resetCharakterboegen.setObjectName(u"resetCharakterboegen")
-        self.resetCharakterboegen.setFont(font)
-
-        self.gridLayout_5.addWidget(self.resetCharakterboegen, 4, 3, 1, 1)
-
-
-        self.gridLayout_7.addWidget(self.groupBox_2, 1, 0, 1, 1)
-
-        self.groupBox = QGroupBox(self.tab)
-        self.groupBox.setObjectName(u"groupBox")
-        font1 = QFont()
-        font1.setBold(False)
-        self.groupBox.setFont(font1)
-        self.groupBox.setFlat(False)
-        self.gridLayout_3 = QGridLayout(self.groupBox)
-        self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.label = QLabel(self.groupBox)
-        self.label.setObjectName(u"label")
-        font2 = QFont()
-        font2.setBold(False)
-        font2.setItalic(False)
-        self.label.setFont(font2)
-
-        self.gridLayout_3.addWidget(self.label, 4, 0, 1, 1)
-
-        self.comboBogen = QComboBox(self.groupBox)
-        self.comboBogen.setObjectName(u"comboBogen")
-        self.comboBogen.setMinimumSize(QSize(240, 0))
-
-        self.gridLayout_3.addWidget(self.comboBogen, 4, 2, 1, 1)
-
-        self.label_6 = QLabel(self.groupBox)
-        self.label_6.setObjectName(u"label_6")
-        self.label_6.setFont(font2)
-
-        self.gridLayout_3.addWidget(self.label_6, 9, 0, 1, 1)
-
-        self.comboRegelbasis = QComboBox(self.groupBox)
-        self.comboRegelbasis.addItem("")
-        self.comboRegelbasis.setObjectName(u"comboRegelbasis")
-        self.comboRegelbasis.setMinimumSize(QSize(240, 0))
-
-        self.gridLayout_3.addWidget(self.comboRegelbasis, 2, 2, 1, 1)
-
-        self.label_16 = QLabel(self.groupBox)
-        self.label_16.setObjectName(u"label_16")
-
-        self.gridLayout_3.addWidget(self.label_16, 8, 0, 1, 1)
-
-        self.checkWizard = QCheckBox(self.groupBox)
-        self.checkWizard.setObjectName(u"checkWizard")
-        self.checkWizard.setChecked(True)
-
-        self.gridLayout_3.addWidget(self.checkWizard, 1, 2, 1, 1)
-
-        self.label_4 = QLabel(self.groupBox)
-        self.label_4.setObjectName(u"label_4")
-
-        self.gridLayout_3.addWidget(self.label_4, 2, 0, 1, 1)
-
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_3.addItem(self.horizontalSpacer_4, 2, 1, 1, 1)
-
-        self.label_17 = QLabel(self.groupBox)
-        self.label_17.setObjectName(u"label_17")
-
-        self.gridLayout_3.addWidget(self.label_17, 1, 0, 1, 1)
-
-        self.checkCheatsheet = QCheckBox(self.groupBox)
-        self.checkCheatsheet.setObjectName(u"checkCheatsheet")
-        self.checkCheatsheet.setChecked(True)
-
-        self.gridLayout_3.addWidget(self.checkCheatsheet, 8, 2, 1, 1)
-
-        self.label_19 = QLabel(self.groupBox)
-        self.label_19.setObjectName(u"label_19")
-
-        self.gridLayout_3.addWidget(self.label_19, 10, 0, 1, 1)
-
-        self.spinRulesFontSize = QSpinBox(self.groupBox)
-        self.spinRulesFontSize.setObjectName(u"spinRulesFontSize")
-        self.spinRulesFontSize.setMinimumSize(QSize(60, 0))
-        self.spinRulesFontSize.setMaximumSize(QSize(60, 16777215))
-        self.spinRulesFontSize.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.spinRulesFontSize.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.PlusMinus)
-        self.spinRulesFontSize.setMinimum(6)
-        self.spinRulesFontSize.setMaximum(12)
-        self.spinRulesFontSize.setValue(8)
-
-        self.gridLayout_3.addWidget(self.spinRulesFontSize, 9, 2, 1, 1)
-
-        self.checkFormular = QCheckBox(self.groupBox)
-        self.checkFormular.setObjectName(u"checkFormular")
-        self.checkFormular.setChecked(True)
-
-        self.gridLayout_3.addWidget(self.checkFormular, 10, 2, 1, 1)
-
-
-        self.gridLayout_7.addWidget(self.groupBox, 0, 0, 1, 1)
+        self.verticalLayout.addWidget(self.groupBox_5)
 
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.gridLayout_7.addItem(self.verticalSpacer_2, 3, 0, 1, 1)
+        self.verticalLayout.addItem(self.verticalSpacer_2)
+
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+
+        self.gridLayout_7.addWidget(self.scrollArea, 0, 0, 1, 1)
 
         self.tabWidget.addTab(self.tab, "")
         self.tab_3 = QWidget()
@@ -452,7 +465,7 @@ class Ui_SettingsWindow(object):
 
         self.resetFontOS = QPushButton(self.groupBox_3)
         self.resetFontOS.setObjectName(u"resetFontOS")
-        self.resetFontOS.setFont(font)
+        self.resetFontOS.setFont(font2)
 
         self.horizontalLayout_2.addWidget(self.resetFontOS)
 
@@ -480,7 +493,7 @@ class Ui_SettingsWindow(object):
         self.layoutPluginButtons.setObjectName(u"layoutPluginButtons")
         self.buttonSettings = QPushButton(self.tab_2)
         self.buttonSettings.setObjectName(u"buttonSettings")
-        self.buttonSettings.setFont(font)
+        self.buttonSettings.setFont(font2)
 
         self.layoutPluginButtons.addWidget(self.buttonSettings)
 
@@ -525,19 +538,7 @@ class Ui_SettingsWindow(object):
 
         self.tabWidget.addTab(self.tab_2, "")
 
-        self.verticalLayout.addWidget(self.tabWidget)
-
-        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
-
-        self.gridLayout.addWidget(self.scrollArea, 0, 0, 1, 1)
-
-        self.buttonBox = QDialogButtonBox(SettingsWindow)
-        self.buttonBox.setObjectName(u"buttonBox")
-        self.buttonBox.setOrientation(Qt.Orientation.Horizontal)
-        self.buttonBox.setStandardButtons(QDialogButtonBox.StandardButton.Cancel|QDialogButtonBox.StandardButton.Ok)
-        self.buttonBox.setCenterButtons(True)
-
-        self.gridLayout.addWidget(self.buttonBox, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.tabWidget, 0, 0, 1, 1)
 
         QWidget.setTabOrder(self.checkWizard, self.comboRegelbasis)
         QWidget.setTabOrder(self.comboRegelbasis, self.comboBogen)
@@ -564,7 +565,6 @@ class Ui_SettingsWindow(object):
         QWidget.setTabOrder(self.checkUpdate, self.checkPDFOpen)
         QWidget.setTabOrder(self.checkPDFOpen, self.comboLogging)
         QWidget.setTabOrder(self.comboLogging, self.buttonLogOpen)
-        QWidget.setTabOrder(self.buttonLogOpen, self.scrollArea)
 
         self.retranslateUi(SettingsWindow)
         self.buttonBox.accepted.connect(SettingsWindow.accept)
@@ -580,24 +580,34 @@ class Ui_SettingsWindow(object):
     def retranslateUi(self, SettingsWindow):
         SettingsWindow.setWindowTitle(QCoreApplication.translate("SettingsWindow", u"Sephrasto - Einstellungen", None))
         self.tabWidget.setProperty(u"class", QCoreApplication.translate("SettingsWindow", u"tabNavigation", None))
-        self.groupBox_5.setTitle(QCoreApplication.translate("SettingsWindow", u"Sonstiges", None))
-        self.label_5.setText(QCoreApplication.translate("SettingsWindow", u"Logging", None))
+        self.scrollArea.setProperty(u"class", QCoreApplication.translate("SettingsWindow", u"transparent", None))
+        self.groupBox.setTitle(QCoreApplication.translate("SettingsWindow", u"Standard-Einstellungen f\u00fcr neue Charaktere", None))
+        self.label_16.setText(QCoreApplication.translate("SettingsWindow", u"Dem Charakterbogen Ilaris Regeln anh\u00e4ngen", None))
+        self.label_19.setText(QCoreApplication.translate("SettingsWindow", u"Charakterbogen Formularfelder editierbar", None))
 #if QT_CONFIG(tooltip)
-        self.checkUpdate.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Falls aktiviert sendet Sephrasto bei jedem Start eine Anfrage an github.com, um nachzusehen, ob es eine neuere Version gibt.</p></body></html>", None))
+        self.checkFormular.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Manche PDF-Reader k\u00f6nnen Formularfelder in PDF-Dokumenten nicht durchsuchen oder machen beispielsweise Probleme wegen der automatischen Schriftgr\u00f6\u00dfe. Die Formularfelder erh\u00f6hen die Dateigr\u00f6\u00dfe au\u00dferdem rund 10%. Mit dieser Option kannst du diese in reine Textfelder umwandeln. Sie sind dann allerdings nicht mehr editierbar. Diese Einstellung gilt f\u00fcr neue Charaktere. Du kannst sie nachtr\u00e4glich im Info-Tab des Charaktereditors \u00e4ndern.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.checkUpdate.setText("")
-        self.label_14.setText(QCoreApplication.translate("SettingsWindow", u"Beim Start nach Updates suchen", None))
-        self.comboLogging.setItemText(0, QCoreApplication.translate("SettingsWindow", u"Nur Fehler loggen", None))
-        self.comboLogging.setItemText(1, QCoreApplication.translate("SettingsWindow", u"Warnungen und Fehler loggen", None))
-        self.comboLogging.setItemText(2, QCoreApplication.translate("SettingsWindow", u"Alles loggen", None))
+        self.checkFormular.setText("")
+#if QT_CONFIG(tooltip)
+        self.checkWizard.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Der Charakter Assistent erscheint beim Erstellen eines neuen Charakters und beschleunigt die Erstellung durch Schablonen f\u00fcr Spezies, Kultur und Profession.</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.checkWizard.setText("")
+        self.label_17.setText(QCoreApplication.translate("SettingsWindow", u"Charakter Assistent nutzen", None))
+#if QT_CONFIG(tooltip)
+        self.comboBogen.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Hier erscheinen alle Charakterb\u00f6gen, die mit Sephrasto geliefert werden sowie alle aus deinem Charakterbogen-Pfad, siehe unten. Der gew\u00e4hlte Charakterbogen wird bei neuen Charakteren automatisch aktiv gesetzt. Dies kannst du nachtr\u00e4glich im Info-Tab des Charaktereditors \u00e4ndern.</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.label_6.setText(QCoreApplication.translate("SettingsWindow", u"Regeln Schriftgr\u00f6\u00dfe", None))
+        self.label_4.setText(QCoreApplication.translate("SettingsWindow", u"Hausregeln", None))
+        self.comboRegelbasis.setItemText(0, QCoreApplication.translate("SettingsWindow", u"Keine", None))
 
 #if QT_CONFIG(tooltip)
-        self.buttonLogOpen.setToolTip(QCoreApplication.translate("SettingsWindow", u"Logdatei zeigen", None))
+        self.comboRegelbasis.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Hier erscheinen alle Hausregeldatenbanken in deinem Regel-Pfad, siehe unten. Die gew\u00e4hlten Hausregeln werden bei neuen Charakteren automatisch aktiv gesetzt. Dies kannst du nachtr\u00e4glich im Info-Tab des Charaktereditors \u00e4ndern.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.buttonLogOpen.setText(QCoreApplication.translate("SettingsWindow", u"PushButton", None))
-        self.buttonLogOpen.setProperty(u"class", QCoreApplication.translate("SettingsWindow", u"icon", None))
-        self.label_15.setText(QCoreApplication.translate("SettingsWindow", u"Charakterbogen nach dem Erstellen \u00f6ffnen", None))
-        self.checkPDFOpen.setText("")
+#if QT_CONFIG(tooltip)
+        self.checkCheatsheet.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Sephrasto kann automatisch alle Regeln, die f\u00fcr deinen Charakter relevant sind, zusammentragen und deiner PDF hinten anf\u00fcgen. Diese Einstellung gilt f\u00fcr neue Charaktere. Du kannst sie nachtr\u00e4glich im Info-Tab des Charaktereditors \u00e4ndern.</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.checkCheatsheet.setText("")
+        self.label.setText(QCoreApplication.translate("SettingsWindow", u"Verwendeter Charakterbogen", None))
         self.groupBox_2.setTitle(QCoreApplication.translate("SettingsWindow", u"Speicherpfade", None))
         self.label_7.setText(QCoreApplication.translate("SettingsWindow", u"Plugins", None))
         self.label_3.setText(QCoreApplication.translate("SettingsWindow", u"Regeln", None))
@@ -637,33 +647,24 @@ class Ui_SettingsWindow(object):
         self.buttonCharakterboegen.setProperty(u"class", QCoreApplication.translate("SettingsWindow", u"icon", None))
         self.resetCharakterboegen.setText(QCoreApplication.translate("SettingsWindow", u"Zur\u00fccksetzen", None))
         self.resetCharakterboegen.setProperty(u"class", QCoreApplication.translate("SettingsWindow", u"icon", None))
-        self.groupBox.setTitle(QCoreApplication.translate("SettingsWindow", u"Standard-Einstellungen f\u00fcr neue Charaktere", None))
-        self.label.setText(QCoreApplication.translate("SettingsWindow", u"Verwendeter Charakterbogen", None))
+        self.groupBox_5.setTitle(QCoreApplication.translate("SettingsWindow", u"Sonstiges", None))
+        self.label_5.setText(QCoreApplication.translate("SettingsWindow", u"Logging", None))
 #if QT_CONFIG(tooltip)
-        self.comboBogen.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Hier erscheinen alle Charakterb\u00f6gen, die mit Sephrasto geliefert werden sowie alle aus deinem Charakterbogen-Pfad, siehe unten. Der gew\u00e4hlte Charakterbogen wird bei neuen Charakteren automatisch aktiv gesetzt. Dies kannst du nachtr\u00e4glich im Info-Tab des Charaktereditors \u00e4ndern.</p></body></html>", None))
+        self.checkUpdate.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Falls aktiviert sendet Sephrasto bei jedem Start eine Anfrage an github.com, um nachzusehen, ob es eine neuere Version gibt.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_6.setText(QCoreApplication.translate("SettingsWindow", u"Regeln Schriftgr\u00f6\u00dfe", None))
-        self.comboRegelbasis.setItemText(0, QCoreApplication.translate("SettingsWindow", u"Keine", None))
+        self.checkUpdate.setText("")
+        self.label_14.setText(QCoreApplication.translate("SettingsWindow", u"Beim Start nach Updates suchen", None))
+        self.comboLogging.setItemText(0, QCoreApplication.translate("SettingsWindow", u"Nur Fehler loggen", None))
+        self.comboLogging.setItemText(1, QCoreApplication.translate("SettingsWindow", u"Warnungen und Fehler loggen", None))
+        self.comboLogging.setItemText(2, QCoreApplication.translate("SettingsWindow", u"Alles loggen", None))
 
 #if QT_CONFIG(tooltip)
-        self.comboRegelbasis.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Hier erscheinen alle Hausregeldatenbanken in deinem Regel-Pfad, siehe unten. Die gew\u00e4hlten Hausregeln werden bei neuen Charakteren automatisch aktiv gesetzt. Dies kannst du nachtr\u00e4glich im Info-Tab des Charaktereditors \u00e4ndern.</p></body></html>", None))
+        self.buttonLogOpen.setToolTip(QCoreApplication.translate("SettingsWindow", u"Logdatei zeigen", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_16.setText(QCoreApplication.translate("SettingsWindow", u"Dem Charakterbogen Ilaris Regeln anh\u00e4ngen", None))
-#if QT_CONFIG(tooltip)
-        self.checkWizard.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Der Charakter Assistent erscheint beim Erstellen eines neuen Charakters und beschleunigt die Erstellung durch Schablonen f\u00fcr Spezies, Kultur und Profession.</p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
-        self.checkWizard.setText("")
-        self.label_4.setText(QCoreApplication.translate("SettingsWindow", u"Hausregeln", None))
-        self.label_17.setText(QCoreApplication.translate("SettingsWindow", u"Charakter Assistent nutzen", None))
-#if QT_CONFIG(tooltip)
-        self.checkCheatsheet.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Sephrasto kann automatisch alle Regeln, die f\u00fcr deinen Charakter relevant sind, zusammentragen und deiner PDF hinten anf\u00fcgen. Diese Einstellung gilt f\u00fcr neue Charaktere. Du kannst sie nachtr\u00e4glich im Info-Tab des Charaktereditors \u00e4ndern.</p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
-        self.checkCheatsheet.setText("")
-        self.label_19.setText(QCoreApplication.translate("SettingsWindow", u"Charakterbogen Formularfelder editierbar", None))
-#if QT_CONFIG(tooltip)
-        self.checkFormular.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Manche PDF-Reader k\u00f6nnen Formularfelder in PDF-Dokumenten nicht durchsuchen oder machen beispielsweise Probleme wegen der automatischen Schriftgr\u00f6\u00dfe. Die Formularfelder erh\u00f6hen die Dateigr\u00f6\u00dfe au\u00dferdem rund 10%. Mit dieser Option kannst du diese in reine Textfelder umwandeln. Sie sind dann allerdings nicht mehr editierbar. Diese Einstellung gilt f\u00fcr neue Charaktere. Du kannst sie nachtr\u00e4glich im Info-Tab des Charaktereditors \u00e4ndern.</p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
-        self.checkFormular.setText("")
+        self.buttonLogOpen.setText(QCoreApplication.translate("SettingsWindow", u"PushButton", None))
+        self.buttonLogOpen.setProperty(u"class", QCoreApplication.translate("SettingsWindow", u"icon", None))
+        self.label_15.setText(QCoreApplication.translate("SettingsWindow", u"Charakterbogen nach dem Erstellen \u00f6ffnen", None))
+        self.checkPDFOpen.setText("")
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("SettingsWindow", u"Allgemein", None))
         self.groupBox_3.setTitle("")
         self.label_13.setText(QCoreApplication.translate("SettingsWindow", u"Hauptfenster Charakterliste Layout", None))
