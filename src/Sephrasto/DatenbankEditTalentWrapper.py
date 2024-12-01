@@ -83,7 +83,7 @@ class DatenbankEditTalentWrapper(DatenbankElementEditorBase):
 
     def updateInfoTabColor(self):
         if self.ui.teInfo.toPlainText():
-            self.ui.tabWidget.tabBar().setTabTextColor(1, QtCore.Qt.darkGreen)
+            self.ui.tabWidget.tabBar().setTabTextColor(1, Wolke.ValidColor)
         else:
             palette = QtWidgets.QApplication.instance().palette()
             palette.setCurrentColorGroup(QtGui.QPalette.Disabled)

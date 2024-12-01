@@ -29,19 +29,19 @@
    <item row="0" column="0">
     <widget class="QTabWidget" name="tabs">
      <property name="tabPosition">
-      <enum>QTabWidget::North</enum>
+      <enum>QTabWidget::TabPosition::North</enum>
      </property>
      <property name="currentIndex">
       <number>-1</number>
      </property>
      <property name="elideMode">
-      <enum>Qt::ElideRight</enum>
+      <enum>Qt::TextElideMode::ElideRight</enum>
      </property>
      <property name="documentMode">
       <bool>false</bool>
      </property>
      <property name="class" stdset="0">
-      <string>h2</string>
+      <string>tabSubnavigation</string>
      </property>
     </widget>
    </item>

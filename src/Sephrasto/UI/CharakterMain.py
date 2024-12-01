@@ -106,7 +106,7 @@ class Ui_formMain(object):
 
         self.retranslateUi(formMain)
 
-        self.tabs.setCurrentIndex(1)
+        self.tabs.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(formMain)
@@ -114,7 +114,7 @@ class Ui_formMain(object):
 
     def retranslateUi(self, formMain):
         formMain.setWindowTitle(QCoreApplication.translate("formMain", u"Sephrasto - Charakter erstellen", None))
-        self.tabs.setProperty(u"class", QCoreApplication.translate("formMain", u"h1", None))
+        self.tabs.setProperty(u"class", QCoreApplication.translate("formMain", u"tabNavigation", None))
         self.tabs.setTabText(self.tabs.indexOf(self.tab), QCoreApplication.translate("formMain", u"Tab 1", None))
         self.tabs.setTabText(self.tabs.indexOf(self.tab_2), QCoreApplication.translate("formMain", u"Tab 2", None))
         self.label.setText(QCoreApplication.translate("formMain", u"    Total:    ", None))

@@ -39,7 +39,7 @@ class Ui_SettingsWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 698, 657))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 698, 663))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -579,6 +579,7 @@ class Ui_SettingsWindow(object):
 
     def retranslateUi(self, SettingsWindow):
         SettingsWindow.setWindowTitle(QCoreApplication.translate("SettingsWindow", u"Sephrasto - Einstellungen", None))
+        self.tabWidget.setProperty(u"class", QCoreApplication.translate("SettingsWindow", u"tabNavigation", None))
         self.groupBox_5.setTitle(QCoreApplication.translate("SettingsWindow", u"Sonstiges", None))
         self.label_5.setText(QCoreApplication.translate("SettingsWindow", u"Logging", None))
 #if QT_CONFIG(tooltip)

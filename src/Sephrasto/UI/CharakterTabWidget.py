@@ -28,8 +28,8 @@ class Ui_Form(object):
         self.gridLayout.setContentsMargins(20, 20, 20, 20)
         self.tabs = QTabWidget(Form)
         self.tabs.setObjectName(u"tabs")
-        self.tabs.setTabPosition(QTabWidget.North)
-        self.tabs.setElideMode(Qt.ElideRight)
+        self.tabs.setTabPosition(QTabWidget.TabPosition.North)
+        self.tabs.setElideMode(Qt.TextElideMode.ElideRight)
         self.tabs.setDocumentMode(False)
 
         self.gridLayout.addWidget(self.tabs, 0, 0, 1, 1)
@@ -45,6 +45,6 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.tabs.setProperty(u"class", QCoreApplication.translate("Form", u"h2", None))
+        self.tabs.setProperty(u"class", QCoreApplication.translate("Form", u"tabSubnavigation", None))
     # retranslateUi
 

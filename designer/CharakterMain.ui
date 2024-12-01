@@ -23,7 +23,7 @@
       <enum>QTabWidget::TabPosition::North</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <property name="elideMode">
       <enum>Qt::TextElideMode::ElideRight</enum>
@@ -32,7 +32,7 @@
       <bool>false</bool>
      </property>
      <property name="class" stdset="0">
-      <string>h1</string>
+      <string>tabNavigation</string>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">

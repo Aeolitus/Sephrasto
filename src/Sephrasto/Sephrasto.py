@@ -568,11 +568,9 @@ class MainWindowWrapper(object):
         Wolke.FontAwesomeRegularFont.setHintingPreference(QtGui.QFont.PreferNoHinting)
         css = f"""*[readOnly=\"true\"] {{ background-color: {Wolke.ReadonlyColor}; border: none; }}
 QWidget, QToolTip {{ {standardFont}; font-size: {Wolke.Settings['FontSize']}pt; }}
-
 QWidget[valid=true] {{ border: 2px solid {Wolke.ValidColor}; border-radius: 2px; padding: 1px;}}
 QWidget[warning=true] {{ border: 2px solid {Wolke.WarningColor}; border-radius: 2px; padding: 1px;}}
 QWidget[error=true] {{ border: 2px solid {Wolke.ErrorColor}; border-radius: 2px; padding: 1px;}}
-QTabBar, QTabBar::tab {{ font-weight: bold; font-size: {Wolke.FontHeadingSizeL1}pt; font-family: \"{Wolke.Settings["FontHeading"]}\"; color: {Wolke.HeadingColor};}}
 QHeaderView::section {{ font-weight: bold; font-size: {Wolke.Settings['FontHeadingSize']-1}pt; {headingFont}; }}
 QListView::item {{ margin-top: 0.3em; margin-bottom: 0.3em; }}
 QTreeView::item {{ margin-top: 0.3em; margin-bottom: 0.3em; }}
@@ -595,7 +593,10 @@ QCheckBox::indicator {{ width: {Hilfsmethoden.emToPixels(1.9)}px; height: {Hilfs
 .alternateBase {{ background-color: {palette.alternateBase().color().name()}; }}
 .noBorder {{ border: none; }}
 .transparent {{ background-color: transparent; }}
-.transparent QWidget#scrollAreaWidgetContents {{ background-color: transparent; }}
+.transparent > QWidget > QWidget {{ background-color: transparent; }}
+.transparent > QWidget > QScrollBar {{ background: 1; }}
+.tabNavigation > QTabBar, .tabmain > QTabBar::tab {{ font-weight: bold; font-size: {Wolke.FontHeadingSizeL1}pt; {headingFont};}}
+.tabSubnavigation > QTabBar, .tabmain > QTabBar::tab {{ font-weight: bold; font-size: {Wolke.Settings['FontHeadingSize']}pt; {headingFont};}}
 .treeVorteile::item {{ margin: 0.1em; }}
 .monospace {{ font-family: Consolas,'Lucida Console','Liberation Mono','DejaVu Sans Mono','Bitstream Vera Sans Mono','Courier New',monospace,sans-serif; }}
 .codeEditor {{ background: {Wolke.CodeBackgroundColor}; }}

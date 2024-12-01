@@ -199,7 +199,7 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
 
     def updateTabColor(self, text, index):
         if text:
-            self.ui.tabWidget.tabBar().setTabTextColor(index, QtCore.Qt.darkGreen)
+            self.ui.tabWidget.tabBar().setTabTextColor(index, Wolke.ValidColor)
         else:
             palette = QtWidgets.QApplication.instance().palette()
             palette.setCurrentColorGroup(QtGui.QPalette.Disabled)
