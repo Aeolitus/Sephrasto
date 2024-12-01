@@ -202,14 +202,16 @@ class CharakterVorteileWrapper(QtCore.QObject):
 
     def updateFavoriteButton(self, name):
         # The full/empty star icons are unfortunatelly different fontawesome fonts
-        # Cannot use class property to switch the font - qt wont update the visuals when the class is changed
         button = self.itemWidgets[name+"Favorite"]
         if name in Wolke.Char.vorteilFavoriten:
-            button.setStyleSheet(f"QPushButton {{ {Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(3.2)}px; max-height: {Hilfsmethoden.emToPixels(3.2)}px; }}")
+            button.setProperty("class", "icon")
             button.setToolTip("Klicke, damit der Vorteil nicht mehr als Favorit markiert wird.")
         else:
-            button.setStyleSheet(f"QPushButton {{ {Wolke.FontAwesomeRegularCSS} max-width: {Hilfsmethoden.emToPixels(3.2)}px; max-height: {Hilfsmethoden.emToPixels(3.2)}px; }}")
+            button.setProperty("class", "iconRegular")
             button.setToolTip("Klicke, damit der Vorteil als Favorit markiert wird.\nFavoriten werden unabhängig von den Filter-Einstellungen angezeigt.")
+
+        button.style().unpolish(button)
+        button.style().polish(button)
         
     def load(self):
         numFilters = sum([1 for a in self.filterMenu.actions()[1:] if a.isChecked()])
