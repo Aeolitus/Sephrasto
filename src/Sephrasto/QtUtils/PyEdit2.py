@@ -120,8 +120,6 @@ class TextEdit(QPlainTextEdit):
             self._completer.activated.disconnect()
 
         self._completer = c
-        c.popup().setStyleSheet("background-color: #555753; color: #eeeeec; font-size: 8pt; selection-background-color: #4e9a06;")
-
         c.setWidget(self)
         c.setCompletionMode(QCompleter.PopupCompletion)
         c.activated.connect(self.insertCompletion)
