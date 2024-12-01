@@ -7,7 +7,7 @@ from Wolke import Wolke
 import math
 import base64
 
-class CharWidget(QtWidgets.QAbstractButton):
+class CharWidgetBase(QtWidgets.QAbstractButton):
     def __init__(self, parent = None):
         super().__init__(parent)
         layout = QtWidgets.QHBoxLayout()
@@ -22,21 +22,6 @@ class CharWidget(QtWidgets.QAbstractButton):
         layout.addWidget(self.label)
         self.setLayout(layout)
         self.setProperty("class", "charWidget")
-
-        self.infoLabel = QtWidgets.QLabel(self)
-        self.infoLabel.setProperty("class", ["charWidgetLabel", "iconTiny"])
-        font = self.infoLabel.font()
-        font.setHintingPreference(QtGui.QFont.PreferNoHinting)
-        self.infoLabel.setFont(font)
-
-        self.removeButton = QtWidgets.QPushButton(self)
-        self.removeButton.setFlat(True)
-        self.removeButton.setToolTip("Lässt dich in einem Popup auswählen, ob du den Charakter nur aus der Liste oder permanent entfernen möchtest.")
-        self.removeButton.setText("\u0058")
-        self.removeButton.setProperty("class", ["charWidgetLabel", "iconTiny"])
-        font = self.removeButton.font()
-        font.setHintingPreference(QtGui.QFont.PreferNoHinting)
-        self.removeButton.setFont(font)
 
     # Fore some reason this is needed to support style sheets in QWidget subclasses
     def paintEvent(self, pe):    
@@ -68,10 +53,6 @@ class CharWidget(QtWidgets.QAbstractButton):
     def setText(self, text):
         self.label.setText(text)
 
-    def setToolTip(self, text):
-        self.infoLabel.setText("\uf129")
-        self.infoLabel.setToolTip(text)
-
     def setFixedHeight(self, height):
         super().setFixedHeight(height)
         margins = self.layout().contentsMargins()
@@ -80,6 +61,45 @@ class CharWidget(QtWidgets.QAbstractButton):
         self.iconLabel.setFixedSize(width, height)
         if hasattr(self, "pixmap"):
             self.iconLabel.setPixmap(self.pixmap.scaled(self.iconLabel.size(), QtCore.Qt.KeepAspectRatioByExpanding, QtCore.Qt.SmoothTransformation))
+
+class CharWidget(CharWidgetBase):
+    def __init__(self, parent = None):
+        super().__init__(parent)
+        self.infoLabel = QtWidgets.QLabel(self)
+        self.infoLabel.setText("\uf129")
+        self.infoLabel.setProperty("class", ["charWidgetLabel", "iconTiny"])
+        font = self.infoLabel.font()
+        font.setHintingPreference(QtGui.QFont.PreferNoHinting)
+        self.infoLabel.setFont(font)
+        self.infoLabel.hide()
+
+        self.removeButton = QtWidgets.QPushButton(self)
+        self.removeButton.setFlat(True)
+        self.removeButton.setToolTip("Lässt dich in einem Popup auswählen, ob du den Charakter nur aus der Liste oder permanent entfernen möchtest.")
+        self.removeButton.setText("\u0058")
+        self.removeButton.setProperty("class", ["charWidgetLabel", "iconTiny"])
+        font = self.removeButton.font()
+        font.setHintingPreference(QtGui.QFont.PreferNoHinting)
+        self.removeButton.setFont(font)
+        self.removeButton.hide()
+    
+    def setToolTip(self, text):
+        self.infoLabel.setToolTip(text)
+
+    def enterEvent(self, event):
+        self.infoLabel.show()
+        self.removeButton.show()
+        super().enterEvent(event)
+        
+    def leaveEvent(self, event):
+        self.infoLabel.hide()
+        self.removeButton.hide()
+        super().leaveEvent(event)
+        
+    def setFixedHeight(self, height):
+        super().setFixedHeight(height)
+        margins = self.layout().contentsMargins()
+        height = height - margins.top() - margins.bottom()
         self.infoLabel.move(self.maximumWidth()-Hilfsmethoden.emToPixels(3.6), height-Hilfsmethoden.emToPixels(1.3))
         self.removeButton.move(self.maximumWidth()-Hilfsmethoden.emToPixels(3), height-Hilfsmethoden.emToPixels(1.3))
 
@@ -99,10 +119,9 @@ class CharakterListe(QtWidgets.QWidget):
 
         wl = QtWidgets.QHBoxLayout()
         wl.setContentsMargins(0, 0, 0, 0)
-        self.newCharWidget = CharWidget()
+        self.newCharWidget = CharWidgetBase()
         self.newCharWidget.setText("<br><b>Neuer Charakter</b><br>")
         self.newCharWidget.setIcon("\u002b")
-        self.newCharWidget.removeButton.hide()
         self.newCharWidget.clicked.connect(self.emitCreateNew)
         wl.addWidget(self.newCharWidget)
         
@@ -111,10 +130,9 @@ class CharakterListe(QtWidgets.QWidget):
             wl = QtWidgets.QHBoxLayout()
             wl.setContentsMargins(0, 0, 0, 0)
         
-        self.loadCharWidget = CharWidget()
+        self.loadCharWidget = CharWidgetBase()
         self.loadCharWidget.setText("<br><b>Charakter laden</b><br>")
         self.loadCharWidget.setIcon("\uf07c")
-        self.loadCharWidget.removeButton.hide()
         self.loadCharWidget.clicked.connect(partial(self.emitLoad, path=""))
         wl.addWidget(self.loadCharWidget)
         
