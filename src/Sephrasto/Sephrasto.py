@@ -262,6 +262,7 @@ class MainWindowWrapper(object):
         self.charakterListe = CharakterListe(Wolke.Settings['CharListCols'], Wolke.Settings['CharListRows'])
         self.charakterListe.load.connect(self.editExisting)
         self.charakterListe.createNew.connect(self.createNew)
+        self.charakterListe.remove.connect(self.remove)
         self.ui.scrollArea.setWidget(self.charakterListe)
 
         # Check for updates
@@ -425,6 +426,36 @@ class MainWindowWrapper(object):
         self.ed.loadCharacter(spath)
         self.savePathUpdated()
         EventBus.doAction("charaktereditor_geoeffnet", { "neu" : False, "filepath" : spath })
+
+    def remove(self, path):
+        for char in Wolke.Settings['Letzte-Chars']:
+            if char["path"] != path:
+                continue
+
+            messageBox = QtWidgets.QMessageBox()
+            messageBox.setWindowTitle("Charakter entfernen")
+            messageBox.setIcon(QtWidgets.QMessageBox.Question)
+            messageBox.setText("Möchtest du den Charakter nur aus der Liste enfernen oder permanent löschen?")
+            removeList = messageBox.addButton("Aus Liste entfernen", QtWidgets.QMessageBox.AcceptRole)
+            delete = messageBox.addButton("Löschen", QtWidgets.QMessageBox.AcceptRole)
+            cancel = messageBox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
+            messageBox.setDefaultButton(removeList)
+            messageBox.exec()
+            if messageBox.clickedButton() == removeList:
+                Wolke.Settings['Letzte-Chars'].remove(char)
+                self.updateRecents()
+            elif messageBox.clickedButton() == delete:
+                messageBox = QtWidgets.QMessageBox()
+                messageBox.setWindowTitle("Charakter enfernen")
+                messageBox.setIcon(QtWidgets.QMessageBox.Warning)
+                messageBox.setText("Der Charakter wird permanent gelöscht. Fortfahren?")
+                messageBox.setStandardButtons(QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.Cancel)
+                result = messageBox.exec()
+                if result == QtWidgets.QMessageBox.Yes:
+                    os.remove(char["path"])
+                    Wolke.Settings['Letzte-Chars'].remove(char)
+                    self.updateRecents()
+            break
 
     def charakterEditorClosedHandler(self):
         EventBus.doAction("charaktereditor_geschlossen")

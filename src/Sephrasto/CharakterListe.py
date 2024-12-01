@@ -29,6 +29,15 @@ class CharWidget(QtWidgets.QAbstractButton):
         font.setHintingPreference(QtGui.QFont.PreferNoHinting)
         self.infoLabel.setFont(font)
 
+        self.removeButton = QtWidgets.QPushButton(self)
+        self.removeButton.setFlat(True)
+        self.removeButton.setToolTip("Lässt dich in einem Popup auswählen, ob du den Charakter nur aus der Liste oder permanent entfernen möchtest.")
+        self.removeButton.setText("\u0058")
+        self.removeButton.setProperty("class", ["charWidgetLabel", "iconTiny"])
+        font = self.removeButton.font()
+        font.setHintingPreference(QtGui.QFont.PreferNoHinting)
+        self.removeButton.setFont(font)
+
     # Fore some reason this is needed to support style sheets in QWidget subclasses
     def paintEvent(self, pe):    
         o = QtWidgets.QStyleOption()
@@ -71,11 +80,13 @@ class CharWidget(QtWidgets.QAbstractButton):
         self.iconLabel.setFixedSize(width, height)
         if hasattr(self, "pixmap"):
             self.iconLabel.setPixmap(self.pixmap.scaled(self.iconLabel.size(), QtCore.Qt.KeepAspectRatioByExpanding, QtCore.Qt.SmoothTransformation))
-        self.infoLabel.move(self.maximumWidth()-Hilfsmethoden.emToPixels(2), height-Hilfsmethoden.emToPixels(1.3))
+        self.infoLabel.move(self.maximumWidth()-Hilfsmethoden.emToPixels(3.6), height-Hilfsmethoden.emToPixels(1.3))
+        self.removeButton.move(self.maximumWidth()-Hilfsmethoden.emToPixels(3), height-Hilfsmethoden.emToPixels(1.3))
 
 class CharakterListe(QtWidgets.QWidget):
     createNew = QtCore.Signal()
     load = QtCore.Signal(str)
+    remove = QtCore.Signal(str)
 
     def __init__(self, numCols, numRows, parent = None):
         super().__init__(parent)
@@ -91,6 +102,7 @@ class CharakterListe(QtWidgets.QWidget):
         self.newCharWidget = CharWidget()
         self.newCharWidget.setText("<br><b>Neuer Charakter</b><br>")
         self.newCharWidget.setIcon("\u002b")
+        self.newCharWidget.removeButton.hide()
         self.newCharWidget.clicked.connect(self.emitCreateNew)
         wl.addWidget(self.newCharWidget)
         
@@ -102,6 +114,7 @@ class CharakterListe(QtWidgets.QWidget):
         self.loadCharWidget = CharWidget()
         self.loadCharWidget.setText("<br><b>Charakter laden</b><br>")
         self.loadCharWidget.setIcon("\uf07c")
+        self.loadCharWidget.removeButton.hide()
         self.loadCharWidget.clicked.connect(partial(self.emitLoad, path=""))
         wl.addWidget(self.loadCharWidget)
         
@@ -115,6 +128,9 @@ class CharakterListe(QtWidgets.QWidget):
 
     def emitLoad(self, path):
         self.load.emit(path)
+
+    def emitRemove(self, path):
+        self.remove.emit(path)
 
     def update(self, chars):
         for w in self.charWidgets:
@@ -155,6 +171,7 @@ class CharakterListe(QtWidgets.QWidget):
             text += "<br>" + str(char["epGesamt"]) + " EP"
             charWidget.setText(text)
             charWidget.clicked.connect(partial(self.emitLoad, path=char["path"]))
+            charWidget.removeButton.clicked.connect(partial(self.emitRemove, path=char["path"]))
             self.charWidgets.append(charWidget)
             wl.addWidget(charWidget)
             count += 1
