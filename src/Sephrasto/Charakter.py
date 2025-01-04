@@ -158,8 +158,8 @@ class Char():
             'getÜbernatürlicheFertigkeitProbenwertTalent' : lambda name: self.übernatürlicheFertigkeiten[name].probenwertTalent if name in self.übernatürlicheFertigkeiten else None, 
             'modifyÜbernatürlicheFertigkeitBasiswert' : lambda name, mod: setattr(self.übernatürlicheFertigkeiten[name], 'basiswertMod', self.übernatürlicheFertigkeiten[name].basiswertMod + mod) if name in self.übernatürlicheFertigkeiten else None, 
 
-            'getFreieFertigkeit' : lambda index: self.freieFertigkeiten[i].name if index >= 0 and index < len(self.freieFertigkeiten) else None,
-            'getFreieFertigkeitWert' : lambda index: self.freieFertigkeiten[i].wert if index >= 0 and index < len(self.freieFertigkeiten) else None,
+            'getFreieFertigkeit' : lambda index: self.freieFertigkeiten[index].name if index >= 0 and index < len(self.freieFertigkeiten) else None,
+            'getFreieFertigkeitWert' : lambda index: self.freieFertigkeiten[index].wert if index >= 0 and index < len(self.freieFertigkeiten) else None,
             'freieFertigkeitenCount' : lambda: len(self.freieFertigkeiten),
             
             #Talente
@@ -220,27 +220,27 @@ class Char():
 
             'getWaffeLZ' : lambda index: self.API_getWaffeValue(index, "lz"), 
             'getWaffeLZMod' : lambda index: self.API_getWaffeValue(index, "lzMod"), 
-            'setWaffeLZ' : lambda index, lz: self.API_setWaffeValue(index, "lzMod", lz), 
+            'setWaffeLZ' : lambda index, lz: self.API_setWaffeValue(index, "lzMod", lz - self.API_getWaffeValue(index, "lz")), 
             'modifyWaffeLZ' : lambda index, lzMod: self.API_modifyWaffeValue(index, "lzMod", lzMod),  
 
             'getWaffeTPWürfel' : lambda index: self.API_getWaffeValue(index, "würfel"), 
             'getWaffeTPWürfelMod' : lambda index: self.API_getWaffeValue(index, "würfelMod"), 
-            'setWaffeTPWürfel' : lambda index, würfel: self.API_setWaffeValue(index, "würfelMod", würfel), 
+            'setWaffeTPWürfel' : lambda index, würfel: self.API_setWaffeValue(index, "würfelMod", würfel - self.API_getWaffeValue(index, "würfel")), 
             'modifyWaffeTPWürfel' : lambda index, würfelMod: self.API_modifyWaffeValue(index, "würfelMod", würfelMod),
 
             'getWaffeTPPlus' : lambda index: self.API_getWaffeValue(index, "plus"), 
             'getWaffeTPPlusMod' : lambda index: self.API_getWaffeValue(index, "plusMod"), 
-            'setWaffeTPPlus' : lambda index, plus: self.API_setWaffeValue(index, "plusMod", plus),
+            'setWaffeTPPlus' : lambda index, plus: self.API_setWaffeValue(index, "plusMod", plus - self.API_getWaffeValue(index, "plus")),
             'modifyWaffeTPPlus' : lambda index, plusMod: self.API_modifyWaffeValue(index, "plusMod", plusMod), 
 
             'getWaffeHärte' : lambda index: self.API_getWaffeValue(index, "härte"), 
             'getWaffeHärteMod' : lambda index: self.API_getWaffeValue(index, "härteMod"), 
-            'setWaffeHärte' : lambda index, härte: self.API_setWaffeValue(index, "härteMod", härte),
+            'setWaffeHärte' : lambda index, härte: self.API_setWaffeValue(index, "härteMod", härte - self.API_getWaffeValue(index, "härte")),
             'modifyWaffeHärte' : lambda index, härteMod: self.API_modifyWaffeValue(index, "härteMod", härteMod), 
 
             'getWaffeRW' : lambda index: self.API_getWaffeValue(index, "rw"), 
             'getWaffeRWMod' : lambda index: self.API_getWaffeValue(index, "rwMod"), 
-            'setWaffeRW' : lambda index, rw: self.API_setWaffeValue(index, "rwMod", rw),
+            'setWaffeRW' : lambda index, rw: self.API_setWaffeValue(index, "rwMod", rw - self.API_getWaffeValue(index, "rw")),
             'modifyWaffeRW' : lambda index, rwMod: self.API_modifyWaffeValue(index, "rwMod", rwMod),
 
             'addWaffeneigenschaft' : self.API_addWaffeneigenschaft, 
