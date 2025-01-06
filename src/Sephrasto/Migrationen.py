@@ -603,7 +603,7 @@ class Migrationen():
         return []
 
     def hausregeln8zu9(root):
-        fertigkeitKategorien = None
+        fertigkeitKategorien = ["Schrift", "Sprache"]
         for node in root.findall('Einstellung'):
             if node.attrib['name'] in ["Vorteile: Typen", "FreieFertigkeiten: Typen", "Fertigkeiten: Typen profan", "Fertigkeiten: Typen übernatürlich", "Rüstungen: Typen", "Regeln: Typen", "Talente: Spezialtalent Typen"]:
                 if node.attrib['name'] == "Talente: Spezialtalent Typen":
@@ -629,12 +629,11 @@ class Migrationen():
                 for i in reversed(range(10)): #cant be bothered to do this properly, nobody out there has modified this setting this much
                     node.text = node.text.replace("S:" + str(i), "S:" + str(i+1))
 
-        if fertigkeitKategorien is not None:
-            for node in root.findall('FreieFertigkeit'):
-                if node.attrib["kategorie"] in fertigkeitKategorien:
-                    node.attrib["kategorie"] = str(fertigkeitKategorien.index(node.attrib["kategorie"]))
-                else:
-                    node.attrib["kategorie"] = "0"
+        for node in root.findall('FreieFertigkeit'):
+            if node.attrib["kategorie"] in fertigkeitKategorien:
+                node.attrib["kategorie"] = str(fertigkeitKategorien.index(node.attrib["kategorie"]))
+            else:
+                node.attrib["kategorie"] = "0"
 
         for node in root.findall('Vorteil') + \
             root.findall('Rüstung') + \
