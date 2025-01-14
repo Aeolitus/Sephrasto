@@ -64,6 +64,9 @@ class TalentPicker(object):
         talente = []
         for el in Wolke.DB.talente:
             talent = Wolke.DB.talente[el]
+            if el in Wolke.Char.talente:
+                talent = Wolke.Char.talente[el]
+
             if (ueber and not talent.spezialTalent) or (not ueber and talent.spezialTalent):
                 continue
 

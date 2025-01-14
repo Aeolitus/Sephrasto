@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterInfo.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.0
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -542,7 +542,7 @@ class Ui_Form(object):
         self.label_5.setText(QCoreApplication.translate("Form", u"Hausregeln", None))
         self.label_15.setText(QCoreApplication.translate("Form", u"Hintergrundangaben", None))
 #if QT_CONFIG(tooltip)
-        self.checkReq.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>Falls abgew\u00e4hlt, werden s\u00e4mtliche Voraussetzungspr\u00fcfungen f\u00fcr Vorteile, \u00fcbernat\u00fcrliche Fertigkeiten usw. deaktiviert.</p></body></html>", None))
+        self.checkReq.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>Falls abgew\u00e4hlt, werden s\u00e4mtliche Voraussetzungspr\u00fcfungen f\u00fcr Vorteile, \u00fcbernat\u00fcrliche Fertigkeiten usw. deaktiviert. S\u00e4mtliche w\u00e4hrenddessen get\u00e4tigte K\u00e4ufe bleiben bestehen, selbst wenn du die Voraussetzungspr\u00fcfungen wieder aktivierst.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.checkReq.setText("")
         self.labelReload.setText(QCoreApplication.translate("Form", u"Der Charakter muss gespeichert und neu geladen werden, damit die neuen Hausregeln \u00fcbernommen werden k\u00f6nnen!", None))

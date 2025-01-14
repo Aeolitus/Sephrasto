@@ -118,12 +118,12 @@ class TalentDefinition:
             steigerungsfaktor = 1
             for fert in fertigkeitenResolved:
                 steigerungsfaktor = max(steigerungsfaktor, fert.steigerungsfaktor)
-
+                    
             if self.verbilligt:
                 self.kosten = db.einstellungen["Talente: SteigerungsfaktorMulti Verbilligt"].wert*steigerungsfaktor
             else:
                 self.kosten = db.einstellungen["Talente: SteigerungsfaktorMulti"].wert*steigerungsfaktor
-        
+                
         if self.referenzSeite > 0:
             referenzBücher = db.einstellungen["Referenzbücher"].wert
             if self.referenzBuch >= len(referenzBücher) or referenzBücher[self.referenzBuch] == "Ilaris":
@@ -194,13 +194,16 @@ class Talent:
         # Serialized
         self._kommentar = ""
         self._kostenOverride = None
+        self._voraussetzungenOverride = None
+        if not charakter.voraussetzungenPruefen:
+            self._voraussetzungenOverride = VoraussetzungenListe().compile("")
 
         # Nonserialized
         self.anzeigenameExt = definition.anzeigename
         self._updateAnzeigenameExt()
         self.probenwert = -1
         self._hauptfertigkeitOverride = None
-        self._voraussetzungenOverride = None
+        
 
     def __deepcopy__(self, memo=""):
         # create new object
@@ -245,10 +248,6 @@ class Talent:
     @property
     def fertigkeiten(self):
         return self.definition.fertigkeiten
-
-    @property
-    def voraussetzungen(self):
-        return self.definition.voraussetzungen
 
     @property
     def voraussetzungen(self):
@@ -374,6 +373,8 @@ class Talent:
             ser.set('variableKosten', self.kosten)
         if self.kommentarErlauben:
             ser.set('kommentar', self.kommentar)
+        if self.voraussetzungen != self.definition.voraussetzungen:
+            ser.set('voraussetzungen', self.voraussetzungen.text)
         EventBus.doAction("talent_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser, db, char):
@@ -387,6 +388,10 @@ class Talent:
             self.kosten = ser.getInt('variableKosten', self.kosten)
         if self.kommentarErlauben:
             self.kommentar = ser.get('kommentar', self.kommentar)
+        voraussetzungenOverride = ser.get('voraussetzungen', None)
+        if voraussetzungenOverride is not None:
+            self.voraussetzungen = VoraussetzungenListe().compile(voraussetzungenOverride)
+            
         self.aktualisieren()
         EventBus.doAction("talent_deserialisiert", { "object" : self, "deserializer" : ser})
         return True

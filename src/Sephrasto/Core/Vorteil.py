@@ -184,12 +184,18 @@ class Vorteil:
     def __init__(self, definition, charakter):
         self.definition = definition
         self.charakter = charakter
+        
+        # Serialized
         self._kostenOverride = None
-        self._voraussetzungenOverride = None
         self._kommentar = ""
+        self._editorScript = ""
+        self._voraussetzungenOverride = None
+        if not charakter.voraussetzungenPruefen:
+            self._voraussetzungenOverride = VoraussetzungenListe().compile("")
+        
+        # Noneserialized
         self.anzeigenameExt = self.definition.name
         self._updateAnzeigenameExt()
-        self._editorScript = ""
         self._editorScriptCompiled = ""
         self.editorScriptFault = ""
 
@@ -359,6 +365,9 @@ class Vorteil:
             ser.set('kommentar', self.kommentar)
         if self.editorScriptErlauben:
             ser.set('editorScript', self.editorScript)
+        if self.voraussetzungen != self.definition.voraussetzungen:
+            ser.set('voraussetzungen', self.voraussetzungen.text)
+
         EventBus.doAction("vorteil_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser, db, char):
@@ -377,5 +386,10 @@ class Vorteil:
                 self.editorScript = ser.get('editorScript', self.editorScript)
             except SyntaxError as e:
                 pass
+            
+        voraussetzungenOverride = ser.get('voraussetzungen', None)
+        if voraussetzungenOverride is not None:
+            self.voraussetzungen = VoraussetzungenListe().compile(voraussetzungenOverride)
+
         EventBus.doAction("vorteil_deserialisiert", { "object" : self, "deserializer" : ser})
         return True

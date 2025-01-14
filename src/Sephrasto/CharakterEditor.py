@@ -201,6 +201,7 @@ class Editor(object):
         self.form.resize(windowSize[0], windowSize[1])
 
         self.updateEP()
+        self.updateVoraussetzungenIndicator()
 
         tabs = []
 
@@ -393,6 +394,7 @@ class Editor(object):
         Wolke.Char.aktualisieren()
         self.updateEP()
         self.updateDetailsVisibility()
+        self.updateVoraussetzungenIndicator()
 
     def updateDetailsVisibility(self):
         if hasattr(self, "beschrDetailsWrapper"):
@@ -410,6 +412,16 @@ class Editor(object):
         self.ui.spinRemaining.style().unpolish(self.ui.spinRemaining)
         self.ui.spinRemaining.style().polish(self.ui.spinRemaining)
         self.ui.spinSpent.setValue(Wolke.Char.epAusgegeben)
+        
+    def updateVoraussetzungenIndicator(self):
+        if Wolke.Char.voraussetzungenPruefen and self.form.property("warning"):
+            self.form.setProperty("warning", False)
+            self.form.style().polish(self.form)
+            self.form.style().unpolish(self.form)
+        elif not Wolke.Char.voraussetzungenPruefen and not self.form.property("warning"):
+            self.form.setProperty("warning", True)
+            self.form.style().polish(self.form)
+            self.form.style().unpolish(self.form) 
     
     def epChanged(self):
         Wolke.Char.epGesamt = self.ui.spinEP.value()

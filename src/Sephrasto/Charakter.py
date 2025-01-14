@@ -733,8 +733,15 @@ class Char():
             remove = []
             for fertigkeit in self.übernatürlicheFertigkeiten.values():
                 if not self.voraussetzungenPrüfen(fertigkeit):
-                    remove.append(fertigkeit.name)
-                    done = False
+                    hasTalent = False
+                    for talent in self.talente.values():
+                        if fertigkeit.name in talent.fertigkeiten:
+                            hasTalent = True
+                            break
+
+                    if not hasTalent:
+                        remove.append(fertigkeit.name)
+                        done = False
             for el in remove:
                 self.übernatürlicheFertigkeiten.pop(el)
 
@@ -782,7 +789,7 @@ class Char():
         The parameters can be used to override character values. If None is specified, the character values are used.
         '''
         if not self.voraussetzungenPruefen:
-            return []
+            return [],[]
 
         vorteile = copy.copy(vorteile or self.vorteile)
         waffen = waffen or self.waffen

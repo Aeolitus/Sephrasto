@@ -192,7 +192,7 @@
             <item row="0" column="1">
              <widget class="QCheckBox" name="checkReq">
               <property name="toolTip">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Falls abgewählt, werden sämtliche Voraussetzungsprüfungen für Vorteile, übernatürliche Fertigkeiten usw. deaktiviert.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Falls abgewählt, werden sämtliche Voraussetzungsprüfungen für Vorteile, übernatürliche Fertigkeiten usw. deaktiviert. Sämtliche währenddessen getätigte Käufe bleiben bestehen, selbst wenn du die Voraussetzungsprüfungen wieder aktivierst.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="text">
                <string/>
