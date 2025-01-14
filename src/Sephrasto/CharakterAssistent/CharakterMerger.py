@@ -407,7 +407,7 @@ class CharakterMerger:
                 minderpakt.voraussetzungen = VoraussetzungenListe().compile("Vorteil " + minderpakt.kommentar, db)
                 vorteil = char.addVorteil(minderpakt.kommentar)
                 vorteil.voraussetzungen = VoraussetzungenListe().compile("Vorteil Minderpakt", db)
-                vorteil.kosten = 20
+                vorteil.kosten = 0
 
         for fer in root.findall('Fertigkeiten/Fertigkeit'):
             nam = fer.attrib['name']

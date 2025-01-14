@@ -1090,7 +1090,9 @@ class Char():
                 self.vorteile[vorteil.name] = vorteil
             ser.end() #vorteile
 
-        if "Minderpakt" in self.vorteile:
+        # TODO: except for the "kosten" setter the next block can be removed with a character migration,
+        # since voraussetzungen overrides are now serialized
+        if "Minderpakt" in self.vorteile: 
             minderpakt = self.vorteile["Minderpakt"]
             if not minderpakt.kommentar in Wolke.DB.vorteile:
                 vIgnored.append("Minderpakt")

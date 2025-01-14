@@ -414,15 +414,15 @@ class CharakterVorteileWrapper(QtCore.QObject):
             minderpakt.voraussetzungen = VoraussetzungenListe().compile("Vorteil " + minderpakt.kommentar, Wolke.DB)
             vorteil = Wolke.Char.addVorteil(minderpakt.kommentar)
             vorteil.voraussetzungen = VoraussetzungenListe().compile("Vorteil Minderpakt", Wolke.DB)
-            vorteil.kosten = 20
+            vorteil.kosten = 0
            
             minderpaktWidget = self.ui.treeWidget.findItems(vorteil.name, QtCore.Qt.MatchRecursive)[0]
 
             if vorteil.name in self.itemWidgets:
                 self.itemWidgets[vorteil.name].setReadOnly(True)
-                self.itemWidgets[vorteil.name].setValue(20)
+                self.itemWidgets[vorteil.name].setValue(0)
             else:
-                minderpaktWidget.setText(1, "20 EP")
+                minderpaktWidget.setText(1, "0 EP")
             return minderpaktWidget
         return None
     
