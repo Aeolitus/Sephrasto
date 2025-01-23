@@ -46,8 +46,9 @@ class PluginData(object):
             module = importlib.import_module(self.name, self.path)
             self.plugin = module.Plugin()
             return True
-        except:
-            logging.critical("Couldn't load plugin because class Plugin is missing: " + self.name)
+        except Exception as e:
+            logging.critical("Couldn't load plugin, most likely because class Plugin is missing: " + self.name)
+            logging.critical(str(e))
             return False
 
     def isLoaded(self): return self.plugin is not None
