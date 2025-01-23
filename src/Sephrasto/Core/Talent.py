@@ -153,7 +153,7 @@ class TalentDefinition:
                 
         if self.referenzSeite > 0:
             referenzBücher = db.einstellungen["Referenzbücher"].wert
-            if self.referenzBuch >= len(referenzBücher) or referenzBücher[self.referenzBuch] == "Ilaris":
+            if self.referenzBuch >= len(referenzBücher) or self.referenzBuch == 0:
                 self.referenz = "S. " + str(self.referenzSeite)
             else:
                 self.referenz = referenzBücher[self.referenzBuch] + " S. " + str(self.referenzSeite)
