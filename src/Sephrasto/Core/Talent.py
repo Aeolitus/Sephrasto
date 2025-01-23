@@ -11,6 +11,26 @@ class TalentDefinition:
     displayName = "Talent"
     serializationName = "Talent"
 
+    class Kostenmodus:
+        Steigerungsfaktor = 0
+        Manuell = 1
+
+        @classmethod
+        def fromString(cls, string):
+            if string.lower() == "steigerungsfaktor":
+                return cls.Steigerungsfaktor
+            return cls.Manuell
+
+    class Fertigkeitszuordnung:
+        Profan = 0
+        Übernatürlich = 1
+
+        @classmethod
+        def fromString(cls, string):
+            if string.lower() == "profan":
+                return cls.Profan
+            return cls.Übernatürlich
+
     def __init__(self):
         # Serialized properties
         self.name = ''
@@ -37,13 +57,15 @@ class TalentDefinition:
         self.energieKosten = ""
         self.erlernen = ""
         self.referenz = ""
+        self.kostenmodus = TalentDefinition.Kostenmodus.Steigerungsfaktor 
+        self.fertigkeitszuordnung = TalentDefinition.Fertigkeitszuordnung.Profan
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
         
         kostenEquals = True
-        if self.spezialTalent:
-            kostenEquals == self.kosten == other.kosten
+        if self.kostenmodus == TalentDefinition.Kostenmodus.Manuell:
+            kostenEquals = self.kosten == other.kosten
 
         return self.name == other.name and \
             self.textSerialized == other.textSerialized and \
@@ -60,6 +82,10 @@ class TalentDefinition:
             self.referenzSeite == other.referenzSeite
 
     def finalize(self, db):
+        kategorieData = db.einstellungen['Talente: Kategorien'].wert.valueAtIndex(self.kategorie)
+        self.kostenmodus = TalentDefinition.Kostenmodus.fromString(kategorieData["kosten"])
+        self.fertigkeitszuordnung = TalentDefinition.Fertigkeitszuordnung.fromString(kategorieData["fertigkeiten"])
+
         def replaceReference(match):
             name = match.group(1).strip()
             if not name in db.talente:
@@ -113,8 +139,9 @@ class TalentDefinition:
                 elif s.startswith("Erlernen:"):
                     self.erlernen = s[len("Erlernen:"):].strip()
                 elif s.startswith("<b>Erlernen:</b>"):
-                    self.erlernen = s[len("<b>Erlernen:</b>"):].strip() 
-        else:
+                    self.erlernen = s[len("<b>Erlernen:</b>"):].strip()
+
+        if self.kostenmodus == TalentDefinition.Kostenmodus.Steigerungsfaktor:
             steigerungsfaktor = 1
             for fert in fertigkeitenResolved:
                 steigerungsfaktor = max(steigerungsfaktor, fert.steigerungsfaktor)
@@ -137,7 +164,7 @@ class TalentDefinition:
 
     @property
     def spezialTalent(self):
-        return self.kategorie > 0
+        return self.fertigkeitszuordnung == TalentDefinition.Fertigkeitszuordnung.Übernatürlich
 
     def kategorieName(self, db):
         kategorie = min(self.kategorie, len(db.einstellungen['Talente: Kategorien'].wert) - 1)
@@ -151,11 +178,12 @@ class TalentDefinition:
         ser.set('text', self.textSerialized)
         ser.set('voraussetzungen', self.voraussetzungen.text)
         ser.set('kategorie', self.kategorie)
-        if self.spezialTalent:
+        if self.kostenmodus == TalentDefinition.Kostenmodus.Manuell:
             ser.set('kosten', self.kosten)
+            ser.set('verbilligt', False)
         else:
             ser.set('kosten', -1)                
-        ser.set('verbilligt', self.verbilligt)
+            ser.set('verbilligt', self.verbilligt)
         ser.set('fertigkeiten', Hilfsmethoden.FertArray2Str(self.fertigkeiten, None))
         ser.set('variableKosten', self.variableKosten)
         ser.set('kommentar', self.kommentarErlauben)

@@ -99,19 +99,27 @@ class DatenbankEditTalentWrapper(DatenbankElementEditorBase):
         self.beschreibungEditor.update(talent)
         self.beschreibungInfoEditor.update(talent)
         talent.kategorie = self.ui.comboKategorie.currentIndex()
+
+        kategorieData = self.datenbank.einstellungen["Talente: Kategorien"].wert.valueAtIndex(talent.kategorie)
+        talent.kostenmodus = TalentDefinition.Kostenmodus.fromString(kategorieData["kosten"])
+        talent.fertigkeitszuordnung = TalentDefinition.Fertigkeitszuordnung.fromString(kategorieData["fertigkeiten"])
+
         talent.kommentarErlauben = self.ui.checkKommentar.isChecked()
         talent.variableKosten = self.ui.checkVariable.isChecked()
         talent.kosten = self.ui.spinKosten.value()
-        talent.verbilligt = self.ui.checkVerbilligt.isChecked()
+        talent.verbilligt = talent.kostenmodus == TalentDefinition.Kostenmodus.Steigerungsfaktor and self.ui.checkVerbilligt.isChecked()
         talent.fertigkeiten = Hilfsmethoden.FertStr2Array(self.ui.leFertigkeiten.text(),None)
         talent.cheatsheetAuflisten = self.ui.checkCheatsheet.isChecked()
         talent.referenzBuch = self.ui.comboSeite.currentIndex()
         talent.referenzSeite = self.ui.spinSeite.value()
 
     def kostenChanged(self):
-        isSpezial = self.ui.comboKategorie.currentIndex() > 0
-        self.ui.spinKosten.setVisible(isSpezial)
-        self.ui.checkVerbilligt.setVisible(not isSpezial)
+        kategorieData = self.datenbank.einstellungen["Talente: Kategorien"].wert.valueAtIndex(self.ui.comboKategorie.currentIndex())
+        isSpezial = kategorieData["fertigkeiten"] == "übernatürlich"
+        kostenManuell = kategorieData["kosten"] == "manuell"
+
+        self.ui.spinKosten.setVisible(kostenManuell)
+        self.ui.checkVerbilligt.setVisible(not kostenManuell)
         
         wasEnabled = self.ui.checkCheatsheet.isEnabled()
         self.ui.checkCheatsheet.setEnabled(isSpezial)
@@ -148,8 +156,11 @@ class DatenbankEditTalentWrapper(DatenbankElementEditorBase):
     def fertigkeitenTextChanged(self):
         fertigkeiten = Hilfsmethoden.FertStr2Array(self.ui.leFertigkeiten.text(),None)
         self.validator["Fertigkeiten"] = True
+
+        kategorieData = self.datenbank.einstellungen["Talente: Kategorien"].wert.valueAtIndex(self.ui.comboKategorie.currentIndex())
+        isSpezial = kategorieData["fertigkeiten"] == "übernatürlich"
+
         for fertigkeit in fertigkeiten:
-            isSpezial = self.ui.comboKategorie.currentIndex() > 0
             if isSpezial:
                 if not fertigkeit in self.datenbank.übernatürlicheFertigkeiten:                 
                     self.ui.leFertigkeiten.setProperty("error", True)

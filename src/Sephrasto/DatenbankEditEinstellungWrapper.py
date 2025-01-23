@@ -5,6 +5,7 @@ from PySide6 import QtWidgets, QtCore
 from Wolke import Wolke
 from Datenbank import Datenbank
 from QtUtils.PyEdit2 import TextEdit, NumberBar
+import json
 
 class DatenbankEditEinstellungWrapper(DatenbankElementEditorBase):
     def __init__(self, datenbank, element):
@@ -27,7 +28,7 @@ class DatenbankEditEinstellungWrapper(DatenbankElementEditorBase):
         self.ui.checkText.setVisible(einstellung.typ == 'Bool')
         self.ui.spinText.setVisible(einstellung.typ == 'Int')
         self.ui.dspinText.setVisible(einstellung.typ == 'Float')
-        self.ui.teText.setVisible(einstellung.typ in ['Text', 'TextList', 'IntList', 'TextDict'])
+        self.ui.teText.setVisible(einstellung.typ in ['Text', 'TextList', 'IntList', 'TextDict', 'JsonDict'])
         if einstellung.typ == 'Int':
             self.ui.spinText.setValue(int(einstellung.text))
         elif einstellung.typ == 'Float':
@@ -43,9 +44,12 @@ class DatenbankEditEinstellungWrapper(DatenbankElementEditorBase):
             self.ui.verticalLayout.addLayout(layout)
             self.scriptEditor = ScriptEditor(self, "text", "teScript", mode=einstellung.typ.lower())
             self.scriptEditor.load(einstellung)
-        elif einstellung.typ == "TextDict":
+        elif einstellung.typ in ["TextDict"]:
             self.ui.teText.textChanged.connect(self.dictChanged)
             self.ui.teText.setPlainText(einstellung.text)  
+        elif einstellung.typ in ["JsonDict"]:
+            self.ui.teText.textChanged.connect(self.jsonChanged)
+            self.ui.teText.setPlainText(einstellung.text) 
         else:
             self.ui.teText.setPlainText(einstellung.text)
 
@@ -77,6 +81,29 @@ class DatenbankEditEinstellungWrapper(DatenbankElementEditorBase):
         if text and not allLinesValid:
             self.ui.teText.setProperty("error", True)
             self.ui.teText.setToolTip("Jeder Eintrag muss ein '=' enthalten.")
+            self.validator["Text"] = False
+            self.updateSaveButtonState()
+        else:
+            self.ui.teText.setProperty("error", False)
+            self.ui.teText.setToolTip("")
+            self.validator["Text"] = True
+            self.updateSaveButtonState()
+            
+        self.ui.teText.style().unpolish(self.ui.teText)
+        self.ui.teText.style().polish(self.ui.teText)
+
+    def jsonChanged(self):
+        text = self.ui.teText.toPlainText()
+        error = ""
+
+        try:
+            json.loads(text)
+        except ValueError as e:
+            error = str(e)
+
+        if text and error:
+            self.ui.teText.setProperty("error", True)
+            self.ui.teText.setToolTip("Der Text ist kein valides JSON: " + error)
             self.validator["Text"] = False
             self.updateSaveButtonState()
         else:

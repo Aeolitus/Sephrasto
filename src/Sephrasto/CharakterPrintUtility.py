@@ -129,7 +129,8 @@ class CharakterPrintUtility:
 
     @staticmethod
     def getÜberTalente(char):
-        talenteByKategorie = SortedCategoryToListDict(Wolke.DB.einstellungen["Talente: Kategorien"].wert)
+        kategorien = Wolke.DB.einstellungen["Talente: Kategorien"].wert
+        talenteByKategorie = SortedCategoryToListDict({ key : kategorien[key]["sortierung"] for key in kategorien })
         for t in char.talente.values():
             if not t.spezialTalent:
                 continue

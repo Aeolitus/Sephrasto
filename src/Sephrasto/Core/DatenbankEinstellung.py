@@ -1,7 +1,11 @@
 from EventBus import EventBus
 from RestrictedPython import compile_restricted
+import json
 
 class IndexableDict(dict):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
     def updateIndex(self):
         self.keyList = list(self.keys())
         self.valueList = list(self.values())
@@ -72,6 +76,9 @@ class DatenbankEinstellung:
                     self.wert[tmp[0].strip()] = tmp[1].strip()
                 else:
                     self.wert[tmp[0]] = tmp[1]
+            self.wert.updateIndex()
+        elif self.typ == 'JsonDict':
+            self.wert = IndexableDict(json.loads(self.text))
             self.wert.updateIndex()
         elif self.typ == 'IntList':
             textList = self.__toList()

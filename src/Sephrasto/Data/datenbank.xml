@@ -9953,10 +9953,12 @@ Traditionszauber=10
 Allgemeine Liturgien=20
 Traditionsliturgien=30
 Anrufungen=40</Einstellung>
-  <Einstellung name="Talente: Kategorien" typ="TextDict" separator="&#10;" strip="1" beschreibung="Definiert die verfügbaren Kategorien von Talenten im Datenbankeditor und deren Reihenfolge im Charakterbogen. Der Erste Eintrag wird immer für profane Talente verwendet. Es kann pro Zeile nach folgendem Format (ohne Anführungszeichen) eine Kategorie definiert werden: 'Kategorie=Sortierreihenfolge'. Achtung: Das Hoch- oder Herunterrücken der Kategorien in dieser Liste erfordert in der Regel ein Überarbeiten aller Talente, ändere stattdessen lieber die Sortierreihenfolge. Ein Umbenennen existierender oder Anfügen weiterer Kategorien ist dagegen unproblematisch.">Profan=0
-Zauber=10
-Liturgien=20
-Anrufungen=30</Einstellung>
+  <Einstellung name="Talente: Kategorien" typ="JsonDict" separator="&#10;" strip="1" beschreibung="Definiert die verfügbaren Kategorien von Talenten im Datenbankeditor, deren Reihenfolge im Charakterbogen, Fertigkeitszuordnung (profan, übernatürlich) und Art der Kostenberechnung (steigerungsfaktor, manuell). Es kann pro Zeile nach folgendem Format eine Kategorie definiert werden: Kategorie: { 'sortierung': 0, 'fertigkeiten': 'profan', 'kosten': 'manuell'}. Achtung: Das Hoch- oder Herunterrücken der Kategorien in dieser Liste erfordert in der Regel ein Überarbeiten aller Talente, ändere stattdessen lieber die Sortierreihenfolge. Ein Umbenennen existierender oder Anfügen weiterer Kategorien ist dagegen unproblematisch.">{
+  "Profan": { "sortierung" : 0, "fertigkeiten" : "profan", "kosten" : "steigerungsfaktor"},
+  "Zauber": { "sortierung" : 10, "fertigkeiten" : "übernatürlich", "kosten" : "manuell" },
+  "Liturgien": { "sortierung" : 20, "fertigkeiten" : "übernatürlich", "kosten" : "manuell" },
+  "Anrufungen": { "sortierung" : 30, "fertigkeiten" : "übernatürlich", "kosten" : "manuell" }
+}</Einstellung>
   <Einstellung name="Fertigkeiten: Maximalwert Script" typ="Eval" beschreibung="Das Pythonscript berechnet den Maximalwert von Fertigkeiten. Es steht hierfür die Funktion getAttribute (Array mit den 3 Attributswerten) zur Verfügung.">max(getAttribute())+2</Einstellung>
   <Einstellung name="Fertigkeiten: BW Script" typ="Eval" beschreibung="Das Pythonscript berechnet den Basiswert von Fertigkeiten. Es steht hierfür die Funktion getAttribute (Array mit den 3 Attributswerten) zur Verfügung.">round(sum(getAttribute())/3)</Einstellung>
   <Einstellung name="Fertigkeiten: PW Script" typ="Eval" beschreibung="Das Pythonscript berechnet den Probenwert (ohne Talent) von Fertigkeiten. Es stehen hierfür die Funktionen getAttribute (Array mit den 3 Attributswerten), getBasiswert und getWert zur Verfügung.">getBasiswert() + round(getWert()/2)</Einstellung>
