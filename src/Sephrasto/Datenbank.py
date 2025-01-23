@@ -176,14 +176,14 @@ class Datenbank():
             if not hausregelnValid:
                 self.hausregelDatei = None
 
-        if not isCharakterEditor:
-            self.verify()
-
         for elementType, table in self.tablesByType.items():
             if hasattr(elementType, "finalizeStatic"):
                 elementType.finalizeStatic(self)
             for element in table.values():
                 element.finalize(self)
+
+        if not isCharakterEditor:
+            self.verify()
 
         EventBus.doAction("datenbank_geladen", { "datenbank" : self, "isCharakterEditor" : isCharakterEditor })
         return hausregelnValid
