@@ -582,19 +582,22 @@ class PdfExporter(object):
         koAbbreviations = Wolke.DB.einstellungen["Charsheet: Talent-Abkürzungen Kosten"].wert
 
         for i in range(0, min(self.CharakterBogen.maxÜberTalente, len(überTalente))):
-            talent = überTalente[i]
             base = 'Uebertal' + str(i+1)
+            talent = überTalente[i]
+            if isinstance(talent, str):
+                fields[base + 'NA'] = talent
+                continue
+
             fields[base + 'NA'] = talent.anzeigenameExt
             if talent.name in Wolke.Char.talentInfos:
                 fields[base + 'NA'] += "; " + "; ".join(Wolke.Char.talentInfos[talent.name])
             fields[base + 'SE'] = talent.referenz
             pw = talent.probenwert
-            if pw != -1:
-                suffix = ""
-                if talent.name in Wolke.Char.talentMods:
-                    pw += Wolke.Char.talentMods[talent.name]
-                    suffix = "*"
-                fields[base + 'PW'] = str(pw) + suffix
+            suffix = ""
+            if talent.name in Wolke.Char.talentMods:
+                pw += Wolke.Char.talentMods[talent.name]
+                suffix = "*"
+            fields[base + 'PW'] = str(pw) + suffix
             fields[base + 'VO'] = talent.vorbereitungszeit
             fields[base + 'WD'] = talent.wirkungsdauer
             for a in wdAbbreviations:
@@ -649,18 +652,12 @@ class PdfExporter(object):
             if lastGroup != hauptFert:
                 if lastGroup is None or lastGroup.kategorie != hauptFert.kategorie or hauptFert.talenteGruppieren:
                     if lastGroup is not None:
-                        emptyDef = TalentDefinition()
-                        emptyDef.finalize(Wolke.DB)
-                        talEmpty = Talent(emptyDef, Wolke.Char)
-                        überTalente.append(talEmpty)
+                        überTalente.append("")
                     
-                    talHeaderDef = TalentDefinition()
-                    talHeaderDef.name = hauptFert.name.upper()
+                    headerName = hauptFert.name.upper()
                     if not hauptFert.talenteGruppieren:
-                        talHeaderDef.name = hauptFert.kategorieName(Wolke.DB).upper()
-                    talHeaderDef.finalize(Wolke.DB)
-                    talHeader = Talent(talHeaderDef, Wolke.Char)
-                    überTalente.append(talHeader)
+                        headerName = hauptFert.kategorieName(Wolke.DB).upper()
+                    überTalente.append(headerName)
                 lastGroup = hauptFert
 
             überTalente.append(talent)
