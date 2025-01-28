@@ -71,7 +71,7 @@ class Ui_Form(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 527, 884))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 521, 807))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 20, 0)
@@ -94,15 +94,15 @@ class Ui_Form(object):
 
         self.gridLayout_5.addWidget(self.checkDetails, 2, 1, 1, 1)
 
-        self.label_5 = QLabel(self.groupBox_3)
-        self.label_5.setObjectName(u"label_5")
+        self.labelHausregeln = QLabel(self.groupBox_3)
+        self.labelHausregeln.setObjectName(u"labelHausregeln")
 
-        self.gridLayout_5.addWidget(self.label_5, 6, 0, 1, 1)
+        self.gridLayout_5.addWidget(self.labelHausregeln, 6, 0, 1, 1)
 
-        self.label_15 = QLabel(self.groupBox_3)
-        self.label_15.setObjectName(u"label_15")
+        self.labelDetails = QLabel(self.groupBox_3)
+        self.labelDetails.setObjectName(u"labelDetails")
 
-        self.gridLayout_5.addWidget(self.label_15, 2, 0, 1, 1)
+        self.gridLayout_5.addWidget(self.labelDetails, 2, 0, 1, 1)
 
         self.checkReq = QCheckBox(self.groupBox_3)
         self.checkReq.setObjectName(u"checkReq")
@@ -118,10 +118,10 @@ class Ui_Form(object):
 
         self.gridLayout_5.addWidget(self.labelReload, 15, 0, 1, 2)
 
-        self.label_11 = QLabel(self.groupBox_3)
-        self.label_11.setObjectName(u"label_11")
+        self.labelReq = QLabel(self.groupBox_3)
+        self.labelReq.setObjectName(u"labelReq")
 
-        self.gridLayout_5.addWidget(self.label_11, 0, 0, 1, 1)
+        self.gridLayout_5.addWidget(self.labelReq, 0, 0, 1, 1)
 
         self.comboHausregeln = QComboBox(self.groupBox_3)
         self.comboHausregeln.setObjectName(u"comboHausregeln")
@@ -134,10 +134,10 @@ class Ui_Form(object):
 
         self.gridLayout_5.addWidget(self.checkFinanzen, 1, 1, 1, 1)
 
-        self.label_12 = QLabel(self.groupBox_3)
-        self.label_12.setObjectName(u"label_12")
+        self.labelFinanzen = QLabel(self.groupBox_3)
+        self.labelFinanzen.setObjectName(u"labelFinanzen")
 
-        self.gridLayout_5.addWidget(self.label_12, 1, 0, 1, 1)
+        self.gridLayout_5.addWidget(self.labelFinanzen, 1, 0, 1, 1)
 
 
         self.verticalLayout_4.addWidget(self.groupBox_3)
@@ -163,16 +163,16 @@ class Ui_Form(object):
 
         self.gridLayout_6.addWidget(self.checkFormular, 7, 1, 1, 1)
 
-        self.cbFormular = QLabel(self.groupBox_4)
-        self.cbFormular.setObjectName(u"cbFormular")
+        self.labelFormular = QLabel(self.groupBox_4)
+        self.labelFormular.setObjectName(u"labelFormular")
 
-        self.gridLayout_6.addWidget(self.cbFormular, 7, 0, 1, 1)
+        self.gridLayout_6.addWidget(self.labelFormular, 7, 0, 1, 1)
 
-        self.label_13 = QLabel(self.groupBox_4)
-        self.label_13.setObjectName(u"label_13")
-        self.label_13.setWordWrap(True)
+        self.labelUeberPDF = QLabel(self.groupBox_4)
+        self.labelUeberPDF.setObjectName(u"labelUeberPDF")
+        self.labelUeberPDF.setWordWrap(True)
 
-        self.gridLayout_6.addWidget(self.label_13, 8, 0, 1, 1)
+        self.gridLayout_6.addWidget(self.labelUeberPDF, 8, 0, 1, 1)
 
         self.checkUeberPDF = QCheckBox(self.groupBox_4)
         self.checkUeberPDF.setObjectName(u"checkUeberPDF")
@@ -180,15 +180,15 @@ class Ui_Form(object):
 
         self.gridLayout_6.addWidget(self.checkUeberPDF, 8, 1, 1, 1)
 
-        self.label_6 = QLabel(self.groupBox_4)
-        self.label_6.setObjectName(u"label_6")
+        self.labelCharsheet = QLabel(self.groupBox_4)
+        self.labelCharsheet.setObjectName(u"labelCharsheet")
 
-        self.gridLayout_6.addWidget(self.label_6, 0, 0, 1, 1)
+        self.gridLayout_6.addWidget(self.labelCharsheet, 0, 0, 1, 1)
 
-        self.label_14 = QLabel(self.groupBox_4)
-        self.label_14.setObjectName(u"label_14")
+        self.labelRegeln = QLabel(self.groupBox_4)
+        self.labelRegeln.setObjectName(u"labelRegeln")
 
-        self.gridLayout_6.addWidget(self.label_14, 2, 0, 1, 1)
+        self.gridLayout_6.addWidget(self.labelRegeln, 2, 0, 1, 1)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -539,14 +539,14 @@ class Ui_Form(object):
         self.checkDetails.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>Wenn diese Option aktiviert ist, wird ein weiterer Tab &quot;Hintergrund&quot; angezeigt, in welchem du eine ausf\u00fchrliche Beschreibung des Charakters vornehmen kannst. Daf\u00fcr wird in Beschreibungs-Tab die Kurzbeschreibung nicht mehr angezeigt.</p><p>Allerdings hat beispielsweise der Standard-Charakterbogen keine Formularfelder f\u00fcr diese Daten - deshalb ist diese Option standardm\u00e4\u00dfig deaktiviert.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.checkDetails.setText("")
-        self.label_5.setText(QCoreApplication.translate("Form", u"Hausregeln", None))
-        self.label_15.setText(QCoreApplication.translate("Form", u"Hintergrundangaben", None))
+        self.labelHausregeln.setText(QCoreApplication.translate("Form", u"Hausregeln", None))
+        self.labelDetails.setText(QCoreApplication.translate("Form", u"Hintergrundangaben", None))
 #if QT_CONFIG(tooltip)
         self.checkReq.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>Falls abgew\u00e4hlt, werden s\u00e4mtliche Voraussetzungspr\u00fcfungen f\u00fcr Vorteile, \u00fcbernat\u00fcrliche Fertigkeiten usw. deaktiviert. S\u00e4mtliche w\u00e4hrenddessen get\u00e4tigte K\u00e4ufe bleiben bestehen, selbst wenn du die Voraussetzungspr\u00fcfungen wieder aktivierst.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.checkReq.setText("")
         self.labelReload.setText(QCoreApplication.translate("Form", u"Der Charakter muss gespeichert und neu geladen werden, damit die neuen Hausregeln \u00fcbernommen werden k\u00f6nnen!", None))
-        self.label_11.setText(QCoreApplication.translate("Form", u"Voraussetzungen \u00fcberpr\u00fcfen", None))
+        self.labelReq.setText(QCoreApplication.translate("Form", u"Voraussetzungen \u00fcberpr\u00fcfen", None))
 #if QT_CONFIG(tooltip)
         self.comboHausregeln.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>Hier erscheinen alle Hausregeldatenbanken in deinem Regel-Pfad.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
@@ -554,7 +554,7 @@ class Ui_Form(object):
         self.checkFinanzen.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>Die Finanzen spielen nur bei einem neuen Charakter eine Rolle und k\u00f6nnen nach dem ersten Abenteuer ausgeblendet werden. Auch die aktuellen Schicksalspunkte werden dann nicht mehr ausgegeben, da diese ab dem ersten Abenteuer h\u00e4ndisch verwaltet werden.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.checkFinanzen.setText("")
-        self.label_12.setText(QCoreApplication.translate("Form", u"Vor dem ersten Abenteuer", None))
+        self.labelFinanzen.setText(QCoreApplication.translate("Form", u"Vor dem ersten Abenteuer", None))
         self.label_16.setText(QCoreApplication.translate("Form", u"Export-Einstellungen", None))
         self.label_16.setProperty(u"class", QCoreApplication.translate("Form", u"h2", None))
         self.groupBox_4.setTitle("")
@@ -562,14 +562,14 @@ class Ui_Form(object):
         self.checkFormular.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>Manche PDF-Reader k\u00f6nnen Formularfelder in PDF-Dokumenten nicht durchsuchen oder machen beispielsweise Probleme wegen der automatischen Schriftgr\u00f6\u00dfe. Die Formularfelder erh\u00f6hen die Dateigr\u00f6\u00dfe au\u00dferdem rund 10%. Mit dieser Option kannst du diese in reine Textfelder umwandeln. Sie sind dann allerdings nicht mehr editierbar. Diese Einstellung gilt f\u00fcr neue Charaktere. Du kannst sie nachtr\u00e4glich im Info-Tab des Charaktereditors \u00e4ndern.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.checkFormular.setText("")
-        self.cbFormular.setText(QCoreApplication.translate("Form", u"Formularfelder editierbar", None))
-        self.label_13.setText(QCoreApplication.translate("Form", u"Export-Option bei \u00fcbernat\u00fcrlichen Fertigkeiten", None))
+        self.labelFormular.setText(QCoreApplication.translate("Form", u"Formularfelder editierbar", None))
+        self.labelUeberPDF.setText(QCoreApplication.translate("Form", u"Export-Option bei \u00fcbernat\u00fcrlichen Fertigkeiten", None))
 #if QT_CONFIG(tooltip)
         self.checkUeberPDF.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>Sephrasto \u00fcbernimmt automatisch alle \u00fcbernat\u00fcrlichen Fertigkeiten in den Charakterbogen, deren FW mindestens 1 betr\u00e4gt und f\u00fcr welche du mindestens ein Talent aktiviert hast. Wenn du diese Option aktivierst, zeigt Sephrasto eine PDF-Spalte bei den \u00fcbernat\u00fcrlichen Fertigkeiten an. Mit dieser kannst du selbst entscheiden, welche Fertigkeiten in den Charakterbogen \u00fcbernommen werden sollen.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.checkUeberPDF.setText("")
-        self.label_6.setText(QCoreApplication.translate("Form", u"Charakterbogen", None))
-        self.label_14.setText(QCoreApplication.translate("Form", u"Relevante Regeln anh\u00e4ngen", None))
+        self.labelCharsheet.setText(QCoreApplication.translate("Form", u"Charakterbogen", None))
+        self.labelRegeln.setText(QCoreApplication.translate("Form", u"Relevante Regeln anh\u00e4ngen", None))
 #if QT_CONFIG(tooltip)
         self.checkRegeln.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>Sephrasto kann automatisch alle Regeln, die f\u00fcr deinen Charakter relevant sind, zusammentragen und deiner PDF hinten anf\u00fcgen.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)

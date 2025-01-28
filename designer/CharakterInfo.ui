@@ -110,8 +110,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>527</width>
-        <height>884</height>
+        <width>521</width>
+        <height>807</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -176,14 +176,14 @@
              </widget>
             </item>
             <item row="6" column="0">
-             <widget class="QLabel" name="label_5">
+             <widget class="QLabel" name="labelHausregeln">
               <property name="text">
                <string>Hausregeln</string>
               </property>
              </widget>
             </item>
             <item row="2" column="0">
-             <widget class="QLabel" name="label_15">
+             <widget class="QLabel" name="labelDetails">
               <property name="text">
                <string>Hintergrundangaben</string>
               </property>
@@ -219,7 +219,7 @@
              </widget>
             </item>
             <item row="0" column="0">
-             <widget class="QLabel" name="label_11">
+             <widget class="QLabel" name="labelReq">
               <property name="text">
                <string>Voraussetzungen überprüfen</string>
               </property>
@@ -246,7 +246,7 @@
              </widget>
             </item>
             <item row="1" column="0">
-             <widget class="QLabel" name="label_12">
+             <widget class="QLabel" name="labelFinanzen">
               <property name="text">
                <string>Vor dem ersten Abenteuer</string>
               </property>
@@ -318,14 +318,14 @@
              </widget>
             </item>
             <item row="7" column="0">
-             <widget class="QLabel" name="cbFormular">
+             <widget class="QLabel" name="labelFormular">
               <property name="text">
                <string>Formularfelder editierbar</string>
               </property>
              </widget>
             </item>
             <item row="8" column="0">
-             <widget class="QLabel" name="label_13">
+             <widget class="QLabel" name="labelUeberPDF">
               <property name="text">
                <string>Export-Option bei übernatürlichen Fertigkeiten</string>
               </property>
@@ -348,14 +348,14 @@
              </widget>
             </item>
             <item row="0" column="0">
-             <widget class="QLabel" name="label_6">
+             <widget class="QLabel" name="labelCharsheet">
               <property name="text">
                <string>Charakterbogen</string>
               </property>
              </widget>
             </item>
             <item row="2" column="0">
-             <widget class="QLabel" name="label_14">
+             <widget class="QLabel" name="labelRegeln">
               <property name="text">
                <string>Relevante Regeln anhängen</string>
               </property>

@@ -17,16 +17,15 @@
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout">
      <property name="sizeConstraint">
-      <enum>QLayout::SetDefaultConstraint</enum>
+      <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
      </property>
      <item row="1" column="2">
       <widget class="QLineEdit" name="editName"/>
      </item>
      <item row="3" column="1">
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="labelStatus">
        <property name="font">
         <font>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -44,7 +43,7 @@
      <item row="0" column="1">
       <spacer name="verticalSpacer_7">
        <property name="orientation">
-        <enum>Qt::Vertical</enum>
+        <enum>Qt::Orientation::Vertical</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -57,10 +56,10 @@
      <item row="1" column="3">
       <spacer name="horizontalSpacer_3">
        <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
        <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
+        <enum>QSizePolicy::Policy::Fixed</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -73,10 +72,10 @@
      <item row="1" column="5">
       <spacer name="horizontalSpacer_2">
        <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
        <property name="sizeType">
-        <enum>QSizePolicy::Preferred</enum>
+        <enum>QSizePolicy::Policy::Preferred</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -89,10 +88,10 @@
      <item row="8" column="1">
       <spacer name="verticalSpacer">
        <property name="orientation">
-        <enum>Qt::Vertical</enum>
+        <enum>Qt::Orientation::Vertical</enum>
        </property>
        <property name="sizeType">
-        <enum>QSizePolicy::Expanding</enum>
+        <enum>QSizePolicy::Policy::Expanding</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -106,7 +105,6 @@
       <widget class="QLabel" name="labelFinanzen">
        <property name="font">
         <font>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -218,10 +216,10 @@
      <item row="1" column="0">
       <spacer name="horizontalSpacer">
        <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
        <property name="sizeType">
-        <enum>QSizePolicy::Preferred</enum>
+        <enum>QSizePolicy::Policy::Preferred</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -241,7 +239,6 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -257,10 +254,9 @@
       <widget class="QLineEdit" name="editSpezies"/>
      </item>
      <item row="7" column="1">
-      <widget class="QLabel" name="label_6">
+      <widget class="QLabel" name="labelEigenheiten">
        <property name="font">
         <font>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -268,7 +264,7 @@
         <string>Eigenheiten</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
        </property>
        <property name="class" stdset="0">
         <string>h4</string>
@@ -276,10 +272,9 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="labelName">
        <property name="font">
         <font>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -292,10 +287,9 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="labelSpezies">
        <property name="font">
         <font>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -321,10 +315,9 @@
       <widget class="QComboBox" name="comboHeimat"/>
      </item>
      <item row="5" column="1">
-      <widget class="QLabel" name="label_7">
+      <widget class="QLabel" name="labelHeimat">
        <property name="font">
         <font>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -341,7 +334,7 @@
        <item>
         <spacer name="horizontalSpacer_4">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Orientation::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -366,14 +359,14 @@
           </size>
          </property>
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Das Bild wird im Sephrasto-Hauptfenster für die Schnellade-Funktion verwendet und im Charakterbogen ausgegeben. Hinweis: Der Standard Charakterbogen hat keinen Platz für ein Bild. Wechsle im Info-Tab auf den "Standardbogen mit Bild statt SchiP" oder einen der anderen Bögen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Das Bild wird im Sephrasto-Hauptfenster für die Schnellade-Funktion verwendet und im Charakterbogen ausgegeben. Hinweis: Der Standard Charakterbogen hat keinen Platz für ein Bild. Wechsle im Info-Tab auf den &quot;Standardbogen mit Bild statt SchiP&quot; oder einen der anderen Bögen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
           <string>Bild-Auflösung: 260x340 px
 (wird automatisch angepasst)</string>
          </property>
          <property name="alignment">
-          <set>Qt::AlignCenter</set>
+          <set>Qt::AlignmentFlag::AlignCenter</set>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -401,7 +394,7 @@
        <item>
         <spacer name="horizontalSpacer_5">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Orientation::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>

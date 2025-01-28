@@ -28,19 +28,19 @@ class Ui_formBeschreibung(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setSizeConstraint(QLayout.SetDefaultConstraint)
+        self.gridLayout.setSizeConstraint(QLayout.SizeConstraint.SetDefaultConstraint)
         self.editName = QLineEdit(formBeschreibung)
         self.editName.setObjectName(u"editName")
 
         self.gridLayout.addWidget(self.editName, 1, 2, 1, 1)
 
-        self.label_3 = QLabel(formBeschreibung)
-        self.label_3.setObjectName(u"label_3")
+        self.labelStatus = QLabel(formBeschreibung)
+        self.labelStatus.setObjectName(u"labelStatus")
         font = QFont()
         font.setBold(True)
-        self.label_3.setFont(font)
+        self.labelStatus.setFont(font)
 
-        self.gridLayout.addWidget(self.label_3, 3, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelStatus, 3, 1, 1, 1)
 
         self.editKurzbeschreibung = QLineEdit(formBeschreibung)
         self.editKurzbeschreibung.setObjectName(u"editKurzbeschreibung")
@@ -145,24 +145,24 @@ class Ui_formBeschreibung(object):
 
         self.gridLayout.addWidget(self.editSpezies, 2, 2, 1, 1)
 
-        self.label_6 = QLabel(formBeschreibung)
-        self.label_6.setObjectName(u"label_6")
-        self.label_6.setFont(font)
-        self.label_6.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.labelEigenheiten = QLabel(formBeschreibung)
+        self.labelEigenheiten.setObjectName(u"labelEigenheiten")
+        self.labelEigenheiten.setFont(font)
+        self.labelEigenheiten.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
 
-        self.gridLayout.addWidget(self.label_6, 7, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelEigenheiten, 7, 1, 1, 1)
 
-        self.label = QLabel(formBeschreibung)
-        self.label.setObjectName(u"label")
-        self.label.setFont(font)
+        self.labelName = QLabel(formBeschreibung)
+        self.labelName.setObjectName(u"labelName")
+        self.labelName.setFont(font)
 
-        self.gridLayout.addWidget(self.label, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelName, 1, 1, 1, 1)
 
-        self.label_2 = QLabel(formBeschreibung)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setFont(font)
+        self.labelSpezies = QLabel(formBeschreibung)
+        self.labelSpezies.setObjectName(u"labelSpezies")
+        self.labelSpezies.setFont(font)
 
-        self.gridLayout.addWidget(self.label_2, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelSpezies, 2, 1, 1, 1)
 
         self.comboFinanzen = QComboBox(formBeschreibung)
         self.comboFinanzen.setObjectName(u"comboFinanzen")
@@ -175,11 +175,11 @@ class Ui_formBeschreibung(object):
 
         self.gridLayout.addWidget(self.comboHeimat, 5, 2, 1, 1)
 
-        self.label_7 = QLabel(formBeschreibung)
-        self.label_7.setObjectName(u"label_7")
-        self.label_7.setFont(font)
+        self.labelHeimat = QLabel(formBeschreibung)
+        self.labelHeimat.setObjectName(u"labelHeimat")
+        self.labelHeimat.setFont(font)
 
-        self.gridLayout.addWidget(self.label_7, 5, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelHeimat, 5, 1, 1, 1)
 
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -191,7 +191,7 @@ class Ui_formBeschreibung(object):
         self.labelImage.setObjectName(u"labelImage")
         self.labelImage.setMinimumSize(QSize(208, 272))
         self.labelImage.setMaximumSize(QSize(208, 272))
-        self.labelImage.setAlignment(Qt.AlignCenter)
+        self.labelImage.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.labelImage.setWordWrap(True)
 
         self.verticalLayout.addWidget(self.labelImage)
@@ -245,20 +245,20 @@ class Ui_formBeschreibung(object):
 
     def retranslateUi(self, formBeschreibung):
         formBeschreibung.setWindowTitle(QCoreApplication.translate("formBeschreibung", u"Beschreibung", None))
-        self.label_3.setText(QCoreApplication.translate("formBeschreibung", u"Status", None))
-        self.label_3.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.labelStatus.setText(QCoreApplication.translate("formBeschreibung", u"Status", None))
+        self.labelStatus.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.labelFinanzen.setText(QCoreApplication.translate("formBeschreibung", u"Finanzen", None))
         self.labelFinanzen.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.labelKurzbeschreibung.setText(QCoreApplication.translate("formBeschreibung", u"Kurzbeschreibung", None))
         self.labelKurzbeschreibung.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
-        self.label_6.setText(QCoreApplication.translate("formBeschreibung", u"Eigenheiten", None))
-        self.label_6.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
-        self.label.setText(QCoreApplication.translate("formBeschreibung", u"Name", None))
-        self.label.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
-        self.label_2.setText(QCoreApplication.translate("formBeschreibung", u"Spezies", None))
-        self.label_2.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
-        self.label_7.setText(QCoreApplication.translate("formBeschreibung", u"Heimatgebiet", None))
-        self.label_7.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.labelEigenheiten.setText(QCoreApplication.translate("formBeschreibung", u"Eigenheiten", None))
+        self.labelEigenheiten.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.labelName.setText(QCoreApplication.translate("formBeschreibung", u"Name", None))
+        self.labelName.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.labelSpezies.setText(QCoreApplication.translate("formBeschreibung", u"Spezies", None))
+        self.labelSpezies.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.labelHeimat.setText(QCoreApplication.translate("formBeschreibung", u"Heimatgebiet", None))
+        self.labelHeimat.setProperty(u"class", QCoreApplication.translate("formBeschreibung", u"h4", None))
 #if QT_CONFIG(tooltip)
         self.labelImage.setToolTip(QCoreApplication.translate("formBeschreibung", u"<html><head/><body><p>Das Bild wird im Sephrasto-Hauptfenster f\u00fcr die Schnellade-Funktion verwendet und im Charakterbogen ausgegeben. Hinweis: Der Standard Charakterbogen hat keinen Platz f\u00fcr ein Bild. Wechsle im Info-Tab auf den \"Standardbogen mit Bild statt SchiP\" oder einen der anderen B\u00f6gen.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
