@@ -56,9 +56,9 @@ class DatenbankEinstellung:
         if self.wert is not None:
             return
         if self.typ == 'Float':
-            self.wert = float(self.text or "0")
+            self.wert = float(self.text or "0.0")
         elif self.typ == 'Int':
-            self.wert = int(self.text or "0.0")
+            self.wert = int(self.text or "0")
         elif self.typ == 'Bool':
             self.wert = self.text.lower() == "true" or self.text == '1'
         elif self.typ == 'Text':
