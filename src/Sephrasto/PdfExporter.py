@@ -74,7 +74,7 @@ class PdfExporter(object):
                         mappings = [self.CharakterBogen.formularMappings[field]]
 
                     for mapping in mappings:
-                        if mapping in fields and fields[mapping] != "-":
+                        if mapping in fields and fields[mapping] != "-" and fields[mapping] != "":
                             continue
                         fields[mapping] = fields[field]
 
