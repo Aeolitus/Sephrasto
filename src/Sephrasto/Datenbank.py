@@ -161,6 +161,8 @@ class Datenbank():
         self.insertTable(FreieFertigkeitDefinition, self.freieFertigkeiten)  
         self.insertTable(VorteilDefinition, self.vorteile)
 
+        EventBus.doAction("datenbank_laden", { "datenbank" : self, "isCharakterEditor" : isCharakterEditor })
+
         if os.path.isfile(self.datei):
             refDB = True
             if not self.__loadFileInternal(self.datei, refDB, isCharakterEditor):
