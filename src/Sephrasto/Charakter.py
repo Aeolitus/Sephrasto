@@ -617,8 +617,8 @@ class Char():
         # Execute global script. It is responsible for calculating the final weapon stats.
         Wolke.DB.einstellungen["Charakter aktualisieren Script"].executeScript(self.charakterScriptAPI)
 
-        EventBus.doAction("post_charakter_aktualisieren", { "charakter" : self })
         self.epZaehlen()
+        EventBus.doAction("post_charakter_aktualisieren", { "charakter" : self })
 
     def epZaehlen(self):
         '''Berechnet die bisher ausgegebenen EP'''
