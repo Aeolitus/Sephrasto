@@ -1881,7 +1881,7 @@ Permanenz (-4, ein Viertel der Basiskosten als gAsP; das so geformte Eis schmilz
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; nach Vorhaben
 &lt;b&gt;Ziel:&lt;/b&gt; Einzelobjekt
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; bis die Bindung gelöst wird
+&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
 &lt;b&gt;Kosten:&lt;/b&gt; nach Vorhaben
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Eis, Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Elf 16; Dru, Mag 20; 60 EP</Talent>
@@ -2568,7 +2568,7 @@ Wasserfläche (-4; du kannst auch andere Oberflächen wie deine Haut verzaubern.
 &lt;b&gt;Kosten:&lt;/b&gt; 2 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Illusion
 &lt;b&gt;Erlernen:&lt;/b&gt; Srl 12; Mag 16; 20 EP</Talent>
-  <Talent name="Auris Nasus Oculus" kategorie="1" kosten="60" voraussetzungen="Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Illusion" variableKosten="0" referenzseite="144" referenzbuch="0">Eine statische &lt;i&gt;Illusion&lt;/i&gt; (Sicht, Gehör oder Geruch) deiner Wahl erscheint. Ihre maximale Größe beträgt PW Illusionx4 Raumschritt.
+  <Talent name="Auris Nasus Oculus" kategorie="1" kosten="60" voraussetzungen="Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Illusion" variableKosten="0" referenzseite="144" referenzbuch="0">Eine statische &lt;i&gt;Illusion&lt;/i&gt; (Sicht, Gehör oder Geruch) deiner Wahl erscheint. Ihre maximale Größe beträgt PW Illusion x 4 Raumschritt.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Die Illusion betrifft einen weiteren, oben genannten Sinn.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Bewegte Illusion (-4; die Illusion führt eine beim Zaubern bestimmte Bewegung aus.)
