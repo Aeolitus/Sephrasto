@@ -222,7 +222,10 @@ class XmlDeserializer(XmlSerializerBase):
             if dataName is None:
                 dataName = self._currentNode.tag
             if dataName in XmlDeserializer._migrations:
-                if not XmlDeserializer._migrations[dataName](self._currentNode):
+                try:
+                    if not XmlDeserializer._migrations[dataName](self._currentNode):
+                        return False
+                except:
                     return False
 
             if useCache:

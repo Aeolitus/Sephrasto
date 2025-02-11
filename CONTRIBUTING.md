@@ -1,7 +1,7 @@
 # Für Entwickler
 
 ## Erstellen von Windows builds
-Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktuell nutzen wir außerdem Python 3.11 und cx_Freeze 7.0.0 zum Erstellen von Windows builds. Nun solltest du build.bat im Sephrasto root ausführen können.
+Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktuell nutzen wir außerdem Python 3.11 und cx_Freeze (immer aktuellste Version) zum Erstellen von Windows builds. Nun solltest du build.bat im Sephrasto root ausführen können.
 
 ## Einrichtung von Visual Studio als IDE
 * Installiere VS Community Edition mit dem Python Workload (kann auch nachträglich über den Installer installiert werden)
