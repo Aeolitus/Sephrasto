@@ -15,17 +15,7 @@ from EventBus import EventBus
 from Hilfsmethoden import Hilfsmethoden
 import copy
 from QtUtils.TreeExpansionHelper import TreeExpansionHelper
-
-class FocusWatcher(QtCore.QObject):
-    def __init__(self, callback):
-        super().__init__()
-        self.callback = callback
-
-    def eventFilter(self, obje, even):
-        if type(even) == QtGui.QFocusEvent:
-            if not obje.hasFocus():
-                self.callback()
-        return False
+from QtUtils.FocusWatcher import FocusWatcher
 
 class InfoWrapper(QtCore.QObject):
     '''
