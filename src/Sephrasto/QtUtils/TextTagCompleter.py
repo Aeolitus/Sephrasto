@@ -28,6 +28,8 @@ from PySide6.QtWidgets import QCompleter
 class TextTagCompleter(QCompleter):
     def __init__(self, parent, tags):
         QCompleter.__init__(self, tags, parent)
+        self.__enabled = True
+
         self.setTags(tags)
         self.setWidget(parent)
 
@@ -38,6 +40,9 @@ class TextTagCompleter(QCompleter):
         self.setCaseSensitivity(QtCore.Qt.CaseInsensitive)
         self.setCompletionMode(QtWidgets.QCompleter.PopupCompletion)
         self.setFilterMode(QtCore.Qt.MatchContains)
+
+    def setEnabled(self, enabled):
+        self.__enabled = enabled
 
     def __cursorPos(self):
         if hasattr(self.widget(), "cursorPosition"):
@@ -69,6 +74,9 @@ class TextTagCompleter(QCompleter):
         self.tags = set(tags)
 
     def handleLineEditTextChanged(self):
+        if not self.__enabled:
+            return
+
         if self.__cursorPos() != len(self.__text()):
             # atm the completer doesn't work properly when trying to insert a tag element in the middle of the text
             # so lets rather disable it in this case than annoy the user with text cursor jumping around randomly
