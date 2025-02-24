@@ -14,7 +14,7 @@
     <InterpreterId>MSBuild|venv|$(MSBuildProjectFullPath)</InterpreterId>
     <IsWindowsApplication>True</IsWindowsApplication>
     <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
-    <CommandLineArguments>--debug</CommandLineArguments>
+    <CommandLineArguments>--debug --prerelease-plugins</CommandLineArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
@@ -71,6 +71,7 @@
     <Compile Include="Migrationen.py" />
     <Compile Include="PluginRepository.py" />
     <Compile Include="QtUtils\AutoResizingTextBrowser.py" />
+    <Compile Include="QtUtils\FocusWatcher.py" />
     <Compile Include="QtUtils\HtmlToolbar.py" />
     <Compile Include="QtUtils\ProgressDialogExt.py" />
     <Compile Include="QtUtils\PyEdit2.py" />
