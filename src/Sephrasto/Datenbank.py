@@ -282,7 +282,7 @@ class Datenbank():
             errorStr = ""
 
             if V.kategorie >= len(self.einstellungen['Vorteile: Kategorien'].wert):
-                errorStr = "Vorteil {V.name} hat einen unbekannten Typ."
+                errorStr = f"Vorteil {V.name} hat einen unbekannten Typ."
                 self.loadingErrors.append([V, errorStr])
                 logging.warning(errorStr)
 
@@ -391,7 +391,7 @@ class Datenbank():
             errorStr = ""
 
             if r.kategorie >= len(self.einstellungen['Rüstungen: Kategorien'].wert):
-                errorStr = "Rüstung {r.name} hat eine unbekannte Kategorie."
+                errorStr = f"Rüstung {r.name} hat eine unbekannte Kategorie."
                 self.loadingErrors.append([r, errorStr])
                 logging.warning(errorStr)
 
@@ -402,7 +402,7 @@ class Datenbank():
                 try:
                     Hilfsmethoden.VerifyWaffeneigenschaft(eig, self)
                 except WaffeneigenschaftException as e:
-                    errorStr = "Waffe " + wa.name + " hat fehlerhafte Eigenschaften: " + str(e)
+                    errorStr = f"Waffe {wa.name} hat fehlerhafte Eigenschaften: " + str(e)
                     self.loadingErrors.append([wa, errorStr])
                     logging.warning(errorStr)
 
@@ -417,7 +417,7 @@ class Datenbank():
             errorStr = ""
 
             if r.kategorie >= len(self.einstellungen['Regeln: Kategorien'].wert):
-                errorStr = "Regel {r.name} hat eine unbekannte Kategorie."
+                errorStr = f"Regel {r.name} hat eine unbekannte Kategorie."
                 self.loadingErrors.append([r, errorStr])
                 logging.warning(errorStr)
 
