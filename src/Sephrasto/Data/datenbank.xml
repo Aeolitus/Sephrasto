@@ -9849,7 +9849,7 @@ Jeder Charakter beherrscht seine Muttersprache meisterlich, ohne dafür zu bezah
   <Einstellung name="Rüstungen: Inoffiziell-Warnung anzeigen" typ="Bool" beschreibung="Legt fest, ob im Auswahl-Fenster für Rüstungen die Inoffiziell-Warnung angezeigt werden soll.">True</Einstellung>
   <Einstellung name="Talente: SteigerungsfaktorMulti Verbilligt" typ="Int" beschreibung="Legt den Steigerungsfaktor-Multiplikator für verbilligte profane Talente fest.">10</Einstellung>
   <Einstellung name="Talente: SteigerungsfaktorMulti" typ="Int" beschreibung="Legt den Steigerungsfaktor-Multiplikator für profane Talente fest.">20</Einstellung>
-  <Einstellung name="Attribute: PW Script" typ="Eval" beschreibung="Das Pythonscript berechnet den Probenwert von Attributen. Es steht hierfür die Funktion getWert zur Verfügung.">getWert()*2</Einstellung>
+  <Einstellung name="Attribute: PW Script" typ="Exec" beschreibung="Das Pythonscript berechnet den Probenwert von Attributen. Es steht hierfür die Funktion 'getWert' sowie für die Ausgabe die Variable 'pw' zur Verfügung.">pw = getWert()*2</Einstellung>
   <Einstellung name="FreieFertigkeiten: Kosten Stufe1" typ="Int" beschreibung="Legt die EP-Kosten für Stufe I von Freien Fertigkeiten fest.">4</Einstellung>
   <Einstellung name="FreieFertigkeiten: Kosten Stufe2" typ="Int" beschreibung="Legt die EP-Kosten für Stufe II von Freien Fertigkeiten fest.">8</Einstellung>
   <Einstellung name="FreieFertigkeiten: Kosten Stufe3" typ="Int" beschreibung="Legt die EP-Kosten für Stufe III von Freien Fertigkeiten fest.">16</Einstellung>
