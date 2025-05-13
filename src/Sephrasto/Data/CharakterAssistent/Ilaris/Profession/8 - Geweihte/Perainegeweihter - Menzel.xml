@@ -32,7 +32,7 @@
     <Attribut name="FF" wert="3"/>
   </Attribute>
   <Energien>
-    <Energie name="KaP" wert="0"/>
+    <Energie name="KaP" wert="0" gebunden="0"/>
   </Energien>
   <Vorteile>
     <Vorteil name="Geweiht I"/>
@@ -131,7 +131,7 @@
   <ÜbernatürlicheFertigkeiten>
     <ÜbernatürlicheFertigkeit name="Zwölfgöttlicher Ritus" wert="4" exportieren="1"/>
     <ÜbernatürlicheFertigkeit name="Heilung" wert="5" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Wachstum" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Wachstum" wert="0" exportieren="0"/>
   </ÜbernatürlicheFertigkeiten>
   <Erfahrung>
     <Gesamt>3000</Gesamt>
@@ -148,6 +148,7 @@
     <RegelnGrösse>8</RegelnGrösse>
     <DeaktivierteRegelKategorien></DeaktivierteRegelKategorien>
     <FormularEditierbarkeit>1</FormularEditierbarkeit>
+    <VorteilFavoriten></VorteilFavoriten>
   </Einstellungen>
   <BeschreibungDetails>
     <Kultur></Kultur>

@@ -32,7 +32,7 @@
     <Attribut name="FF" wert="3"/>
   </Attribute>
   <Energien>
-    <Energie name="AsP" wert="0"/>
+    <Energie name="AsP" wert="0" gebunden="0"/>
   </Energien>
   <Vorteile>
     <Vorteil name="Prophezeien"/>
@@ -130,24 +130,24 @@
     </Ausrüstung>
   </Objekte>
   <ÜbernatürlicheFertigkeiten>
-    <ÜbernatürlicheFertigkeit name="Antimagie" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Dämonisch" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Eigenschaften" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Antimagie" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Dämonisch" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Eigenschaften" wert="0" exportieren="0"/>
     <ÜbernatürlicheFertigkeit name="Einfluss" wert="5" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Eis" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Erz" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Eis" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Erz" wert="0" exportieren="0"/>
     <ÜbernatürlicheFertigkeit name="Feuer" wert="1" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Hellsicht" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Hellsicht" wert="0" exportieren="0"/>
     <ÜbernatürlicheFertigkeit name="Humus" wert="3" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Illusion" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Kraft" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Illusion" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Kraft" wert="0" exportieren="0"/>
     <ÜbernatürlicheFertigkeit name="Luft" wert="5" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Temporal" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Umwelt" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Temporal" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Umwelt" wert="0" exportieren="0"/>
     <ÜbernatürlicheFertigkeit name="Verständigung" wert="5" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Verwandlung" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Wasser" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Dolchzauber" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Verwandlung" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Wasser" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Dolchzauber" wert="0" exportieren="0"/>
   </ÜbernatürlicheFertigkeiten>
   <Erfahrung>
     <Gesamt>3000</Gesamt>
@@ -164,6 +164,7 @@
     <RegelnGrösse>8</RegelnGrösse>
     <DeaktivierteRegelKategorien></DeaktivierteRegelKategorien>
     <FormularEditierbarkeit>1</FormularEditierbarkeit>
+    <VorteilFavoriten></VorteilFavoriten>
   </Einstellungen>
   <BeschreibungDetails>
     <Kultur></Kultur>

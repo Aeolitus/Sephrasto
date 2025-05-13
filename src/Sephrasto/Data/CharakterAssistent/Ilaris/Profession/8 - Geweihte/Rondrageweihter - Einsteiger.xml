@@ -28,7 +28,7 @@
     <Attribut name="FF" wert="1"/>
   </Attribute>
   <Energien>
-    <Energie name="KaP" wert="1"/>
+    <Energie name="KaP" wert="1" gebunden="0"/>
   </Energien>
   <Vorteile>
     <Vorteil name="Einkommen I"/>
@@ -115,7 +115,7 @@
   <ÜbernatürlicheFertigkeiten>
     <ÜbernatürlicheFertigkeit name="Zwölfgöttlicher Ritus" wert="2" exportieren="1"/>
     <ÜbernatürlicheFertigkeit name="Ehre" wert="4" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Heerführung" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Heerführung" wert="0" exportieren="0"/>
     <ÜbernatürlicheFertigkeit name="Schutz der Gläubigen" wert="5" exportieren="1"/>
   </ÜbernatürlicheFertigkeiten>
   <Erfahrung>
@@ -133,6 +133,7 @@
     <RegelnGrösse>8</RegelnGrösse>
     <DeaktivierteRegelKategorien></DeaktivierteRegelKategorien>
     <FormularEditierbarkeit>1</FormularEditierbarkeit>
+    <VorteilFavoriten></VorteilFavoriten>
   </Einstellungen>
   <BeschreibungDetails>
     <Kultur></Kultur>

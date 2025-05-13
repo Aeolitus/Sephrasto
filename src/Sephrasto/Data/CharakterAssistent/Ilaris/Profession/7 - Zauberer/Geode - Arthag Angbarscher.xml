@@ -33,7 +33,7 @@
     <Attribut name="FF" wert="4"/>
   </Attribute>
   <Energien>
-    <Energie name="AsP" wert="2"/>
+    <Energie name="AsP" wert="2" gebunden="0"/>
   </Energien>
   <Vorteile>
     <Vorteil name="Scharfsinnig I"/>
@@ -114,24 +114,24 @@
     <Ausrüstung/>
   </Objekte>
   <ÜbernatürlicheFertigkeiten>
-    <ÜbernatürlicheFertigkeit name="Antimagie" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Dämonisch" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Eigenschaften" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Einfluss" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Eis" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Erz" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Feuer" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Hellsicht" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Humus" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Illusion" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Kraft" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Luft" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Temporal" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Umwelt" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Verständigung" wert="0" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Verwandlung" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Antimagie" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Dämonisch" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Eigenschaften" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Einfluss" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Eis" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Erz" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Feuer" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Hellsicht" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Humus" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Illusion" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Kraft" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Luft" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Temporal" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Umwelt" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Verständigung" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Verwandlung" wert="0" exportieren="0"/>
     <ÜbernatürlicheFertigkeit name="Wasser" wert="7" exportieren="1"/>
-    <ÜbernatürlicheFertigkeit name="Dolchzauber" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Dolchzauber" wert="0" exportieren="0"/>
     <ÜbernatürlicheFertigkeit name="Ringrituale" wert="1" exportieren="1"/>
     <ÜbernatürlicheFertigkeit name="Vertrautenmagie" wert="4" exportieren="1"/>
   </ÜbernatürlicheFertigkeiten>
@@ -150,6 +150,7 @@
     <RegelnGrösse>8</RegelnGrösse>
     <DeaktivierteRegelKategorien></DeaktivierteRegelKategorien>
     <FormularEditierbarkeit>1</FormularEditierbarkeit>
+    <VorteilFavoriten></VorteilFavoriten>
   </Einstellungen>
   <BeschreibungDetails>
     <Kultur></Kultur>
