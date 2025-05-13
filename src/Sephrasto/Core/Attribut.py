@@ -90,7 +90,9 @@ class Attribut:
     def aktualisieren(self):
         scriptAPI = Hilfsmethoden.createScriptAPI()
         scriptAPI['getWert'] = lambda: self.wert
-        self.probenwert = Wolke.DB.einstellungen["Attribute: PW Script"].evaluateScript(scriptAPI)
+        scriptAPI['pw'] = 0
+        Wolke.DB.einstellungen["Attribute: PW Script"].executeScript(scriptAPI)
+        self.probenwert = scriptAPI['pw']
 
     def steigerungskosten(self, numSteigerungen = 1):
         if numSteigerungen == 0:
