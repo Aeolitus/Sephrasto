@@ -1,5 +1,6 @@
 from EventBus import EventBus
 from RestrictedPython import compile_restricted
+import uuid
 
 class Waffeneigenschaft():
     displayName = "Waffeneigenschaft"
@@ -7,6 +8,7 @@ class Waffeneigenschaft():
 
     def __init__(self):
         # Serialized properties
+        self.id = str(uuid.uuid4())  # Eindeutige ID für jedes neue Element
         self.name = ''
         self.text = ''
         self.script = ''
@@ -17,7 +19,8 @@ class Waffeneigenschaft():
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
-        return self.name == other.name and \
+        return self.id == other.id and \
+            self.name == other.name and \
             self.text == other.text and \
             self.script == other.script and \
             self.scriptPrio == other.scriptPrio
@@ -37,6 +40,7 @@ class Waffeneigenschaft():
         return self.text
 
     def serialize(self, ser):
+        ser.set('id', self.id)  # ID als erstes serialisieren
         ser.set('name', self.name)
         ser.set('text', self.text)
         if self.script:
@@ -46,6 +50,8 @@ class Waffeneigenschaft():
         EventBus.doAction("waffeneigenschaft_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser, referenceDB = None):
+        # ID laden oder neue generieren falls nicht vorhanden (für Rückwärtskompatibilität)
+        self.id = ser.get('id', str(uuid.uuid4()))
         self.name = ser.get('name')
         self.text = ser.get('text')
         self.script = ser.get('script', self.script)

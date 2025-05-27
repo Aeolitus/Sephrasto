@@ -1,6 +1,7 @@
 from EventBus import EventBus
 from VoraussetzungenListe import VoraussetzungenListe
 import copy
+import uuid
 
 # Implementation for Energien (Karma, AsP, GuP). Using the type object pattern.
 # EnergieDefinition: type object, initialized with database values
@@ -11,6 +12,7 @@ class EnergieDefinition:
 
     def __init__(self):
         # Serialized properties
+        self.id = str(uuid.uuid4())  # Eindeutige ID für jedes neue Element
         self.name = ""
         self.anzeigename = ""
         self.text = ""
@@ -20,7 +22,8 @@ class EnergieDefinition:
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
-        return self.name == other.name and \
+        return self.id == other.id and \
+            self.name == other.name and \
             self.anzeigename == other.anzeigename and \
             self.text == other.text and \
             self.steigerungsfaktor == other.steigerungsfaktor and \
@@ -34,6 +37,7 @@ class EnergieDefinition:
         return f"SF {self.steigerungsfaktor}. {self.text}"
 
     def serialize(self, ser):
+        ser.set('id', self.id)  # ID als erstes serialisieren
         ser.set('name', self.name)
         ser.set('text', self.text)
         ser.set('voraussetzungen', self.voraussetzungen.text)
@@ -43,6 +47,8 @@ class EnergieDefinition:
         EventBus.doAction("energiedefinition_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser, referenceDB = None):
+        # ID laden oder neue generieren falls nicht vorhanden (für Rückwärtskompatibilität)
+        self.id = ser.get('id', str(uuid.uuid4()))
         self.name = ser.get('name')
         self.text = ser.get('text')
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))

@@ -4,6 +4,7 @@ from EventBus import EventBus
 from VoraussetzungenListe import VoraussetzungenListe
 import copy
 from RestrictedPython import compile_restricted
+import uuid
 
 # Implementation for Vorteile. Using the type object pattern.
 # VorteilDefinition: type object, initialized with database values
@@ -21,6 +22,7 @@ class VorteilDefinition():
 
     def __init__(self):
         # Serialized properties
+        self.id = str(uuid.uuid4())  # Eindeutige ID für jedes neue Element
         self.name = ''
         self.text = ''
         self.info = ''
@@ -46,7 +48,8 @@ class VorteilDefinition():
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
-        return self.name == other.name and \
+        return self.id == other.id and \
+            self.name == other.name and \
             self.text == other.text and \
             self.info == other.info and \
             self.bedingungen == other.bedingungen and \
@@ -125,6 +128,7 @@ class VorteilDefinition():
         return text
 
     def serialize(self, ser):
+        ser.set('id', self.id)  # ID als erstes serialisieren
         ser.set('name', self.name)
         ser.set('text', self.text)
         ser.set('voraussetzungen', self.voraussetzungen.text)
@@ -156,6 +160,8 @@ class VorteilDefinition():
         EventBus.doAction("vorteildefinition_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser, referenceDB = None):
+        # ID laden oder neue generieren falls nicht vorhanden (für Rückwärtskompatibilität)
+        self.id = ser.get('id', str(uuid.uuid4()))
         self.name = ser.get('name')
         self.text = ser.get('text')
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))

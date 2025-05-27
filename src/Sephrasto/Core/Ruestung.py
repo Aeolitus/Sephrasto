@@ -2,6 +2,7 @@ from Wolke import Wolke
 from EventBus import EventBus
 import copy
 from Hilfsmethoden import Hilfsmethoden
+import uuid
 
 # Implementation for Rüstungen. Using the type object pattern.
 # RuestungDefinition: type object, initialized with database values
@@ -14,6 +15,7 @@ class RuestungDefinition:
 
     def __init__(self):
         # Serialized properties
+        self.id = str(uuid.uuid4())  # Eindeutige ID für jedes neue Element
         self.name = ''
         self.text = ''
         self.kategorie = 0
@@ -22,7 +24,8 @@ class RuestungDefinition:
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
-        return self.name == other.name and \
+        return self.id == other.id and \
+            self.name == other.name and \
             self.text == other.text and \
             self.kategorie == other.kategorie and \
             self.system == other.system and \
@@ -50,6 +53,7 @@ class RuestungDefinition:
         return f"{system} | RS {self.getRSGesamtInt()} (Bein {self.rs[0]} | L. Arm {self.rs[1]} | R. Arm {self.rs[2]} | Bauch {self.rs[3]} | Brust {self.rs[4]} | Kopf {self.rs[5]}).\n{self.text}"
 
     def serialize(self, ser):
+        ser.set('id', self.id)  # ID als erstes serialisieren
         ser.set('name', self.name)
         ser.set('text', self.text)
         ser.set('kategorie', self.kategorie)
@@ -63,6 +67,8 @@ class RuestungDefinition:
         EventBus.doAction("ruestungdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser, referenceDB = None):
+        # ID laden oder neue generieren falls nicht vorhanden (für Rückwärtskompatibilität)
+        self.id = ser.get('id', str(uuid.uuid4()))
         self.name = ser.get('name')
         self.text = ser.get('text')
         self.kategorie = ser.getInt('kategorie')

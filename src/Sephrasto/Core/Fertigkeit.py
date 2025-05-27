@@ -3,6 +3,7 @@ from EventBus import EventBus
 from Hilfsmethoden import Hilfsmethoden
 from VoraussetzungenListe import VoraussetzungenListe
 import copy
+import uuid
 
 # Implementation for Fertigkeiten. Using the type object pattern.
 # FertigkeitDefinition: type object, initialized with database values
@@ -19,6 +20,7 @@ class FertigkeitDefinition:
 
     def __init__(self):
         # Serialized properties
+        self.id = str(uuid.uuid4())  # Eindeutige ID für jedes neue Element
         self.name = ''
         self.steigerungsfaktor = 0
         self.text = ''
@@ -30,7 +32,8 @@ class FertigkeitDefinition:
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
-        return self.name == other.name and \
+        return self.id == other.id and \
+            self.name == other.name and \
             self.steigerungsfaktor == other.steigerungsfaktor and \
             self.text == other.text and \
             self.attribute == other.attribute and \
@@ -50,6 +53,7 @@ class FertigkeitDefinition:
         return f"{'/'.join(self.attribute)}. SF {self.steigerungsfaktor}. {self.text}"
 
     def serialize(self, ser):
+        ser.set('id', self.id)  # ID als erstes serialisieren
         ser.set('name', self.name)
         ser.set('text', self.text)
         ser.set('voraussetzungen', self.voraussetzungen.text)
@@ -60,6 +64,8 @@ class FertigkeitDefinition:
         EventBus.doAction("fertigkeitdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser, referenceDB = None):
+        # ID laden oder neue generieren falls nicht vorhanden (für Rückwärtskompatibilität)
+        self.id = ser.get('id', str(uuid.uuid4()))
         self.name = ser.get('name')
         self.text = ser.get('text')
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))
@@ -81,6 +87,7 @@ class UeberFertigkeitDefinition(FertigkeitDefinition):
         return db.einstellungen['Fertigkeiten: Kategorien übernatürlich'].wert.keyAtIndex(kategorie)
 
     def serialize(self, ser):
+        ser.set('id', self.id)  # ID als erstes serialisieren
         ser.set('name', self.name)
         ser.set('text', self.text)
         ser.set('voraussetzungen', self.voraussetzungen.text)
@@ -91,6 +98,8 @@ class UeberFertigkeitDefinition(FertigkeitDefinition):
         EventBus.doAction("ueberfertigkeitdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser, referenceDB = None):
+        # ID laden oder neue generieren falls nicht vorhanden (für Rückwärtskompatibilität)
+        self.id = ser.get('id', str(uuid.uuid4()))
         self.name = ser.get('name')
         self.text = ser.get('text')
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))
@@ -256,6 +265,7 @@ class Fertigkeit:
         ser.set('wert', self.wert)
         if isinstance(self.definition, UeberFertigkeitDefinition):
             ser.set('exportieren', self.addToPDF)
+        ser.set('id', self.definition.id)
         EventBus.doAction("fertigkeit_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser, db, char):

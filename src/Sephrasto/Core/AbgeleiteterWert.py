@@ -3,6 +3,7 @@ import copy
 from EventBus import EventBus
 from RestrictedPython import compile_restricted
 from Hilfsmethoden import Hilfsmethoden
+import uuid
 
 # Implementation for abgeleitete Werte (WS, INI etc.). Using the type object pattern.
 # AbgeleiteterWertDefinition: type object, initialized with database values
@@ -13,6 +14,7 @@ class AbgeleiteterWertDefinition:
 
     def __init__(self):
         # Serialized properties
+        self.id = str(uuid.uuid4())  # Eindeutige ID für jedes neue Element
         self.name = ""
         self.anzeigename = ""
         self.anzeigen = True
@@ -28,7 +30,8 @@ class AbgeleiteterWertDefinition:
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
-        return self.name == other.name and \
+        return self.id == other.id and \
+            self.name == other.name and \
             self.anzeigename == other.anzeigename and \
             self.anzeigen == other.anzeigen and \
             self.text == other.text and \
@@ -50,6 +53,7 @@ class AbgeleiteterWertDefinition:
         return self.text
 
     def serialize(self, ser):
+        ser.set('id', self.id)  # ID als erstes serialisieren
         ser.set('name', self.name)
         ser.set('text', self.text)
         ser.set('anzeigename', self.anzeigename)
@@ -63,6 +67,8 @@ class AbgeleiteterWertDefinition:
         EventBus.doAction("abgeleiteterwertdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser, referenceDB = None):
+        # ID laden oder neue generieren falls nicht vorhanden (für Rückwärtskompatibilität)
+        self.id = ser.get('id', str(uuid.uuid4()))
         self.name = ser.get('name')
         self.text = ser.get('text')
         self.anzeigename = ser.get('anzeigename')
