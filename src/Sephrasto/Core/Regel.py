@@ -1,5 +1,6 @@
 from VoraussetzungenListe import VoraussetzungenListe
 from EventBus import EventBus
+import uuid
 
 class Regel():
     displayName = "Regel"
@@ -7,6 +8,7 @@ class Regel():
 
     def __init__(self):
         # Serialized properties
+        self.id = str(uuid.uuid4())  # Eindeutige ID für jedes neue Element
         self.name = ''
         self.text = ''
         self.kategorie = 0
@@ -18,7 +20,8 @@ class Regel():
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
-        return self.name == other.name and \
+        return self.id == other.id and \
+            self.name == other.name and \
             self.text == other.text and \
             self.kategorie == other.kategorie and \
             self.voraussetzungen == other.voraussetzungen and \
@@ -40,6 +43,7 @@ class Regel():
         return self.text
 
     def serialize(self, ser):
+        ser.set('id', self.id)  # ID als erstes serialisieren
         ser.set('name', self.name)
         ser.set('text', self.text)
         ser.set('voraussetzungen', self.voraussetzungen.text)
@@ -48,6 +52,8 @@ class Regel():
         EventBus.doAction("regel_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser, referenceDB = None):
+        # ID laden oder neue generieren falls nicht vorhanden (für Rückwärtskompatibilität)
+        self.id = ser.get('id', str(uuid.uuid4()))
         self.name = ser.get('name')
         self.text = ser.get('text')
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))      

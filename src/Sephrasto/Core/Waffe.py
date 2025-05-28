@@ -1,5 +1,6 @@
 from EventBus import EventBus
 import copy
+import uuid
 
 # Implementation for Waffen. Using the type object pattern.
 # WaffeDefinition: type object, initialized with database values
@@ -12,6 +13,7 @@ class WaffeDefinition:
 
     def __init__(self):
         # Serialized properties
+        self.id = str(uuid.uuid4())  # Eindeutige ID für jedes neue Element
         self.name = ''
         self.würfel = 0
         self.würfelSeiten = 6
@@ -31,7 +33,8 @@ class WaffeDefinition:
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
-        return self.name == other.name and \
+        return self.id == other.id and \
+            self.name == other.name and \
             self.würfel == other.würfel and \
             self.würfelSeiten == other.würfelSeiten and \
             self.plus == other.plus and \
@@ -77,6 +80,7 @@ class WaffeDefinition:
             self.name in db.einstellungen["Waffen: Talente VT verboten"].wert
 
     def serialize(self, ser):
+        ser.set('id', self.id)  # ID als erstes serialisieren
         ser.set('name', self.name)
         ser.set('text', ", ".join(self.eigenschaften))
         ser.set('würfel', self.würfel)
@@ -96,6 +100,8 @@ class WaffeDefinition:
         EventBus.doAction("waffedefinition_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser, referenceDB = None):
+        # ID laden oder neue generieren falls nicht vorhanden (für Rückwärtskompatibilität)
+        self.id = ser.get('id', str(uuid.uuid4()))
         self.name = ser.get('name')
         eigenschaften = ser.get('text')
         if eigenschaften:

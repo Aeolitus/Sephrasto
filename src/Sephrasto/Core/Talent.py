@@ -3,6 +3,7 @@ from EventBus import EventBus
 from Hilfsmethoden import Hilfsmethoden
 from VoraussetzungenListe import VoraussetzungenListe
 import copy
+import uuid
 
 # Implementation for Talente. Using the type object pattern.
 # TalentDefinition: type object, initialized with database values
@@ -33,6 +34,7 @@ class TalentDefinition:
 
     def __init__(self):
         # Serialized properties
+        self.id = str(uuid.uuid4())  # Eindeutige ID für jedes neue Element
         self.name = ''
         self.textSerialized = ''
         self.info = ''
@@ -174,6 +176,7 @@ class TalentDefinition:
         return f"{self.kosten} EP{' (verbilligt)' if self.verbilligt else ''}. {self.text}"
 
     def serialize(self, ser):
+        ser.set('id', self.id)  # ID als erstes serialisieren
         ser.set('name', self.name)
         ser.set('text', self.textSerialized)
         ser.set('voraussetzungen', self.voraussetzungen.text)
@@ -196,6 +199,8 @@ class TalentDefinition:
         EventBus.doAction("talentdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser, referenceDB = None):
+        # ID laden oder neue generieren falls nicht vorhanden (für Rückwärtskompatibilität)
+        self.id = ser.get('id', str(uuid.uuid4()))
         self.name = ser.get('name')
         self.textSerialized = ser.get('text')
         self.text = self.textSerialized
