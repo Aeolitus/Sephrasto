@@ -1,5 +1,6 @@
 from EventBus import EventBus
 from RestrictedPython import compile_restricted
+from Exceptions import ScriptException
 
 class Waffeneigenschaft():
     displayName = "Waffeneigenschaft"
@@ -29,7 +30,7 @@ class Waffeneigenschaft():
         try:
             exec(self.scriptCompiled, api)
         except Exception as e:
-            raise type(e)(f"\nScriptfehler in Waffeneigenschaft \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
+            raise ScriptException(f"\nScriptfehler in Waffeneigenschaft \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
 
     def details(self, db):
         if self.script:

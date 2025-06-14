@@ -35,6 +35,7 @@ import argparse
 import Charakter
 import Datenbank
 import locale
+from Exceptions import ScriptException
 
 loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
 
@@ -343,6 +344,7 @@ class MainWindowWrapper(object):
                     messagebox.exec()
 
         self.dbEditor = None
+        self.ed = None
 
         loadedPlugins = [p.name for p in self._plugins if p.isLoaded()]
         EventBus.doAction("plugins_geladen", { "plugins" : loadedPlugins})
@@ -435,15 +437,27 @@ class MainWindowWrapper(object):
 
         EventBus.doAction("charaktereditor_oeffnet", { "neu" : True, "filepath" : "" })
         self.form.hide()
-        self.ed = CharakterEditor.Editor(self._plugins, self.charakterEditorClosedHandler, self.savePathUpdated)
-        if wizardConfig is None:
-            self.ed.newCharacter()
-        else:
-            self.ed.newCharacterFromWizard(wizardConfig)
 
-        self.savePathUpdated()        
-        EventBus.doAction("charaktereditor_geoeffnet", { "neu" : True, "filepath" : "" })
-        
+        try:
+            self.ed = CharakterEditor.Editor(self._plugins, self.charakterEditorClosedHandler, self.savePathUpdated)
+            if wizardConfig is None:
+                self.ed.newCharacter()
+            else:
+                self.ed.newCharacterFromWizard(wizardConfig)
+
+            self.savePathUpdated()        
+            EventBus.doAction("charaktereditor_geoeffnet", { "neu" : True, "filepath" : "" })
+        except ScriptException as e:
+            QtWidgets.QMessageBox.critical(None, "Fehler!", str(e))
+
+            EventBus.doAction("charaktereditor_geschlossen")
+            if self.ed is not None:
+                if hasattr(self.ed, "form") and self.ed.form is not None:
+                    self.ed.form.deleteLater()
+                del self.ed
+            self.ed = None
+            self.form.show()
+
     def editExisting(self, spath = ""):
         '''
         Creates a CharakterEditor for an existing character and shows it.
@@ -468,12 +482,23 @@ class MainWindowWrapper(object):
             messagebox.exec()
             return
 
-        EventBus.doAction("charaktereditor_oeffnet", { "neu" : False, "filepath" : spath })
-        self.form.hide()
-        self.ed = CharakterEditor.Editor(self._plugins, self.charakterEditorClosedHandler, self.savePathUpdated)
-        self.ed.loadCharacter(spath)
-        self.savePathUpdated()
-        EventBus.doAction("charaktereditor_geoeffnet", { "neu" : False, "filepath" : spath })
+        try:
+            EventBus.doAction("charaktereditor_oeffnet", { "neu" : False, "filepath" : spath })
+            self.form.hide()
+            self.ed = CharakterEditor.Editor(self._plugins, self.charakterEditorClosedHandler, self.savePathUpdated)
+            self.ed.loadCharacter(spath)
+            self.savePathUpdated()
+            EventBus.doAction("charaktereditor_geoeffnet", { "neu" : False, "filepath" : spath })
+        except ScriptException as e:
+            QtWidgets.QMessageBox.critical(None, "Fehler!", str(e))
+
+            EventBus.doAction("charaktereditor_geschlossen")
+            if self.ed is not None:
+                if hasattr(self.ed, "form") and self.ed.form is not None:
+                    self.ed.form.deleteLater()
+                del self.ed
+            self.ed = None
+            self.form.show()
 
     def remove(self, path):
         for char in Wolke.Settings['Letzte-Chars']:

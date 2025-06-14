@@ -3,6 +3,7 @@ import copy
 from EventBus import EventBus
 from RestrictedPython import compile_restricted
 from Hilfsmethoden import Hilfsmethoden
+from Exceptions import ScriptException
 
 # Implementation for abgeleitete Werte (WS, INI etc.). Using the type object pattern.
 # AbgeleiteterWertDefinition: type object, initialized with database values
@@ -135,13 +136,13 @@ class AbgeleiteterWert:
         try:
             self.basiswert = eval(self.definition.scriptCompiled, self.charakter.charakterScriptAPI)
         except Exception as e:
-            raise type(e)(f"\nScriptfehler in Abgeleiteter Wert \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
+            raise ScriptException(f"\nScriptfehler in Abgeleiteter Wert \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
 
     def diffBasiswert(self, attribute):      
         try:
             return eval(self.definition.scriptCompiled, self.charakter.charakterScriptAPI) - self.basiswert
         except Exception as e:
-            raise type(e)(f"\nScriptfehler in Abgeleiteter Wert \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
+            raise ScriptException(f"\nScriptfehler in Abgeleiteter Wert \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
 
     def aktualisierenFinal(self):
         if not self.finalscript:
@@ -150,4 +151,4 @@ class AbgeleiteterWert:
         try:
             self.finalwert = eval(self.definition.finalscriptCompiled, self.charakter.charakterScriptAPI)
         except Exception as e:
-            raise type(e)(f"\nScriptfehler in Abgeleiteter Wert \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
+            raise ScriptException(f"\nScriptfehler in Abgeleiteter Wert \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")

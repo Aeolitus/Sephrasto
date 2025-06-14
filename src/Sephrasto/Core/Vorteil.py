@@ -4,6 +4,7 @@ from EventBus import EventBus
 from VoraussetzungenListe import VoraussetzungenListe
 import copy
 from RestrictedPython import compile_restricted
+from Exceptions import ScriptException
 
 # Implementation for Vorteile. Using the type object pattern.
 # VorteilDefinition: type object, initialized with database values
@@ -112,7 +113,7 @@ class VorteilDefinition():
         try:
             exec(self.scriptCompiled, api)
         except Exception as e:
-            raise type(e)(f"\nScriptfehler in Vorteil \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
+            raise ScriptException(f"\nScriptfehler in Vorteil \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
 
     def kategorieName(self, db):
         kategorie = min(self.kategorie, len(db.einstellungen['Vorteile: Kategorien'].wert) - 1)

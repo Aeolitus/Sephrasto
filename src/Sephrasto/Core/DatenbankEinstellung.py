@@ -1,6 +1,7 @@
 from EventBus import EventBus
 from RestrictedPython import compile_restricted
 import json
+from Exceptions import ScriptException
 
 class IndexableDict(dict):
     def __init__(self, *args, **kwargs):
@@ -95,13 +96,13 @@ class DatenbankEinstellung:
         try:
             exec(self.wert, api)
         except Exception as e:
-            raise type(e)(f"\nScriptfehler in Einstellung \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
+            raise ScriptException(f"\nScriptfehler in Einstellung \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
 
     def evaluateScript(self, api):
         try:
             return eval(self.wert, api)
         except Exception as e:
-            raise type(e)(f"\nScriptfehler in Einstellung \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
+            raise ScriptException(f"\nScriptfehler in Einstellung \"{self.name}\". Vermutlich hast du hier Änderungen in den Hausregeln vorgenommen, die das Problem verursachen.\n\nFehler: {str(e)}")
 
     def serialize(self, ser):
         ser.set('name', self.name)
