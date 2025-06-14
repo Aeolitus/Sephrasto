@@ -81,3 +81,4 @@ class Wolke:
     FontAwesomeRegularFont = None
     MkDocsCSS = ""
     CharImageSize = [260.0, 340.0]
+    UnicodeSupport = True
