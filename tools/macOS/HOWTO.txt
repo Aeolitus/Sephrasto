@@ -1,0 +1,14 @@
+How to create Sephrasto.app:
+
+1. Open RunSephrastoSource.scpt in ScriptEditor
+2. File -> Export -> File Format Application
+3. Copy applet.icns
+4. Rightclick Sephrasto.app -> Show Package Contents
+5. Navigate to Contents -> Resources and replace existing applet.icns
+
+How to create applet.icns:
+
+1. Create folder applet.iconset
+2. Place Sephrasto png inside it and rename it to icon_256x256.png (resize it to that size)
+3. Optionally create more sizes
+4. Open terminal and run "iconutil -c icns applet.iconset"
