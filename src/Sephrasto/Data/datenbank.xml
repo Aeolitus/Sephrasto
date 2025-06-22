@@ -8064,15 +8064,7 @@ Große Traumreise (-8, 16 KaP; du kannst mit einigen Gefährten in den Traum rei
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
 &lt;b&gt;Kosten:&lt;/b&gt; 4 KaP
 &lt;b&gt;Erlernen:&lt;/b&gt; 20 EP</Talent>
-  <Talent name="Mirakel: IN (Nandus)" kategorie="2" kosten="20" voraussetzungen="Kein Vorteil Tradition der Hesindegeweihten I" verbilligt="0" fertigkeiten="Wissen" variableKosten="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf IN ist um +4 Punkte erleichtert.
-&lt;b&gt;Mächtige Liturgie:&lt;/b&gt; Erhöht die Erleichterung um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 4 KaP
-&lt;b&gt;Erlernen:&lt;/b&gt; 20 EP</Talent>
+  <Talent name="Mirakel: IN (Nandus)" kategorie="2" kosten="20" voraussetzungen="Kein Vorteil Tradition der Hesindegeweihten I" verbilligt="0" fertigkeiten="Wissen" variableKosten="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">$talent:Mirakel: IN$</Talent>
   <Talent name="Mirakel: Mythenkunde" kategorie="2" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schlaf, Wissen, Licht, Heiliges Feuer" variableKosten="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Mythenkunde ist um +4 Punkte erleichtert.
 &lt;b&gt;Mächtige Liturgie:&lt;/b&gt; Erhöht die Erleichterung um +2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
@@ -8226,15 +8218,7 @@ Große Traumreise (-8, 16 KaP; du kannst mit einigen Gefährten in den Traum rei
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
 &lt;b&gt;Kosten:&lt;/b&gt; 4 KaP
 &lt;b&gt;Erlernen:&lt;/b&gt; 20 EP</Talent>
-  <Talent name="Mirakel: MR (Nandus)" kategorie="2" kosten="20" voraussetzungen="Kein Vorteil Tradition der Hesindegeweihten I" verbilligt="0" fertigkeiten="Wissen" variableKosten="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf MR ist um +4 Punkte erleichtert.
-&lt;b&gt;Mächtige Liturgie:&lt;/b&gt; Erhöht die Erleichterung um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 4 KaP
-&lt;b&gt;Erlernen:&lt;/b&gt; 20 EP</Talent>
+  <Talent name="Mirakel: MR (Nandus)" kategorie="2" kosten="20" voraussetzungen="Kein Vorteil Tradition der Hesindegeweihten I" verbilligt="0" fertigkeiten="Wissen" variableKosten="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">$talent:Mirakel: MR$</Talent>
   <Talent name="Mirakel: Autorität" kategorie="2" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Wissen, Wachstum, Ordnung, Heerführung, Heim und Herd, Gutes Gold" variableKosten="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Autorität ist um +4 Punkte erleichtert.
 &lt;b&gt;Mächtige Liturgie:&lt;/b&gt; Erhöht die Erleichterung um +2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
