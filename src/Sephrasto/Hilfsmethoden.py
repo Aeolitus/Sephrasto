@@ -18,6 +18,9 @@ from RestrictedPython import safe_builtins
 from RestrictedPython.Guards import guarded_unpack_sequence, guarded_iter_unpack_sequence
 from RestrictedPython.Eval import default_guarded_getiter, default_guarded_getitem
 import math
+import platform
+
+isMacOS = platform.system() == "Darwin"
 
 class WaffeneigenschaftException(Exception):
     pass
@@ -288,9 +291,14 @@ ol {{ padding: 0; margin: 0; -qt-list-indent: 0; margin-left: {Hilfsmethoden.emT
     # using the unicode collation algorithm would be the perfect solution but strxfrm suffices for now
     @staticmethod
     def unicodeCaseInsensitive(s):
-        def NFD(s):
-            return unicodedata.normalize('NFD', s)
-        lowercase = NFD(NFD(s).casefold())
+        # macOs has a faulty implementation for normalized unicode strings, causing a segfault, so use a fallback to NFC normalization
+        if isMacOS:
+            lowercase = unicodedata.normalize('NFC', s.casefold()) # with a german locale Ä will be treated as A
+        else:
+            def NFD(s):
+                return unicodedata.normalize('NFD', s)
+            lowercase = NFD(NFD(s).casefold()) # With a german locale, Ä will be correctly treated as AE
+
         try:
             return locale.strxfrm(lowercase) 
         except:
