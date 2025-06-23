@@ -70,6 +70,7 @@ Sephrasto starten via Python:
 * Control-Click auf den Sephrasto-Ordner und wähle "Services -> New Terminal at Folder"
 * Tippe im Terminal den folgenden Befehl ein:
     - ```python3 src/Sephrasto/Sephrasto.py```
+* Beim ersten PDF-Export musst du wieder über "System Preferences -> Security & Privacy" die Ausführung von PDFtk erlauben, das gleiche für cpdf.
 
 Sephrasto starten via Sephrasto.app (funktioniert scheinbar nicht auf neueren macOS Versionen, bitte melden, falls jemand einen Fix hat):
 * Navigiere zu Sephrasto/tools/macOS und doppelclicke auf Sephrasto
