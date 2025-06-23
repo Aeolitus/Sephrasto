@@ -65,10 +65,15 @@ Wenn dich der automatisch generierte Sephrasto-Ordner im Userverzeichnis stört,
     - WICHTIG: Nutze bitte den genannten Link. Der Download-Button auf der Webseite führt zu einer alten Version, die nicht mehr funktioniert (Stand 08/22).
     - Die Installation wird zunächst blockiert. Du musst über "System Preferences -> Security & Privacy" die Ausführung erlauben
 
-Gestartet wird Sephrasto dann folgendermaßen:
+
+Sephrasto starten via Python:
+* Control-Click auf den Sephrasto-Ordner und wähle "Services -> New Terminal at Folder"
+* Tippe im Terminal den folgenden Befehl ein:
+    - ```python3 src/Sephrasto/Sephrasto.py```
+
+Sephrasto starten via Sephrasto.app (funktioniert scheinbar nicht auf neueren macOS Versionen, bitte melden, falls jemand einen Fix hat):
 * Navigiere zu Sephrasto/tools/macOS und doppelclicke auf Sephrasto
 * Beim ersten PDF-Export musst du wieder über "System Preferences -> Security & Privacy" die Ausführung von PDFtk erlauben, das gleiche für cpdf.
-* Optional kannst du einen Alias für die obige Sephrasto-Datei erstellen. Dabei geht eventuell das Icon verloren - über Get Info kannst du das Icon kopieren und beim Alias einfügen.
 
 ## Kommandozeilenargumente
 |Argument|Parameter|Beschreibung|
