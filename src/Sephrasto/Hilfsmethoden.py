@@ -288,14 +288,9 @@ ol {{ padding: 0; margin: 0; -qt-list-indent: 0; margin-left: {Hilfsmethoden.emT
     # using the unicode collation algorithm would be the perfect solution but strxfrm suffices for now
     @staticmethod
     def unicodeCaseInsensitive(s):
-        if Wolke.UnicodeSupport:
-            # Without unicode support strxfrm might cause a segfault in macOS
-            def NFD(s):
-                return unicodedata.normalize('NFD', s)
-            lowercase = NFD(NFD(s).casefold()) # With a german locale, Ä will be correctly treated as AE
-        else:
-            lowercase = unicodedata.normalize('NFC', s.casefold()) # with a german locale Ä will be treated as A
-
+        def NFD(s):
+            return unicodedata.normalize('NFD', s)
+        lowercase = NFD(NFD(s).casefold())
         try:
             return locale.strxfrm(lowercase) 
         except:

@@ -37,6 +37,8 @@ import Datenbank
 import locale
 from Exceptions import ScriptException
 
+locale.setlocale(locale.LC_ALL, "") # set the current locale from the OS
+
 loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
 
 def sephrasto_excepthook(exc_type, exc_value, tb):
@@ -105,54 +107,6 @@ def qt_message_handler(mode, context, message):
     else:
         logging.debug(message)
 
-def get_current_locale():
-    loc = locale.getlocale()
-    if loc[0] is not None:
-        return f"{loc[0]}.{loc[1]}"
-
-    loc = locale.getdefaultlocale()
-    if loc[0] is not None:
-        return f"{loc[0]}.{loc[1]}"
-    
-    for env_var in ['LANG', 'LC_ALL', 'LC_CTYPE']:
-        value = os.environ.get(env_var)
-        if value:
-            return value
-    return None
-
-def set_system_locale():
-    lang = get_current_locale()
-    if lang:    
-        if "UTF-8" in lang.upper():
-            try:
-                locale.setlocale(locale.LC_ALL, lang)
-                return
-            except locale.Error:
-                pass
-        else:
-            # fallback 1: take language from system locale and try to set utf-8 version of it
-            base_lang = lang.split('.')[0] if '.' in lang else lang
-            utf8_lang = f"{base_lang}.UTF-8"
-    
-            try:
-                locale.setlocale(locale.LC_ALL, utf8_lang)
-                return
-            except locale.Error:
-                pass
-
-        # fallback 2: try to set utf-8 enabled german/english or posix locale
-        for fallback in ["de_DE.UTF-8", "en_US.UTF-8", "C.UTF-8"]:
-            try:
-                locale.setlocale(locale.LC_ALL, fallback)
-                return
-            except locale.Error:
-                continue
-
-    # fallback 3: use default system locale and disable sephrasto unicode support
-    locale.setlocale(locale.LC_ALL, "")
-    Wolke.UnicodeSupport = False
-    logging.warning("Operating system provides no UTF-8 locales. Disabling Sephrasto unicode support.")
-
 class MainWindowWrapper(object):
     '''
     Main Class responsible for running the entire application. 
@@ -192,8 +146,6 @@ class MainWindowWrapper(object):
             logging.critical("Sephrasto benötigt mindestens PySide " + pysideMinVersion)
             sys.exit(1)
             return
-
-        set_system_locale()
 
         # Parse commandline arguments
         # on a built windows exe stdout is not available, we need to redirect the output
