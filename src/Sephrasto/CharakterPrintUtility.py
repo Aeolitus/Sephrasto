@@ -143,6 +143,10 @@ class CharakterPrintUtility:
         "ein Viertel" : "1/4",
         "die Hälfte" : "1/2",
         "drei Viertel" : "3/4",
+        "einmal"  : "1",
+        "zweimal" : "2",
+        "dreimal" : "3",
+        "viermal" : "4",
     }
 
     @staticmethod
