@@ -27,7 +27,7 @@ class Migrationen():
     def __init__(self):
         pass
 
-    datenbankCodeVersion = 10
+    datenbankCodeVersion = 11
     charakterCodeVersion = 8
 
     hausregelUpdates = []
@@ -56,6 +56,7 @@ class Migrationen():
             Migrationen.hausregeln7zu8,
             Migrationen.hausregeln8zu9,
             Migrationen.hausregeln9zu10,
+            Migrationen.hausregeln10zu11,
         ]
 
         if not migrationen[Migrationen.datenbankCodeVersion]:
@@ -721,6 +722,28 @@ class Migrationen():
             "Zu 95% sind keine weiteren Anpassungen von dir nötig, aber komplexere Scripts können leider nicht immer automatisch aktualisiert werden. Überprüfe am besten alle von dir geänderten/hinzugefügten abgeleiteten Werte, Vorteile und Waffeneigenschaften."]
         if tiergeistChanged:
             res.append("Achtung: Du hast Tiergeist-Vorteile geändert oder hinzugefügt, deren Script musst du wegen der überarbeiteten Script API in jedem Fall manuell anpassen (siehe neue Scripts der Original-Vorteile).")
+        return res
+
+    def __textToList(text, strip, separator):
+        val = []
+        if text:
+            if strip:
+                val = [t.strip() for t in text.split(separator)]
+            else:
+                val = text.split(separator)
+        return val
+
+    def hausregeln10zu11(root):
+        remove = []
+        for node in root.findall('Einstellung'):
+            if node.attrib["name"] in ["Talente: Kategorien", "Fertigkeiten: BW Script", "Fertigkeiten: PW Script", "Fertigkeiten: PWT Script", "Attribtue: PW Script"]:
+                remove.append(node)
+        
+        res = []
+        for node in remove:
+            res.append(f"Deine vorgenommenen Änderungen an der Einstellung \"{ node.attrib['name'] }\" sind inkompatibel und wurden zurückgesetzt.")
+            root.remove(node)
+
         return res
 
     #--------------------------------
