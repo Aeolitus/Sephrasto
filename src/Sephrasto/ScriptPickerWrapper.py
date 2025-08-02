@@ -180,6 +180,7 @@ class ScriptPickerWrapper(object):
 
         self.ui.buttonHelp.setText("\uf059")
         self.ui.buttonHelp.clicked.connect(self.helpClicked)
+        self.ui.buttonHelp.setVisible(False) # FIXME: spawning a non-modal dialog will cause this dialog to return early from exec()
 
         self.ui.treeScripts.setHeaderHidden(True)
         self.populateTree()
