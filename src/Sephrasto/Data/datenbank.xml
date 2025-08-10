@@ -9856,7 +9856,7 @@ Jeder Charakter beherrscht seine Muttersprache meisterlich, ohne dafür zu bezah
   <Einstellung name="FreieFertigkeiten: Kosten Stufe2" typ="Int" beschreibung="Legt die EP-Kosten für Stufe II von Freien Fertigkeiten fest.">8</Einstellung>
   <Einstellung name="FreieFertigkeiten: Kosten Stufe3" typ="Int" beschreibung="Legt die EP-Kosten für Stufe III von Freien Fertigkeiten fest.">16</Einstellung>
   <Einstellung name="FreieFertigkeiten: Anzahl Kostenlos" typ="Int" beschreibung="Legt die Anzahl kostenloser Freier Fertigkeiten auf Stufe III fest.">1</Einstellung>
-  <Einstellung name="Vorteile: Kategorien" typ="TextDict" separator="&#10;" strip="1" beschreibung="Definiert die verfügbaren Kategorien von Vorteilen im Datenbankeditor und deren Reihenfolge in der Vorteilsliste des Charaktereditors. Die Angabe erfolgt als kommaseparierte Liste. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Vorteile. Ein Umbenennen existierender oder Anfügen weiterer Kategorien ist dagegen unproblematisch. Bei einer Änderung müssen eventuell auch 'Vorteile: Kampfstil Kategorien', 'Charsheet: Vorteile Mergescript', 'Regelanhang: Vorteilsnamen ersetzen', 'Regelanhang: Vorteilsbeschreibungen ersetzen' und 'Regelanhang: Reihenfolge' angepasst werden.">Allgemeine Vorteile=0
+  <Einstellung name="Vorteile: Kategorien" typ="TextDict" separator="&#10;" strip="1" beschreibung="Definiert die verfügbaren Kategorien von Vorteilen im Datenbankeditor und deren Reihenfolge in der Vorteilsliste des Charaktereditors. Es kann pro Zeile nach folgendem Format (ohne Anführungszeichen) eine Kategorie definiert werden: 'Kategorie=Sortierreihenfolge'. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Vorteile. Ein Umbenennen existierender oder Anfügen weiterer Kategorien ist dagegen unproblematisch. Bei einer Änderung müssen eventuell auch 'Charsheet: Vorteile Mergescript', 'Regelanhang: Vorteilsnamen ersetzen', 'Regelanhang: Vorteilsbeschreibungen ersetzen' und 'Regelanhang: Reihenfolge' angepasst werden.">Allgemeine Vorteile=0
 Profane Vorteile=10
 Kampfvorteile=20
 Kampfstile=30
@@ -9866,7 +9866,12 @@ Karmale Vorteile=60
 Karmale Traditionen=70
 Dämonische Traditionen=80
 Tiergeister=90</Einstellung>
-  <Einstellung name="Vorteile: Kampfstil Kategorie" typ="Int" beschreibung="Definiert den Index in der Einstellung 'Vorteile: Kategorien', der Kampfstile enthält. Diese stehen dann bei den Waffen zur Auswahl.">3</Einstellung>
+  <Einstellung name="Kampfstile" typ="TextDict" beschreibung="Definiert die verfügbaren Kampfstile und deren Voraussetzungen im Charaktereditor. Es kann pro Zeile nach folgendem Format (ohne Anführungszeichen) ein Kampfstil definiert werden: 'Kampfstil=Vorteilsvoraussetzung'." separator="&#10;" strip="1">Beidhändiger Kampf=Beidhändiger Kampf I
+Kraftvoller Kampf=Kraftvoller Kampf I
+Parierwaffenkampf=Parierwaffenkampf I
+Reiterkampf=Reiterkampf I
+Schildkampf=Schildkampf I
+Schneller Kampf=Schneller Kampf I</Einstellung>
   <Einstellung name="Charsheet: Vorteile Mergescript" typ="Exec" beschreibung="Das Heldendokument hat drei Vorteilslisten: Allgemein, Kampf und Übernatürlich. Das Pythonscript teilt dem PDF-Generator mit, wie welche Kategorie-Indices (siehe 'Vorteile: Kategorien') auf diese drei Listen verteilt werden. In der Standardkonfiguration werden Allgemeine und Profane Vorteile 'Allgemein' zugewiesen, Kampfvorteile und Kampfstile 'Kampf' und der Rest 'Übernatürlich'; eine Ausnahme sind die Vorteile Zauberer, Geweiht und Paktierer, die auch 'Übernatürlich' zugewiesen werden. Es stehen hierfür die Variablen 'name' (Vorteilsname), 'kategorie' (Vorteilskategorie-Index) und für die Ausgabe 'mergeTo' (0 = Allgemein, 1 = Kampf, 2 = Übernatürlich) zur Verfügung.">if kategorie &lt; 2:
     if "Zauberer" in name or "Geweiht" in name or "Paktierer" in name:
         mergeTo = 2

@@ -508,7 +508,7 @@ class Char():
 
         # Undo previous changes by Vorteil scripts before executing them again
         self.kampfstilMods = {}
-        for ks in Wolke.DB.findKampfstile():
+        for ks in Wolke.DB.einstellungen["Kampfstile"].wert:
             self.kampfstilMods[ks] = KampfstilMod()
 
         for value in self.waffenEigenschaftenUndo:

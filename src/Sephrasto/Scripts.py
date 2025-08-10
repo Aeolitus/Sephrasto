@@ -144,7 +144,7 @@ class Scripts:
         script.parameter.append(ScriptParameter("Name", str, completionTable = datenbank.übernatürlicheFertigkeiten))
         addScript(script)
 
-        kampfstile = datenbank.findKampfstile()
+        kampfstile = datenbank.einstellungen["Kampfstile"].wert.keys()
         script = Script(f"Kampfstil AT Modifikator", f"getKampfstilAT", "Kampfstile")
         script.parameter.append(ScriptParameter("Kampfstil", str, completionTable = kampfstile))
         addScript(script)

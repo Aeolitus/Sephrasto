@@ -41,7 +41,7 @@ class DatenbankEditWaffeWrapper(DatenbankElementEditorBase):
         row = 0
         self.kampfstile = []
         self.checkKampfstile = {}
-        for kampfstil in self.datenbank.findKampfstile():
+        for kampfstil in self.datenbank.einstellungen["Kampfstile"].wert:
             checkbox = QtWidgets.QCheckBox(kampfstil)
             checkbox.setObjectName("checkKampfstil" + kampfstil)
             checkbox.stateChanged.connect(partial(self.kampfstilChanged, kampfstil=kampfstil))

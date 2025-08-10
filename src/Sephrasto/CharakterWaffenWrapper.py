@@ -248,7 +248,18 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         comboStil.clear()
         comboStil.setToolTip(None)
         if W.name:
-            entries = [WaffeDefinition.keinKampfstil] + [ks for ks in W.kampfstile if ks + " I" in Wolke.Char.vorteile]
+            kampfstileDb = Wolke.DB.einstellungen["Kampfstile"].wert
+            kampfstileWaffe = W.kampfstile
+            entries = [WaffeDefinition.keinKampfstil]
+
+            for ks in kampfstileWaffe:
+                if ks not in kampfstileDb:
+                    continue
+                voraussetzung = kampfstileDb[ks]
+                if voraussetzung and voraussetzung not in Wolke.Char.vorteile:
+                    continue
+                entries.append(ks)
+
             comboStil.addItems(entries)
             if W.kampfstil in entries:
                 comboStil.setCurrentIndex(entries.index(W.kampfstil))

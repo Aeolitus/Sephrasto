@@ -396,7 +396,7 @@ class Datenbank():
                 logging.warning(errorStr)
 
         #Waffen:
-        alleKampfstile = self.findKampfstile()
+        alleKampfstile = self.einstellungen["Kampfstile"].wert.keys()
         for wa in self.waffen.values():
             for eig in wa.eigenschaften:
                 try:
@@ -422,11 +422,3 @@ class Datenbank():
                 logging.warning(errorStr)
 
         self.loadingErrors = EventBus.applyFilter("datenbank_verify", self.loadingErrors, { "datenbank" : self })   
-    
-    def findKampfstile(self):
-        kampfstilVorteile = [vort for vort in self.vorteile.values() if vort.kategorie == self.einstellungen["Vorteile: Kampfstil Kategorie"].wert and vort.name.endswith(" I")]
-
-        kampfstile = []
-        for vort in kampfstilVorteile:
-            kampfstile.append(vort.name[:-2])
-        return kampfstile
