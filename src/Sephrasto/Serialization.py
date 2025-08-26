@@ -1,10 +1,61 @@
 from lxml import etree
 import json
 
-class JsonSerializer:
+
+class JsonSerializerBase:
     fileExtension = ".json"
 
+    def __init__(self, options = {}):
+        self._nodeStack = []
+        self._tagStack = []
+        self._currentNode = None
+        self.options = options
+        self._iterating = False
+
+
+    @property
+    def root(self): return self._nodeStack[0]
+
+    @property
+    def currentTag(self):
+        if isinstance(self._currentNode, dict) and "@tag" in self._currentNode:
+            return self._currentNode["@tag"]
+        else:
+            return self._tagStack[-1]
+
+
+    def listTags(self):
+        print("listTags")
+        self._iterating = True
+        for node in self._currentNode:
+            print("cchanging node and yielding tag")
+            print("node", node)
+            print("tag", self.currentTag)
+            self._currentNode = node
+            yield self._currentNode.get("@tag", "")
+        self._currentNode = self._nodeStack[-1]
+        self._iterating = False
+
+    # call end when done
+    def find(self, name):
+        found = self._currentNode.get(name, None)
+        if found is not None:
+            self._nodeStack.append(found)
+            self._currentNode = found
+            self._tagStack.append(name)
+            return True
+        return False
+
+    def end(self):
+        self._nodeStack.pop()
+        self._tagStack.pop()
+        self._currentNode = self._nodeStack[-1]
+
+
+class JsonSerializer(JsonSerializerBase):
+
     def __init__(self, rootName, options = {}):
+        super().__init__(options)
         root = {}
         if "rootIsList" in options and options["rootIsList"]:
             root[rootName] = []
@@ -13,24 +64,9 @@ class JsonSerializer:
         self._nodeStack = [root, root[rootName]]
         self._currentNode = self._nodeStack[1]
         self.options = options
-
-    @property
-    def root(self): return self._nodeStack[0]
-
-    def listTags(self):
-        for node in self._currentNode:
-            self._currentNode = node
-            yield self._currentNode["@tag"]
-        self._currentNode = self._nodeStack[-1]
-
-    # call end when done
-    def find(self, name):
-        found = self._currentNode.get(name, None)
-        if found is not None:
-            self._nodeStack.append(found)
-            self._currentNode = found
-            return True
-        return False
+        # self._currentTag = rootName
+        # track tags (are this keys that point to current node? if not list elemets where its @tag?)
+        self._tagStack = [rootName]
 
     # call end when done
     def begin(self, name):
@@ -41,6 +77,7 @@ class JsonSerializer:
             self._currentNode.append({ "@tag" : name })
             self._currentNode = self._currentNode[-1]
         self._nodeStack.append(self._currentNode)
+        self._tagStack.append(name)
 
     # call end when done
     def beginList(self, name):
@@ -50,10 +87,7 @@ class JsonSerializer:
         else:
             raise Exception("Not supported") 
         self._nodeStack.append(self._currentNode)
-
-    def end(self):
-        self._nodeStack.pop()
-        self._currentNode = self._nodeStack[-1]
+        self._tagStack.append(name)
 
     def set(self, name, value):
         if isinstance(value, bytes):
@@ -73,6 +107,78 @@ class JsonSerializer:
     def writeFile(self, filepath):
         with open(filepath, 'w', encoding="utf-8") as f:
             json.dump(self.root, f, indent=4, ensure_ascii=False)
+
+
+class JsonDeserializer(JsonSerializerBase):
+    def __init__(self, options = {}):
+        self._nodeStack = []
+        self._currentNode = None
+        self.options = options
+        self._iterating = False
+
+    def initFromSerializer(self, serializer):
+        self._nodeStack = [serializer._nodeStack[0]]
+        self._tagStack = [] 
+        # self._tagStack = [serializer._tagStack[0]] 
+        self._currentNode = serializer._nodeStack[0]  # TODO: should this be current or stack[0]?
+        # self._currentNode = serializer._currentNode
+
+    def get(self, name, default = None):
+        return self._currentNode.get(name, default)
+
+    def getBool(self, name, default = False):
+        return bool(self._currentNode.get(name, False))
+
+    def getInt(self, name, default = 0):
+        return int(self._currentNode.get(name, default))
+
+    def getFloat(self, name, default = 0.0):
+        return float(self._currentNode.get(name, default))
+
+    # helper method for getting a key/value pair set as a child node
+    def getNested(self, name, default = None):
+        if self._iterating:
+            if self.currentTag == name:  #  @tag...
+                return self._currentNode.get('text', default)
+            return default
+        if self.find(name):
+            val = self._currentNode
+            self.end()
+            return val
+        return default
+        # if name in self._currentNode:
+        #     return self._currentNode[name]
+        # elif "@tag" in self._currentNode:
+        #     return self._currentNode.get("text", default)
+        # if self.find(name):
+        #     val = self._currentNode.get("text", default)
+        #     self.end()
+        #     return val
+        # return default
+        # else:
+        #     print("Don't know how to get nested value for", name)
+        #     print("I'm at: ", self._currentNode)
+        #     return default
+
+    def getNestedBool(self, name, default = False):
+        value = self.getNested(name)
+        return default if value is None else value
+
+    def getNestedInt(self, name, default = 0):
+        return int(self.getNested(name, default))
+
+    def getNestedFloat(self, name, default = 0.0):
+        return float(self.getNested(name, default))
+
+    def readFile(self, filePath, dataName = None):
+        with open(filePath, 'r', encoding="utf-8") as f:
+            self._currentNode = json.load(f)
+        self._nodeStack = [self._currentNode]
+        # TODO: get type key (i.e. char), apply migrations and set stacks and current to actual data
+        return True
+
+    def readFileStream(self, filePath, tagFilter = None):
+        pass
 
 class XmlSerializerBase:
     fileExtension = ".xml"
@@ -173,6 +279,7 @@ class XmlDeserializer(XmlSerializerBase):
 
     def initFromSerializer(self, serializer):
         self._nodeStack = [serializer._nodeStack[0]]
+        # TODO: shouldnt this be independent from serializer current state?
         self._currentNode = serializer._currentNode
 
     def get(self, name, default = None):
@@ -246,7 +353,8 @@ class Serialization:
         JsonSerializer.fileExtension : JsonSerializer
     }
     _deserializers = {
-        XmlDeserializer.fileExtension : XmlDeserializer
+        XmlDeserializer.fileExtension : XmlDeserializer,
+        JsonDeserializer.fileExtension : JsonDeserializer
     }
 
     def registerSerializer(type):
