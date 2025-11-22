@@ -48,8 +48,6 @@ class BeschrWrapper(QtCore.QObject):
         self.ui.comboStatus.setToolTip(Hilfsmethoden.fixHtml(Wolke.DB.einstellungen["Statusse: Beschreibung"].wert))
         self.ui.comboFinanzen.setToolTip(Hilfsmethoden.fixHtml(Wolke.DB.einstellungen["Finanzen: Beschreibung"].wert))
         self.ui.comboHeimat.setToolTip(Hilfsmethoden.fixHtml(Wolke.DB.einstellungen["Heimaten: Beschreibung"].wert))
-        if self.ui.comboSpezies.currentText():
-            self.ui.comboSpezies.setToolTip(Hilfsmethoden.fixHtml(Wolke.DB.spezies[self.ui.comboSpezies.currentText()].text))
 
         self.characterImage = None
         self.labelImageText = self.ui.labelImage.text()
@@ -119,6 +117,8 @@ class BeschrWrapper(QtCore.QObject):
         ''' Load values from Char object '''
         self.ui.editName.setText(Wolke.Char.name)
         self.ui.comboSpezies.setCurrentText(Wolke.Char.spezies)
+        if self.ui.comboSpezies.currentText():
+            self.ui.comboSpezies.setToolTip(Hilfsmethoden.fixHtml(Wolke.DB.spezies[self.ui.comboSpezies.currentText()].text))
         statusse = Wolke.DB.einstellungen["Statusse"].wert
         if Wolke.Char.status < len(statusse):
             self.ui.comboStatus.setCurrentIndex(Wolke.Char.status)
