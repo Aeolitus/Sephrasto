@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'DatenbankEditFreieFertigkeit.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.1
+## Created by: Qt User Interface Compiler version 6.10.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -37,33 +37,33 @@ class Ui_dialog(object):
         self.labelName = QLabel(self.scrollAreaWidgetContents)
         self.labelName.setObjectName(u"labelName")
 
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.labelName)
+        self.formLayout.setWidget(0, QFormLayout.ItemRole.LabelRole, self.labelName)
 
         self.leName = QLineEdit(self.scrollAreaWidgetContents)
         self.leName.setObjectName(u"leName")
 
-        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.leName)
+        self.formLayout.setWidget(0, QFormLayout.ItemRole.FieldRole, self.leName)
 
         self.labelKategorie = QLabel(self.scrollAreaWidgetContents)
         self.labelKategorie.setObjectName(u"labelKategorie")
 
-        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.labelKategorie)
+        self.formLayout.setWidget(1, QFormLayout.ItemRole.LabelRole, self.labelKategorie)
 
         self.comboKategorie = QComboBox(self.scrollAreaWidgetContents)
         self.comboKategorie.setObjectName(u"comboKategorie")
 
-        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.comboKategorie)
+        self.formLayout.setWidget(1, QFormLayout.ItemRole.FieldRole, self.comboKategorie)
 
         self.labelVoraussetzungen = QLabel(self.scrollAreaWidgetContents)
         self.labelVoraussetzungen.setObjectName(u"labelVoraussetzungen")
         self.labelVoraussetzungen.setMinimumSize(QSize(110, 0))
 
-        self.formLayout.setWidget(2, QFormLayout.LabelRole, self.labelVoraussetzungen)
+        self.formLayout.setWidget(2, QFormLayout.ItemRole.LabelRole, self.labelVoraussetzungen)
 
         self.teVoraussetzungen = QPlainTextEdit(self.scrollAreaWidgetContents)
         self.teVoraussetzungen.setObjectName(u"teVoraussetzungen")
 
-        self.formLayout.setWidget(2, QFormLayout.FieldRole, self.teVoraussetzungen)
+        self.formLayout.setWidget(2, QFormLayout.ItemRole.FieldRole, self.teVoraussetzungen)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 

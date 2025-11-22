@@ -250,9 +250,6 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="2">
-      <widget class="QLineEdit" name="editSpezies"/>
-     </item>
      <item row="7" column="1">
       <widget class="QLabel" name="labelEigenheiten">
        <property name="font">
@@ -406,12 +403,14 @@
        </item>
       </layout>
      </item>
+     <item row="2" column="2">
+      <widget class="QComboBox" name="comboSpezies"/>
+     </item>
     </layout>
    </item>
   </layout>
  </widget>
  <tabstops>
-  <tabstop>editSpezies</tabstop>
   <tabstop>comboStatus</tabstop>
   <tabstop>comboFinanzen</tabstop>
   <tabstop>comboHeimat</tabstop>

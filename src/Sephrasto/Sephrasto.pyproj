@@ -50,6 +50,7 @@
     <Compile Include="Core\Regel.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Core\Spezies.py" />
     <Compile Include="Core\Talent.py">
       <SubType>Code</SubType>
     </Compile>
@@ -65,6 +66,7 @@
     <Compile Include="DatenbankCompareDialogWrapper.py" />
     <Compile Include="DatenbankEditAbgeleiteterWertWrapper.py" />
     <Compile Include="DatenbankEditAttributWrapper.py" />
+    <Compile Include="DatenbankEditSpeziesWrapper.py" />
     <Compile Include="DatenbankElementEditorBase.py" />
     <Compile Include="DatenbankEditEnergieWrapper.py" />
     <Compile Include="DatenbankErrorLogWrapper.py" />
@@ -131,6 +133,7 @@
     <Compile Include="UI\DatenbankEditRegel.py" />
     <Compile Include="UI\DatenbankEditRuestung.py" />
     <Compile Include="DatenbankEditRuestungWrapper.py" />
+    <Compile Include="UI\DatenbankEditSpezies.py" />
     <Compile Include="UI\DatenbankEditTalent.py" />
     <Compile Include="DatenbankEditTalentWrapper.py" />
     <Compile Include="UI\DatenbankEditVorteil.py" />

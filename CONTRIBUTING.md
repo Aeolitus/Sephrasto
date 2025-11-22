@@ -19,7 +19,7 @@ Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktue
 
 ## UI design mit Qt
 * Modifiziere niemals Dateien im "src/Sephrasto/UI" Ordner von Hand!
-* Stattdessen wird das UI durch ".ui"-XML-Dateien im "designer" Ordner definiert. Optionalerweise können diese mit dem Qt Creator visuell designed werden (enthalten im Qt-Installer unter https://www.qt.io/).
+* Stattdessen wird das UI durch ".ui"-XML-Dateien im "designer" Ordner definiert. Optionalerweise können diese mit dem Qt Designer visuell designed werden (siehe venv/Lib/site-packages/PySide6/designer.exe).
 * Aus diesen Dateien wird dann der Python-Code mit Hilfe von "designer/convert.bat" erzeugt.
 * Bei Problemen mit convert.bat, stelle sicher, dass:
     * ... du im Repository root ein Virutal Environment mit dem Namen venv angelegt (s.o.) und darin die requirements installiert hast (s. o.). Wenn dein environment wo anders liegt, musst du die convert.bat lokal entsprechend anpassen.

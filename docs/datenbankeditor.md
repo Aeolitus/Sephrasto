@@ -61,7 +61,11 @@ Beispiel: Talent 'Arcanovi Artefakt' 10
 
 - ```Waffeneigenschaft <Waffeneigenschaftsname>```<br>
 Überprüft, ob der Charakter eine Waffe mit der angegebenen Waffeneigenschaft besitzt. Statt einer Waffeneigenschaft kann auch "Nahkampfwaffe" oder "Fernkampfwaffe" spezifiziert werden. Dies wird in erster Linie für das Datenbankelement Regel verwendet.<br>
-Beispiel: Waffeneigenschaft Stumpf.
+Beispiel: Waffeneigenschaft Stumpf
+
+- ```Spezies <Speziesname>```<br>
+Überprüft, ob der Charakter der angegebenen Spezies angehört.<br>
+Beispiel: Spezies Mensch
 
 Falls mehrere Voraussetzungen erfüllt sein müssen, können diese komma-separiert angegeben werden, z.B. wie beim Vorteil Gesegnete Waffe: Attribut MU 6, Vorteil Geweiht I.
 Falls nur eine von mehrere Voraussetzungen erfüllt sein muss, können die Voraussetzungen mit einem ODER verknüpft werden, z.B. wie beim Vorteil Reiterkampf I: Attribut GE 4 ODER Attribut KK 4.
@@ -81,7 +85,7 @@ Ausschließlich bei Talenten kannst du das Makro **$talent:Talentname** verwende
 ### Regelanhang auflisten (Vorteil, Talent)
 Wenn diese Option ausgeschaltet ist, wird das Element nicht im Regelanhang aufgeführt. Dies wird bei Talenten für Mirakel verwendet, deren Regeln repetetiv sind und separat als Element vom Typ Regel eingetragen werden. Ähnlich verhält es sich beispielsweise bei Vorteilen, die nur Manöver oder Modifikationen ermöglichen.
 
-### Script / Priorität (Abgeleiteter Wert, Vorteil, Waffeneigenschaft)
+### Script / Priorität (Abgeleiteter Wert, Vorteil, Waffeneigenschaft, Spezies)
 In diesem Feld kannst du Python-Skripte einfügen, die beim Erwerb des Elements ausgeführt werden. Hierfür steht dir Sephrastos [Script-API](script_api.md) zu Verfügung.
 Wenn mehrere Skripte den gleichen Wert verändern, kann die Reihenfolge der Ausführung eine Rolle spielen. Über die Priorität kannst du diese Reihenfolge beeinflussen - je niedriger der Wert, desto früher wird das Skript ausgeführt.
 

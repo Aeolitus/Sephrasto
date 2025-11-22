@@ -111,6 +111,7 @@ Sephrasto bietet eine Reihe von Funktionen an, anhand derer die meisten Skripte 
 |addVorteil|-|name : str, kosten : int, kommentar : str|Fügt dem Charakter den Vorteil "name" zu regulären Kosten hinzu. Wenn das Script in einem Vorteil verwendet wird, wird der Vorteil dem neuen Vorteil als Voraussetzung hinzugefügt. Sobald der Vorteil (der den neuen Vorteil verleiht) also abgewählt wird, verliert der Charakter auch den neuen Vorteil. Wenn der Charakter den Vorteil bereits besitzt, werden Kosten und Kommentar angepasst, falls gesetzt. Mit dem "kosten"-Parameter können die EP-Kosten geändert werden; bei -1 werden sie nicht verändert. Mit dem "kommentar"-Parameter kann ein Kommentar hinzugefügt werden, falls der Vorteil dies unterstützt.|
 |removeVorteil|-|name : str|Entfernt den angegebenen Vorteil, falls der Charakter ihn besitzt.|
 |addVorteilVoraussetzung|-|name : str, voraussetzung : str|Fügt dem Vorteil "name" die Voraussetzung "voraussetzung" hinzu (siehe [Datenbankeditor-Dokumentation](datenbankeditor.md)).|
+|setVorteilFavorit|-|name : str|Markiert den angegebenen Vorteil als Favorit im Vorteile-Tab des Charaktereditors, falls der Vorteil noch nicht gekauft wurde.|
 
 ### Kampfstile
 | Script | Rückgabetyp | Parameter | Zweck |

@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'DatenbankEditTalent.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.1
+## Created by: Qt User Interface Compiler version 6.10.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -39,17 +39,17 @@ class Ui_dialog(object):
         self.labelName = QLabel(self.scrollAreaWidgetContents)
         self.labelName.setObjectName(u"labelName")
 
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.labelName)
+        self.formLayout.setWidget(0, QFormLayout.ItemRole.LabelRole, self.labelName)
 
         self.leName = QLineEdit(self.scrollAreaWidgetContents)
         self.leName.setObjectName(u"leName")
 
-        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.leName)
+        self.formLayout.setWidget(0, QFormLayout.ItemRole.FieldRole, self.leName)
 
         self.labelKategorie = QLabel(self.scrollAreaWidgetContents)
         self.labelKategorie.setObjectName(u"labelKategorie")
 
-        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.labelKategorie)
+        self.formLayout.setWidget(1, QFormLayout.ItemRole.LabelRole, self.labelKategorie)
 
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -90,66 +90,66 @@ class Ui_dialog(object):
         self.verticalLayout.addLayout(self.horizontalLayout)
 
 
-        self.formLayout.setLayout(1, QFormLayout.FieldRole, self.verticalLayout)
+        self.formLayout.setLayout(1, QFormLayout.ItemRole.FieldRole, self.verticalLayout)
 
         self.labelVariable = QLabel(self.scrollAreaWidgetContents)
         self.labelVariable.setObjectName(u"labelVariable")
 
-        self.formLayout.setWidget(2, QFormLayout.LabelRole, self.labelVariable)
+        self.formLayout.setWidget(2, QFormLayout.ItemRole.LabelRole, self.labelVariable)
 
         self.checkVariable = QCheckBox(self.scrollAreaWidgetContents)
         self.checkVariable.setObjectName(u"checkVariable")
 
-        self.formLayout.setWidget(2, QFormLayout.FieldRole, self.checkVariable)
+        self.formLayout.setWidget(2, QFormLayout.ItemRole.FieldRole, self.checkVariable)
 
         self.labelKommentar = QLabel(self.scrollAreaWidgetContents)
         self.labelKommentar.setObjectName(u"labelKommentar")
 
-        self.formLayout.setWidget(3, QFormLayout.LabelRole, self.labelKommentar)
+        self.formLayout.setWidget(3, QFormLayout.ItemRole.LabelRole, self.labelKommentar)
 
         self.checkKommentar = QCheckBox(self.scrollAreaWidgetContents)
         self.checkKommentar.setObjectName(u"checkKommentar")
 
-        self.formLayout.setWidget(3, QFormLayout.FieldRole, self.checkKommentar)
+        self.formLayout.setWidget(3, QFormLayout.ItemRole.FieldRole, self.checkKommentar)
 
         self.labelCheatsheet = QLabel(self.scrollAreaWidgetContents)
         self.labelCheatsheet.setObjectName(u"labelCheatsheet")
 
-        self.formLayout.setWidget(4, QFormLayout.LabelRole, self.labelCheatsheet)
+        self.formLayout.setWidget(4, QFormLayout.ItemRole.LabelRole, self.labelCheatsheet)
 
         self.checkCheatsheet = QCheckBox(self.scrollAreaWidgetContents)
         self.checkCheatsheet.setObjectName(u"checkCheatsheet")
         self.checkCheatsheet.setLayoutDirection(Qt.LeftToRight)
         self.checkCheatsheet.setChecked(True)
 
-        self.formLayout.setWidget(4, QFormLayout.FieldRole, self.checkCheatsheet)
+        self.formLayout.setWidget(4, QFormLayout.ItemRole.FieldRole, self.checkCheatsheet)
 
         self.labelFertigkeiten = QLabel(self.scrollAreaWidgetContents)
         self.labelFertigkeiten.setObjectName(u"labelFertigkeiten")
 
-        self.formLayout.setWidget(5, QFormLayout.LabelRole, self.labelFertigkeiten)
+        self.formLayout.setWidget(5, QFormLayout.ItemRole.LabelRole, self.labelFertigkeiten)
 
         self.leFertigkeiten = QLineEdit(self.scrollAreaWidgetContents)
         self.leFertigkeiten.setObjectName(u"leFertigkeiten")
 
-        self.formLayout.setWidget(5, QFormLayout.FieldRole, self.leFertigkeiten)
+        self.formLayout.setWidget(5, QFormLayout.ItemRole.FieldRole, self.leFertigkeiten)
 
         self.labelVoraussetzungen = QLabel(self.scrollAreaWidgetContents)
         self.labelVoraussetzungen.setObjectName(u"labelVoraussetzungen")
         self.labelVoraussetzungen.setMinimumSize(QSize(110, 0))
 
-        self.formLayout.setWidget(6, QFormLayout.LabelRole, self.labelVoraussetzungen)
+        self.formLayout.setWidget(6, QFormLayout.ItemRole.LabelRole, self.labelVoraussetzungen)
 
         self.teVoraussetzungen = QPlainTextEdit(self.scrollAreaWidgetContents)
         self.teVoraussetzungen.setObjectName(u"teVoraussetzungen")
         self.teVoraussetzungen.setMaximumSize(QSize(16777215, 250))
 
-        self.formLayout.setWidget(6, QFormLayout.FieldRole, self.teVoraussetzungen)
+        self.formLayout.setWidget(6, QFormLayout.ItemRole.FieldRole, self.teVoraussetzungen)
 
         self.labelBeschreibung = QLabel(self.scrollAreaWidgetContents)
         self.labelBeschreibung.setObjectName(u"labelBeschreibung")
 
-        self.formLayout.setWidget(7, QFormLayout.LabelRole, self.labelBeschreibung)
+        self.formLayout.setWidget(7, QFormLayout.ItemRole.LabelRole, self.labelBeschreibung)
 
         self.tabWidget = QTabWidget(self.scrollAreaWidgetContents)
         self.tabWidget.setObjectName(u"tabWidget")
@@ -206,12 +206,12 @@ class Ui_dialog(object):
 
         self.tabWidget.addTab(self.tab_2, "")
 
-        self.formLayout.setWidget(7, QFormLayout.FieldRole, self.tabWidget)
+        self.formLayout.setWidget(7, QFormLayout.ItemRole.FieldRole, self.tabWidget)
 
         self.labelSeite = QLabel(self.scrollAreaWidgetContents)
         self.labelSeite.setObjectName(u"labelSeite")
 
-        self.formLayout.setWidget(8, QFormLayout.LabelRole, self.labelSeite)
+        self.formLayout.setWidget(8, QFormLayout.ItemRole.LabelRole, self.labelSeite)
 
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
@@ -232,7 +232,7 @@ class Ui_dialog(object):
         self.horizontalLayout_3.addWidget(self.spinSeite)
 
 
-        self.formLayout.setLayout(8, QFormLayout.FieldRole, self.horizontalLayout_3)
+        self.formLayout.setLayout(8, QFormLayout.ItemRole.FieldRole, self.horizontalLayout_3)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 

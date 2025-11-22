@@ -821,10 +821,16 @@
 <td>Wird während der Charakteraktualisierung nach der Berechnung der Attribute/abgeleiteten Werte/Energien und vor der Berechnung der Fertigkeiten aufgerufen.</td>
 </tr>
 <tr>
+<td>charakter_aktualisieren_speziesscript</td>
+<td>Action</td>
+<td>{ "charakter" : Char }</td>
+<td>Wird während der Charakteraktualisierung nach der Berechnung der Fertigkeiten und vor der Ausführung der Speziesscripts aufgerufen.</td>
+</tr>
+<tr>
 <td>charakter_aktualisieren_vorteilscripts</td>
 <td>Action</td>
 <td>{ "charakter" : Char }</td>
-<td>Wird während der Charakteraktualisierung nach der Berechnung der Fertigkeiten und vor der Ausführung der Vorteilsscripts aufgerufen.</td>
+<td>Wird während der Charakteraktualisierung nach der Ausführung der Speziesscripts und vor der Ausführung der Vorteilsscripts aufgerufen.</td>
 </tr>
 <tr>
 <td>charakter_aktualisieren_waffeneigenschaftscripts</td>
@@ -989,6 +995,16 @@
 <td>waffe_deserialisiert</td>
 <td>Action</td>
 <td>{ "object" : Waffe, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>spezies_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : Spezies, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>spezies_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : Spezies, "deserializer" : ?Deserializer })</td>
 </tr>
 </tbody>
 </table>
@@ -1227,6 +1243,12 @@
 <td>Action</td>
 <td>{"datenbank" : Datenbank, "isCharakterEditor" : bool }</td>
 <td>Elemente der Basisdatenbank anpassen/hinzufügen/löschen, bevor die Hausregel-Datenbank geladen wird. Ein übliches Beispiel ist das Hinzufügen von DatenbankEinstellung-Elementen, mit welchen das Plugin konfiguriert werden kann.</td>
+</tr>
+<tr>
+<td>datenbank_laden</td>
+<td>Action</td>
+<td>{ "datenbank" : Datenbank, "isCharakterEditor" : bool }</td>
+<td>Aktion durchführen, bevor die Datenbank geladen wird. Eine Referenz auf das Datenbank-Objekt erhalten.</td>
 </tr>
 <tr>
 <td>datenbank_geladen</td>
@@ -1853,7 +1875,7 @@ In der manifest.json solltest du außerdem "hasSettings" auf true setzen.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.footer"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.footer"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="assets/javascripts/bundle.88dd0f4e.min.js"></script>

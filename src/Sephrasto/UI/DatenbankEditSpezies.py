@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'DatenbankEditWaffeneigenschaft.ui'
+## Form generated from reading UI file 'DatenbankEditSpezies.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.1
 ##
@@ -15,10 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QFormLayout, QHBoxLayout,
-    QLabel, QLineEdit, QPlainTextEdit, QPushButton,
-    QScrollArea, QSizePolicy, QSpinBox, QTabWidget,
-    QTextBrowser, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QFormLayout, QHBoxLayout, QLabel,
+    QLineEdit, QPlainTextEdit, QPushButton, QScrollArea,
+    QSizePolicy, QTabWidget, QTextBrowser, QVBoxLayout,
+    QWidget)
 
 class Ui_dialog(object):
     def setupUi(self, dialog):
@@ -32,7 +32,7 @@ class Ui_dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 416, 412))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 418, 414))
         self.formLayout = QFormLayout(self.scrollAreaWidgetContents)
         self.formLayout.setObjectName(u"formLayout")
         self.labelName = QLabel(self.scrollAreaWidgetContents)
@@ -98,16 +98,6 @@ class Ui_dialog(object):
 
         self.verticalLayout_3 = QVBoxLayout()
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.spinScriptPrio = QSpinBox(self.scrollAreaWidgetContents)
-        self.spinScriptPrio.setObjectName(u"spinScriptPrio")
-        self.spinScriptPrio.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.PlusMinus)
-        self.spinScriptPrio.setMinimum(-999)
-        self.spinScriptPrio.setMaximum(999)
-        self.spinScriptPrio.setSingleStep(1)
-        self.spinScriptPrio.setValue(0)
-
-        self.verticalLayout_3.addWidget(self.spinScriptPrio)
-
         self.buttonPickScript = QPushButton(self.scrollAreaWidgetContents)
         self.buttonPickScript.setObjectName(u"buttonPickScript")
         font = QFont()
@@ -136,15 +126,12 @@ class Ui_dialog(object):
     # setupUi
 
     def retranslateUi(self, dialog):
-        dialog.setWindowTitle(QCoreApplication.translate("dialog", u"Sephrasto - Waffeneigenschaft bearbeiten...", None))
+        dialog.setWindowTitle(QCoreApplication.translate("dialog", u"Sephrasto - Spezies bearbeiten...", None))
         self.labelName.setText(QCoreApplication.translate("dialog", u"Name", None))
         self.labelBeschreibung.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("dialog", u"HTML", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("dialog", u"Vorschau", None))
         self.labelScript.setText(QCoreApplication.translate("dialog", u"Script / Priorit\u00e4t", None))
-#if QT_CONFIG(tooltip)
-        self.spinScriptPrio.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Die Skript-Priorit\u00e4t legt die Reihenfolge der Auswertung fest. 0 ist Standard, negative Werte werden davor, positive Werte danach ausgewertet. Dies ist relevant, falls bspw. die INI verdoppelt werden soll nachdem Kampfreflexe eingerechnet wurde. In diesem Fall sollte die Skript-Priorit\u00e4t h\u00f6her als die von Kampfreflexe sein.</p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
         self.buttonPickScript.setToolTip(QCoreApplication.translate("dialog", u"Scripteditor \u00f6ffnen", None))
 #endif // QT_CONFIG(tooltip)

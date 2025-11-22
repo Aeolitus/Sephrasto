@@ -94,11 +94,11 @@ class Hilfsmethoden:
         return "*" in string or "?" in string or "[" in string
 
     @staticmethod
-    def voraussetzungenPrüfen(dbElement, vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, talente):
-        return Hilfsmethoden.__voraussetzungenPrüfen(dbElement, dbElement.voraussetzungen, vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, talente, False)
+    def voraussetzungenPrüfen(dbElement, vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, talente, spezies):
+        return Hilfsmethoden.__voraussetzungenPrüfen(dbElement, dbElement.voraussetzungen, vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, talente, spezies, False)
 
     @staticmethod
-    def __voraussetzungenPrüfen(dbElement, voraussetzungen, vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, talente, Or):
+    def __voraussetzungenPrüfen(dbElement, voraussetzungen, vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, talente, spezies, Or):
         '''
         Prüft, ob ein Array von Voraussetzungen erfüllt ist.
         Format: ['L:Str:W', 'L:Str:W']
@@ -114,6 +114,7 @@ class Hilfsmethoden:
             U für Übernatürliche Fertigkeit - prüft, ob für die Übernatürliche Fertigkeit mit Key Str die Voraussetzungen erfüllt sind \
                 und sie mindestens den PW(T) W hat. W=-1 hat ein spezielle Bedeutung, hier wird an Stelle des Fertigkeitswerts überprüft, ob mindestens ein Talent aktiviert ist.
             F für Fertigkeit - wie U für Übernatürliche Fertigkeit, aber betrifft profane Fertigkeiten.
+            S für Spezies - prüft, ob die angegebene Spezies gewählt wurde. W ist immer 1.
         Einträge im Array können auch weitere Arrays and Voraussetzungen sein.
         Aus diesen Arrays muss nur ein Eintrag erfüllt sein.
         '''
@@ -123,7 +124,7 @@ class Hilfsmethoden:
         for voraus in voraussetzungen:
             erfüllt = False
             if type(voraus) is list:
-                erfüllt = Hilfsmethoden.__voraussetzungenPrüfen(dbElement, voraus, vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, talente, True)
+                erfüllt = Hilfsmethoden.__voraussetzungenPrüfen(dbElement, voraus, vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, talente, spezies, True)
             else: 
                 #Vorteile:
                 if voraus.typ == 'V':
@@ -203,6 +204,9 @@ class Hilfsmethoden:
                             erfüllt = len(fertigkeit.gekaufteTalente) > 0
                         else:
                             erfüllt = fertigkeit.probenwertTalent >= voraus.wert
+                elif voraus.typ == 'S':
+                    if voraus.name == spezies:
+                        erfüllt = True
             if not erfüllt:
                 retNor = False
             else:

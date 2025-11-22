@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterWaffenPicker.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.1
+## Created by: Qt User Interface Compiler version 6.10.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -112,7 +112,7 @@ class Ui_Dialog(object):
         font2.setBold(True)
         self.labelName.setFont(font2)
 
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.labelName)
+        self.formLayout.setWidget(0, QFormLayout.ItemRole.LabelRole, self.labelName)
 
         self.labelTyp = QLabel(self.scrollAreaWidgetContents)
         self.labelTyp.setObjectName(u"labelTyp")
@@ -121,106 +121,106 @@ class Ui_Dialog(object):
         self.labelTyp.setFont(font3)
         self.labelTyp.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
-        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.labelTyp)
+        self.formLayout.setWidget(1, QFormLayout.ItemRole.LabelRole, self.labelTyp)
 
         self.labelFertigkeit = QLabel(self.scrollAreaWidgetContents)
         self.labelFertigkeit.setObjectName(u"labelFertigkeit")
 
-        self.formLayout.setWidget(2, QFormLayout.LabelRole, self.labelFertigkeit)
+        self.formLayout.setWidget(2, QFormLayout.ItemRole.LabelRole, self.labelFertigkeit)
 
         self.labelFertigkeitWert = QLabel(self.scrollAreaWidgetContents)
         self.labelFertigkeitWert.setObjectName(u"labelFertigkeitWert")
         self.labelFertigkeitWert.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
         self.labelFertigkeitWert.setWordWrap(True)
 
-        self.formLayout.setWidget(2, QFormLayout.FieldRole, self.labelFertigkeitWert)
+        self.formLayout.setWidget(2, QFormLayout.ItemRole.FieldRole, self.labelFertigkeitWert)
 
         self.labelTalent = QLabel(self.scrollAreaWidgetContents)
         self.labelTalent.setObjectName(u"labelTalent")
 
-        self.formLayout.setWidget(3, QFormLayout.LabelRole, self.labelTalent)
+        self.formLayout.setWidget(3, QFormLayout.ItemRole.LabelRole, self.labelTalent)
 
         self.labelTalentWert = QLabel(self.scrollAreaWidgetContents)
         self.labelTalentWert.setObjectName(u"labelTalentWert")
         self.labelTalentWert.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
         self.labelTalentWert.setWordWrap(True)
 
-        self.formLayout.setWidget(3, QFormLayout.FieldRole, self.labelTalentWert)
+        self.formLayout.setWidget(3, QFormLayout.ItemRole.FieldRole, self.labelTalentWert)
 
         self.line = QFrame(self.scrollAreaWidgetContents)
         self.line.setObjectName(u"line")
         self.line.setFrameShape(QFrame.Shape.HLine)
         self.line.setFrameShadow(QFrame.Shadow.Sunken)
 
-        self.formLayout.setWidget(5, QFormLayout.SpanningRole, self.line)
+        self.formLayout.setWidget(5, QFormLayout.ItemRole.SpanningRole, self.line)
 
         self.labelTP = QLabel(self.scrollAreaWidgetContents)
         self.labelTP.setObjectName(u"labelTP")
         self.labelTP.setFont(font1)
 
-        self.formLayout.setWidget(6, QFormLayout.LabelRole, self.labelTP)
+        self.formLayout.setWidget(6, QFormLayout.ItemRole.LabelRole, self.labelTP)
 
         self.labelTPWert = QLabel(self.scrollAreaWidgetContents)
         self.labelTPWert.setObjectName(u"labelTPWert")
         self.labelTPWert.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
-        self.formLayout.setWidget(6, QFormLayout.FieldRole, self.labelTPWert)
+        self.formLayout.setWidget(6, QFormLayout.ItemRole.FieldRole, self.labelTPWert)
 
         self.labelRW = QLabel(self.scrollAreaWidgetContents)
         self.labelRW.setObjectName(u"labelRW")
 
-        self.formLayout.setWidget(7, QFormLayout.LabelRole, self.labelRW)
+        self.formLayout.setWidget(7, QFormLayout.ItemRole.LabelRole, self.labelRW)
 
         self.labelRWWert = QLabel(self.scrollAreaWidgetContents)
         self.labelRWWert.setObjectName(u"labelRWWert")
         self.labelRWWert.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
-        self.formLayout.setWidget(7, QFormLayout.FieldRole, self.labelRWWert)
+        self.formLayout.setWidget(7, QFormLayout.ItemRole.FieldRole, self.labelRWWert)
 
         self.labelWM = QLabel(self.scrollAreaWidgetContents)
         self.labelWM.setObjectName(u"labelWM")
 
-        self.formLayout.setWidget(8, QFormLayout.LabelRole, self.labelWM)
+        self.formLayout.setWidget(8, QFormLayout.ItemRole.LabelRole, self.labelWM)
 
         self.labelWMWert = QLabel(self.scrollAreaWidgetContents)
         self.labelWMWert.setObjectName(u"labelWMWert")
         self.labelWMWert.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
-        self.formLayout.setWidget(8, QFormLayout.FieldRole, self.labelWMWert)
+        self.formLayout.setWidget(8, QFormLayout.ItemRole.FieldRole, self.labelWMWert)
 
         self.labelLZ = QLabel(self.scrollAreaWidgetContents)
         self.labelLZ.setObjectName(u"labelLZ")
 
-        self.formLayout.setWidget(9, QFormLayout.LabelRole, self.labelLZ)
+        self.formLayout.setWidget(9, QFormLayout.ItemRole.LabelRole, self.labelLZ)
 
         self.labelLZWert = QLabel(self.scrollAreaWidgetContents)
         self.labelLZWert.setObjectName(u"labelLZWert")
         self.labelLZWert.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
-        self.formLayout.setWidget(9, QFormLayout.FieldRole, self.labelLZWert)
+        self.formLayout.setWidget(9, QFormLayout.ItemRole.FieldRole, self.labelLZWert)
 
         self.labelHaerte = QLabel(self.scrollAreaWidgetContents)
         self.labelHaerte.setObjectName(u"labelHaerte")
 
-        self.formLayout.setWidget(10, QFormLayout.LabelRole, self.labelHaerte)
+        self.formLayout.setWidget(10, QFormLayout.ItemRole.LabelRole, self.labelHaerte)
 
         self.labelHaerteWert = QLabel(self.scrollAreaWidgetContents)
         self.labelHaerteWert.setObjectName(u"labelHaerteWert")
         self.labelHaerteWert.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
-        self.formLayout.setWidget(10, QFormLayout.FieldRole, self.labelHaerteWert)
+        self.formLayout.setWidget(10, QFormLayout.ItemRole.FieldRole, self.labelHaerteWert)
 
         self.labelEigenschaften = QLabel(self.scrollAreaWidgetContents)
         self.labelEigenschaften.setObjectName(u"labelEigenschaften")
         self.labelEigenschaften.setWordWrap(True)
 
-        self.formLayout.setWidget(11, QFormLayout.SpanningRole, self.labelEigenschaften)
+        self.formLayout.setWidget(11, QFormLayout.ItemRole.SpanningRole, self.labelEigenschaften)
 
         self.labelKampfstile = QLabel(self.scrollAreaWidgetContents)
         self.labelKampfstile.setObjectName(u"labelKampfstile")
         self.labelKampfstile.setWordWrap(True)
 
-        self.formLayout.setWidget(4, QFormLayout.SpanningRole, self.labelKampfstile)
+        self.formLayout.setWidget(4, QFormLayout.ItemRole.SpanningRole, self.labelKampfstile)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 

@@ -476,10 +476,15 @@ class Scripts:
         script.parameter.append(ScriptParameter("Vorteil", str, completionTable = datenbank.vorteile))
         addScript(script)
 
-        script = Script("Vorteil Voraussetzung hinzufügen", "addTalentVoraussetzung", "Vorteile")
+        script = Script("Vorteil Voraussetzung hinzufügen", "addVorteilVoraussetzung", "Vorteile")
         script.beschreibung = "Fügt dem angegebenen Vorteil die angegebene Voraussetzung hinzu (siehe Datenbankeditor-Dokumentation)."
         script.parameter.append(ScriptParameter("Vorteil", str, completionTable = datenbank.vorteile))
         script.parameter.append(ScriptParameter("Voraussetzung", str))
+        addScript(script)
+
+        script = Script("Vorteil als Favorit markieren", "setVorteilFavorit", "Vorteile")
+        script.beschreibung = "Markiert den angegebenen Vorteil als Favorit im Vorteile-Tab des Charaktereditors, falls der Vorteil noch nicht gekauft wurde."
+        script.parameter.append(ScriptParameter("Vorteil", str, completionTable = datenbank.vorteile))
         addScript(script)
 
         # Kampfstile

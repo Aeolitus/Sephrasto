@@ -3,6 +3,14 @@
    <!ENTITY nbsp "&#160;">
 ]>
 <Datenbank>
+  <Spezies name="Mensch"></Spezies>
+  <Spezies name="Achaz" script="setVorteilFavorit(&quot;Achaz&quot;)&#10;setVorteilFavorit(&quot;Natürliche Rüstung&quot;)"></Spezies>
+  <Spezies name="Elf" script="setVorteilFavorit(&quot;Angepasst (Dunkelheit) I&quot;)&#10;setVorteilFavorit(&quot;Resistenz gegen Krankheiten&quot;)&#10;setVorteilFavorit(&quot;Zauberer I&quot;)"></Spezies>
+  <Spezies name="Goblin" script="setVorteilFavorit(&quot;Angepasst (Dunkelheit) I&quot;)&#10;setVorteilFavorit(&quot;Resistenz gegen Kälte&quot;)"></Spezies>
+  <Spezies name="Halbelf" script="setVorteilFavorit(&quot;Angepasst (Dunkelheit) I&quot;)&#10;setVorteilFavorit(&quot;Zauberer I&quot;)"></Spezies>
+  <Spezies name="Halbork" script="setVorteilFavorit(&quot;Angepasst (Dunkelheit) I&quot;)"></Spezies>
+  <Spezies name="Ork" script="setVorteilFavorit(&quot;Angepasst (Dunkelheit) I&quot;)&#10;setVorteilFavorit(&quot;Natürliche Rüstung&quot;)&#10;setVorteilFavorit(&quot;Resistenz gegen Kälte&quot;)"></Spezies>
+  <Spezies name="Zwerg" script="setVorteilFavorit(&quot;Angepasst (Dunkelheit) I&quot;)&#10;setVorteilFavorit(&quot;Magieabweisend&quot;)&#10;setVorteilFavorit(&quot;Resistenz gegen Krankheiten&quot;)"></Spezies>
   <Attribut name="KO" anzeigename="Konstitution" steigerungsfaktor="16" sortorder="0">Konstitution beschreibt die Widerstandsfähigkeit deines Charakters gegen äußere Einflüsse wie Strapazen, Gifte, Krankheiten und Verwundungen. Die Konstitution beeinflusst nur wenige Fertigkeiten, bestimmt aber deine Wundschwelle, den wohl wichtigsten Basiswert.</Attribut>
   <Attribut name="MU" anzeigename="Mut" steigerungsfaktor="16" sortorder="10">Mut (MU): Ein mutiger Charakter bewahrt in kritischen Situationen einen kühlen Kopf und schreckt nicht vor Gefahren zurück, was gerade im Nahkampf unerlässlich ist. Zusätzlich stärkt Mut den Widerstand gegen magische Beeinflussungen, indem er deine Magieresistenz erhöht. Auch Dämonologen benötigen einen hohen Mut.</Attribut>
   <Attribut name="GE" anzeigename="Gewandheit" steigerungsfaktor="16" sortorder="20">Gewandtheit ist die Beweglichkeit und Gelenkigkeit deines Charakters. Gewandte Charaktere bewegen sich geschmeidig und können ihre Bewegungen gut abschätzen. Das fördert deine körperlichen und kämpferischen Fertigkeiten und erhöht deine Geschwindigkeit.</Attribut>

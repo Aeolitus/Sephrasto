@@ -54,7 +54,8 @@ Wichtig: Alle Actions/Filter, die den Charakter betreffen, übergeben den Charak
 |**Update**|
 |pre_charakter_aktualisieren|Action|{ "charakter" : Char }|Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner Form modifiziert wurden, aber bevor die Veränderungen berechnet werden.|
 |charakter_aktualisieren_fertigkeiten|Action|{ "charakter" : Char }|Wird während der Charakteraktualisierung nach der Berechnung der Attribute/abgeleiteten Werte/Energien und vor der Berechnung der Fertigkeiten aufgerufen.|
-|charakter_aktualisieren_vorteilscripts|Action|{ "charakter" : Char }|Wird während der Charakteraktualisierung nach der Berechnung der Fertigkeiten und vor der Ausführung der Vorteilsscripts aufgerufen.|
+|charakter_aktualisieren_speziesscript|Action|{ "charakter" : Char }|Wird während der Charakteraktualisierung nach der Berechnung der Fertigkeiten und vor der Ausführung der Speziesscripts aufgerufen.|
+|charakter_aktualisieren_vorteilscripts|Action|{ "charakter" : Char }|Wird während der Charakteraktualisierung nach der Ausführung der Speziesscripts und vor der Ausführung der Vorteilsscripts aufgerufen.|
 |charakter_aktualisieren_waffeneigenschaftscripts|Action|{ "charakter" : Char }|Wird während der Charakteraktualisierung nach der Ausführung der Vorteilscripts und vor der Ausfürung der Waffeneigenschaftscripts aufgerufen.|
 |post_charakter_aktualisieren|Action|{ "charakter" : Char }|Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner Form modifiziert und berechnet wurden.|
 |vorteil_entfernt|Action|{ "charakter" : Char, "name" : str }|Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind. Der "name" Parameter enthält den Namen des Vorteils.|
@@ -88,6 +89,8 @@ Die folgenden Actions haben alle eine Gemeinsamkeit: Sie werden aufgerufen, wenn
 |vorteil_deserialisiert|Action|{ "object" : Vorteil, "deserializer" : ?Deserializer })|
 |waffe_serialisiert|Action|{ "object" : Waffe, "serializer" : ?Serializer })|
 |waffe_deserialisiert|Action|{ "object" : Waffe, "deserializer" : ?Deserializer })|
+|spezies_serialisiert|Action|{ "object" : Spezies, "serializer" : ?Serializer })|
+|spezies_deserialisiert|Action|{ "object" : Spezies, "deserializer" : ?Deserializer })|
 
 ### Charaktereditor
 | Name | Typ | Filter // Parameter | Zweck |

@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterRuestungPicker.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.1
+## Created by: Qt User Interface Compiler version 6.10.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -119,112 +119,112 @@ class Ui_Dialog(object):
         font2.setBold(True)
         self.lblName.setFont(font2)
 
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.lblName)
+        self.formLayout.setWidget(0, QFormLayout.ItemRole.LabelRole, self.lblName)
 
         self.lblTyp = QLabel(self.scrollAreaWidgetContents)
         self.lblTyp.setObjectName(u"lblTyp")
 
-        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.lblTyp)
+        self.formLayout.setWidget(1, QFormLayout.ItemRole.LabelRole, self.lblTyp)
 
         self.label_5 = QLabel(self.scrollAreaWidgetContents)
         self.label_5.setObjectName(u"label_5")
 
-        self.formLayout.setWidget(2, QFormLayout.LabelRole, self.label_5)
+        self.formLayout.setWidget(2, QFormLayout.ItemRole.LabelRole, self.label_5)
 
         self.lblRS = QLabel(self.scrollAreaWidgetContents)
         self.lblRS.setObjectName(u"lblRS")
         self.lblRS.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
-        self.formLayout.setWidget(2, QFormLayout.FieldRole, self.lblRS)
+        self.formLayout.setWidget(2, QFormLayout.ItemRole.FieldRole, self.lblRS)
 
         self.line = QFrame(self.scrollAreaWidgetContents)
         self.line.setObjectName(u"line")
         self.line.setFrameShape(QFrame.Shape.HLine)
         self.line.setFrameShadow(QFrame.Shadow.Sunken)
 
-        self.formLayout.setWidget(3, QFormLayout.SpanningRole, self.line)
+        self.formLayout.setWidget(3, QFormLayout.ItemRole.SpanningRole, self.line)
 
         self.lblBeineL = QLabel(self.scrollAreaWidgetContents)
         self.lblBeineL.setObjectName(u"lblBeineL")
         self.lblBeineL.setFont(font1)
 
-        self.formLayout.setWidget(4, QFormLayout.LabelRole, self.lblBeineL)
+        self.formLayout.setWidget(4, QFormLayout.ItemRole.LabelRole, self.lblBeineL)
 
         self.lblBeine = QLabel(self.scrollAreaWidgetContents)
         self.lblBeine.setObjectName(u"lblBeine")
         self.lblBeine.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
-        self.formLayout.setWidget(4, QFormLayout.FieldRole, self.lblBeine)
+        self.formLayout.setWidget(4, QFormLayout.ItemRole.FieldRole, self.lblBeine)
 
         self.lblSchwertL = QLabel(self.scrollAreaWidgetContents)
         self.lblSchwertL.setObjectName(u"lblSchwertL")
 
-        self.formLayout.setWidget(5, QFormLayout.LabelRole, self.lblSchwertL)
+        self.formLayout.setWidget(5, QFormLayout.ItemRole.LabelRole, self.lblSchwertL)
 
         self.lblSchwert = QLabel(self.scrollAreaWidgetContents)
         self.lblSchwert.setObjectName(u"lblSchwert")
         self.lblSchwert.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
-        self.formLayout.setWidget(5, QFormLayout.FieldRole, self.lblSchwert)
+        self.formLayout.setWidget(5, QFormLayout.ItemRole.FieldRole, self.lblSchwert)
 
         self.lblSchildL = QLabel(self.scrollAreaWidgetContents)
         self.lblSchildL.setObjectName(u"lblSchildL")
 
-        self.formLayout.setWidget(6, QFormLayout.LabelRole, self.lblSchildL)
+        self.formLayout.setWidget(6, QFormLayout.ItemRole.LabelRole, self.lblSchildL)
 
         self.lblSchild = QLabel(self.scrollAreaWidgetContents)
         self.lblSchild.setObjectName(u"lblSchild")
         self.lblSchild.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
-        self.formLayout.setWidget(6, QFormLayout.FieldRole, self.lblSchild)
+        self.formLayout.setWidget(6, QFormLayout.ItemRole.FieldRole, self.lblSchild)
 
         self.lblBauchL = QLabel(self.scrollAreaWidgetContents)
         self.lblBauchL.setObjectName(u"lblBauchL")
 
-        self.formLayout.setWidget(7, QFormLayout.LabelRole, self.lblBauchL)
+        self.formLayout.setWidget(7, QFormLayout.ItemRole.LabelRole, self.lblBauchL)
 
         self.lblBauch = QLabel(self.scrollAreaWidgetContents)
         self.lblBauch.setObjectName(u"lblBauch")
         self.lblBauch.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
-        self.formLayout.setWidget(7, QFormLayout.FieldRole, self.lblBauch)
+        self.formLayout.setWidget(7, QFormLayout.ItemRole.FieldRole, self.lblBauch)
 
         self.lblBrustL = QLabel(self.scrollAreaWidgetContents)
         self.lblBrustL.setObjectName(u"lblBrustL")
 
-        self.formLayout.setWidget(8, QFormLayout.LabelRole, self.lblBrustL)
+        self.formLayout.setWidget(8, QFormLayout.ItemRole.LabelRole, self.lblBrustL)
 
         self.lblBrust = QLabel(self.scrollAreaWidgetContents)
         self.lblBrust.setObjectName(u"lblBrust")
         self.lblBrust.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
-        self.formLayout.setWidget(8, QFormLayout.FieldRole, self.lblBrust)
+        self.formLayout.setWidget(8, QFormLayout.ItemRole.FieldRole, self.lblBrust)
 
         self.lblKopfL = QLabel(self.scrollAreaWidgetContents)
         self.lblKopfL.setObjectName(u"lblKopfL")
 
-        self.formLayout.setWidget(9, QFormLayout.LabelRole, self.lblKopfL)
+        self.formLayout.setWidget(9, QFormLayout.ItemRole.LabelRole, self.lblKopfL)
 
         self.lblKopf = QLabel(self.scrollAreaWidgetContents)
         self.lblKopf.setObjectName(u"lblKopf")
         self.lblKopf.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
-        self.formLayout.setWidget(9, QFormLayout.FieldRole, self.lblKopf)
+        self.formLayout.setWidget(9, QFormLayout.ItemRole.FieldRole, self.lblKopf)
 
         self.lblZRS = QLabel(self.scrollAreaWidgetContents)
         self.lblZRS.setObjectName(u"lblZRS")
         self.lblZRS.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
-        self.formLayout.setWidget(10, QFormLayout.FieldRole, self.lblZRS)
+        self.formLayout.setWidget(10, QFormLayout.ItemRole.FieldRole, self.lblZRS)
 
         self.teBeschreibung = QTextBrowser(self.scrollAreaWidgetContents)
         self.teBeschreibung.setObjectName(u"teBeschreibung")
 
-        self.formLayout.setWidget(11, QFormLayout.SpanningRole, self.teBeschreibung)
+        self.formLayout.setWidget(11, QFormLayout.ItemRole.SpanningRole, self.teBeschreibung)
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.formLayout.setItem(12, QFormLayout.FieldRole, self.verticalSpacer)
+        self.formLayout.setItem(12, QFormLayout.ItemRole.FieldRole, self.verticalSpacer)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 

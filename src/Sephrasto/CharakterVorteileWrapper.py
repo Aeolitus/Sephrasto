@@ -204,14 +204,17 @@ class CharakterVorteileWrapper(QtCore.QObject):
         # The full/empty star icons are unfortunatelly different fontawesome fonts
         button = self.itemWidgets[name+"Favorite"]
         if name in Wolke.Char.vorteilFavoriten:
-            button.setProperty("class", "icon")
-            button.setToolTip("Klicke, damit der Vorteil nicht mehr als Favorit markiert wird.")
+            if button.property("class") != "icon":
+                button.setProperty("class", "icon")
+                button.setToolTip("Klicke, damit der Vorteil nicht mehr als Favorit markiert wird.")
+                button.style().unpolish(button)
+                button.style().polish(button)
         else:
-            button.setProperty("class", "iconRegular")
-            button.setToolTip("Klicke, damit der Vorteil als Favorit markiert wird.\nFavoriten werden unabhängig von den Filter-Einstellungen angezeigt.")
-
-        button.style().unpolish(button)
-        button.style().polish(button)
+            if button.property("class") != "iconRegular":
+                button.setProperty("class", "iconRegular")
+                button.setToolTip("Klicke, damit der Vorteil als Favorit markiert wird.\nFavoriten werden unabhängig von den Filter-Einstellungen angezeigt.")
+                button.style().unpolish(button)
+                button.style().polish(button)
         
     def load(self):
         numFilters = sum([1 for a in self.filterMenu.actions()[1:] if a.isChecked()])
@@ -254,6 +257,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 if type(chi) != QtWidgets.QTreeWidgetItem:
                     continue
                 vorteil = Wolke.DB.vorteile[chi.text(0)]
+                self.updateFavoriteButton(vorteil.name)
 
                 isFiltered = self.ui.nameFilterEdit.text() != "" and \
                     (not self.ui.nameFilterEdit.text().lower() in vorteil.name.lower()) and \

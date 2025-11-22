@@ -168,6 +168,11 @@ class VoraussetzungenListe:
                         arrItm = Voraussetzung("F", name, wert)
                     except ValueError:
                         raise VoraussetzungException("Der angegebene Fertigkeitswert '" + line[index+2:] + "' ist keine gültige Zahl")
+                elif line.startswith("Spezies "):
+                    name = line[8:]
+                    if datenbank is not None and name not in datenbank.spezies:
+                        raise VoraussetzungException("Kann keine Spezies '" + name + "' in der Datenbank finden.")
+                    arrItm = Voraussetzung("S", name, 1)
                 else:
                     raise VoraussetzungException("Unbekanntes Schlüsselwort '" + line + "'. Unterstützt werden 'Vorteil', 'Kein Vorteil', 'Waffeneigenschaft', 'Attribut', 'MeisterAttribut', 'Übernatürliche-Fertigkeit' und 'Fertigkeit'.")
             retArr.append(arrItm)

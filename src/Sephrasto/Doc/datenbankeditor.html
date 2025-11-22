@@ -327,9 +327,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#script-prioritat-abgeleiteter-wert-vorteil-waffeneigenschaft" class="md-nav__link">
+  <a href="#script-prioritat-abgeleiteter-wert-vorteil-waffeneigenschaft-spezies" class="md-nav__link">
     <span class="md-ellipsis">
-      Script / Priorität (Abgeleiteter Wert, Vorteil, Waffeneigenschaft)
+      Script / Priorität (Abgeleiteter Wert, Vorteil, Waffeneigenschaft, Spezies)
     </span>
   </a>
   
@@ -586,9 +586,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#script-prioritat-abgeleiteter-wert-vorteil-waffeneigenschaft" class="md-nav__link">
+  <a href="#script-prioritat-abgeleiteter-wert-vorteil-waffeneigenschaft-spezies" class="md-nav__link">
     <span class="md-ellipsis">
-      Script / Priorität (Abgeleiteter Wert, Vorteil, Waffeneigenschaft)
+      Script / Priorität (Abgeleiteter Wert, Vorteil, Waffeneigenschaft, Spezies)
     </span>
   </a>
   
@@ -712,7 +712,12 @@ Beispiel: Talent 'Arcanovi Artefakt' 10</p>
 <li>
 <p><code>Waffeneigenschaft &lt;Waffeneigenschaftsname&gt;</code><br>
 Überprüft, ob der Charakter eine Waffe mit der angegebenen Waffeneigenschaft besitzt. Statt einer Waffeneigenschaft kann auch "Nahkampfwaffe" oder "Fernkampfwaffe" spezifiziert werden. Dies wird in erster Linie für das Datenbankelement Regel verwendet.<br>
-Beispiel: Waffeneigenschaft Stumpf.</p>
+Beispiel: Waffeneigenschaft Stumpf</p>
+</li>
+<li>
+<p><code>Spezies &lt;Speziesname&gt;</code><br>
+Überprüft, ob der Charakter der angegebenen Spezies angehört.<br>
+Beispiel: Spezies Mensch</p>
 </li>
 </ul>
 <p>Falls mehrere Voraussetzungen erfüllt sein müssen, können diese komma-separiert angegeben werden, z.B. wie beim Vorteil Gesegnete Waffe: Attribut MU 6, Vorteil Geweiht I.
@@ -728,7 +733,7 @@ Falls nur eine von mehrere Voraussetzungen erfüllt sein muss, können die Vorau
 <p>Ausschließlich bei Talenten kannst du das Makro <strong>$talent:Talentname</strong> verwenden, um die Beschreibung eines anderen Talents einzufügen. Dabei werden Angaben zu Fertigkeiten und Erlernen herausgestrichen, da diese sich fast immer unterscheiden, selbst wenn zwei Talente einander entsprechen. Du kannst diese (und weitere) Angaben einfach in der Zeile nach dem Makro eintragen. Dies wird insbesondere bei den Tiergeist-Varianten der Zauber verwendet.</p>
 <h3 id="regelanhang-auflisten-vorteil-talent">Regelanhang auflisten (Vorteil, Talent)</h3>
 <p>Wenn diese Option ausgeschaltet ist, wird das Element nicht im Regelanhang aufgeführt. Dies wird bei Talenten für Mirakel verwendet, deren Regeln repetetiv sind und separat als Element vom Typ Regel eingetragen werden. Ähnlich verhält es sich beispielsweise bei Vorteilen, die nur Manöver oder Modifikationen ermöglichen.</p>
-<h3 id="script-prioritat-abgeleiteter-wert-vorteil-waffeneigenschaft">Script / Priorität (Abgeleiteter Wert, Vorteil, Waffeneigenschaft)</h3>
+<h3 id="script-prioritat-abgeleiteter-wert-vorteil-waffeneigenschaft-spezies">Script / Priorität (Abgeleiteter Wert, Vorteil, Waffeneigenschaft, Spezies)</h3>
 <p>In diesem Feld kannst du Python-Skripte einfügen, die beim Erwerb des Elements ausgeführt werden. Hierfür steht dir Sephrastos <a href="script_api.html">Script-API</a> zu Verfügung.
 Wenn mehrere Skripte den gleichen Wert verändern, kann die Reihenfolge der Ausführung eine Rolle spielen. Über die Priorität kannst du diese Reihenfolge beeinflussen - je niedriger der Wert, desto früher wird das Skript ausgeführt.</p>
 <h3 id="querverweise-vorteil">Querverweise (Vorteil)</h3>
@@ -833,7 +838,7 @@ Wenn mehrere Skripte den gleichen Wert verändern, kann die Reihenfolge der Ausf
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.footer"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.footer"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="assets/javascripts/bundle.88dd0f4e.min.js"></script>

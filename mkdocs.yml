@@ -25,14 +25,10 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
   features:
-    - navigation.instant
-    - navigation.instant.prefetch 
-    - navigation.footer    
+    - navigation.footer   
 plugins:
   - offline
-  - privacy:
-      assets_exclude: 
-        - unpkg.com/mermaid@*
+  - privacy
 extra_css:
   - assets/stylesheets/extra.css
 extra:

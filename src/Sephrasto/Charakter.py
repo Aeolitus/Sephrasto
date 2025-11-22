@@ -43,6 +43,11 @@ class Char():
         self.enabledPlugins = []
         self.name = ''
         self.spezies = ''
+        if 'Mensch' in Wolke.DB.spezies:
+            self.spezies = 'Mensch'
+        elif len(Wolke.DB.spezies) > 0:
+            self.spezies = next(iter(Wolke.DB.spezies))
+
         self.status = 2
         self.kurzbeschreibung = ''
 
@@ -129,6 +134,7 @@ class Char():
         self.currentEigenschaft = None #used by waffenScriptAPI during iteration
         self.currentWaffeIndex = None
         self.waffenEigenschaftenUndo = [] #For undoing changes made by Vorteil scripts
+        self.vorteilFavoritenUndo = []
 
         self.charakterScriptAPI = Hilfsmethoden.createScriptAPI()
         self.charakterScriptAPI.update({
@@ -175,6 +181,7 @@ class Char():
             'addVorteil' : self.API_addVorteil,
             'removeVorteil' : lambda vorteil: self.removeVorteil(vorteil),
             'addVorteilVoraussetzung' : self.API_addVorteilVoraussetzung,
+            'setVorteilFavorit' : self.API_setVorteilFavorit,
 
             #Kampfstile
             'getKampfstilAT' : lambda kampfstil: self.kampfstilMods[kampfstil].at if kampfstil in self.kampfstilMods else 0, 
@@ -405,6 +412,11 @@ class Char():
         vorteil = self.vorteile[vorteil]
         vorteil.voraussetzungen = vorteil.voraussetzungen.add(voraussetzung, Wolke.DB)
 
+    def API_setVorteilFavorit(self, vorteil):
+        if not vorteil in self.vorteilFavoriten and not vorteil in self.vorteile:
+            self.vorteilFavoriten.append(vorteil)
+            self.vorteilFavoritenUndo.append(vorteil)
+
     def API_setKampfstil(self, kampfstil, at, vt, plus, rw, be = 0):
         k = self.kampfstilMods[kampfstil]
         k.at = at
@@ -521,6 +533,11 @@ class Char():
                 waffe.eigenschaften.append(wEigenschaft)
         self.waffenEigenschaftenUndo = []
 
+        for vorteil in self.vorteilFavoritenUndo:
+            if vorteil in self.vorteilFavoriten:
+                self.vorteilFavoriten.remove(vorteil)
+        self.vorteilFavoritenUndo = []
+
         for fert in self.fertigkeiten.values():
             fert.resetScriptValues()
 
@@ -555,6 +572,14 @@ class Char():
 
         # Requirements check - add automatically unlocked stuff and remove stuff not available anymore
         self.checkVoraussetzungen()
+
+        # Execute Spezies script
+        EventBus.doAction("charakter_aktualisieren_speziesscript", { "charakter" : self })
+        if self.spezies in Wolke.DB.spezies:
+            spezies = Wolke.DB.spezies[self.spezies]
+            if spezies.script:
+                logging.info(f"Character: applying script for Spezies {spezies.name} ({spezies.script})")
+                spezies.executeScript(self.charakterScriptAPI)
 
         # Execute Vorteil scripts
         EventBus.doAction("charakter_aktualisieren_vorteilscripts", { "charakter" : self })
@@ -781,7 +806,7 @@ class Char():
             for el in remove:
                 self.talente.pop(el)
 
-    def findUnerfüllteVoraussetzungen(self, vorteile = None, waffen = None, attribute = None, übernatürlicheFertigkeiten = None, fertigkeiten = None, talente = None):
+    def findUnerfüllteVoraussetzungen(self, vorteile = None, waffen = None, attribute = None, übernatürlicheFertigkeiten = None, fertigkeiten = None, talente = None, spezies = None):
         ''' 
         Checks for all Vorteile and Talente if the requirements are still met until in one 
         run, all of them meet the requirements. This gets rid of stacks of them
@@ -797,13 +822,14 @@ class Char():
         übernatürlicheFertigkeiten = übernatürlicheFertigkeiten or self.übernatürlicheFertigkeiten
         fertigkeiten = fertigkeiten or self.fertigkeiten
         talente = talente or self.talente
+        spezies = spezies or self.spezies
         removedVorteile = []
         removedTalente = []
         while True:
             contFlag = True
             remove = []
             for vor in vorteile.values():
-                if not Hilfsmethoden.voraussetzungenPrüfen(vor, vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, talente):
+                if not Hilfsmethoden.voraussetzungenPrüfen(vor, vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, talente, spezies):
                     remove.append(vor.name)
                     removedVorteile.append(vor.name)
                     contFlag = False
@@ -815,7 +841,7 @@ class Char():
         # Would be better to handle this inside the while loop in case of talents requiring talents
         # but it's not so relevant for our usecase right now, only need a rough count
         for tal in talente.values():
-            if not Hilfsmethoden.voraussetzungenPrüfen(tal, vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, talente):
+            if not Hilfsmethoden.voraussetzungenPrüfen(tal, vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, talente, spezies):
                 removedTalente.append(tal.name)
 
         return removedVorteile, removedTalente
@@ -824,7 +850,7 @@ class Char():
         if not self.voraussetzungenPruefen:
             return True
 
-        return Hilfsmethoden.voraussetzungenPrüfen(dbElement, self.vorteile, self.waffen, self.attribute, self.übernatürlicheFertigkeiten, self.fertigkeiten, self.talente)
+        return Hilfsmethoden.voraussetzungenPrüfen(dbElement, self.vorteile, self.waffen, self.attribute, self.übernatürlicheFertigkeiten, self.fertigkeiten, self.talente, self.spezies)
     
     def saveFile(self, filename):
         _, fileExtension = os.path.splitext(filename)

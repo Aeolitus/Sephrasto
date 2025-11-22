@@ -28,7 +28,9 @@ class BeschrWrapper(QtCore.QObject):
         self.ui.setupUi(self.form)
 
         self.ui.editName.editingFinished.connect(self.update)
-        self.ui.editSpezies.editingFinished.connect(self.update)
+        spezies = sorted([s for s in Wolke.DB.spezies], key=Hilfsmethoden.unicodeCaseInsensitive)
+        self.ui.comboSpezies.addItems(spezies)
+        self.ui.comboSpezies.activated.connect(self.update)
         self.ui.editKurzbeschreibung.editingFinished.connect(self.update)
         for i in range(8):
             editEig = getattr(self.ui, "editEig" + str(i+1))
@@ -46,6 +48,8 @@ class BeschrWrapper(QtCore.QObject):
         self.ui.comboStatus.setToolTip(Hilfsmethoden.fixHtml(Wolke.DB.einstellungen["Statusse: Beschreibung"].wert))
         self.ui.comboFinanzen.setToolTip(Hilfsmethoden.fixHtml(Wolke.DB.einstellungen["Finanzen: Beschreibung"].wert))
         self.ui.comboHeimat.setToolTip(Hilfsmethoden.fixHtml(Wolke.DB.einstellungen["Heimaten: Beschreibung"].wert))
+        if self.ui.comboSpezies.currentText():
+            self.ui.comboSpezies.setToolTip(Hilfsmethoden.fixHtml(Wolke.DB.spezies[self.ui.comboSpezies.currentText()].text))
 
         self.characterImage = None
         self.labelImageText = self.ui.labelImage.text()
@@ -64,8 +68,10 @@ class BeschrWrapper(QtCore.QObject):
             Wolke.Char.name = self.ui.editName.text()
             changed = True
 
-        if Wolke.Char.spezies != self.ui.editSpezies.text():
-            Wolke.Char.spezies = self.ui.editSpezies.text()
+        if Wolke.Char.spezies != self.ui.comboSpezies.currentText():
+            Wolke.Char.spezies = self.ui.comboSpezies.currentText()
+            if self.ui.comboSpezies.currentText():
+                self.ui.comboSpezies.setToolTip(Hilfsmethoden.fixHtml(Wolke.DB.spezies[self.ui.comboSpezies.currentText()].text))
             changed = True
 
         if Wolke.Char.status != self.ui.comboStatus.currentIndex():
@@ -112,7 +118,7 @@ class BeschrWrapper(QtCore.QObject):
 
         ''' Load values from Char object '''
         self.ui.editName.setText(Wolke.Char.name)
-        self.ui.editSpezies.setText(Wolke.Char.spezies)
+        self.ui.comboSpezies.setCurrentText(Wolke.Char.spezies)
         statusse = Wolke.DB.einstellungen["Statusse"].wert
         if Wolke.Char.status < len(statusse):
             self.ui.comboStatus.setCurrentIndex(Wolke.Char.status)

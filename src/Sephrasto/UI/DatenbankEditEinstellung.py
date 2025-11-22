@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'DatenbankEditEinstellung.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.1
+## Created by: Qt User Interface Compiler version 6.10.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -38,29 +38,29 @@ class Ui_dialog(object):
         self.labelName_2 = QLabel(self.scrollAreaWidgetContents)
         self.labelName_2.setObjectName(u"labelName_2")
 
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.labelName_2)
+        self.formLayout.setWidget(0, QFormLayout.ItemRole.LabelRole, self.labelName_2)
 
         self.labelName = QLabel(self.scrollAreaWidgetContents)
         self.labelName.setObjectName(u"labelName")
 
-        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.labelName)
+        self.formLayout.setWidget(0, QFormLayout.ItemRole.FieldRole, self.labelName)
 
         self.labelLabelBeschreibung = QLabel(self.scrollAreaWidgetContents)
         self.labelLabelBeschreibung.setObjectName(u"labelLabelBeschreibung")
 
-        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.labelLabelBeschreibung)
+        self.formLayout.setWidget(1, QFormLayout.ItemRole.LabelRole, self.labelLabelBeschreibung)
 
         self.labelBeschreibung = QLabel(self.scrollAreaWidgetContents)
         self.labelBeschreibung.setObjectName(u"labelBeschreibung")
         self.labelBeschreibung.setWordWrap(True)
 
-        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.labelBeschreibung)
+        self.formLayout.setWidget(1, QFormLayout.ItemRole.FieldRole, self.labelBeschreibung)
 
         self.labelWert = QLabel(self.scrollAreaWidgetContents)
         self.labelWert.setObjectName(u"labelWert")
         self.labelWert.setMinimumSize(QSize(110, 0))
 
-        self.formLayout.setWidget(2, QFormLayout.LabelRole, self.labelWert)
+        self.formLayout.setWidget(2, QFormLayout.ItemRole.LabelRole, self.labelWert)
 
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -95,7 +95,7 @@ class Ui_dialog(object):
         self.verticalLayout.addItem(self.horizontalSpacer)
 
 
-        self.formLayout.setLayout(2, QFormLayout.FieldRole, self.verticalLayout)
+        self.formLayout.setLayout(2, QFormLayout.ItemRole.FieldRole, self.verticalLayout)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 

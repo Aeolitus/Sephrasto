@@ -14,12 +14,14 @@ from Core.Fertigkeit import FertigkeitDefinition, UeberFertigkeitDefinition
 from Core.FreieFertigkeit import FreieFertigkeitDefinition
 from Core.Regel import Regel
 from Core.Ruestung import RuestungDefinition
+from Core.Spezies import Spezies
 from Core.Talent import TalentDefinition
 from Core.Vorteil import VorteilDefinition
 from Core.Waffe import WaffeDefinition
 from Core.Waffeneigenschaft import Waffeneigenschaft
 from Core.DatenbankEinstellung import DatenbankEinstellung
 from Datenbank import Datenbank
+import DatenbankEditSpeziesWrapper
 import UI.DatenbankMain
 import DatenbankEditFertigkeitWrapper
 import DatenbankEditFreieFertigkeitWrapper
@@ -309,6 +311,7 @@ class DatenbankEditor(object):
         self.databaseTypes[VorteilDefinition] = DatenbankTypWrapper(VorteilDefinition, DatenbankEditVorteilWrapper.DatenbankEditVorteilWrapper, True)
         self.databaseTypes[WaffeDefinition] = DatenbankTypWrapper(WaffeDefinition, DatenbankEditWaffeWrapper.DatenbankEditWaffeWrapper, True)
         self.databaseTypes[Waffeneigenschaft] = DatenbankTypWrapper(Waffeneigenschaft, DatenbankEditWaffeneigenschaftWrapper.DatenbankEditWaffeneigenschaftWrapper, True)
+        self.databaseTypes[Spezies] = DatenbankTypWrapper(Spezies, DatenbankEditSpeziesWrapper.DatenbankEditSpeziesWrapper, True)
         self.databaseTypes = EventBus.applyFilter("datenbank_editor_typen", self.databaseTypes)
 
         tabIndex = 0

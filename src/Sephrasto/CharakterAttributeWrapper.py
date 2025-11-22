@@ -239,9 +239,9 @@ class AttrWrapper(QtCore.QObject):
             for vort in self.vorteile[attribut]:
                 if vort.name in Wolke.Char.vorteile:
                     continue
-                elif Hilfsmethoden.voraussetzungenPrüfen(vort, Wolke.Char.vorteile, Wolke.Char.waffen, Wolke.Char.attribute, Wolke.Char.übernatürlicheFertigkeiten, Wolke.Char.fertigkeiten, Wolke.Char.talente):
+                elif Hilfsmethoden.voraussetzungenPrüfen(vort, Wolke.Char.vorteile, Wolke.Char.waffen, Wolke.Char.attribute, Wolke.Char.übernatürlicheFertigkeiten, Wolke.Char.fertigkeiten, Wolke.Char.talente, Wolke.Char.spezies):
                     continue
-                elif Hilfsmethoden.voraussetzungenPrüfen(vort, Wolke.Char.vorteile, Wolke.Char.waffen, attribute, Wolke.Char.übernatürlicheFertigkeiten, Wolke.Char.fertigkeiten, Wolke.Char.talente):
+                elif Hilfsmethoden.voraussetzungenPrüfen(vort, Wolke.Char.vorteile, Wolke.Char.waffen, attribute, Wolke.Char.übernatürlicheFertigkeiten, Wolke.Char.fertigkeiten, Wolke.Char.talente, Wolke.Char.spezies):
                     vortNew.append(vort.name + " erwerbbar")
 
         fertNew = []

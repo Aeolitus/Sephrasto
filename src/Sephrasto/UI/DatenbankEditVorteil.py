@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'DatenbankEditVorteil.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.1
+## Created by: Qt User Interface Compiler version 6.10.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -40,27 +40,27 @@ class Ui_dialog(object):
         self.labelName = QLabel(self.scrollAreaWidgetContents)
         self.labelName.setObjectName(u"labelName")
 
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.labelName)
+        self.formLayout.setWidget(0, QFormLayout.ItemRole.LabelRole, self.labelName)
 
         self.leName = QLineEdit(self.scrollAreaWidgetContents)
         self.leName.setObjectName(u"leName")
 
-        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.leName)
+        self.formLayout.setWidget(0, QFormLayout.ItemRole.FieldRole, self.leName)
 
         self.labelKategorie = QLabel(self.scrollAreaWidgetContents)
         self.labelKategorie.setObjectName(u"labelKategorie")
 
-        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.labelKategorie)
+        self.formLayout.setWidget(1, QFormLayout.ItemRole.LabelRole, self.labelKategorie)
 
         self.comboKategorie = QComboBox(self.scrollAreaWidgetContents)
         self.comboKategorie.setObjectName(u"comboKategorie")
 
-        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.comboKategorie)
+        self.formLayout.setWidget(1, QFormLayout.ItemRole.FieldRole, self.comboKategorie)
 
         self.labelNachkauf = QLabel(self.scrollAreaWidgetContents)
         self.labelNachkauf.setObjectName(u"labelNachkauf")
 
-        self.formLayout.setWidget(2, QFormLayout.LabelRole, self.labelNachkauf)
+        self.formLayout.setWidget(2, QFormLayout.ItemRole.LabelRole, self.labelNachkauf)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -79,12 +79,12 @@ class Ui_dialog(object):
         self.horizontalLayout.addWidget(self.comboNachkauf)
 
 
-        self.formLayout.setLayout(2, QFormLayout.FieldRole, self.horizontalLayout)
+        self.formLayout.setLayout(2, QFormLayout.ItemRole.FieldRole, self.horizontalLayout)
 
         self.labelKosten = QLabel(self.scrollAreaWidgetContents)
         self.labelKosten.setObjectName(u"labelKosten")
 
-        self.formLayout.setWidget(3, QFormLayout.LabelRole, self.labelKosten)
+        self.formLayout.setWidget(3, QFormLayout.ItemRole.LabelRole, self.labelKosten)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
@@ -109,65 +109,65 @@ class Ui_dialog(object):
         self.horizontalLayout_2.addWidget(self.spinKosten)
 
 
-        self.formLayout.setLayout(3, QFormLayout.FieldRole, self.horizontalLayout_2)
+        self.formLayout.setLayout(3, QFormLayout.ItemRole.FieldRole, self.horizontalLayout_2)
 
         self.labelVariable = QLabel(self.scrollAreaWidgetContents)
         self.labelVariable.setObjectName(u"labelVariable")
 
-        self.formLayout.setWidget(4, QFormLayout.LabelRole, self.labelVariable)
+        self.formLayout.setWidget(4, QFormLayout.ItemRole.LabelRole, self.labelVariable)
 
         self.checkVariable = QCheckBox(self.scrollAreaWidgetContents)
         self.checkVariable.setObjectName(u"checkVariable")
 
-        self.formLayout.setWidget(4, QFormLayout.FieldRole, self.checkVariable)
+        self.formLayout.setWidget(4, QFormLayout.ItemRole.FieldRole, self.checkVariable)
 
         self.labelKommentar = QLabel(self.scrollAreaWidgetContents)
         self.labelKommentar.setObjectName(u"labelKommentar")
 
-        self.formLayout.setWidget(5, QFormLayout.LabelRole, self.labelKommentar)
+        self.formLayout.setWidget(5, QFormLayout.ItemRole.LabelRole, self.labelKommentar)
 
         self.checkKommentar = QCheckBox(self.scrollAreaWidgetContents)
         self.checkKommentar.setObjectName(u"checkKommentar")
 
-        self.formLayout.setWidget(5, QFormLayout.FieldRole, self.checkKommentar)
+        self.formLayout.setWidget(5, QFormLayout.ItemRole.FieldRole, self.checkKommentar)
 
         self.labelScriptfeld = QLabel(self.scrollAreaWidgetContents)
         self.labelScriptfeld.setObjectName(u"labelScriptfeld")
 
-        self.formLayout.setWidget(6, QFormLayout.LabelRole, self.labelScriptfeld)
+        self.formLayout.setWidget(6, QFormLayout.ItemRole.LabelRole, self.labelScriptfeld)
 
         self.checkScript = QCheckBox(self.scrollAreaWidgetContents)
         self.checkScript.setObjectName(u"checkScript")
 
-        self.formLayout.setWidget(6, QFormLayout.FieldRole, self.checkScript)
+        self.formLayout.setWidget(6, QFormLayout.ItemRole.FieldRole, self.checkScript)
 
         self.labelCheatsheet = QLabel(self.scrollAreaWidgetContents)
         self.labelCheatsheet.setObjectName(u"labelCheatsheet")
 
-        self.formLayout.setWidget(7, QFormLayout.LabelRole, self.labelCheatsheet)
+        self.formLayout.setWidget(7, QFormLayout.ItemRole.LabelRole, self.labelCheatsheet)
 
         self.checkCheatsheet = QCheckBox(self.scrollAreaWidgetContents)
         self.checkCheatsheet.setObjectName(u"checkCheatsheet")
         self.checkCheatsheet.setChecked(True)
 
-        self.formLayout.setWidget(7, QFormLayout.FieldRole, self.checkCheatsheet)
+        self.formLayout.setWidget(7, QFormLayout.ItemRole.FieldRole, self.checkCheatsheet)
 
         self.labelVoraussetzungen = QLabel(self.scrollAreaWidgetContents)
         self.labelVoraussetzungen.setObjectName(u"labelVoraussetzungen")
         self.labelVoraussetzungen.setMinimumSize(QSize(110, 0))
 
-        self.formLayout.setWidget(8, QFormLayout.LabelRole, self.labelVoraussetzungen)
+        self.formLayout.setWidget(8, QFormLayout.ItemRole.LabelRole, self.labelVoraussetzungen)
 
         self.teVoraussetzungen = QPlainTextEdit(self.scrollAreaWidgetContents)
         self.teVoraussetzungen.setObjectName(u"teVoraussetzungen")
         self.teVoraussetzungen.setMaximumSize(QSize(16777215, 250))
 
-        self.formLayout.setWidget(8, QFormLayout.FieldRole, self.teVoraussetzungen)
+        self.formLayout.setWidget(8, QFormLayout.ItemRole.FieldRole, self.teVoraussetzungen)
 
         self.labelBeschreibung = QLabel(self.scrollAreaWidgetContents)
         self.labelBeschreibung.setObjectName(u"labelBeschreibung")
 
-        self.formLayout.setWidget(9, QFormLayout.LabelRole, self.labelBeschreibung)
+        self.formLayout.setWidget(9, QFormLayout.ItemRole.LabelRole, self.labelBeschreibung)
 
         self.tabWidget = QTabWidget(self.scrollAreaWidgetContents)
         self.tabWidget.setObjectName(u"tabWidget")
@@ -262,13 +262,13 @@ class Ui_dialog(object):
 
         self.tabWidget.addTab(self.tab_3, "")
 
-        self.formLayout.setWidget(9, QFormLayout.FieldRole, self.tabWidget)
+        self.formLayout.setWidget(9, QFormLayout.ItemRole.FieldRole, self.tabWidget)
 
         self.labelScript = QLabel(self.scrollAreaWidgetContents)
         self.labelScript.setObjectName(u"labelScript")
         self.labelScript.setMinimumSize(QSize(110, 0))
 
-        self.formLayout.setWidget(10, QFormLayout.LabelRole, self.labelScript)
+        self.formLayout.setWidget(10, QFormLayout.ItemRole.LabelRole, self.labelScript)
 
         self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
@@ -301,13 +301,13 @@ class Ui_dialog(object):
         self.horizontalLayout_4.addLayout(self.verticalLayout_7)
 
 
-        self.formLayout.setLayout(10, QFormLayout.FieldRole, self.horizontalLayout_4)
+        self.formLayout.setLayout(10, QFormLayout.ItemRole.FieldRole, self.horizontalLayout_4)
 
         self.labelLink = QLabel(self.scrollAreaWidgetContents)
         self.labelLink.setObjectName(u"labelLink")
         self.labelLink.setIndent(0)
 
-        self.formLayout.setWidget(11, QFormLayout.LabelRole, self.labelLink)
+        self.formLayout.setWidget(11, QFormLayout.ItemRole.LabelRole, self.labelLink)
 
         self.horizontalLayout_5 = QHBoxLayout()
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
@@ -328,12 +328,12 @@ class Ui_dialog(object):
         self.horizontalLayout_5.addWidget(self.comboLinkElement)
 
 
-        self.formLayout.setLayout(11, QFormLayout.FieldRole, self.horizontalLayout_5)
+        self.formLayout.setLayout(11, QFormLayout.ItemRole.FieldRole, self.horizontalLayout_5)
 
         self.labelVerweise = QLabel(self.scrollAreaWidgetContents)
         self.labelVerweise.setObjectName(u"labelVerweise")
 
-        self.formLayout.setWidget(12, QFormLayout.LabelRole, self.labelVerweise)
+        self.formLayout.setWidget(12, QFormLayout.ItemRole.LabelRole, self.labelVerweise)
 
         self.groupBox = QGroupBox(self.scrollAreaWidgetContents)
         self.groupBox.setObjectName(u"groupBox")
@@ -406,7 +406,7 @@ class Ui_dialog(object):
         self.gridLayout_3.addLayout(self.verticalLayout_6, 0, 1, 1, 1)
 
 
-        self.formLayout.setWidget(12, QFormLayout.FieldRole, self.groupBox)
+        self.formLayout.setWidget(12, QFormLayout.ItemRole.FieldRole, self.groupBox)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
